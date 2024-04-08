@@ -1,0 +1,51 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Simple Harmonic Motion}{3}{}%
+\contentsline {section}{\numberline {1.1}Energy in SHM}{3}{}%
+\contentsline {section}{\numberline {1.2}SHM In All Systems}{4}{}%
+\contentsline {subsection}{\numberline {1.2.1}Examples of Other Forms of SHM}{4}{}%
+\contentsline {subsubsection}{Pendulum}{4}{}%
+\contentsline {subsubsection}{LC Circuit}{5}{}%
+\contentsline {section}{\numberline {1.3}General Form of SHM}{5}{}%
+\contentsline {subsection}{\numberline {1.3.1}Period Independent of Mass: Proof by Dimensional Analysis}{5}{}%
+\contentsline {chapter}{\numberline {2}Damped Harmonic Motion}{6}{}%
+\contentsline {section}{\numberline {2.1}Light Damping}{6}{}%
+\contentsline {section}{\numberline {2.2}Heavy Damping}{6}{}%
+\contentsline {section}{\numberline {2.3}Critical Dampinig}{7}{}%
+\contentsline {section}{\numberline {2.4}Quality Factor}{7}{}%
+\contentsline {section}{\numberline {2.5}LCR Circuit}{7}{}%
+\contentsline {section}{\numberline {2.6}General Damped Harmonic Oscillator}{8}{}%
+\contentsline {chapter}{\numberline {3}Driven, Damped Harmonic Oscillator}{9}{}%
+\contentsline {section}{\numberline {3.1}Transient Response}{10}{}%
+\contentsline {section}{\numberline {3.2}AC Circuit}{10}{}%
+\contentsline {subsection}{\numberline {3.2.1}Impedance}{10}{}%
+\contentsline {section}{\numberline {3.3}Absorbed power}{11}{}%
+\contentsline {chapter}{\numberline {4}Coupled Oscillators}{13}{}%
+\contentsline {section}{\numberline {4.1}Equations of motion in coupled pendula}{13}{}%
+\contentsline {subsection}{\numberline {4.1.1}Normal Modes for higher $n$}{14}{}%
+\contentsline {subsubsection}{2 Masses - $n = 2$}{14}{}%
+\contentsline {subsubsection}{Linear Triatomic Molecule $n = 3$}{16}{}%
+\contentsline {section}{\numberline {4.2}Transverse Oscillations}{16}{}%
+\contentsline {subsection}{\numberline {4.2.1}Single Oscillator}{16}{}%
+\contentsline {subsection}{\numberline {4.2.2}2 Oscillators}{17}{}%
+\contentsline {subsection}{\numberline {4.2.3}Higher $n$}{17}{}%
+\contentsline {section}{\numberline {4.3}Forced Coupled Oscillators}{18}{}%
+\contentsline {chapter}{\numberline {5}Waves}{19}{}%
+\contentsline {section}{\numberline {5.1}1D Wave Equation}{19}{}%
+\contentsline {subsection}{\numberline {5.1.1}Sinusoidal Waves}{19}{}%
+\contentsline {subsection}{\numberline {5.1.2}General solution to 1D wave equation}{20}{}%
+\contentsline {subsection}{\numberline {5.1.3}Velocity of travelling waves on a stretched string}{20}{}%
+\contentsline {subsection}{\numberline {5.1.4}Energy Stored in a Wave}{21}{}%
+\contentsline {subsubsection}{Power of a sinusoidal wave}{22}{}%
+\contentsline {section}{\numberline {5.2}Waves at Boundaries}{22}{}%
+\contentsline {section}{\numberline {5.3}Standing Waves}{23}{}%
+\contentsline {subsection}{\numberline {5.3.1}Discrete normal modes}{24}{}%
+\contentsline {subsubsection}{Wavelength of standing waves}{24}{}%
+\contentsline {subsubsection}{Superposition of normal modes}{25}{}%
+\contentsline {section}{\numberline {5.4}Sound Waves}{25}{}%
+\contentsline {section}{\numberline {5.5}The wave equation in 2 dimensions}{25}{}%
+\contentsline {subsection}{\numberline {5.5.1}Solutions in exponential form}{26}{}%
+\contentsline {chapter}{\numberline {6}Dispersion and Interference}{27}{}%
+\contentsline {chapter}{\numberline {A}Common Waveforms and Examples}{28}{}%
+\contentsline {section}{\numberline {A.1}Gaussian Pulse}{28}{}%
+\contentsline {section}{\numberline {A.2}Waves on a square membrane}{28}{}%
+\contentsline {section}{\numberline {A.3}Waves on a circular membrane}{28}{}%
