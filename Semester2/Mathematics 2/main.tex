@@ -410,6 +410,22 @@ The line integral is then given by,
 \begin{equation}
 	l = \int_C \vb{A} \cdot \dd{\vb{l}}.
 \end{equation}
+\subsection{Circulation of Vector Fields}
+If we wish to find the circulation of a vector $\vb{A}$ along a certain path, $c$, we should compute $\vb{A}\cdot\dd{\vb{l}}$. If we define $c = c(x,y,z)$, then we should substitute appropriately so that we are able to integrate over $\vb{A}\cdot\dd{\vb{l}}$.
+\\\\
+To find the circulation over polar coordinates, we want to first parametrise the curve, such that,
+\begin{align}
+	x = g(\theta) && y = f(\theta)
+\end{align}
+and obtain a vector, $\vb{c}$,
+\begin{equation}
+	\vb{c} = (g(\theta),f(\theta)).
+\end{equation}
+We can then rewrite $\vb{A}$ in terms of the components of $\vb{c}$ and use,
+\begin{equation}
+	\vb{A}\cdot\dd{\vb{l}} = \vb{A}(\vb{c}) \cdot \dv{\vb{c}}{\theta}\dd{\theta}
+\end{equation}
+and perform the integral. For clockwise circulation this is $0 \to 2\pi$ and for anti-clockwise this is $2\pi \to 0$.
 \appendix
 \chapter{Vector Calculus Identities}
 \section{Grad Identities}

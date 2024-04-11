@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.3.26)  31 MAR 2024 21:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.3.26)  11 APR 2024 17:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -937,42 +937,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 607--627
 [15 <./Magneticfieldofacurrentloop.png (PNG copy)>]
 Chapter 3.
 Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+
+Underfull \hbox (badness 10000) in paragraph at lines 714--717
+
+ []
+
 [16
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 695--698
-
- []
-
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Underfull \hbox (badness 10000) in paragraph at lines 726--746
+Underfull \hbox (badness 10000) in paragraph at lines 745--765
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 726--746
+Underfull \hbox (badness 10000) in paragraph at lines 745--765
 
  []
 
 [17] [18]
 Appendix A.
-<RailGunDiagram.jpg, id=103, 803.0pt x 479.7925pt>
+<RailGunDiagram.jpg, id=104, 803.0pt x 479.7925pt>
 File: RailGunDiagram.jpg Graphic file (type jpg)
 <use RailGunDiagram.jpg>
-Package pdftex.def Info: RailGunDiagram.jpg  used on input line 783.
+Package pdftex.def Info: RailGunDiagram.jpg  used on input line 802.
 (pdftex.def)             Requested size: 200.0pt x 119.50124pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 787--790
+Underfull \hbox (badness 10000) in paragraph at lines 806--809
 
  []
 
-<homopolar-generator-schematic.png, id=104, 815.045pt x 599.23875pt>
+<homopolar-generator-schematic.png, id=105, 815.045pt x 599.23875pt>
 File: homopolar-generator-schematic.png Graphic file (type png)
 <use homopolar-generator-schematic.png>
 Package pdftex.def Info: homopolar-generator-schematic.png  used on input line 
-803.
+822.
 (pdftex.def)             Requested size: 200.0pt x 147.03879pt.
 [19
 
@@ -985,32 +987,46 @@ Appendix B.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [22]
-<solenoid-magnetic-field.png, id=123, 1583.9175pt x 815.045pt>
+<solenoid-magnetic-field.png, id=124, 1583.9175pt x 815.045pt>
 File: solenoid-magnetic-field.png Graphic file (type png)
 <use solenoid-magnetic-field.png>
-Package pdftex.def Info: solenoid-magnetic-field.png  used on input line 1044.
+Package pdftex.def Info: solenoid-magnetic-field.png  used on input line 1063.
 (pdftex.def)             Requested size: 200.0pt x 102.9126pt.
  [23]
-Underfull \hbox (badness 10000) in paragraph at lines 1048--1052
+Underfull \hbox (badness 10000) in paragraph at lines 1067--1071
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1048--1052
+Underfull \hbox (badness 10000) in paragraph at lines 1067--1071
 
  []
 
-[24 <./solenoid-magnetic-field.png>] (./main.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 1121--1139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1121--1139
+
+ []
+
+[24 <./solenoid-magnetic-field.png>] [25]
+Appendix C.
+[26
+
+] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 29799 strings out of 476076
- 734184 string characters out of 5793775
- 1949187 words of memory out of 5000000
- 51360 multiletter control sequences out of 15000+600000
+ 29807 strings out of 476076
+ 734307 string characters out of 5793775
+ 1950187 words of memory out of 5000000
+ 51368 multiletter control sequences out of 15000+600000
  573448 words of font info for 91 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  94i,18n,93p,721b,1243s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1033,10 +1049,10 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
 0.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (24 pages, 1666965 bytes).
+Output written on main.pdf (26 pages, 1671217 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 134 compressed objects within 2 object streams
+ 235 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 95 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 99 words of extra memory for PDF output out of 10000 (max. 10000000)
 

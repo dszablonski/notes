@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.3.26)  4 APR 2024 09:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.3.26)  11 APR 2024 09:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -963,20 +963,20 @@ LaTeX Font Info:    Overwriting math alphabet `\mathbb' in version `bold'
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/DSSerif/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/DSSerif/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1065,14 +1065,14 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
 your preamble.
- on input line 55.
+ on input line 56.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 56.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 57.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 56.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 57.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1089,14 +1089,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [3]
 Chapter 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--65
+Underfull \hbox (badness 10000) in paragraph at lines 63--66
 
  []
 
 [4
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 152--155
+Underfull \hbox (badness 10000) in paragraph at lines 153--156
 
  []
 
@@ -1105,7 +1105,7 @@ Chapter 2.
 [8
 
 ] [9] [10{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 482--485
+Underfull \hbox (badness 10000) in paragraph at lines 483--486
 
  []
 
@@ -1114,7 +1114,7 @@ Chapter 3.
 [12
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 598--601
+Underfull \hbox (badness 10000) in paragraph at lines 599--602
 
  []
 
@@ -1122,45 +1122,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 598--601
 <1.png, id=104, 800.9925pt x 454.69875pt>
 File: 1.png Graphic file (type png)
 <use 1.png>
-Package pdftex.def Info: 1.png  used on input line 616.
+Package pdftex.def Info: 1.png  used on input line 617.
 (pdftex.def)             Requested size: 200.0pt x 113.5287pt.
  [14 <./1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 680--683
+Underfull \hbox (badness 10000) in paragraph at lines 681--684
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 689--692
+Underfull \hbox (badness 10000) in paragraph at lines 690--693
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 709--712
+Underfull \hbox (badness 10000) in paragraph at lines 710--713
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 747--750
+Underfull \hbox (badness 10000) in paragraph at lines 748--751
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 752--755
+Underfull \hbox (badness 10000) in paragraph at lines 753--756
 
  []
 
 [16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 841--844
+Underfull \hbox (badness 10000) in paragraph at lines 842--845
 
  []
 
 [18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 958--961
+Underfull \hbox (badness 10000) in paragraph at lines 959--962
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 989--992
+Underfull \hbox (badness 10000) in paragraph at lines 990--993
 
  []
 
@@ -1168,7 +1168,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 989--992
 Underfull \vbox (badness 2435) has occurred while \output is active []
 
  [21]
-Underfull \hbox (badness 10000) in paragraph at lines 1080--1096
+Underfull \hbox (badness 10000) in paragraph at lines 1081--1097
 
  []
 
@@ -1178,30 +1178,30 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [22] [23]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1110--1113
+Underfull \hbox (badness 10000) in paragraph at lines 1111--1114
 
  []
 
 [24
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1163--1166
+Underfull \hbox (badness 10000) in paragraph at lines 1164--1167
 
  []
 
 [25] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 1262--1266
+Underfull \hbox (badness 10000) in paragraph at lines 1263--1267
 
  []
 
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 10.0pt on input line 1286.
+(Font)              scaled to size 10.0pt on input line 1287.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 7.0pt on input line 1286.
+(Font)              scaled to size 7.0pt on input line 1287.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 5.0pt on input line 1286.
+(Font)              scaled to size 5.0pt on input line 1287.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1287--1291
+Underfull \hbox (badness 10000) in paragraph at lines 1288--1292
 
  []
 
@@ -1209,134 +1209,115 @@ Underfull \hbox (badness 10000) in paragraph at lines 1287--1291
 <spinningtop.png, id=154, 492.84125pt x 397.485pt>
 File: spinningtop.png Graphic file (type png)
 <use spinningtop.png>
-Package pdftex.def Info: spinningtop.png  used on input line 1372.
+Package pdftex.def Info: spinningtop.png  used on input line 1373.
 (pdftex.def)             Requested size: 300.0pt x 241.96815pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1376--1379
+Underfull \hbox (badness 10000) in paragraph at lines 1377--1380
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1403--1407
+Underfull \hbox (badness 10000) in paragraph at lines 1404--1408
 
  []
 
 [29 <./spinningtop.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1413--1416
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 1418--1422
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1440--1446
+Underfull \hbox (badness 10000) in paragraph at lines 1441--1445
+
+ []
+
+<C1cgZ.jpg, id=160, 321.2pt x 321.2pt>
+File: C1cgZ.jpg Graphic file (type jpg)
+<use C1cgZ.jpg>
+Package pdftex.def Info: C1cgZ.jpg  used on input line 1459.
+(pdftex.def)             Requested size: 200.0pt x 200.00453pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1451--1463
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1440--1446
+Underfull \hbox (badness 10000) in paragraph at lines 1451--1463
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1452--1458
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1452--1458
-
- []
-
-[30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1537--1541
-
- []
-
-[32]
-Underfull \hbox (badness 10000) in paragraph at lines 1591--1595
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1605--1609
-
- []
-
-<FigureIV.32.png, id=170, 516.93124pt x 436.63126pt>
+[30] [31 <./C1cgZ.jpg>] [32] [33]
+<FigureIV.32.png, id=174, 516.93124pt x 436.63126pt>
 File: FigureIV.32.png Graphic file (type png)
 <use FigureIV.32.png>
-Package pdftex.def Info: FigureIV.32.png  used on input line 1632.
+Package pdftex.def Info: FigureIV.32.png  used on input line 1634.
 (pdftex.def)             Requested size: 200.0pt x 168.93303pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1628--1638
+Underfull \hbox (badness 10000) in paragraph at lines 1630--1640
 
  []
 
-<nutation1.png, id=171, 213.79875pt x 210.7875pt>
+<nutation1.png, id=175, 213.79875pt x 210.7875pt>
 File: nutation1.png Graphic file (type png)
 <use nutation1.png>
-Package pdftex.def Info: nutation1.png  used on input line 1654.
+Package pdftex.def Info: nutation1.png  used on input line 1656.
 (pdftex.def)             Requested size: 130.0pt x 128.16849pt.
-<nutation3.png, id=172, 222.8325pt x 213.79875pt>
+<nutation3.png, id=176, 222.8325pt x 213.79875pt>
 File: nutation3.png Graphic file (type png)
 <use nutation3.png>
-Package pdftex.def Info: nutation3.png  used on input line 1660.
+Package pdftex.def Info: nutation3.png  used on input line 1662.
 (pdftex.def)             Requested size: 130.0pt x 124.73085pt.
-<nutation4.png, id=173, 220.825pt x 213.79875pt>
+<nutation4.png, id=177, 220.825pt x 213.79875pt>
 File: nutation4.png Graphic file (type png)
 <use nutation4.png>
-Package pdftex.def Info: nutation4.png  used on input line 1666.
+Package pdftex.def Info: nutation4.png  used on input line 1668.
 (pdftex.def)             Requested size: 130.0pt x 125.86938pt.
-[33] [34 <./FigureIV.32.png> <./nutation1.png> <./nutation3.png> <./nutation4.p
+[34 <./FigureIV.32.png>] [35 <./nutation1.png> <./nutation3.png> <./nutation4.p
 ng>]
 Chapter 5.
-[35
+[36
 
 ]
 Appendix A.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 14.4pt on input line 1676.
-[36
+(Font)              scaled to size 14.4pt on input line 1678.
+[37
 
 ]
 Appendix B.
-[37
+[38
 
-] [38]
+] [39]
 Appendix C.
-<document_ACDF_10245.pdf, id=198, 120.39178pt x 100.644pt>
+<document_ACDF_10245.pdf, id=202, 120.39178pt x 100.644pt>
 File: document_ACDF_10245.pdf Graphic file (type pdf)
 <use document_ACDF_10245.pdf>
-Package pdftex.def Info: document_ACDF_10245.pdf  used on input line 1836.
+Package pdftex.def Info: document_ACDF_10245.pdf  used on input line 1838.
 (pdftex.def)             Requested size: 250.0pt x 208.99362pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1840--1843
+Underfull \hbox (badness 10000) in paragraph at lines 1842--1845
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1849--1853
+Underfull \hbox (badness 10000) in paragraph at lines 1851--1855
 
  []
 
-[39
+[40
 
- <./document_ACDF_10245.pdf>] [40] [41]
+ <./document_ACDF_10245.pdf>] [41] [42]
 Appendix D.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1969--1972
+Underfull \hbox (badness 10000) in paragraph at lines 1971--1974
 
  []
 
-[42
+[43
 
 ]
 Appendix E.
-[43
+[44
 
 ] (./main.aux)
  ***********
@@ -1345,10 +1326,10 @@ L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 40350 strings out of 476076
- 982460 string characters out of 5793775
+ 40362 strings out of 476076
+ 982631 string characters out of 5793775
  1952187 words of memory out of 5000000
- 61770 multiletter control sequences out of 15000+600000
+ 61782 multiletter control sequences out of 15000+600000
  577066 words of font info for 104 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  94i,21n,96p,733b,2188s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1372,10 +1353,10 @@ c/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
 msy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr
 /share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/te
 xmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (43 pages, 567669 bytes).
+Output written on main.pdf (44 pages, 587673 bytes).
 PDF statistics:
- 352 PDF objects out of 1000 (max. 8388607)
- 213 compressed objects within 3 object streams
+ 356 PDF objects out of 1000 (max. 8388607)
+ 215 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 192 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

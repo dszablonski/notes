@@ -645,23 +645,18 @@ When moving a conductor through an electric field, we produce a potential differ
 \end{equation}
 The rate of change of the magnetic field flux then gives rise to an EMF which is given by \textbf{Faraday's Law},
 \begin{equation}
-    \varepsilon = -\dv{\Phi_m}{t} = -\dv{}{t}\int_S\vb{B}\cdot\dd{\vb{A}}.
+    \varepsilon = -\dv{\Phi_m}{t} = -\dv{}{t}\int_S\vb{B}\cdot\dd{\vb{A}}. \label{emf}
 \end{equation}
 \textbf{Lenz's Law} then tells us the direction of the EMF:
 \begin{definition}
     The direction of induced EMF is such that the induced current creates a magnetic field that opposes the change in flux.
 \end{definition}
-\subsection{Maxwell's 4$^{\text{th}}$ equation}
+\subsection{Maxwell's 3$^{\text{th}}$ equation}
 This combines \eqref{EMF} and \eqref{magneticflux} to give,
 \begin{equation}
     \oint_C\vb{E}\cdot\dd{\vb{l}} = -\dv{}{t}\int_S\vb{B}\cdot\dd{\vb{A}} \label{maxwell'sfourth}
 \end{equation}
-\subsubsection{EM Radiation}
-By the Ampere-Maxwell law, we have,
-\begin{equation}
-    \oint_C \vb{B}\cdot\dd{\vb{l}} = \mu_0 \int_s\left(\vb{J}+\epsilon_0\pdv{\vb{E}}{t}\right)\cdot\dd{\vb{A}}.
-\end{equation}
-Analysing this alongside \eqref{maxwell'sfourth}, we see that a changing electric field produces a magnetic field, and vice-versa. This is the classical basis for light.
+
 \section{Maxwell's correction of Ampere's law}
 \begin{figure}
 	\centering
@@ -686,33 +681,57 @@ Analysing this alongside \eqref{maxwell'sfourth}, we see that a changing electri
 			\draw[dashed] (0.75,0.5) circle (0.6);
 			
 		\end{scope}
-		\begin{scope}[canvas is xy plane at z=0]
-			\clip (1.75,-0.2) -- (1.75,1.2) -- (1.05,1.2) -- (1.05,-0.2) -- (1.75,-0.2);
-			\draw[dashed] (0.75,0.5) circle (0.7);
+	\end{tikzpicture}
+	\caption{}
+	\label{BADampere}
+\end{figure}
+\begin{figure}[b]
+	\centering
+	\begin{tikzpicture}[
+		->-/.style = {decoration={markings,
+				mark=between positions 0.25 and 0.75 step 0.5 with {\arrow{Triangle[scale=1]}}},
+			postaction={decorate},
+			semithick
+		},]
+		\draw[->-] (0,0.5,0) -- (2,0.5,0) node[above, align=center] {$I$};
+		\draw (2,0,0) -- (2,1,0);
+		\draw (3,0,0) -- (3,1,0);
+		\node at (2.5,1.2,0) {$E(t)$};
+		\foreach \y in {0.95, 0.65, 0.35, 0.05}
+		{
+			\node[anchor=east] at (2,\y,0) {\tiny$+$};
+			\node[anchor=west] at (3,\y,0) {\tiny$-$};
+			\draw[->-,color=black!50] (2,\y,0) -- (3,\y,0);
+		};
+		\draw[->-] (3,0.5,0) -- (5,0.5,0) node[above, align=center] {$I$};
+		\begin{scope}[canvas is yz plane at x=2.5]
+			\filldraw[pattern={north east lines}, dashed] (0.75,0.5) circle (0.4);
 		\end{scope}
 	\end{tikzpicture}
+	\caption{}
+	\label{goodampere}
 \end{figure}
-Maxwell corrected Ampere's law so that it could be appplied to magnetodynamics. The reason we require a correction is that Ampere's law does not work for all closed surfaces, I.E., when trying to find the magnetic field between the terminals of a capacitor.
+Maxwell corrected Ampere's law so that it could be appplied to magnetodynamics. The reason we require a correction is that, if we consider a setup like in \ref{BADampere}, we are able to easily calculate the magnetic field due to Ampere's law. However if we were to extend the surface so that it intersects through the middle of the parallel plate capacitor, we find that $\vb{j} = 0$, thus $\vb{B}=0$. This is a contradiction and implies that we must correct Ampere's law.
 \\\\
-Consider an electric field due to a parallel plate capacitor enclosed by semicircle. We can write the charge due to the parallel plate capacitor as,
+Consider an electric field due to a parallel plate capacitor. We will consider an amperian loop between the plates of the capacitor of radius $r$, as in figure \ref{goodampere}. The current density will still be $\vb{j} = 0$. However, we can write the electric field due to the parallel plate capacitor as,
 \begin{equation}
-	Q = \epsilon_0 A E
+	E = \frac{Q}{\epsilon_0 A}
 \end{equation}
-and invent a \textbf{displacement current},
+However, as there is a current, the charge will be changing. We can then write a \textbf{displacement current},
 \begin{equation}
-	I = \dv{Q}{t} = \epsilon_0 a \pdv{E}{t}.
+	\dv{Q}{t} = I_{\text{dis}} = \epsilon_0A\pdv{E}{t},
 \end{equation}
-Thus, we can ammend Ampere's law, writing,
+thus for this problem, we can rewrite Ampere's law as,
 \begin{equation}
-	\oint_C \vb{B}\cdot\dd{\vb{l}} = \mu_0\left(I_{\text{enc}} + \epsilon_0 A \pdv{E}{t}\right).
+	\oint \vb{B}\cdot\dd{\vb{l}} = \mu_0\int \epsilon_0 \pdv{E}{t}\cdot\dd{\vb{A}}.
 \end{equation}
-The more general version of this equation is known as \textbf{Maxwell's third equation}, given by,
+We can write this more generally, which gives Ampere's 4th equation,
 \begin{equation}
 	\oint_C \vb{B}\cdot \dd{\vb{l}} = \mu_0 \int_S \left(\vb{j} + \epsilon_0 \pdv{E}{t}\right)\cdot\dd{\vb{A}}.
 \end{equation}
 
 \section{Mutual inductance}
-Let us consider a setup like in fitgure \ref{fig:mutualinductance}. An increasing current $I_1$ runs through loop one, producing an increasing magnetic field $\vb{B}_1$. There is then a flux through loop 2, $\phi_{21}$ which produces an EMF $\varepsilon_2$, and thus a current $I_2$ through loop 2. This phenomenon is known as \textit{mutual inductance}, which we can define as a quantity $M$. Let us link the flux through loop 2 to the current through loop 1,
+Let us consider a setup like in figure \ref{fig:mutualinductance}. An increasing current $I_1$ runs through loop one, producing an increasing magnetic field $\vb{B}_1$. There is then a flux through loop 2, $\phi_{21}$ which produces an EMF $\varepsilon_2$, and thus a current $I_2$ through loop 2. This phenomenon is known as \textit{mutual inductance}, which we can define as a quantity $M$. Let us link the flux through loop 2 to the current through loop 1,
 \begin{equation}
 	\phi_{21} = M_{21}I_2.
 \end{equation}
@@ -820,6 +839,7 @@ if we define $\dd{\vb{l}} = \dd{r}\vu{r}$. The total EMF created by the disk can
 \begin{equation}
     \varepsilon = \int_0^ar\omega B \dd{r} = \frac{1}{2}\omega B a^2.
 \end{equation}
+
 \chapter{Common Examples}
 \section{Gauss' Law}
 \section{Capacitors}
@@ -902,7 +922,6 @@ which is a differential equation which can be solved within the limits of $0\to 
         \draw[->,thick] (0.5,-1,0) -- (1,-1,0) node[midway,below] {$\vu{z}$};
         \draw[<->] (-1,0,0) -- (-1,1,0) node[anchor=east,midway] {$a$};
         \draw[->,thick] (2,0,0) -- (2.5,1,-0.5) node[anchor=west] {$\vb{B}$};
-        
     \end{tikzpicture}
     \caption{Magnetic field due to loop of current.}
     \label{fig:loopof}
@@ -1066,4 +1085,63 @@ and thus the magnitude of the magnetic field is,
 \end{equation}
 \section{Faraday's Law}
 \subsection{Loop of wire through magnetic field}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\foreach \i in {1,2,3,4}
+		{
+			\node at (\i,\i) {$\otimes$};
+		}
+		
+		\foreach \i in {2,3,4}
+		{
+			\node at (\i, 1) {$\otimes$};
+			\node at (1, \i) {$\otimes$};
+		}
+		\node at (3,2) {$\otimes$};
+		\node at (4,2) {$\otimes$};
+		\node at (4,3) {$\otimes$};
+		\node at (2,3) {$\otimes$};
+		\node at (2,4) {$\otimes$};
+		\node at (3,4) {$\otimes$};
+		\draw (1.5,1.5) rectangle (6.5,3.5);
+		\node[anchor=south east] at (1.5,3.5) {$a$}; 
+		\node[anchor=north east] at (1.5,1.5) {$b$};
+		\node[anchor=north west] at (6.5,1.5) {$c$};
+		\node[anchor=south west] at (6.5,3.5) {$d$};
+		\draw[->] (6.5,2.5) -- (7.5,2.5) node[anchor=west] {$v$};
+		\draw[<->] (0.5,1.5) -- (0.5,3.5);
+		\node[anchor=east] at (0.5,2.5) {$L$};
+		\draw[<->] (1.5,0.5) -- (3.5,0.5);
+		\node[anchor = north] at (2.5,0.5) {$x$}; 
+	\end{tikzpicture}
+	\caption{A loop of wire partially through a magnetic field.}
+	\label{loopofwire}
+\end{figure}
+Consider a setup like in \ref{loopofwire}. If we consider an electron moving from $a \to b$ like in figure \ref{electronmotion}.  By \eqref{bfieldforce}, the electron experiences a downard force and moves downards. An electron going from $b \to c$ also experiences a downards force, but is constrained in the wire so it cannot move in the vertical direction. Similarly for $d \to a$. Electrons in $c \to d$ are not present in the magnetic field so experience no force.
+\\\\
+Because there is an excess of charge carriers in one part of the loop, electrons must move in an anti-clockwise motion around the loop, producing a current in a clockwise direction. 
+\\\\
+We can obtain an equation for $\varepsilon$ by considering \eqref{emf}. Trivially, $\int\vb{B}\cdot\dd{\vb{A}} = BLx$. Taking the time derivative, $BL\dv{}{t}\left(x\right) = Blv$.
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw (0,0) -- (0,3);
+		\node at (0,1.5) {\textbullet};
+		\node[anchor=east] at (0,1.5) {$e^-$};
+		\draw[->] (0.25,1.5) -- (0.25,0.7) node[anchor=west] {$\vb{F}$};
+		\draw[->] (0,2.5) -- (1,2.5) node[anchor=west] {$\vb{v}$};
+		\node at (2,1) {$\otimes$ $\vb{B}$}; 
+	\end{tikzpicture}
+	\caption{}
+	\label{electronmotion}
+\end{figure}
+\chapter{Maxwell's Laws}
+Here are given Maxwell's 4 laws in integral form:
+\begin{align}
+	&\oint \vb{E}\cdot\dd{\vb{A}} = \frac{Q_{\text{enc}}}{\epsilon_0} \\
+	&\oint_S \vb{B}\cdot\dd{\vb{A}} = 0 \\
+	&\oint_C \vb{E}\cdot\dd{\vb{l}} = -\dv{}{t}\int\vb{B}\cdot\dd{\vb{A}} \\
+	&\oint_C\vb{B}\cdot\dd{\vb{l}} = \mu_0\int_S\left(\vb{j} + \epsilon_0\pdv{\vb{E}}{t}\right)\cdot \dd{\vb{A}}
+\end{align}
 \end{document}

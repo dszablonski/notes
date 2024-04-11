@@ -32,6 +32,7 @@
 \usetikzlibrary{angles, quotes, intersections}
 \usepackage[bb=dsserif]{mathalpha}
 
+
 \newcommand\Bbbbone{%
   \ifdefined\mathbbb%
     \mathbbb{1}%
@@ -1411,26 +1412,25 @@ Since $T_R$ is constant, so must $\vb*{\omega}\cdot\vb{L}$. We can then explicit
 \begin{align}
 	|\vb*{\omega}| = \sqrt{A^2 + \omega_t^2} && |\vb{L}|=\sqrt{I^2A^2 + \left(I^{(3)}\right)^2 \omega_t^2} && \vb*{\omega}\cdot\vb{L}=IA^2 + I^{(3)} \omega_t^2
 \end{align}
-are all constant.\\\\
-By Newton's second law, $\vb{L}$ must be constant, and we will choose it to be in the $\vb{e}_3$ direction, such that,
+are all constant. This implies that the angle $\vb*{\omega}$ and $\vb{L}$ is constant. So, we can choose $\vb{L}$ to simply be in the "up" direction, such that,
 \begin{equation}
-	\vb{L} = L\vb{e}_3.
+	\vb{L} = L\vb{e}_3,
 \end{equation}
-Thus, $\vb*{\omega}$ will rorate about $\vb{L}$, maintaining a constant angle between the two. HOwever, $\vb{L}$ is not constant in the body-fixed frame.
+$\vb*{\omega}$ will  then rotate about $\vb{L}$, mainting a constant angle asn mentioined previously. However, $\vb{L}$ is not constant in the body-fixed frame, as $\vb{E}_3$ changes with time.
 \\\\
-Let us attempt to visualise the evolution of $\vb{E}_3$ in the lab frame. First,
+Let us attempt to visualise the evolution of $\vb{E}_3$ in the lab frame. Let us write,
 \begin{equation}
 	\vb{L} - I\vb*{\omega} = (I^{(3)} - I)\omega_t\vb{E}_3
 \end{equation}
-which indicates that $\vb{L}$, $\vb*{\omega}$, and $\vb{E}_3$ lie in a plane. We can write,
+which implies that $\vb{L}$, $\vb*{\omega}$, and $\vb{E}_3$ lie in a plane. We then write,
 \begin{equation}
-	\vb*{\omega} = \frac{L}{I}\vb{e}_3 - \left(\frac{I^{(3)} 0 I}{I}\right)\omega_t \vb{E}_3.
+	\vb*{\omega} = \frac{L}{I}\vb{e}_3 - \left(\frac{I^{(3)} - I}{I}\right)\omega_t \vb{E}_3 = \frac{L}{I}\vb{e}_3 - \Omega\vb{E}_3. \label{eq:angvec}
 \end{equation}
 Let us now define $\Theta$ as the angle fixed between $\vb{E}_3$ and $\vb{L}$, and $\Phi \equiv \Phi(t)$ to be the angle of rotation about the third axis. We can write,
 \begin{equation}
 	\vb{E}_3 = \cos\Theta\vb{e}_3 + \sin\Theta(\cos\phi\vb{e}_1 + \sin\phi\vb{e}_2)
 \end{equation}
-and
+and, since $\Theta$ is constant and $\Phi$ changes with time,
 \begin{equation}
 	\Dot{\vb{E}}_3 = \Dot{\Phi}\sin\Theta(-\sin\Phi\vb{e}_1 + \cos\Phi\vb{e}_2) \label{4.65}
 \end{equation}
@@ -1438,34 +1438,39 @@ thus, $\Dot{\vb{E}}_3 = \vb*{\omega}\cross\vb{E}_3$, and,
 \begin{equation}
 	\Dot{\vb{E}}_3 = \frac{L}{I}\vb{e})3 \cross\vb{E}_3 = \frac{L}{I}\sin\Theta(\cos\Phi \vb{e}_2 - \sin\Phi \vb{e}_1) \label{4.66}.
 \end{equation}
-Combining \eqref{4.65} and \eqref{4.66}, we see that $\Dot{\Phi} = \frac{L}{I}$ when $\Theta \neq 0$.
-\\\\
-\textbf{ASIDE:} The case where $\Theta = 0$ corresponds to fixed roation about hte principle axis $\vb{E}_3$.
+Combining \eqref{4.65} and \eqref{4.66}, we see that $\Dot{\Phi} = \frac{L}{I}$ when $\Theta \neq 0$. So, given $\Theta \neq 0$, we can rewrite \eqref{eq:angvec} as, $$\vb*{\omega} = \Dot{\Phi}\vb{e}_3 - \Omega\vb{E}_3.$$
+\textbf{ASIDE:} The case where $\Theta = 0$ corresponds to fixed roation about the principle axis $\vb{E}_3$.
 \\\\
 We can deduce,
 \begin{equation}
 	\vb{L}\cdot\vb{E}_3 = L \cos\Theta = I^{(3)}\omega_t.
 \end{equation}
-From which we can deduce $\vb*{\omega}$ can $\vb{E}_3$ precess about $\vb{L}$ in the lab frame with constant frequency,
+From which we can deduce $\vb*{\omega}$ and $\vb{E}_3$ precess about $\vb{L}$ in the lab frame with a constant frequency, given by,
 \begin{equation}
 	\Omega_p = \Dot{\Phi} = \frac{L}{I} = \frac{I^{(3)}\omega_t}{I\cos\Theta}.
 \end{equation}
-To clarify, the top spins with frequency $\omega_t$ about the symmetric axis, which is in turn precesses around $\vb{L}$ with frequency $\Omega_p$. THe body will appear to "wobble". The body will have two ways of wobbling. We can attempt to visualise this by considering a "space cone", whose axis is fixed, and a "body cone" which moves with the body and rolls around on the space cone.
+To clarify, the top spins with frequency $\omega_t$ about the symmetric axis, which is in turn precesses around $\vb{L}$ with frequency $\Omega_p$. The body will appear to "wobble". The body will have two ways of wobbling. We can attempt to visualise this by considering a "space cone", whose axis is fixed, and a "body cone" which moves with the body and rolls around on the space cone, as in figure \ref{bodyspace}.
 \\\\
 The body may exhibit \textit{prolate} roation if $I^{(3)} < I$, so the body cone rolls on the outside of the space cone. 
 \\\\
-THe body may also exhbiit \textit{oblate} procession when $I^{(3)}>I$ and the body cone rolls about the inside of the space cone.
+The body may also exhbiit \textit{oblate} procession when $I^{(3)}>I$ and the body cone rolls about the inside of the space cone.
+\begin{figure}
+	\centering
+	\includegraphics[width=200pt]{C1cgZ.jpg}
+	\caption{Two modes of wobbling of a rigid body.}
+	\label{bodyspace}
+\end{figure}
 \subsection{Intermediate Axis Theorem}
-Let us consider a spinning top with no symmetry, defined by a constant angular velocity $\omega_t$ but with small perturbations in all directions, such that,
+Let us consider a spinning top with no symmetry, i.e. relaxing the condition that $I_1 = I_2$. The motion is defined by a constant angular velocity $\omega_t$ but with small perturbations in all directions, such that,
 \begin{equation}
 	\vb*{\omega} = \begin{pmatrix}
-		\delta \omega_1 & \delta \omega_2 & \omega_t + \delta\omega_3
+		\delta \omega_1 \\ \delta \omega_2 \\ \omega_t + \delta\omega_3
 	\end{pmatrix}.
 \end{equation}
 Subsituting this into Euler's equations implies that $\delta \Dot{\omega}_3 = 0$, so,
 \begin{align}
 	I_1\delta\Dot{\omega}_1 &= (I_2 - I_3)\omega_t\delta\omega_2 \\
-	I_1\delta\Dot{\omega}_2 = (I_3 - I_1)\omega_t\delta\omega_1\end{align}
+	I_1\delta\Dot{\omega}_2 &= (I_3 - I_1)\omega_t\delta\omega_1\end{align}
 If we differentiate $\delta \omega_1$ and substitute for $\delta\Dot{\omega}_2$, we deduce,
 \begin{equation}
 	\delta \Ddot{\omega}_1 + \Omega^2\delta\omega_1 = 0
@@ -1474,7 +1479,7 @@ where
 \begin{equation}
 	\Omega^2 = \frac{(I_3 - I_2)(I_3-I_1)}{I_1I_2}\omega_t^2
 \end{equation}
-and similarly for $\omega_2$. From this, we can determine that there is only stable motion when the rate of change of angular velocity opposes angular velocity, i.e.,
+and similarly for $\omega_2$. From this, we can determine that there is only stable motion when the rate of change of angular velocity opposes angular velocity, i.e., $\Omega^2 > 0$, and,
 \begin{align}
 	I_3 > I_1 && \text{AND} && I_3 > I_2
 \end{align}
@@ -1482,11 +1487,12 @@ OR
 \begin{align}
 	I_3 < I_1 && \text{AND} && I_3 < I_2
 \end{align}
-and is unstable for,
+The motion is then unstable for,
 \begin{align}
 	I_2 > I_3 > I_1 && \text{or} && I_1 > I_3 > I_2.
 \end{align}
-This is the intermediate axis theorem. 
+So, spin about the intermediate axis is unstable. This is the intermediate axis theorem.
+\newpage
 \section{Gyroscopes}
 A gyroscope can be thought of as a heavy spinning top, such that gravity and other external forces act. These forces are:
 \begin{itemize}
@@ -1497,7 +1503,12 @@ The torque due to gravity is then,
 \begin{equation}
 	\vb{M} = \vb{r} \times m\vb{g} = mg R \sin\theta \vb{e}_{\phi}. \label{torque due to gravity}
 \end{equation}
-The polar angles are used to describe the orientation of the principal axis which in turn point in the direction of $\vb{e}_r$. These angles are $\psi$,$\theta$, and $\phi$, as in figure \ref{top}, and are known as Euler angles. Since the torque only acts in $\vb{e}_{\phi}$, angular momentum will be conserved in other directions. The top is further symmetric, such that the moments of inertia are, 
+The polar angles are used to describe the orientation of the principal axis which in turn point in the direction of $\vb{e}_r$. These angles are $\psi$, $\theta$, and $\phi$, as in figure \ref{top}, and are known as Euler angles. Let us note,
+\begin{align}
+	\psi && \implies && \text{Angle of spinning top,} \\
+	\phi && \implies && \text{Angle of precession,} \\
+	\theta && \implies && \text{Angle between precession axis and spin axis.}
+\end{align} Since the torque only acts in $\vb{e}_{\phi}$, angular momentum will be conserved in other directions. The top is further symmetric, such that the moments of inertia are, 
 \begin{align}
 	I_1 = I_2 = I && \text{and} && I_3.
 \end{align}
@@ -1521,7 +1532,7 @@ If $\theta$ is constant, $\vb{M}\cdot\vb{L}=0$ and $|\vb{L}|$ is constant. We ca
 		& + \left[I_3(\Dot{\phi}\cos\theta + \Dot{\psi})\Dot{\theta} - I(\Ddot{\theta}\sin\theta + 2\Dot{\phi}\Dot{\theta}\cos\theta)\right]\vb{e}_{\theta}.
 	\end{split}
 \end{equation}
-Now by applying Newton's second law and using \eqref{torque due to gravity}, we get,
+Let us appreciate that the moment of the force only applies to to the $\vb{e}_{\phi}$ term. Now, by applying Newton's second law and using \eqref{torque due to gravity}, we write,
 \begin{align}
 	\Ddot{\phi}\cos\theta - \Dot{\phi}\Dot{\theta}\sin\theta + \Ddot{\psi} & = 0 \label{expression1} \\
 	I_3(\Dot{\phi}\cos\theta + \Dot{\psi})\Dot{\phi}\sin\theta + I(\Ddot{\theta} - \Dot{\phi}^2\sin\theta\cos\theta) & = 0 \label{expression2} \\
@@ -1529,83 +1540,74 @@ Now by applying Newton's second law and using \eqref{torque due to gravity}, we 
 \end{align}
 From \eqref{expression1},
 \begin{equation}
-	\dv{}{t}(\Dot{\phi} + \Dot{\psi}) = 0
+	\dv{}{t} \left(\Dot{\phi}\cos\theta + \Dot{\psi}\right) = 0 \implies \Dot{\phi}\cos\theta + \Dot{\psi} \equiv \text{const}
 \end{equation}
 which implies that the angular velocity vector along the spin axis of the top is,
 \begin{equation}
-	\omega_2 = \Dot{\phi}\cos\theta + \Dot{\psi},
+	\omega_3 = \Dot{\phi}\cos\theta + \Dot{\psi}.
 \end{equation}
-and is constant.
-\\\\
 Similarly, for \eqref{expression2},
 \begin{equation}
-	I_3\omega_3\Dot{\theta} - \frac{I}{\sin\theta}\dv{}{t}(\Dot{\phi}\sin^2\theta) = 0
+	I_3\omega_3\Dot{\theta} - \frac{I}{\sin\theta}\dv{}{t}\left(\Dot{\phi}\sin^2\theta\right) = 0
 \end{equation}
 implying,
 \begin{equation}
-	I_3\omega_3 \cos\theta + I\Dot{\phi}\sin^2\theta \equiv bI
+	I_3\omega_3 \cos\theta + I\Dot{\phi}\sin^2\theta = bI \equiv \text{const}. \label{constant}
 \end{equation}
-is constant. Rearranging this,
+Rearranging \eqref{constant},
 \begin{equation}
 	\Dot{\phi} = \frac{bI - I_3 \omega_3 \cos\theta}{I\sin^2\theta} = \frac{b-a\cos\theta}{\sin^2\theta}
 \end{equation}
 for,
-\begin{equation}
-	a = \frac{I_3\omega_3}{I}.
-\end{equation}
-Let us now define,,
 \begin{align}
-	L = Ia && K = Ib. 
+	a = \frac{I_3\omega_3}{I} = \frac{L}{I}
+\end{align}
+Let us now define,
+\begin{align}
+	L = Ia && \beta = \frac{2mgR}{I}. 
 \end{align}
 We can rewrite \eqref{expression3} as,
 \begin{equation}
-	\Ddot{\theta} = \sin\theta\left(\frac{1}{2}\beta - a \Dot{\phi} + \Dot{\phi}^2\cos\theta\right)
+	\Ddot{\theta} = \sin\theta\left(\frac{1}{2}\beta - a \Dot{\phi} + \Dot{\phi}^2\cos\theta\right) \label{4.96}
 \end{equation}
-where
-\begin{equation}
-	\beta = \frac{2mgR}{I}.
-\end{equation}
-Let us consider a case where $\theta = \theta_0$ is constant and $\Dot{\psi} = \omega_s$, $\Dot{\phi}=\Omega_p$ is constnat, where,
+thus the system can be specified in terms of the parameters $a$, $b$, and $\beta$. However, we are assuming constant $\theta$, so $\Dot{\theta} = \Ddot{\theta} = 0$. So, let us consider a case where $\theta = \theta_0$ and $\Dot{\psi} = \omega_s$, $\Dot{\phi}=\Omega_p$ is constant, where,
 \begin{equation}
 	\Omega_s = \frac{I}{I_3}a - \Omega_p\cos\theta_0
 \end{equation}
 and $\Omega_p$ is a solution to,
 \begin{equation}
-	\cos\theta \Omega_p^2 - a\Omega_p + \frac{1}{2}\beta = 0
+	\cos\theta \Omega_p^2 - a\Omega_p + \frac{1}{2}\beta = 0 \label{procession quadratic}
 \end{equation}
-where 
+as by \eqref{4.96}. The solution to \eqref{procession quadratic} is given by,
 \begin{equation}
 	\Omega_p = \frac{a}{2\cos\theta_0}\left[1\pm\left(1 - \frac{2\beta\cos\theta_0}{a^2}\right)^{\frac{1}{2}}\right]
 \end{equation}
-when
+which has two solutions when,
 \begin{equation}
 	\cos\theta_0 < \frac{a^2}{2\beta} = \frac{I_3^2\omega_3^2}{4mgRI}.
 \end{equation}
-If $a^2 > 2\beta$, then there is always such a solution. If $a^2 < 2\beta$, there exists a critical angle,
-\begin{equation}
-	\theta_{\text{crit}} = \cos^{-1}\left(\frac{a^2}{2\beta}\right)\text{ where } \theta_0 > \theta_{\text{crit}},
-\end{equation}
-i.e., there is no solution when $\theta_0 = 0$. This is a condition where,
-\begin{equation}
-	\omega_3 > \frac{\sqrt{2mgRI\cos\theta_0}}{I_3}\label{condition}
-\end{equation}
-which is necessary to prevent the top from falling down.
-\\\\
+There are then two conditions on the motion,
+\begin{enumerate}
+	\item  If $a^2 < 2\beta$, there exists a critical angle,
+	\begin{equation}
+		\theta_{\text{crit}} = \cos^{-1}\left(\frac{a^2}{2\beta}\right)\text{ where } \theta_0 > \theta_{\text{crit}}.
+	\end{equation}
+	\item If 
+	\begin{equation}
+		\omega_3 > \frac{\sqrt{4mgRI\cos\theta_0}}{I_3}\label{condition}
+	\end{equation}
+	then the top will fall over.
+\end{enumerate}
 We can investigate the motion further by analysing solutions in the limit,
 \begin{equation}
 	\frac{2\beta \cos\theta_0}{a^2} << 1
 \end{equation}
-which is the equivalent to ignoring gravity. This results in the positive root,
-\begin{equation}
-	\Omega_p^{\text{fast}} - \frac{a}{\cos\theta_0} = \frac{I_3\omega_3}{I\cos\theta_0} = \frac{L}{I\cos\theta_0}.
-\end{equation}
-and the negative root,
-\begin{equation}
-	\Omega_p^{\text{slow}}=\frac{\beta}{2a} = \frac{mgR}{I_3\omega_3} = \frac{mgR}{L}.
-\end{equation}
-The slow solution is seen in free rotation.
-\\\\
-We can further analyse the energy in the system. Th erotational kinetic energy satisfies $\Dot{T}_R = \vb*{\omega}\cdot\vb{M}$. Computing this in our case,
+which is the equivalent to ignoring gravity. This results two roots,
+\begin{align}
+	+ && \implies && &\Omega_p^{\text{fast}} - \frac{a}{\cos\theta_0} = \frac{I_3\omega_3}{I\cos\theta_0} = \frac{L}{I\cos\theta_0}. & \text{Free precession} \\
+	- && \implies && &\Omega_p^{\text{slow}}=\frac{\beta}{2a} = \frac{mgR}{I_3\omega_3} = \frac{mgR}{L}. &
+\end{align}
+We can further analyse the energy in the system. The rotational kinetic energy satisfies $\Dot{T}_R = \vb*{\omega}\cdot\vb{M}$. Computing this in our case,
 \begin{equation}
 	\vb*{\omega}\cdot{\vb{M}} = mgR\Dot{\theta}\sin\theta = -mgR\dv{}{\theta}\cos\theta
 \end{equation}
@@ -1615,7 +1617,7 @@ from which we can deduce,
 \end{equation}
 is constnat. We can rewrite this as,
 \begin{equation}
-	E = \frac{1}{2}I_3(\Dot{\phi}\cos\theta + \Dot{\psi})^2 + \frac{1}{2}I(\Dot{\theta}^2 + \Dot{\phi}^2 \sin^"\theta)+ mgR\cos\theta.
+	E = \frac{1}{2}I_3(\Dot{\phi}\cos\theta + \Dot{\psi})^2 + \frac{1}{2}I(\Dot{\theta}^2 + \Dot{\phi}^2 \sin^2\theta)+ mgR\cos\theta.
 \end{equation}
 Let us now define,
 \begin{equation}
@@ -1624,7 +1626,7 @@ Let us now define,
  \end{equation}
 so, we can define  an effective potential such that $\bar{E} = \frac{1}{2}\Dot{\theta}^2 + U_{\text{eff}}(\theta)$,
 \begin{equation}
-	U_{\text{eff}} = \frac{1}{2}\left[\left(\frac{b-a\cos\theta}{\sin\theta}\right)^2 \beta\cos\theta \right].
+	U_{\text{eff}} = \frac{1}{2}\left[\left(\frac{b-a\cos\theta}{\sin\theta}\right)^2 +  \beta\cos\theta \right].
 \end{equation}
 We have thus found a way to describe the effective motion of the gyroscope in 1 dimension. An example of a plot of this potential is show in figure \ref{effpotgyro}.
 \begin{figure}

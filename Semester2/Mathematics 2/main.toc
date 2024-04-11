@@ -30,6 +30,7 @@
 \contentsline {subsubsection}{The Continuity Equation}{9}{}%
 \contentsline {section}{\numberline {2.10}Line Integrals}{10}{}%
 \contentsline {subsection}{\numberline {2.10.1}Vector line integrals}{10}{}%
+\contentsline {subsection}{\numberline {2.10.2}Circulation of Vector Fields}{10}{}%
 \contentsline {chapter}{\numberline {A}Vector Calculus Identities}{11}{}%
 \contentsline {section}{\numberline {A.1}Grad Identities}{11}{}%
 \contentsline {section}{\numberline {A.2}Curl Identities}{11}{}%
