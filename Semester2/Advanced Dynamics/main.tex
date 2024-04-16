@@ -1672,7 +1672,143 @@ A basic analysis is laid out below:
 	\caption{Figures showing different nutation modes.}
 \end{figure}
 \chapter{Special Relativity}
+Let us recall Einstein's postulates,
+\begin{enumerate}
+	\item The laws of physics are the same for all inertial observers,
+	\item The speed of light in a vaccum is the same for all inertial observers.
+\end{enumerate}
+Based on these postulates, we can get the Lorentz transformations for two frames $S$ and $S'$ moving relative to each other along the $x$ direction,
+\begin{align}
+	ct' & = \gamma\left(ct - \frac{v}{c}x\right) \\
+	x' & = \gamma\left(x - vt\right) \\
+	y' & = y\\
+	z' & = z
+\end{align}
+where,
+\begin{equation}
+	\gamma = \dfrac{1}{\sqrt{1 - \dfrac{v^2}{c^2}}}.
+\end{equation}
+We further have that,
+\begin{equation}
+	c^2t^2 - \vb{x}^2 = c^2t^2 - x^2 - y^2 - z^2
+\end{equation}
+is Lorentz invariant. Further, mechanical quantities are changed,
+\begin{align}
+	E = \gamma mc^2 && \vb{p} = \gamma m\vb{v} && K = (\gamma - 1)mc^2.
+\end{align}
+We can also define the relative velocity between frames,
+\begin{equation}
+	V - \frac{v_1 + v_2}{1 = \frac{v_1v_2}{c^2}}.
+\end{equation}
+\section{Group Theory}
+We define a grouop $(G, \bullet)$ which is a set of elements $G = \left\{a,b,c,\ldots\right\}$ and a composition $\bullet$. The group must have the following properties,
+\begin{itemize}
+	\item \textbf{Closure}: $\forall a,b \in G$, $c = a \bullet b$, $c \in G$.
+	\item \textbf{Associativity}: $\forall a,b,c \in G$, $a \bullet(b \bullet c) = (b \bullet c) \bullet a$. 
+	\item \textbf{Identity}: $\exists e \in G$ such that $e \bullet a = a \bullet e = a \forall a \in G$. 
+	\item \textbf{Inverse}: $\forall a \in G \exists a^{-1} \in G$ such that $a^{-1}\bullet a = a \bullet a^{-1} = e$.
+\end{itemize}
+A group is also said to be \textbf{abelian} if $\forall a,b \in G$, $a\bullet b = b\bullet a$.
+\\\\
+In this course we are interested in the General Linear group over the real numbers covering all $n$-dimensional linear transformations,
+\begin{equation}
+	\mathbb{GL}(n, \mathbb{R}) = \left\{\text{Real $n\times n$ matrices with determinent $\neq 0$}\right\}
+\end{equation}
+and its subsets. In particular,
+\begin{enumerate}
+	\item $O(n) = \left\{M \in \mathbb{GL}(n, \mathbb{\mathbb{R}}) : MM^T = M^TM = I\right\} \to$ the group of orthogonal $n\times n$ matrices.
+	\item $SO(n) = \left\{M \in O(n) : \det M = 1\right\} \to $ the special orthogonal group that are rotation matrices.
+\end{enumerate}
+Orthogonal matrices maintain the inner product of two product, hence the length and angle between vectors. Let us consider two vectors $\vb{a}$ and $\vb{b}$ which are rotated by $M \in O(n)$,
+\begin{align}
+	\vb{a}' = M\vb{a} && \vb{b}' = M\vb{b}.
+\end{align}
+Now using Einstein summation convention,
+\begin{equation}
+	\vb{a}' \cdot \vb{b}' = a_i'b_i' = M_{ij}a_jM_{ik}b_k = \delta_{jk}a_jb_k = a_jb_j = \vb{a} \cdot \vb{b}.
+\end{equation}
+\section{Measuring distances}
+We understand how distances are calculated in regular 3D Euclidian space. If we consider $\vb{y} = \vb{x} + \dd{\vb{x}}$, where $\dd{\vb{x}}$ is an infinitesimal vector connecting two points, then
+\begin{equation}
+	(\dd{s})^2 = |\dd{\vb{x}}|^2 = \dd{x}_1^2 + \dd{x}_2^2 + \dd{x}_3^2 = =\delta_ij \dd{x}^i\dd{x}^j,
+\end{equation}
+where $\dd{s}$ is the infinitesimal distance. We have written this in terms of the Kronecker delta function, which represents a \textbf{metric} of $n$-dimensional Euclidian space. We can generalise the idea of a metric to any vector space,
+\begin{equation}
+	(\dd{s})^2 = g_{ij}(\vb{x})\dd{x}^i\dd{x}^j.
+\end{equation}
+\subsection{Distances in special relativity}
+In special relativity, we adapt distance to the \textit{interval} between two events. We can use the \textit{position 4-vector} defined by,
+\begin{equation}
+	X^{\mu} = (ct, \vb{x}) = (ct, x,y,z),
+\end{equation}
+to then define the spacetime interval,
+\begin{equation}
+	(\dd{s})^2 = g_{\mu \nu}(X^{\mu})\dd{X}^{\mu}\dd{X}^{\nu}.
+\end{equation}
+The case when $g_{\mu \eta}$ is dependent on $X^{\mu}$. The position independent spacetime metric is known as the \textbf{Minkowksi metric}, defined by,
+\begin{equation}
+	\eta_{\mu\nu} = \begin{pmatrix}
+		1 & 0 & 0 & 0\\
+		0 & -1 & 0 & 0\\
+		0 & 0 & -1 & 0\\
+		0 & 0 & 0 & -1 \\
+	\end{pmatrix},
+\end{equation}
+and the line element is then given by,
+\begin{equation}
+	(\dd{s})^2 = c^2(\dd{t})^2 - (\dd{x})^2 - (\dd{y})^2 - (\dd{z})^2.
+\end{equation}
+\section{4-vectors}
+We have previously shown that the dot product is invariant under rotations. We would wish to define an inner product for Minkowski spacetime which behaves similarly to the Euclidian dot product. Let us denote a 4-vector as, $\tilde{\vb{A}} = A^{\mu}\vb{e}_{\mu}$ where $\vb{e}_{\mu}$ are the basis vectors. Now, attempting to calculate the inner product of $\tilde{\vb{A}}$ and $\tilde{\vb{A}}$,
+\begin{equation}
+	\tilde{\vb{A}} \cdot \tilde{\vb{B}} = A^{\mu}\vb{e}_{\mu} \cdot A^{\nu}\vb{e}_{\nu}
+\end{equation}
+we can then state our orthonormality relation as,
+\begin{equation}
+	\tilde{\vb{e}}_{\mu}\cdot\tilde{\vb{e}}_{\nu} = \eta_{\mu\nu},
+\end{equation}
+which allows us to rewrite the spacetime inner product,
+\begin{equation}
+	\tilde{\vb{A}} \cdot \tilde{\vb{B}} = \eta_{\mu\nu}A^{\mu}B^{\nu} = A^0B^0 - A^iB^i.
+\end{equation}
+This relation allows us to define other 4-vectors. 
+\\\\
+Firstly, if we define \textbf{proper time} between two time-like seperated intervals to be $\dd{\tau}$, then
+\begin{equation}
+	c^2(\dd{\tau})^2 = (\dd{s})^2 = c^2(\dd{t})^2 - (\dd{\vb{x}})^2,
+\end{equation}
+we can define the \textbf{4-velocity},
+\begin{equation}
+	U^{\mu} = \dv{X^{\mu}}{\tau} = \left(c\dv{t}{\tau}, \dv{\vb{x}}{\tau}\right).
+\end{equation}
+We further find the relations,
+\begin{align}
+	\gamma = \dv{t}{\tau} && \eta_{\mu\nu}U^{\mu}U^{\nu} = c^2.
+\end{align}
+We define the \textbf{4-momentum},
+\begin{equation}
+	P^{\mu}	 = \left(\frac{E}{c}, \vb{p}\right)
+\end{equation}
+and for a particle with mass $m$,
+\begin{equation}
+	P^{\mu} = m \dv{X^{\mu}}{\tau} = mU^{\mu}.
+\end{equation}
+\subsection{Plane waves}
+The plane wave equation has a solution,
+\begin{equation}
+	f(t,\vb{x}) = f_0\exp\left[i(\omega t - \vb{k}\cdot{x})\right]
+\end{equation}
+with a dispersion relation $\omega = c|\vb{k}|$. $\phi = \omega t - \vb{k}\cdot{x}$ should be Lorentz invariant since waves should stay the same shape in all frames. We can then define the \textbf{wave 4-vector} as,
+\begin{equation}
+	k^{\mu} \left(\frac{\omega}{c},\vb{k}\right),
+\end{equation}
+which can be related to the 4-momentum $P^{\mu} = \hbar k^{\mu}$ via wave particle duality, where the solution to the wave equation is,
+\begin{equation}
+	f = f_0 \exp\left[i\eta_{\mu\nu}k^{\mu}X^{nu}\right]
+\end{equation}
+with dispersion relation $\eta_{\mu\nu}k^{\mu}k^{\nu} = 0$.
 
+\section{Covariant and contravariant indices}
 \appendix
 \chapter{Examples}
 \section{$r_{\text{min}}$ and $r_{\text{max}}$}

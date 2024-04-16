@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.3.26)  11 APR 2024 09:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.3.26)  15 APR 2024 14:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1275,49 +1275,59 @@ Package pdftex.def Info: nutation4.png  used on input line 1668.
 [34 <./FigureIV.32.png>] [35 <./nutation1.png> <./nutation3.png> <./nutation4.p
 ng>]
 Chapter 5.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1711--1714
+
+ []
+
 [36
 
-]
+] [37]
+Underfull \hbox (badness 10000) in paragraph at lines 1773--1777
+
+ []
+
+[38]
 Appendix A.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 14.4pt on input line 1678.
-[37
+(Font)              scaled to size 14.4pt on input line 1814.
+[39
 
 ]
 Appendix B.
-[38
-
-] [39]
-Appendix C.
-<document_ACDF_10245.pdf, id=202, 120.39178pt x 100.644pt>
-File: document_ACDF_10245.pdf Graphic file (type pdf)
-<use document_ACDF_10245.pdf>
-Package pdftex.def Info: document_ACDF_10245.pdf  used on input line 1838.
-(pdftex.def)             Requested size: 250.0pt x 208.99362pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1842--1845
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1851--1855
-
- []
-
 [40
 
- <./document_ACDF_10245.pdf>] [41] [42]
-Appendix D.
+] [41]
+Appendix C.
+<document_ACDF_10245.pdf, id=209, 120.39178pt x 100.644pt>
+File: document_ACDF_10245.pdf Graphic file (type pdf)
+<use document_ACDF_10245.pdf>
+Package pdftex.def Info: document_ACDF_10245.pdf  used on input line 1974.
+(pdftex.def)             Requested size: 250.0pt x 208.99362pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1971--1974
+Underfull \hbox (badness 10000) in paragraph at lines 1978--1981
 
  []
 
-[43
+
+Underfull \hbox (badness 10000) in paragraph at lines 1987--1991
+
+ []
+
+[42
+
+ <./document_ACDF_10245.pdf>] [43] [44]
+Appendix D.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2107--2110
+
+ []
+
+[45
 
 ]
 Appendix E.
-[44
+[46
 
 ] (./main.aux)
  ***********
@@ -1352,11 +1362,12 @@ ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
 msy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr
 /share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/te
-xmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (44 pages, 587673 bytes).
+xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/
+fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (46 pages, 603143 bytes).
 PDF statistics:
- 356 PDF objects out of 1000 (max. 8388607)
- 215 compressed objects within 3 object streams
+ 367 PDF objects out of 1000 (max. 8388607)
+ 222 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

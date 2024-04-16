@@ -11,7 +11,6 @@
 \geometry{a4paper, margin=1in}
 \usepackage{xcolor}
 \graphicspath{ {./images/} }
-\usepackage{svg}
 \usepackage{bm}
 \usetikzlibrary{patterns, patterns.meta}
 \usetikzlibrary{angles, quotes}
@@ -26,6 +25,7 @@
 \usepackage{array} % for defining a new column type
 \usepackage{varwidth} %for the varwidth minipage environment
 \usepackage{appendix}
+\usepackage{svg}
 
 \usetikzlibrary{decorations.pathmorphing,patterns}
 \renewcommand{\cleardoublepage}{\clearpage}
@@ -1034,7 +1034,7 @@ The wave equation on a membrane can be given by,
 \begin{equation}
 	\grad^2 f = \frac{\sigma}{T} \pdv[2]{f}{t}.
 \end{equation}
-where $f(x,y,t)$ is the displacement and T is the tension. Expanding this, the equation we wish to solve is,
+where $f(x,y,t)$ is the displacement and T is the tension. Expanding this, the equation we wish to solve in cartesian coordaintes is,
 \begin{equation}
 	\left(\pdv[2]{}{x} + \pdv[2]{}{y}\right)f(x,y,t) = v^{-2}\pdv[2]{f(x,y,t)}{t}.
 \end{equation}
@@ -1073,9 +1073,9 @@ Thus, our probelm turns into 3 ordinary, second ordertial equations,
 \end{align}
 For which the solutions are,
 \begin{align}
-	f_x(x) & = A_x\cos k_xx + B_x\sin k_x x \\
-	f_y(y) & = A_y\cos k_yy + B_y\sin k_y y \\
-	f_t(t) & = A_t\cos\omega t + B_t \cos\omega t
+	f_x(x) & = A_x\cos k_xx + B_x\sin k_x x \label{xsol} \\ 
+	f_y(y) & = A_y\cos k_yy + B_y\sin k_y y \label{ysol} \\ 
+	f_t(t) & = A_t\cos\omega t + B_t \cos\omega t 	\label{tsol}
 \end{align}
 where $\omega^2 = k^2v^2$. The complete solution then takes the form,
 \begin{equation}
@@ -1095,9 +1095,98 @@ where,
 \begin{align}
 	\vb{k} = (k_x, k_y) && \vb{x} = (x,y).
 \end{align}
+\subsection{2D wave equation in polar coordinates}
+In polar coordinates, the wave equation takes the form,
+\begin{equation}
+	\pdv[2]{f}{r} + \frac{1}{r} + \frac{1}{r^2}\pdv[2]{f}{\theta} = \frac{\sigma}{T}\pdv[2]{f}{t}. \label{polareq}
+\end{equation}
+In our case, we would like an axissymmetric solution without any dependence on $\theta$. So, we set $\pdv[2]{f}{\theta} = 0$, and \eqref{polareq} becomes,
+\begin{equation}
+	\pdv[2]{f}{r} + \frac{1}{r} = \frac{\sigma}{T}\pdv[2]{f}{t}. \label{newpolareq}
+\end{equation}
+We will impose boundary conditions $f(R,t) = 0$ and assume $f = f_r(r)f_t(t)$. Substituting this into \eqref{newpolareq},
+\begin{equation}
+	\frac{1}{f_r}\dv[2]{f_r}{r} + \frac{1}{rf_r}\dv{f_r}{r} = \frac{\sigma}{r} = \frac{\sigma}{T} \frac{1}{f_t}\dv[2]{f_t}{t} = -k^2. \label{newnewpolar}
+\end{equation}
+We can rewrite \eqref{newnewpolar},
+\begin{equation}
+	\dv[2]{f_r}{r} + \frac{1}{r}\dv{f_r}{r} = -k^2f_r. \label{besselsequation}
+\end{equation}
+\eqref{besselsequation} is known as \textit{Bessel's equation} and the solutions are known as \textit{Bessel functions}. The axisymmetric solution takes the form,
+\begin{equation}
+	f(r,t) = f_rf_t = J_0(kr)(C\cos\omega t + D\sin\omega t)
+\end{equation}
+where $J_0(kr)$ is a zero'th order Bessel function of the first kind, plotted in figure \ref{zeroth}. We can quantise the wavenumber by imposing previously stated boundary conditions.
+\begin{figure}
+	\centering
+	\includegraphics[width=250pt]{circ3.pdf}
+	\caption{A zero'th order Bessel function of the first kind.}
+	\label{zeroth}
+\end{figure}
 
 \chapter{Dispersion and Interference}
-
+In general, the velocity of a wave is not independent of frequency. This is called dispersion. Let us consider two waves propogating in the same medium with the same amplitude, $K$, at slightly different frequencies. We will assume they have different velocities, so,
+\begin{align}
+	v_1 = \frac{\omega_1}{k_1} && v_2 = \frac{\omega_2}{k_2} && v_1 \neq v_2.
+\end{align}
+The sum of the two waves is given by,
+\begin{equation}
+	y = K\left[\sin(k_1x -\omega_1t) + \sin(k_2x - \omega_2t)\right] \label{sum}
+\end{equation}
+Using identity \eqref{id1}, and defining,
+\begin{align}
+	\alpha + \beta = k_2x 0\omega_2t && \alpha - \beta = k_1x -\omega_1 t
+\end{align}
+so that,
+\begin{align}
+	\alpha & = \frac{1}{2}(k_2 + k_1)x - \frac{1}{2}(\omega_2 + \omega_1)t \\
+	\beta & = \frac{1}{2}(k_2 - k_1)x - \frac{1}{2}(\omega_2 - \omega_1)t.
+\end{align}
+We can then define the mean of the frequencies and wavevectors,
+\begin{align}
+	k_0 = \frac{k_1 + k_2}{2} && \omega_0 = \frac{\omega_2 + \omega_1}{2}
+\end{align}
+and then write the difference of wavevectors and frequencies as,
+\begin{align}
+	\Delta k = \frac{k_2 - k_1}{2} && \Delta \omega = \frac{\omega_2 - \omega_1}{2}.
+\end{align}
+Thus, we can rewrite \eqref{sum} as,
+\begin{equation}
+	y = 2K\sin(k_0x - \omega_0 t)\cos(\Delta k x - \Delta\omega t).\label{rewrittensum}
+\end{equation}
+we assume that $\Delta k$ and $\Delta \omega$ is small. Thus, \eqref{rewrittensum} describes a wave moving with \textit{phase velocity} $v_p = \frac{\omega_0}{k_0}$ modulated by a slowly varying envelope wave, which has a \textit{group velocity} $v_g= \frac{\Delta \omega}{\Delta k}$. So, we can rewrite \eqref{rewrittensum} as,
+\begin{equation}
+	y = 2KA(x,t)\sin(k_0x - \omega_0 t),
+\end{equation}
+where $A$ is the envelope wave moving at speed $v_g$. Taking limits, we also have the relation,
+\begin{equation}
+	v_g = \dv{\omega}{k}.
+\end{equation}
+\section{Phase and grouop velocities in a non-dispersive medium}
+In the case of a non-dispersive medium, both waves move at the same velocity $v$, and we find that,
+\begin{equation}
+	v = v_p = v_g
+\end{equation}
+\section{Dispersion}
+In a dispersive medium, the phase velocity varies with $k$. We can call $v_p = v_p(k)$ the dispersion relation. We will use the fact that,
+\begin{equation}
+	\lambda = \frac{2\pi}{k} \implies \dv{\lambda}{k} = -\frac{2\pi}{k^2} = -\frac{\lambda}{k},
+\end{equation}
+then the group velocity is found by,
+\begin{equation}
+	v_g = \dv{\omega}{k} = \dd{}{k}(v_pk) = v_p -\lambda\dv{v_p}{\lambda}.
+\end{equation}
+In the case where $\dv{v_p}{\lambda} = 0$, $v_g = v_p$. In the case where $\dv{v_p}{\lambda} > 0$ we get \textit{normal dispersion}. In the case where $\dv{v_p}{\lambda} < 0$ we get \textit{anomalous dispersion}.
+\subsection{Light dispersion}
+If we consider light moving through a prism, we can define the \textit{refractive index} as the ratio of the speed of light in air and in glass. We have $n = \frac{c}{v_p}$, which controls how the velocity depends on $\lambda$,
+\begin{equation}
+	\dv{v_p}{\lambda} = \dv{v_p}{n}\dv{n}{\lambda} = -\frac{c}{n^2}\dv{n}{\lambda} = -\frac{v_p}{n}\dv{n}{\lambda},
+\end{equation} 
+so the group velocity is given by,
+\begin{equation}
+	v_g = v_p \left(1 + \frac{\lambda}{n}\dv{n}{\lambda}\right).
+\end{equation}
+So, for $\dv{n}{\lambda} > 0$ we get anomalous dispersion. For $\dv{n}{\lambda} < 0$ we get normal dispersion. This then implies \textbf{shorter wavelengths have a greater refractive index, thus bend more in a prism.}
 \appendix
 \chapter{Common Waveforms and Examples}
 \section{Gaussian Pulse}
@@ -1105,8 +1194,53 @@ where,
     y(x,t) = A\exp\left(-\frac{1}{a}(x-vt)^2\right)
 \end{equation}
 
+
 \section{Waves on a square membrane}
-\section{Waves on a circular membrane}
-
-
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=200pt]{squaremembrane.pdf}
+	\caption{Model of a square membrane.}
+	\label{squaremembrane}
+\end{figure}
+In order to solve this problem, we must specify boundary conditions for the membrane. For this problem, we often clamp the edges of the membrane so that its edges are fixed. So,
+\begin{align}
+	f(0,y,t) = 0 && f(a,y,t) = 0\\
+	f(x,0,t) = 0 && f(x,a,t) = 0
+\end{align}
+By imposing the initial conditions in \eqref{xsol}, we find,
+\begin{align}
+	A = 0 && B\sin k_xa = 0.
+\end{align}
+For a non trivial solution to $B$, we can state,
+\begin{equation}
+	k_x^{(n)} = \frac{n\pi}{a}, n\in \mathbb{Z}^+,
+\end{equation}
+so that the solution for $x$ is,
+\begin{equation}
+	f_x(x) = B\sin\left(\frac{n\pi x}{a}\right).
+\end{equation}
+Similarly for $y$,
+\begin{equation}
+	f_y(y) = B\sin\left(\frac{m\pi y}{a}\right), m \in \mathbb{Z}^+.
+\end{equation}
+Considering the solution for time, recall $\omega^2 = k^2v^2$, and $k^2 = k_x^2 + k_y^2$. So,
+\begin{equation}
+	k^2 = \left(\frac{n\pi}{a}\right)^2 + \left(\frac{m\pi}{a}\right)^2.
+\end{equation}
+Thus we can obtain characteristic frequencies of the modes $n$ and $m$,
+\begin{equation}
+	\omega = \omega_n^{(m)} = v\pi\sqrt{\frac{n^2}{a^2} + \frac{m^2}{a^2}}.
+\end{equation}
+We then obtain a solution for the normal modes of the wave,
+\begin{equation}
+	f_n^{(m)}(x,y,t) = \sin\left(\frac{n\pi x}{a}\right)\sin\left(\frac{m\pi x}{a}\right)\left(a\cos\omega_n^{(m)}t + b\omega_n^{(m)}t\right)
+\end{equation}
+The full solution is the sum over all normal modes.
+\begin{equation}
+	F(x,y,t) = \sum_{n=1}^{\infty}\sum_{m=1}^{\infty}f_n^{(m)}(x,y,t).
+\end{equation}
+\chapter{Trig Identities}
+\begin{align}
+	& \sin(\alpha + \beta) + \sin(\alpha + \beta) = 2\sin\alpha\cos\beta \label{id1}
+\end{align}
 \end{document}

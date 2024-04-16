@@ -794,6 +794,106 @@ thus,
 \begin{equation}
 	M = \frac{\mu_0N_1N_2I_1A}{lI_1} = \frac{\mu_1N_1N_2A}{l}.
 \end{equation}
+\section{Self Inductance}
+A changing current in a solenoid produces a changing magnetic field. This changing magnetic field can induce an EMF within the solenoid. This is called \textit{back EMF}. We can write a relation,
+\begin{equation}
+	\varepsilon = -L \dv{I}{t},
+\end{equation}
+where $L$ is the self inductance. We understand that the magnetic field through a solenoid is given by,
+\begin{equation}
+	B = \mu_0nI \label{eq:solenoid}
+\end{equation}
+and for one turn, $\phi = BA$. Thus, for a coil of $N$ turns,
+\begin{equation}
+	\phi = \mu_0NnIA
+\end{equation}
+and furthermore,
+\begin{equation}
+	\phi = LI \implies L = \mu_0n^2lA = \frac{\mu_0N^2A}{l}. \label{eq:inductance}
+\end{equation}
+\subsection{Magnetic Field Energy}
+Let us consider a charge $\dd{q}$ doing work against an emf. Our expression is,
+\begin{equation}
+	\dd{W} = -\varepsilon \dd{q}.
+\end{equation}
+Since $I = \dv{q}{t}$ and $\varepsilon = -L\dv{I}{t}$, we get,
+\begin{equation}
+	\dd{W} = -\varepsilon I\dd{t} = L\dv{I}{t}I\dd{t} = LI\dd{t}.
+\end{equation}
+Integrating from $0 \to I$ we get an expression for the total energy stored in the inductor,
+\begin{equation}
+	U = \frac{1}{2}LI^2. \label{energyinductor}
+\end{equation}
+\subsection{Magnetic Field Energy Density}
+Given \eqref{eq:solenoid}, and rearranging \eqref{eq:solenoid} for $I$, we can then rewrite \eqref{energyinductor} as,
+\begin{equation}
+	U = \frac{B^2}{2\mu_0}lA
+\end{equation}
+thus, we can write the magnetic field energy density as,
+\begin{equation}
+	u_b = \frac{B^2}{2\mu_0}.
+\end{equation}
+\chapter{Towards Electromagnetism}
+\begin{figure}
+	\centering
+	\includegraphics[width=250pt]{Screenshot_2024-04-13_11-29-21.png}
+	\caption{}
+	\label{electromagetism}
+\end{figure}
+Magnetic fields are a relitivistic correction of electric fields. To prove this, we will consider a charge moving with a velocity $v$ relative to a stationary, neutral wire as in figure \ref{electromagetism}. The electrons in the wire are moving at a speed $u$,
+\begin{equation}
+	\gamma_e = \sqrt{\frac{1}{1 - \frac{u^2}{c^2}}},
+\end{equation}
+while the copper ions are stationary. Since the wire is electrically neutral, the electron density equals the ion density,
+\begin{equation}
+	\lambda_e = \lambda_i.
+\end{equation}
+Now, considering the moving test charge,
+\begin{equation}
+	\gamma_i = \sqrt{\frac{1}{1-\frac{v^2}{c^2}}}.
+\end{equation}
+Further, there is no electric force between the test charge and the neutral wire.
+\\\\
+Considering the electron rest frame, $S''$, the mean spacing between electrons is $x$. Therefore, when comparing with the lab frame, $S$, this spacing will be contracted by a factor of $\lambda_e$. As a result, the electron density in the rest frame is slightly lower,
+\begin{equation}
+	\lambda_e'' = \frac{\lambda_e}{\gamma_e}.
+\end{equation}
+Now, consider the charge's inertial frame, $S'$. The ions now move with a speed $-v$, and the distance between the ions is length contracted, leading to an increase in ion density such that,
+\begin{equation}
+	\lambda_i' = \gamma_i\lambda_i.
+\end{equation} 
+The electrons now move with a speed $u'$,
+\begin{align}
+	u' = \frac{u - v}{1 - \frac{uv}{c^2}} && \gamma_e' = \sqrt{\frac{1}{1-\frac{u'^2}{c^2}}} = \gamma_i\gamma_e\left(1 - \frac{uv}{c^2}\right).
+\end{align}
+The electron density in $S'$ is then,
+\begin{equation}
+	\lambda_e' = \gamma_e'\lambda_e'' = \gamma_i\gamma_e \left(1- \frac{uv}{c^2}\right)\frac{\lambda_e}{\gamma_e} = \gamma_i\lambda_e\left(1 - \frac{uv}{c^2}\right).
+\end{equation}
+So, we can evaluate the net charge density in the charge frame,
+\begin{equation}
+\begin{split}
+	&\lambda_{\text{net}} = \lambda_i' - \lambda_e' = \gamma_i\lambda_i - \gamma_i\lambda_e\left(1 - \frac{uv}{c^2}\right)\\
+	\implies & \lambda_net = \gamma_i\lambda_e\left(\frac{uv}{c^2}\right)
+\end{split}
+\end{equation}
+so the wire appears positively charged in the charge frame. This will produce an electric field, which will produce a force on the charge. This force is given by,
+\begin{equation}
+	F_r' = \frac{q\gamma_i\lambda_euv}{2\pi\epsilon_0r'c^2}.
+\end{equation}
+The test charge must also feel this force in the lab frame, so that,
+\begin{equation}
+	F_r = \frac{F_r'}{\gamma_i} = \frac{q\lambda_euv}{2\pi\epsilon_0rc^2}.
+\end{equation}
+Let us further note,
+\begin{align}
+	I = \lambda_e u && \epsilon_0c^2 = \frac{1}{\mu_0},
+\end{align}
+so,
+\begin{equation}
+	F_r = \frac{\mu_0 I qv}{2\pi r}.
+\end{equation}
+This is the equivalent to the magnetic force on a charge moving relative to a stationary wire. $\qed$
 \appendix
 \chapter{Applied Examples}
 \section{Rail Gun}
