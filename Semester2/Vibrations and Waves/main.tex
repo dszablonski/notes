@@ -1135,7 +1135,7 @@ The sum of the two waves is given by,
 \end{equation}
 Using identity \eqref{id1}, and defining,
 \begin{align}
-	\alpha + \beta = k_2x 0\omega_2t && \alpha - \beta = k_1x -\omega_1 t
+	\alpha + \beta = k_2x\omega_2t && \alpha - \beta = k_1x -\omega_1 t
 \end{align}
 so that,
 \begin{align}
@@ -1207,7 +1207,7 @@ In order to solve this problem, we must specify boundary conditions for the memb
 	f(0,y,t) = 0 && f(a,y,t) = 0\\
 	f(x,0,t) = 0 && f(x,a,t) = 0
 \end{align}
-By imposing the initial conditions in \eqref{xsol}, we find,
+By imposing the initial conditions on \eqref{xsol}, we find,
 \begin{align}
 	A = 0 && B\sin k_xa = 0.
 \end{align}
@@ -1223,19 +1223,23 @@ Similarly for $y$,
 \begin{equation}
 	f_y(y) = B\sin\left(\frac{m\pi y}{a}\right), m \in \mathbb{Z}^+.
 \end{equation}
-Considering the solution for time, recall $\omega^2 = k^2v^2$, and $k^2 = k_x^2 + k_y^2$. So,
+Solving for $t$,
+\begin{equation}
+	f_t(t) = A_t\cos(\omega_{n}^{(m)} t) + B_t \sin(\omega_{n}^{(m)} t)
+\end{equation}
+Where $\omega_n^{(n)}$ depends on $n$ and $m$. Let us recall the dispersion relation $\omega^2 = k^2v^2$, and $k^2 = k_x^2 + k_y^2$. So,
 \begin{equation}
 	k^2 = \left(\frac{n\pi}{a}\right)^2 + \left(\frac{m\pi}{a}\right)^2.
 \end{equation}
-Thus we can obtain characteristic frequencies of the modes $n$ and $m$,
+Thus we can obtain characteristic frequencies of the normal modes $n$ and $m$,
 \begin{equation}
-	\omega = \omega_n^{(m)} = v\pi\sqrt{\frac{n^2}{a^2} + \frac{m^2}{a^2}}.
+	\omega_n^{(m)} = v\pi\sqrt{\frac{n^2}{a^2} + \frac{m^2}{a^2}}.
 \end{equation}
-We then obtain a solution for the normal modes of the wave,
+We then obtain the full solution for the normal modes of the wave,
 \begin{equation}
-	f_n^{(m)}(x,y,t) = \sin\left(\frac{n\pi x}{a}\right)\sin\left(\frac{m\pi x}{a}\right)\left(a\cos\omega_n^{(m)}t + b\omega_n^{(m)}t\right)
+	f_n^{(m)}(x,y,t) = \sin\left(\frac{n\pi x}{a}\right)\sin\left(\frac{m\pi x}{a}\right)\left(a\cos\omega_n^{(m)}t + a\sin\omega_n^{(m)}t\right)
 \end{equation}
-The full solution is the sum over all normal modes.
+The general solution is the sum over all normal modes.
 \begin{equation}
 	F(x,y,t) = \sum_{n=1}^{\infty}\sum_{m=1}^{\infty}f_n^{(m)}(x,y,t).
 \end{equation}

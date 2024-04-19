@@ -479,7 +479,7 @@ Now, differentiating equation \eqref{velocity},
     \vb{a} = \Dot{\vb{v}}|_S & = \Ddot{\vb{R}}|_S + \Dot{\vb{v}}'|_S + \Dot{\vb*{\omega}}\cross\Dot{\vb{r}}' + \vb*{\omega}\cross\Dot{\vb{r}}'|_S \\
     & = \Ddot{\vb{R}}|_S + \Dot{\vb{v}}|_{S'} + \vb*{\omega}\cross\vb{v}' + \Dot{\vb*{\omega}}\cross \vb{r}' + \vb*{\omega} \cross(\vb{v'} + \vb*{\omega}\cross \vb{r}') \\
     & =  \Ddot{\vb{R}}|_S + \vb{a}' + 2\vb*{\omega}\cross\vb{v}' + \vb*{\omega}\cross(\vb*{\omega}\cross \vb{r}').
-\end{split}
+\end{split} \label{differential equation for motion}
 \end{equation}
 We drop the angular acceleration term as it is rarely ever considered in problems. \\\\
 We now wish to consider Newton's second law. We understand that in non-inertial frames,
@@ -1701,7 +1701,7 @@ We can also define the relative velocity between frames,
 	V - \frac{v_1 + v_2}{1 = \frac{v_1v_2}{c^2}}.
 \end{equation}
 \section{Group Theory}
-We define a grouop $(G, \bullet)$ which is a set of elements $G = \left\{a,b,c,\ldots\right\}$ and a composition $\bullet$. The group must have the following properties,
+We define a grouop $(G, \bullet)$ which is a set of elements $G = \left\{a,b,c,\ldots\right\}$ and a composition $\bullet$. A group must have the following properties,
 \begin{itemize}
 	\item \textbf{Closure}: $\forall a,b \in G$, $c = a \bullet b$, $c \in G$.
 	\item \textbf{Associativity}: $\forall a,b,c \in G$, $a \bullet(b \bullet c) = (b \bullet c) \bullet a$. 
@@ -2103,6 +2103,7 @@ which is the equivalent of ignoring the centrifugal force. In this case, the sol
     y & \approx 0, \\
     z & \approx R_E + h - \frac{1}{2}gt^2.
 \end{align}
+
 \chapter{Gram-Schmidt Process}
 This allows us to create a set of orthonormal basis vectors, given that a set of vectors is not already orthogonal.
 \\\\

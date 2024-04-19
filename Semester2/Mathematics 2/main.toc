@@ -32,14 +32,15 @@
 \contentsline {subsection}{\numberline {2.10.1}Vector line integrals}{10}{}%
 \contentsline {subsection}{\numberline {2.10.2}Circulation of Vector Fields}{10}{}%
 \contentsline {subsection}{\numberline {2.10.3}Stoke's Theorem}{10}{}%
-\contentsline {section}{\numberline {2.11}Applications in electrcicity and magnetism}{10}{}%
-\contentsline {section}{\numberline {2.12}Applications in mechanics}{10}{}%
-\contentsline {chapter}{\numberline {3}Fourier series}{11}{}%
-\contentsline {chapter}{\numberline {A}Vector Calculus Identities}{12}{}%
-\contentsline {section}{\numberline {A.1}Grad Identities}{12}{}%
-\contentsline {section}{\numberline {A.2}Curl Identities}{12}{}%
-\contentsline {section}{\numberline {A.3}Div Identities}{12}{}%
-\contentsline {section}{\numberline {A.4}Combination Identities}{12}{}%
-\contentsline {chapter}{\numberline {B}Vector Calculus Proofs}{13}{}%
-\contentsline {section}{\numberline {B.1}$\div {(g\vb {F})} = (\grad g)\cdot \vb {F} + g(\div {\vb {F}})$}{13}{}%
-\contentsline {section}{\numberline {B.2}Ampere's Law}{13}{}%
+\contentsline {subsection}{\numberline {2.10.4}Conditions of Stoke's Theore}{11}{}%
+\contentsline {section}{\numberline {2.11}Applications in electrcicity and magnetism}{11}{}%
+\contentsline {section}{\numberline {2.12}Applications in mechanics}{11}{}%
+\contentsline {chapter}{\numberline {3}Fourier series}{12}{}%
+\contentsline {chapter}{\numberline {A}Vector Calculus Identities}{13}{}%
+\contentsline {section}{\numberline {A.1}Grad Identities}{13}{}%
+\contentsline {section}{\numberline {A.2}Curl Identities}{13}{}%
+\contentsline {section}{\numberline {A.3}Div Identities}{13}{}%
+\contentsline {section}{\numberline {A.4}Combination Identities}{13}{}%
+\contentsline {chapter}{\numberline {B}Vector Calculus Proofs}{14}{}%
+\contentsline {section}{\numberline {B.1}$\div {(g\vb {F})} = (\grad g)\cdot \vb {F} + g(\div {\vb {F}})$}{14}{}%
+\contentsline {section}{\numberline {B.2}Ampere's Law}{14}{}%
