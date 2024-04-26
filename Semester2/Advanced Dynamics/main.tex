@@ -18,6 +18,7 @@
 \usepackage{empheq}
 \usetikzlibrary{decorations.text}
 \usepackage[most]{tcolorbox}
+\usepackage{tensor}
 %3D
 \usepackage{mathtools}
 \usepackage{booktabs}
@@ -31,6 +32,55 @@
 %Tikz Library
 \usetikzlibrary{angles, quotes, intersections}
 \usepackage[bb=dsserif]{mathalpha}
+\usetikzlibrary{decorations.pathmorphing}
+
+\tikzset{snake it/.style={decorate, decoration=snake}}
+
+\usepackage{etoolbox} % ifthen
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{calc} % for adding up coordinates
+\usetikzlibrary{decorations.markings,decorations.pathmorphing}
+\usetikzlibrary{angles,quotes} % for pic (angle labels)
+\usetikzlibrary{arrows.meta} % for arrow size
+\usepackage{xfp} % higher precision (16 digits?)
+\contourlength{1.1pt}
+
+\tikzset{>=latex} % for LaTeX arrow head
+\colorlet{myred}{red!85!black}
+\colorlet{mydarkred}{red!55!black}
+\colorlet{mylightred}{red!85!black!12}
+\colorlet{myfieldred}{mydarkred!5} % for S' background
+\colorlet{myredhighlight}{myred!20} % highlights simultaneity in ladder paradox
+\colorlet{myblue}{blue!80!black}
+\colorlet{mydarkblue}{blue!50!black}
+\colorlet{mylightblue}{blue!50!black!30}
+\colorlet{mylightblue2}{myblue!10}
+\colorlet{mygreen}{green!80!black}
+\colorlet{mypurple}{blue!40!red!80!black}
+\colorlet{mydarkgreen}{green!50!black}
+\colorlet{mydarkpurple}{blue!40!red!50!black}
+\colorlet{myorange}{orange!40!yellow!95!black}
+\colorlet{mydarkorange}{orange!40!yellow!85!black}
+\colorlet{mybrown}{brown!20!orange!90!black}
+\colorlet{mydarkbrown}{brown!20!orange!55!black}
+\colorlet{mypurplehighlight}{mydarkpurple!20} % highlights simultaneity in ladder paradox
+\tikzstyle{world line}=[myblue!40,line width=0.3]
+\tikzstyle{world line t}=[mypurple!50!myblue!40,line width=0.3]
+\tikzstyle{world line'}=[mydarkred!40,line width=0.3]
+\tikzstyle{mysmallarr}=[-{Latex[length=3,width=2]},thin]
+\tikzstyle{mydashed}=[dash pattern=on 3 off 3]
+\tikzstyle{rod}=[mydarkbrown,draw=mydarkbrown,double=mybrown,double distance=2pt,
+line width=0.2,line cap=round,shorten >=1pt,shorten <=1pt]
+%\tikzstyle{rod'}=[rod,draw=mydarkbrown!80!red!85,double=mybrown!80!red!85]
+\tikzstyle{vector}=[->,line width=1,line cap=round]
+\tikzstyle{vector'}=[vector,shorten >=1.2]
+\tikzstyle{particle}=[mygreen,line width=0.9]
+\tikzstyle{photon}=[-{Latex[length=5,width=4]},myorange,line width=0.8,decorate,
+decoration={snake,amplitude=1.0,segment length=5,post length=5}]
+
+\def\tick#1#2{\draw[thick] (#1) ++ (#2:0.06) --++ (#2-180:0.12)}
+\def\tickp#1#2{\draw[thick,mydarkred] (#1) ++ (#2:0.06) --++ (#2-180:0.12)}
+\def\Nsamples{100} % number samples in plot
 
 
 \newcommand\Bbbbone{%
@@ -53,6 +103,8 @@
 \newtheorem{klaw}{Law}
 \newtheorem*{definition}{Definition}
 \newtheorem*{theorem}{Theorem}
+
+\pgfplotsset{compat=1.18}
 \begin{document}
 \maketitle
 
@@ -1592,7 +1644,7 @@ There are then two conditions on the motion,
 	\begin{equation}
 		\theta_{\text{crit}} = \cos^{-1}\left(\frac{a^2}{2\beta}\right)\text{ where } \theta_0 > \theta_{\text{crit}}.
 	\end{equation}
-	\item If 
+	\item For steady precession, the solution to \eqref{propertiespotential} must be real, and thus,
 	\begin{equation}
 		\omega_3 > \frac{\sqrt{4mgRI\cos\theta_0}}{I_3}\label{condition}
 	\end{equation}
@@ -1602,11 +1654,13 @@ We can investigate the motion further by analysing solutions in the limit,
 \begin{equation}
 	\frac{2\beta \cos\theta_0}{a^2} << 1
 \end{equation}
-which is the equivalent to ignoring gravity. This results two roots,
+which is the equivalent to a light gyroscoppe. This results two roots,
 \begin{align}
-	+ && \implies && &\Omega_p^{\text{fast}} - \frac{a}{\cos\theta_0} = \frac{I_3\omega_3}{I\cos\theta_0} = \frac{L}{I\cos\theta_0}. & \text{Free precession} \\
+	+ && \implies && &\Omega_p^{\text{fast}} = \frac{a}{\cos\theta_0} = \frac{I_3\omega_3}{I\cos\theta_0} = \frac{L}{I\cos\theta_0}. & \text{Free precession} \\
 	- && \implies && &\Omega_p^{\text{slow}}=\frac{\beta}{2a} = \frac{mgR}{I_3\omega_3} = \frac{mgR}{L}. &
 \end{align}
+The fast solution corresponds to the limit where $\omega_t$ is large, resulting in a frequency $\Omega_p \sim \omega_3$, such that the gyroscope behaving as a free spinning top. The slow solution corresponds to gyroscopic precession, where $\vb{L}$ can be taken as parallel to $\vb{e}_3$, and rotates to compensate for gravitational torque about the pivot.
+\\\\ 
 We can further analyse the energy in the system. The rotational kinetic energy satisfies $\Dot{T}_R = \vb*{\omega}\cdot\vb{M}$. Computing this in our case,
 \begin{equation}
 	\vb*{\omega}\cdot{\vb{M}} = mgR\Dot{\theta}\sin\theta = -mgR\dv{}{\theta}\cos\theta
@@ -1787,7 +1841,7 @@ We further find the relations,
 \end{align}
 We define the \textbf{4-momentum},
 \begin{equation}
-	P^{\mu}	 = \left(\frac{E}{c}, \vb{p}\right)
+	P^{\mu}	 = \left(\frac{E}{c}, \vb{p}\right) \label{4momentum}
 \end{equation}
 and for a particle with mass $m$,
 \begin{equation}
@@ -1809,6 +1863,507 @@ which can be related to the 4-momentum $P^{\mu} = \hbar k^{\mu}$ via wave partic
 with dispersion relation $\eta_{\mu\nu}k^{\mu}k^{\nu} = 0$.
 
 \section{Covariant and contravariant indices}
+\textbf{Covarient components} are written with indices at the bottom of the symbol, i.e., $\eta_{\mu\nu}$. 
+\\\\
+\textbf{contravariant components} are written with indices at the top of the symbol, i.e., $\eta^{\mu\nu}$ (which often indicates the inverse of a matrix). 
+\\\\
+We can define $\eta^{\mu\nu}$ as the inverse metric, such that $\eta_{\mu\nu}\eta^{\mu\nu} = \delta_{\mu}^{\nu}$, where $\delta_{\mu}^{\nu}$ is the Kronecker-delta with Lorentz indices (acting as an identity matrix).
+\\\\
+\textbf{NOTE:} This property is important for general metrics, i.e., the covariant multiplied by the contravariant is equal to the identity. However, we are only concerned with the minkowski metric in this course.
+\\\\
+There is a concrete mathematical basis for these definitions, with contravariant vectors living in \textit{vector space} and covariant vectors living in \textit{dual space}. However, the main thing we are concerned with is that the inverse metric acts as an index lowering or raising operator. We can define,
+\begin{equation}
+	A_{\mu} = \eta_{\mu\nu}A^{\mu}
+\end{equation}
+then,
+\begin{equation}
+	\eta^{\mu\alpha}A_{\alpha} = \eta^{\mu\alpha}\eta_{\alpha\beta}A^{\beta} = \delta_{\beta}^{\mu}A^{\beta} = A^{\mu}.
+\end{equation}
+From this we can conclude,
+\begin{align}
+	\eta_{\mu\nu} \to \text{Lowering operator} && \eta^{\mu\nu} \to \text{Raising operator}.
+\end{align}
+Thus, we can define,
+\begin{align}
+	A^{\mu}=(A^{0},\vb{A}) = (A^0, A^1, A^2, A^3) && A_{\mu} = (A_0, A_1, A_2, A_3)
+\end{align}
+we can then see that
+\begin{align}
+	A_0 = A^0&&&\text{and}&&&A^i = -A_i
+\end{align} 
+This allows us to succinctly write the Minkowski inner product as,
+\begin{equation}
+	\tilde{\vb{A}}\cdot\tilde{\vb{B}} = \eta_{\mu\nu}A^{\mu}B^{\nu}=A_{\mu}B^{\mu} = A^{\mu}B_{\mu}.
+\end{equation}
+\subsection{New summation convention rules}
+We have thus added aditional rules to the summation convention:
+\begin{enumerate}
+	\item Summed indices must either be "up" or "down",
+	\item There must be the same number of up and down indices on each side of the equation.
+\end{enumerate}
+\subsection{Covariant and contravariant 4-vectors}
+We define the covarient and contravarient spacetime position 4-vector as,
+\begin{align}
+	X_\mu = (ct, -\vb{x}) && X^{\mu} = (ct, \vb{x})
+\end{align}
+where $X_\mu = \eta_{\mu\nu}X^{\nu}$. Similarly,
+\begin{align}
+	U^{\mu} & = \gamma(c, \vb{v})  &\to&&  U_{\mu} &= \gamma(c, -\vb{v}) \\
+	P^{\mu} & = \left(\frac{E}{c}, \vb{p}\right) &\to&& P_{\mu}&=\left(\frac{E}{c}, -\vb{p}\right) \\
+	k^{\mu}&=\left(\frac{\omega}{c}\vb{k}\right) &\to&& k_{\mu}&=\left(\frac{\omega}{c}, -\vb{k}\right)
+\end{align}
+\subsubsection{Covaraince and contravariance in Euclidian space}
+The Euclidian metric is given by $\delta_{ij}$. The covariant $\to$ contravariant operation is,
+\begin{equation}
+	A_i = \delta_{ij}A^{j} = A^{i}
+\end{equation}
+so, the covariant and contravariant components are equal, so the distinction is not required.
+\section{Lorentz and Poincare symmetries}
+We showed that the Euclidian inner product is invariant under $O(3)$ transformations (i.e., orthogonal symmetry). We are able to replace this concept with Loretnz symmetry. Let us consider the Lorentz transformation in the $x$-direction (for $\beta = \frac{v}{c}$),
+\begin{equation}
+	X'^{\mu} = \begin{pmatrix}ct' \\ x' \\ y' \\ z'\end{pmatrix} = \begin{pmatrix}
+		\gamma & -\gamma\beta & 0 & 0 \\
+		-\gamma\beta & \gamma & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{pmatrix} = \Lambda\indices{^{\mu}_{\nu}}X^{\nu} \label{lorentztrans}
+\end{equation}
+The matrix $\Lambda^{\mu}_{\nu}$ is a member of the Lorentz symmetry group $SO(1,3)$ and can be thought of as a rotation in Minkowski spacetime.
+\begin{table}
+	\centering
+	\caption{$\Lambda^{\mu}_{\nu}$ identities.}
+	\begin{tabular}{c}
+		\toprule
+		$A'^{\mu} = \Lambda\indices{^{\mu}_{\nu}}A^{\nu}$ \\
+		$\Lambda\indices{^{\alpha}_{\mu}}\Lambda\indices{^{\beta}_{\mu}}\eta_{\alpha\beta} = \eta_{\mu\nu}$ \\
+		$\Lambda^T\eta\Lambda = \eta$ \\
+		$\det(\Lambda)=1$ \\
+		\bottomrule
+	\end{tabular}
+	\label{lambdaid}
+\end{table}
+\\\\
+Given how we have defined the action of the group (row 1, table \ref{lambdaid}) on contravarient vectors, we can write the covariant transformation in by applying the appropriate metrics,
+\begin{equation}
+	A_{\alpha}' = (\eta_{\alpha\mu}\Lambda\indices{^{\mu}_{\nu}}\eta^{\nu\beta})A_{\beta} \label{covariant trans}
+\end{equation}
+and we see that $\eta_{\alpha\mu}\Lambda^{\mu}_{\nu}\eta^{\nu\beta}$ is the Lorentz transformation for the covariant components. However, we can simplify this. We have essentially written down $\eta\Lambda\eta^{-1}$, however,
+\begin{equation}
+	\eta\Lambda = (\Lambda^{T})^{-1}\eta
+\end{equation}
+and
+\begin{equation}
+	(\Lambda^T)^{-1} = \eta\Lambda\eta^{-1}.
+\end{equation}
+We can then rewrite \eqref{covariant trans},
+\begin{align}
+	A_{\alpha} = \left[\left(\Lambda^T\right)^{-1}\right]\indices{_{\alpha}^{\beta}}A_{\beta}= (\Lambda^{-1})\indices{^{\beta}_{\alpha}}A_{\beta} && A^{\alpha}=\Lambda\indices{^{\alpha}_{\beta}}A^{\beta}
+\end{align}
+From this, we can prove whether certain quantities are Lorentz invariant. 
+\subsection{$SO(1,3)$ group}
+The $SO(1,3)$ group is known as the Lorentz group. It includes 3 spatial rotations and 3 Lorentz boosts. In principle, we have
+\begin{equation}
+	\Lambda\indices{^{\mu}_{\nu}} = \Lambda\indices{^{\mu}_{\nu}}(\theta, \vu{n}, \beta)
+\end{equation}
+which corresponds to a rotation by an angle $\theta$ about an axis defined by $\vu{n}$ and a velocity $\vb{v} = \beta c$.
+\subsubsection{Rotations}
+We can consider a general rotation,
+\begin{align}
+	\Lambda\indices{^0_0} = 1, && \Lambda\indices{^0_i} = \Lambda\indices{^i_0} = 0, && \Lambda\indices{^i_j} = \left(\delta_j^i - \hat{n}^i\hat{n}_j\right)\cos\theta - \epsilon\indices{^i_{jk}}\hat{n}^k\sin\theta + \hat{n}^i\hat{n}_j
+\end{align}
+where $\vu{n}$ is a Euclidian vector.
+
+\subsubsection{Boosts}
+A generael Lorentz Boost is given by,
+\begin{align}
+	\Lambda\indices{^0_0} = \gamma, && \Lambda\indices{^0_i} = -\gamma\beta_i, && \Lambda\indices{^i_0} = -\gamma\beta^i, && \Lambda\indices{^i_j} = \delta_i^j + (\gamma - 1)\frac{\beta^i\beta_j}{|\beta|^2}
+\end{align}
+We are able to extend the Lorentz symmetry group to translational and spatial invariance through the Poincare group.
+\section{Lorentz transformations as rotations in hyperbolic spacetime}
+We have talked before how rotations in Euclidian space are those about the $x$,$y$, and/or $z$ coordinates, about a \textit{real} angle $\theta$. Minkowski was able to show that Lorentz transformations were actually rotations about a \textit{complex} angle in \textit{hyperbolic} spacetime (what we now call Minkowski space), such that all events exist on a hyperpbola which is invariant under Lorentz transformations. This is talked about in more detail in a later section.
+\\\\
+Understanding that Lorentz transformations are hyperbolic rotations, we can write,
+\begin{align}
+	\cosh\alpha = \gamma && \sinh = \gamma\beta
+\end{align}
+supposing our complex angle is denoted by $\alpha$. We can then rewrite $\Lambda\indices{^{\mu}_{\nu}}$ in \eqref{lorentztrans} as (for the 2D case),
+\begin{equation}
+	\Lambda\indices{^{\mu}_{\nu}} = \begin{pmatrix}
+		\cosh\alpha & - \sinh\alpha \\
+		-\sinh\alpha & \cosh\alpha
+	\end{pmatrix}.
+\end{equation}
+We can reaffirm our refactoring of the Lorentz transformations is we look at the identity,
+\begin{equation}
+	\cosh^2\alpha - \sinh^2\alpha = \gamma^2\left(1 - \beta^2\right) = 1.
+\end{equation}
+\section{Symmetry and conservation laws}
+We will now discuss certain symmetries in physics and their consequences.
+\\\\
+\textbf{Time Translation Invariance}\\
+This is a symmetry by which a law is invariant under the transformation 
+\begin{equation}
+	t \to t' = t + t_0
+\end{equation} where $t_0$ is constant. This occurs in Newtons second law when the force has no explicit time dependence, i.e., $\vb{F} = -k\vb{r}$, as $\dd{t} = \dd{t'}$.
+\\\\
+\textbf{Spatial Translation}\\
+This is when a law is invariant under,
+\begin{equation}
+	\vb{r} \to \vb{r}' = \vb{r} + \vb{r}_0.
+\end{equation}
+Newtonian gravity follows this symmetry.
+\\\\
+\textbf{Rotational Invariance}\\
+This is where a law is invariant under a rotation. This includes the Lorentz force in electricity and magnetism.
+\subsection{Noether's Theorem}
+\begin{theorem}
+	There is a conserved quantity associated with every symmetry in a physical system.
+\end{theorem}
+Conversely, the existance of a conserved quantity implies symmetry.
+\\\\
+Given that Euclidian space has $\mathbb{R} \times SO(3)$ symmetry due to spatial and rotational invariance. This implies the conservation of,
+\begin{itemize}
+	\item energy due to time translation invariance,
+	\item momentum due to spatial translation invariance,
+	\item angular momentum due to rotational invariance.
+\end{itemize}
+\subsection{Symmetry and conservation in Minkowski space}
+Minkowski space has $\mathbb{R}^{1,3}\times SO(1,3)$ symmetry, associated with 10 conserved quantities, e.g., 4-momentum.
+
+\section{Causality}
+\begin{figure}
+	\centering
+	\includegraphics[width=300pt]{lightcones.png}
+	\caption{Spacetime diagram to illustrate the concept of causality.}
+	\label{lightcones}
+\end{figure}
+Causality is the concept that events occur in the same order regardless of reference frame. Special relativity obeys this concept.
+\par\noindent\rule{\textwidth}{0.4pt}
+\begin{proof}
+	Consider 2 events with seperation $\Delta x$ and $\Delta t$ in space and time in a frame S. Moving to a reference frame $S'$,
+	\begin{equation}
+		L\Delta t \to c\Delta t' = \gamma \left(c\Delta t - \beta \Delta x\right)
+	\end{equation}
+	Let us assert that $\Delta t > 0$ and $0 < \beta < 1$.
+	\\\\
+	Assume that $\Delta t' < 0$, i.e. reverse the order of the events. Thus,
+	\begin{equation}
+		\frac{\beta \Delta x}{c} > \Delta t \implies \Delta x > \frac{c \Delta t}{\beta} > c\Delta t.
+	\end{equation}
+	$\implies$ events would have needed to travel a greater distance than light could have travelled in the given time interval. Nothing can travel faster than the speed of light $implies$ contradiction.
+\end{proof}
+\noindent\rule{\textwidth}{0.4pt}\vspace{10pt}
+\noindent
+Consider figure \ref{lightcones}, which is a 1 + 1 spacetime diagram (1 dimension of space, 1 dimension of time). We see that $B$ is in the causal future of $A$ since it is in the future light cone of $A$. Both $A$ and $C$ are in the causal past of $B$. $A$ and $C$ are said to be causally disconnected.
+
+\section{Spacetime diagrams and the light cone}
+\begin{figure}
+	\centering
+	% SPACETIME DIAGRAM - MULTIPLE INVARIANT HYPERBOLOIDS
+	% Inspiration: https://commons.wikimedia.org/wiki/File:Spacelike_and_Timelike_Invariant_Hyperbolas.png
+	\begin{tikzpicture}[scale=1.8]
+		\message{Multiple invariant hyperboloids^^J}
+		
+		\def\xmax{2}
+		\def\Nlines{4} % number of world lines (at constant x/t)
+		\pgfmathsetmacro\w{\xmax/(\Nlines+1)}
+		
+		% AXES
+		\draw[->,thick] (0,-\xmax) -- (0,\xmax+0.2) node[left=-1] {$ct$};
+		\draw[->,thick] (-\xmax,0) -- (\xmax+0.2,0) node[right=-1] {$x$};
+		
+		% LIGHTCONE
+		\draw[myorange,thick] (-\xmax,-\xmax) -- (\xmax, \xmax);
+		\draw[myorange,thick] (-\xmax, \xmax) -- (\xmax,-\xmax);
+		
+		\foreach \i [evaluate={\s=\xmax*\i/(\Nlines+1); \xm=sqrt(\xmax^2-\s^2);}] in {1,...,\Nlines}{
+			
+			% SPACELIKE HYPERBOLOIDS
+			\draw[mygreen,thick,samples=\Nsamples,smooth,variable=\x,domain=-\xm:\xm]
+			plot(\x,-{sqrt(\s^2+(\x)^2)})
+			plot(\x,{sqrt(\s^2+(\x)^2)});
+			
+			% TIMELIKE HYPERBOLOIDS
+			\draw[myblue,thick,samples=\Nsamples,smooth,variable=\y,domain=-\xm:\xm]
+			plot(-{sqrt(\s^2+(\y)^2)},\y)
+			plot({sqrt(\s^2+(\y)^2)},\y);
+			
+		}
+		
+		% LABELS
+		\node[mydarkgreen,above left=2,align=center] at (-0.2*\xmax,\xmax)
+		{timelike separation\\[-1]$\tau^2 = c^2t^2 - x^2 > 0$};
+		\node[mydarkorange,left=2,above right=-2,align=center] at (\xmax,\xmax)
+		{lightlike separation\\[-1]$\tau^2 = c^2t^2 - x^2 = 0$};
+		\node[mydarkblue,right=0,align=center] at (0.88*\xmax,-0.24*\xmax)
+		{spacelike separation\\[-1]$\tau^2 = c^2t^2 - x^2 < 0$};
+		
+		% VECTORS
+		\def\xa{0.5}
+		\def\xb{2.7}
+		\def\ta{-0.7}
+		\def\tb{1.7}
+		\draw[mydarkgreen,very thick,decoration={markings,mark=at position 0.55 with {\arrow{latex}}},
+		postaction={decorate},samples=20,variable=\x,domain=\xa:\xb]
+		plot({\w*\x},{\w*sqrt((\x)^2+3^2)});
+		\draw[mydarkblue,very thick,decoration={markings,mark=at position 0.6 with {\arrow{latex}}},
+		postaction={decorate},samples=20,variable=\x,domain=\ta:\tb]
+		plot({\w*sqrt((\x)^2+3^2)},{\w*\x});
+		\fill[mydarkgreen] ({\w*\xa},{\w*sqrt(\xa^2+3^2)}) coordinate (A) circle(0.03);
+		\fill[mydarkgreen] ({\w*\xb},{\w*sqrt(\xb^2+3^2)}) coordinate (A') circle(0.03);
+		\fill[mydarkblue] ({(\w*sqrt((\ta)^2+3^2)},{\w*\ta}) coordinate (B) circle(0.03);
+		\fill[mydarkblue] ({(\w*sqrt((\tb)^2+3^2)},{\w*\tb}) coordinate (B') circle(0.03);
+		\draw[vector',mydarkgreen] (0,0) -- (A)
+		node[pos=0.53,right=-2] {$s$};
+		\node[anchor=south] at (A) {$A$}; 
+		\node[anchor=south] at (A') {$A'$};
+		\draw[vector',mydarkgreen] (0,0) -- (A')
+		node[pos=0.57,right=-2] {$s$};
+		\draw[vector',mydarkblue] (0,0) -- (B)
+		node[pos=0.53,below=-1] {$s$};
+		\node[anchor=west] at (B) {$B$}; 
+		\node[anchor=west] at (B') {$B'$};
+		\draw[vector',mydarkblue] (0,0) -- (B')
+		node[pos=0.53,above=-1] {$s$};
+		
+	\end{tikzpicture}
+	\caption{}
+	\label{spacetime}
+\end{figure}
+Spacetime events live on hyperparabolas, such that regardless of frame, all events exist on a hyperparabola $c^2\tau^2 = c^2t^2 \pm x^2$ regardless of frame. A hyperbolic Lorentz transformation/rotation allows for changing of frames.
+\\\\
+Let us now suppose an event occus at the origin of a spacetime diagram. The causal past and causal future is bounded by lines $x = \pm ct$. We then define,
+\begin{itemize}
+	\item \textbf{Time-like seperation}: events in the causal past/future, with the condition $\Delta\tau^2 > 0$.
+	\item \textbf{Space-like seperation}: events which are causally seperated/acausal, with the condition $\Delta\tau^2 < 0$.
+	\item \textbf{Null seperation}: events which like on the lines $x = \pm ct$, also referred to as null, with the condition $\Delta\tau^2 = 0$.
+\end{itemize}
+What we have discussed referred to just 1 dimension of space and time, but these concepts still apply to higher dimensions. In the cases of higher dimensions, hyperbolae become hyperboloids, and points become world lines.
+\section{Propagation of massless particles}
+Let us define properties of particles under relativity. Massless particles hold the following quantities,
+\begin{align}
+	E = c|\vb{p}| && E = \frac{hc}{\lambda} = hf. \label{energymomentum}
+\end{align} 
+From this, we can say particles have a wavelength,
+\begin{equation}
+	\lambda = \frac{h}{|\vb{p}|}.
+\end{equation}
+We can express this in terms of the wavenumber,
+\begin{equation}
+	|\vb{k}| = \frac{2\pi}{h}
+\end{equation}
+with angular frequency,
+\begin{equation}
+	\omega = 2\pi f
+\end{equation}
+such that,
+\begin{align}
+	\vb{p} = \hbar \vb{k} && E = \hbar c |\vb{k}| = \hbar \omega.
+\end{align}
+\subsection{Doppler shifts and abberation}
+Given a massless particle's energy, we can write its 4-momentum as,
+\begin{equation}
+	P^{\mu} = (|\vb{p}|, \vb{p})
+\end{equation}
+in two spatial dimensions on the $x-y$ place. More concretely, if the momentum vector makes an angle $\theta$ to the horizontal,
+\begin{equation}
+	\begin{split}
+		P^{\mu} & = p(1, \cos\theta, \sin\theta)\\
+		& = \frac{E}{c}(1, \cos\theta, \sin\theta).\label{dopp4mom}
+	\end{split}
+\end{equation}
+\begin{figure}
+	\tikzset{snake arrow/.style=
+		{->,
+			decorate,
+			decoration={snake,amplitude=.4mm,segment length=2mm,post length=1mm}}
+	}
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+	\begin{tikzpicture}
+		\draw[axis] (0,0) -- (0,4) node[anchor=south east] {$y$};
+		\draw[axis] (0,0) -- (4,0) node[anchor=north west] {$x$};
+		\node at (0.5,1.5) {$\bullet$};
+		\node[anchor = north west] at (0.5,1.5) {Source};
+		\node[anchor = south west] at (0.5,1.5) {$(x_s,y_s)$};
+		\draw[snake arrow] (0.5,1.5) -- (0.5, 2.5);
+		\draw[snake arrow] (0.5,1.5) -- (-0.5, 1.5);
+		\draw[snake arrow] (0.5,1.5) -- (1.5, 1.5);
+		\draw[snake arrow] (0.5,1.5) -- (0.5, 0.5);
+		\node at (3,1.5) {$\bullet$};
+		\node[anchor = north] at (3,1.5) {Observer};
+		\node[anchor = south] at (3,1.5) {$(x_0, y_s)$};
+		\draw[->] (3,1.5) -- (4,1.5) node[anchor = west] {$v$};
+		\node at (4,4) {$S$};
+	\end{tikzpicture}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\begin{tikzpicture}
+			\draw[axis] (0,0) -- (0,4) node[anchor=south east] {$y$};
+			\draw[axis] (0,0) -- (4,0) node[anchor=north west] {$x$};
+			\node at (0.5,1.5) {$\bullet$};
+			\node[anchor = north west] at (0.5,1.5) {Source};
+			\node at (3,1.5) {$\bullet$};
+			\node[anchor = north] at (3,1.5) {Observer};
+			\draw[->] (0.5,1.5) -- (-0.5,1.5) node[anchor = east] {$v$};
+			\draw[->] (0, 3.5) -- (1,3.5) node[anchor = west] {$v$};
+			\node at (4,4) {$S'$};
+		\end{tikzpicture}
+	\end{subfigure}
+	\caption{}
+	\label{doppler}
+\end{figure}\\\\
+Now consider a setup like in figure \ref{doppler}. We are considering a source emitting photons isotropically, where the observer is moving away from the source at a velocity $v$ along the $x$-axis in a frame $S$. Let us consider a frame $S'$ moving at velocity $v$ perpendicular to the $x$-axis of $S$ such that the observer is stationary and the source is moving away from them at velocity $v$. Assuming $x_0 > x_s$ and $v>0$, we have,
+\begin{equation}
+	P'^{\mu} = \Lambda\indices{^\mu_\nu}P^{\nu} = \begin{pmatrix}
+		\gamma & -\gamma\beta & 0 & 0 \\
+		-\gamma\beta & \gamma & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{pmatrix}\begin{pmatrix}
+	\frac{E}{c} & p_x & p_y & p_z
+	\end{pmatrix}.
+\end{equation}
+From this, we can deduce,
+\begin{align}
+	E' = \gamma\left(E - vp_x\right) && p'_x = \gamma\left(p_x - \frac{v.E}{c^2}\right) && p_y' =p_y && p_z' = p_z
+\end{align}
+By \eqref{dopp4mom}, we can rewrite these as,
+\begin{align}
+	E' & = \gamma\left(E - vp\cos\theta\right) \label{5.1}\\
+	p'\cos\theta' & = p_x' = \gamma(p\cos\theta - \frac{vE}{c^2}) \\
+	p'\sin\theta' & = p_y' = p\sin\theta.
+\end{align}
+Given \eqref{5.1}, we have,
+\begin{equation}
+	p' = \gamma p (1-\frac{v}{c}\cos\theta). \label{almostdopp}
+\end{equation}
+Given the energy momentum relation in \eqref{energymomentum}, we can rewrite \eqref{almostdopp} as, if we say $p \propto f$ and $p' \propto f'$.
+\begin{equation}
+	\frac{f'}{f} = \gamma\left(1 - \frac{v}{c}\right) = \left(\frac{1 - \dfrac{v}{c}}{1 + \dfrac{v}{c}}\right)^{-\frac{1}{2}}
+\end{equation}
+which is the equation of \textbf{longitudonal doppler shift}.
+\subsubsection{Transverse doppler shifting}
+Let us now consider the apparent angle seen by the observer. The observer seees the angle of light change, given by,
+\begin{align}
+	\cos\theta' & = \frac{\cos\theta - \frac{v}{c}}{1 - \frac{v}{c}\cos\theta} \\
+	\sin\theta' & = \frac{\sin\theta}{\gamma\left(1 - \frac{v}{c}\cos\theta\right)}.
+\end{align}
+In the limit that $v\to -c$, i.e., the observer moving towards the source, approaching the speed of light, we find,
+\begin{align}
+	\cos\theta' \to 1 && \sin\theta' \to 0.
+\end{align}
+Assuming $\theta' = \frac{\pi}{2}$, we have that $\cos\theta = \frac{v}{c}$, meaning that,
+\begin{equation}
+	f' = \frac{f}{\gamma}
+\end{equation}
+which is known as \textbf{transverse doppler shifting}.
+\subsubsection{Relativistic aberration}
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=225pt]{Aframe0001.png}
+		\subcaption{Observer moving at $0c$.}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=225pt]{Aframe0010.png}
+		\subcaption{Observer moving at $0.999c$.}
+	\end{subfigure}
+	\caption{Figure showcasing relativistic aberration.}
+	\label{aberration}
+\end{figure}
+Let us now consider a case where we assume no angle. We can derive,
+\begin{equation}
+	\cos\theta' = 1 - \frac{\Delta v}{c}\tan^2\left(\frac{1}{2}\theta\right) + \mathcal{O}\left[\left(\frac{\Delta v}{c}\right)^2\right].
+\end{equation}
+This means that photons experience aberration towards the observer as the observer moves towards the source, as can be seein in figure \ref{aberration}.
+\subsubsection{Flux due to relativistic aberration}
+In addition to aberration, the observer would experience an increase of flux of the photons as they all concentrate on one point. We can say that the source emits photons at a rate $\Dot{N}$. Thus, the photons per solid per unit time are,
+\begin{equation}
+	\dv{N}{\Omega\dd{t}} = \frac{\Dot{N}}{4\pi}.
+\end{equation}
+Let us consider a frame $S'$ moving along $x$ with $y$ rotated by an azimuthal angle $\phi$, unaffected by the Lorentz transformation. The flux of photons in $S'$ is given by,
+\begin{equation}
+	\begin{split}
+		& \dv{N}{\Omega'\dd{t}} = \frac{N}{\left(\cos\theta'\right)\dd{\phi}'} = \dv{\cos\theta}{\cos\theta'}\dv{N}{\Omega\dd{t}} \\
+		\implies & \dv{N}{\Omega'\dd{t}} = \frac{\Dot{N}}{4\pi}\frac{\left[1 - \left(\frac{v}{c}\right)^2\right]}{\left(1 + \frac{v}{c}\cos\theta'\right)^2}.
+	\end{split}
+\end{equation}
+For $\theta' \approx 0$ (i.e., the limit of $v \to -c$),
+\begin{equation}
+	\dv{N}{\Omega'\dd{t}} = \frac{\Dot{N}}{4\pi}\left(\frac{1- \frac{v}{c}}{1 + \frac{v}{c}}\right) \sim \frac{\Dot{N}c}{2\pi\Delta v}
+\end{equation}
+when $v = -c + \Delta v$. In the limit $\Delta v \to 0$, we find that flux $\to \infty$.
+\section{Relativistic collisions}
+We will now consider the collision of 2 particles in 2-2 scattering. The particles begin in an intial state $(1,2)$, and enter a final state $(A,B)$.
+\\\\
+We will be working in a kinetmatic frame. We impose kinetmatic restraints, i.e., those given by conservation of 4-momentum,
+\begin{equation}
+	\tilde{\vb{\vb{P}}}_1 + \tilde{\vb{P}}_2 = \tilde{\vb{P}}_B + \tilde{\vb{P}}_B \label{momentumcons}
+\end{equation}
+which further implies energy conservation and 3-momentum conservation, if we recall \eqref{4momentum}. We further have \textit{on shell} conditions, which impy,
+\begin{equation}
+	\tilde{\vb{P}}_i \cdot \tilde{\vb{P}}_i = (m_ic)^2 \text{ for } i = \left\{1,2,A,B\right\}
+\end{equation}
+which gives $\tilde{\vb{P}}_i^2 = 0$ for massless particles. Taking the inner product on \eqref{momentumcons}, we find,
+\begin{equation}
+	\begin{split}
+		&(\tilde{\vb{P}}_A + \tilde{\vb{P}}_B)^2 = (\tilde{\vb{P}}_1 + \tilde{\vb{P}}_2)^2 \\
+		\implies & \tilde{\vb{P}}_A \cdot \tilde{\vb{P}}_B = \tilde{\vb{P}}_1 \cdot \tilde{\vb{P}}_2 + \frac{1}{2}\Delta c^2
+	\end{split}
+\end{equation}
+for,
+\begin{equation}
+	\Delta = m_1^2 + m_2^2 -m_A^2 + m_b^2.
+\end{equation}
+\subsection{Solving collision problems}
+Let us consider what information is required for this colliison problem. We will assume we know all initial conditions. Given that there are a total of $2n+4$ unknown quantities for $n$ spatial dimensions, the tools we have at our disposal are,
+\begin{itemize}
+	\item Energy conservation $\to$ 1 equation,
+	\item Momentum conservation $\to$ n equations,
+	\item On shell conditions for the final state $\to$ 2 equations.
+\end{itemize}
+Thus, we have $n+3$ equations when we must solve for $2n+4$ unknowns. It is then not possible to find a complete solution to the collision problem without additional information! In fact, the only way to solve this is if the problem occurs in 1 dimension where $m_A$ and $m_B$ are known. Clearly, we need more tools for solving relativistic collision problems.
+\subsection{Colinear photons}
+If we consider $N$ colinear photons with 4 momentum,
+\begin{equation}
+	P_i^{\mu} = \frac{E_1}{c}(1,1,0,0).
+\end{equation}
+The total 4 momentum is then given by,
+\begin{equation}
+	P_{\text{tot}}^{\mu} = \frac{\sum_iE_i}{c}(1,1,0,0).
+\end{equation}
+Thus, we can treat the collection of colinear photons as a single photon with energy $\sum_i E_i$.
+\subsection{Zero momentum frames and invariant mass}
+We are always able to choose a coordinate frame where the total 3-momentum is along the $x$ direction,
+\begin{equation}
+	P_{\text{tot}}^{\mu} = \left(\frac{E}{c}, p, 0 ,0\right). \label{totmom4}
+\end{equation}
+Let us make a Lorentz transformation along the $x$-direction so that,
+\begin{align}
+	E' = \gamma(E - vp) && p' = \gamma \left(p - \frac{vE}{c^2}\right) = 0
+\end{align}
+which requires that,
+\begin{equation}
+	\frac{v}{cp} = \frac{cp}{E} < 1
+\end{equation}
+which is how the \textit{centre of momentum frame} is defined. We can further define take the inner product on \eqref{totmom4} and define,
+\begin{equation}
+	\tilde{\vb{P}}_\text{tot} \cdot \tilde{\vb{P}}_\text{tot} = \eta_{\mu\nu}P_{\text{tot}}P_{\text{tot}} = (m_{\text{inv}})^2 > 0
+\end{equation}
+where $m_{\text{inv}}$ is the \textit{invariant mass} of the system. For non-zero invariant mass, we have $\frac{v}{c} < 1$.
+\subsubsection{Further on invariant mass}
+We can further define the invariant mass of a system by,
+\begin{equation}
+	(m_{\text{inv}})^2 = \left(\frac{1}{c}\sum_i E_i\right)^2 + \left(\sum_i \vb{p}_i\right)^2
+\end{equation}
+which is conserved for \textit{elastic} collisions and is the same in all frames. 
+\subsubsection{Threshold conditions}
+In the centre of momentum frame, we have that,
+\begin{equation}
+	m_{\text{inv}} = \frac{1}{c}\sum_i E_i = \sum_i \sqrt{|\vb{p}_i|^2 + (m_ic)^2} \geq c\sum_im_i.
+\end{equation}
+The system is said to be \textit{at threshold} when $\vb{p}_i = 0, \forall i$. I.e., when the system is saturated. The threshold condition can be used to check if a system (i.e., the solution we found) is kinematically allowed.
 \appendix
 \chapter{Examples}
 \section{$r_{\text{min}}$ and $r_{\text{max}}$}
@@ -1858,6 +2413,56 @@ we can then conclude,
         \end{split}
     \end{equation}
 \end{proof}
+\newpage
+\section{Massive particle decay}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[scale=2]
+		\node at (-1.5, 0) {$\bullet$};
+		\draw[dashed] (0, 1.25) -- (0,-1.25);
+		\node at (1.5, 0.25) {$\bullet$};
+		\node[anchor=east] at (1.5,0.25) {$A$};
+		\node at (1.5, -0.25) {$\bullet$};
+		\node[anchor=east] at (1.5,-0.25) {$B$};
+		\draw[->] (1.5,-0.25) -- (2.25, -0.75);
+		\draw[->] (1.5,0.25) -- (2.25,0.75);
+	\end{tikzpicture}
+	\caption{}
+	\label{particledecay}
+\end{figure}
+Consider the decay of a massive particle at rest to 2 particles, $A$ and $B$, as in figure \ref{particledecay}. This is known as a 1-2 process. The 4 momentum of the initial state is given by,
+\begin{equation}
+	P^{\mu} = (m_1, c, 0, 0).
+\end{equation}
+By conservation of 4 momentum, we have,
+\begin{equation}
+	\tilde{\vb{P}} = \tilde{\vb{P}}_A + \tilde{\vb{P}}_B. \label{ppapb}
+\end{equation}
+Given the shell conditions, we can take the dot product of both sides of \eqref{ppapb},
+\begin{equation}
+	\begin{split}
+		\tilde{\vb{P}} \cdot \tilde{\vb{P}} &= \left(\tilde{\vb{P}}_A\cdot\tilde{\vb{P}}_B\right)^2\\
+		\implies \tilde{\vb{P}}_A \cdot \tilde{\vb{P}}_B &= \tilde{\vb{P}}^2 - \tilde{\vb{P}}_A^2 - \tilde{\vb{P}}_B^2 \\
+		&=(m_1c)^2 - (m_Ac)^2 - (m_Bc)^2 = \Delta c^2. \label{square}
+	\end{split}
+\end{equation}
+By substituting \eqref{ppapb} into \eqref{square}, we obtain,
+\begin{align}
+	\left(\tilde{\vb{P}} - \tilde{\vb{P}}_A\right)\cdot\tilde{\vb{P}}_A = \frac{1}{2}\Delta c^2 && \left(\tilde{\vb{P}} - \tilde{\vb{P}}_B\right)\cdot\tilde{\vb{P}}_B = \frac{1}{2}\Delta c^2
+\end{align}
+and
+\begin{align}
+	\tilde{\vb{P}}\cdot\tilde{\vb{P}}_A = m_1E_A && \tilde{\vb{P}}\cdot\tilde{\vb{P}}_B = m_1E_B.
+\end{align}
+From this, we obtain solutions,
+\begin{align}
+	\frac{E_A}{c^2} = \frac{\frac{1}{2}\Delta + m^2_A}{m_1} && \frac{E_B}{c^2} = \frac{\frac{1}{2}\Delta + m^2_B}{m_1}.
+\end{align}
+We can now check our answer is kinematically allowed. Given that the initial state had zero 3-momentum, the same must hold in the final sate. We then have,
+\begin{equation}
+	m_{\text{inv}}c = m_1c = \frac{E_A + E_B}{c} = \sqrt{|\vb{p}_A|^2 + (m_Ac)^2} + \sqrt{|\vb{p}_B| + (m_bc)^2} \geq m_Ac + m_Bc
+\end{equation}
+which holds at threshold.
 \chapter{Moments of Inertia}
 \section{Solid Cylinder}
 We will consider a solid cylinder about its centre of mass of radius $R$ and a height $h$. Let us define,

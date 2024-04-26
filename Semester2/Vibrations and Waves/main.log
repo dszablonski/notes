@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.4.16)  16 APR 2024 15:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.4.16)  26 APR 2024 11:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1081,22 +1081,96 @@ Package pdftex.def Info: circ3.pdf  used on input line 1122.
 Chapter 6.
 [29
 
-] [30]
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1199--1203
+
+ []
+
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Front.pdf): PDF inclusion: found PDF 
+version <1.7>, but at most version <1.5> allowed
+<Front.pdf, id=519, 706.23824pt x 188.97487pt>
+File: Front.pdf Graphic file (type pdf)
+<use Front.pdf>
+Package pdftex.def Info: Front.pdf  used on input line 1210.
+(pdftex.def)             Requested size: 400.0pt x 107.03339pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./YS.pdf): PDF inclusion: found PDF ver
+sion <1.7>, but at most version <1.5> allowed
+<YS.pdf, id=520, 390.00328pt x 227.83354pt>
+File: YS.pdf Graphic file (type pdf)
+<use YS.pdf>
+Package pdftex.def Info: YS.pdf  used on input line 1218.
+(pdftex.def)             Requested size: 300.0pt x 175.25507pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1222--1226
+
+ []
+
+[30] [31 <./Front.pdf> <./YS.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./YS.pdf): PDF inclusion: multiple pdfs
+ with page group included in a single page
+>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Single_Slit_Diffraction.pdf): PDF inc
+lusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Single_Slit_Diffraction.pdf, id=601, 448.67625pt x 306.39468pt>
+File: Single_Slit_Diffraction.pdf Graphic file (type pdf)
+<use Single_Slit_Diffraction.pdf>
+Package pdftex.def Info: Single_Slit_Diffraction.pdf  used on input line 1271.
+(pdftex.def)             Requested size: 300.0pt x 204.87195pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Diffraction_derivation.pdf): PDF incl
+usion: found PDF version <1.7>, but at most version <1.5> allowed
+<Diffraction_derivation.pdf, id=602, 706.23824pt x 188.97487pt>
+File: Diffraction_derivation.pdf Graphic file (type pdf)
+<use Diffraction_derivation.pdf>
+Package pdftex.def Info: Diffraction_derivation.pdf  used on input line 1279.
+(pdftex.def)             Requested size: 400.0pt x 107.03339pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1284
+
+ []
+
+[32 <./Single_Slit_Diffraction.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./comb.pdf): PDF inclusion: found PDF v
+ersion <1.7>, but at most version <1.5> allowed
+<comb.pdf, id=610, 1445.4pt x 612.03656pt>
+File: comb.pdf Graphic file (type pdf)
+<use comb.pdf>
+Package pdftex.def Info: comb.pdf  used on input line 1324.
+(pdftex.def)             Requested size: 400.0pt x 169.37053pt.
+[33 <./Diffraction_derivation.pdf>] [34 <./comb.pdf>]
+Chapter 7.
+[35
+
+]
 Appendix A.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./squaremembrane.pdf): PDF inclusion: f
 ound PDF version <1.7>, but at most version <1.5> allowed
-<squaremembrane.pdf, id=522, 243.37914pt x 192.8893pt>
+<squaremembrane.pdf, id=642, 243.37914pt x 192.8893pt>
 File: squaremembrane.pdf Graphic file (type pdf)
 <use squaremembrane.pdf>
-Package pdftex.def Info: squaremembrane.pdf  used on input line 1201.
+Package pdftex.def Info: squaremembrane.pdf  used on input line 1366.
 (pdftex.def)             Requested size: 200.0pt x 158.50871pt.
-[31
+[36
 
- <./squaremembrane.pdf>] [32]
+ <./squaremembrane.pdf>] [37]
 Appendix B.
-[33
+[38
 
 ] (./main.aux)
  ***********
@@ -1109,10 +1183,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 29860 strings out of 476076
- 727082 string characters out of 5793775
+ 29901 strings out of 476076
+ 728044 string characters out of 5793775
  1947187 words of memory out of 5000000
- 51442 multiletter control sequences out of 15000+600000
+ 51483 multiletter control sequences out of 15000+600000
  573089 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  94i,18n,93p,722b,726s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1133,10 +1207,10 @@ fonts/cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 re/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/
 fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/typ
 e1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (33 pages, 2386763 bytes).
+Output written on main.pdf (38 pages, 2582544 bytes).
 PDF statistics:
- 632 PDF objects out of 1000 (max. 8388607)
- 409 compressed objects within 5 object streams
+ 754 PDF objects out of 1000 (max. 8388607)
+ 491 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
- 97 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 122 words of extra memory for PDF output out of 10000 (max. 10000000)
 

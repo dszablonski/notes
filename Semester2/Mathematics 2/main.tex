@@ -438,11 +438,84 @@ We can use the right hand rule to determine the direction of $\dd{\vb{S}}$.
 	\item The surface is simply connected,
 	\item There are no non-integrateable singularities.
 \end{enumerate}
-\section{Applications in electrcicity and magnetism}
-\section{Applications in mechanics}
+\section{Conservative Forces}
+Conservative forces satisfy the condition that $\curl{\vb{F}} = 0$. Thus,
+\begin{enumerate}
+	\item Work done is independent of path taken
+	\item They have an associated scalar potential
+	\item The work done along the path is equal to the potential between the two points
+\end{enumerate}
+We can find the force from a potential $V$ by,
+\begin{equation}
+	\vb{F} = -\grad{V}.
+\end{equation}
+We can reverse this to find the potential,
+\begin{equation}
+	V = - \int F_x \dd{x} = - \int F_y\dd{y} = - \int{F_z}\dd{z}
+\end{equation}
+we must remember to include a functions of $x$, $y$, and/or $z$ as our constant of integration, as well as $c$. We must then find the functions which are common to all integrals and combine them into a final expression for $V$.
 \chapter{Fourier series}
+A Fourier series can be used to describe a \textit{period function}, $P(t)$. In order for a function to be described by a Fourier series it must satisfy \textbf{Dirilecht conditions}:
+\begin{enumerate}
+	\item $P(t)$ must be bounded i.e., have finite values over the whole period of the function.
+	\item $P(t)$ must only have a finite number of discontinuities and min/maxima over the period.
+	\item $P(t)$ must be integrable over theh whole period of the function.
+\end{enumerate}
+Let us then state, even functions are those where,
+\begin{equation}
+	P(-t) = P(t)
+\end{equation}
+and can be described by sums of cosines, while odd functions are those where,
+\begin{equation}
+	P(-t) = -P(t)
+\end{equation}
+and can be described purely by sums of sines. The Fourier series works because the sine and cosine functions are orothogonal, meaning,
+\begin{equation}
+	\int_0^Tf(t)g(t) = 0.
+\end{equation}
+Let us further define,
+\begin{align}
+	T && \text{Period} \\
+	f = \frac{1}{T} && \text{Frequency} \\
+	\omega = 2\pi f = \frac{2\pi}{T} && \text{Angular frequency}.
+\end{align}
+\section{Trigonometric summation}
+\begin{equation}
+	P(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty}a_n\cos n\omega t + b_n \sin n \omega t.
+\end{equation}
+We define the three coeficients as such,
+\begin{align}
+	a_0 & = \frac{\omega}{\pi}\int_{-\frac{\pi}{\omega}}^{\frac{\pi}{\omega}}P(t)\dd{t} \\
+	a_n & = \frac{\omega}{2\pi}\int_{-\frac{\pi}{\omega}}^{\frac{\pi}{\omega}}P(t)\cos n \omega t\dd{t}\\
+	b_n & = \frac{\omega}{2\pi}\int_{-\frac{\pi}{\omega}}^{\frac{\pi}{\omega}}\sin n\omega t \dd{t}.
+\end{align}
+The average value of the periodic function over the period is given by $\frac{a_0}{2}$.
+\section{Exponential Summation}
+We can say exponential functions are orthogonal if,
+\begin{equation}
+	\int_0^T e^{-in\omega t}e^{in\omega t}\dd{t} = 0.
+\end{equation}
+We can further express the Fourier series of a function over the sum of the exponentials,
+\begin{align}
+	P(t) & = \sum_{n=-\infty}^{\infty}C_e^{in\omega t} n \in \mathbb{Z} \\
+	C_n & = \frac{1}{T} \int_0^TP(t)e^{-in\omega t}\dd{t} \label{C}
+\end{align}
+The exponential form gives identical expressions to the trigonometric form. we can show this by splitting the summation,
+\begin{equation}
+	P(t) = C_0 + \sum_{n=1}^{\infty}\left[C_n(+n)e^{in\omega t} + C_n(-n)e^{-in\omega t}\right]
+\end{equation} 
+where $C_n(+n)$ is the value of the coefficaint evaluated at $+n$ and vice versa. 
+\\\\
+For the case that the function is even, then $C_n$ is purely real, $C_n(+n) = C_n(-n)$, and the summation becomes,
+\begin{equation}
+	2\sum{n=1}^{\infty}C_n(+n)\cos{n\omega t}.
+\end{equation}
+If the function is odd, $C_n$ is purely imaginary, $C_n(+n) = -C_n(-n)$, and,
+\begin{equation}
+	2i\sum_1^{\infty}C_n(+n)\sin n\omega t.
+\end{equation}
 \appendix
-\chapter{Vector Calculus Identities}
+ \chapter{Vector Calculus Identities}
 \section{Grad Identities}
 \begin{align}
     & \grad(\psi + \phi) = \grad\psi + \grad\phi \\
@@ -485,7 +558,5 @@ We can use the right hand rule to determine the direction of $\dd{\vb{S}}$.
         \end{split}
     \end{equation*}
 \end{proof}
-\section{Ampere's Law}
-
 
 \end{document}

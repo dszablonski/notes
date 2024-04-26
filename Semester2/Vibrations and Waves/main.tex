@@ -1187,6 +1187,171 @@ so the group velocity is given by,
 	v_g = v_p \left(1 + \frac{\lambda}{n}\dv{n}{\lambda}\right).
 \end{equation}
 So, for $\dv{n}{\lambda} > 0$ we get anomalous dispersion. For $\dv{n}{\lambda} < 0$ we get normal dispersion. This then implies \textbf{shorter wavelengths have a greater refractive index, thus bend more in a prism.}
+\section{Wave interference}
+\subsection{Conditions for destructive and constructive interference}
+Let us consider two monochromatic waves originating from the same source. They follow different paths and meet at a particular point in space. If their difference in path lengths from the common source is given by an integer number of wavelengths,
+\begin{equation}
+	s = n\lambda, n \in \mathbb{Z}
+\end{equation}
+the crests and troughs of each wave line up exactly with each other, as their phase difference is,
+\begin{equation}
+	\phi = \frac{2\pi s}{\lambda} = 2n\pi
+\end{equation}
+and so, constructive interference occurs.
+\\\\
+Descrutive interference occurs when,
+\begin{align}
+	s = \left(n + \frac{1}{2}\right) && \phi = (2n+1)\pi
+\end{align}
+is satisfied, i.e., the waves are a phase $\pi$ apart.
+\subsection{Huygen's Principle}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=400pt]{Front.pdf}
+	\caption{Wavefronts and wavelets illustrated by Huygen's principle.}
+	\label{huygen}
+\end{figure}
+Every point on a primary wavefront on a primary wavefront acts as a source of secondary wavefronts. To construct wavelets at a time $\Delta t$, we draw circles at the source of the wavelets at with a radius $v\Delta t$. If a wavefront encounters an aperature on an opaque barrier, the points on the wavefront across the aperature act like sources of secondary wavelets.
+\subsection{Young's Double Slit Experiment}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=300pt]{YS.pdf}
+	\caption{A diagram of Young's double slit.}
+	\label{YS}
+\end{figure}
+Let us consider a setup like in figure \ref{YS}. A monochromatic wave is incident on an opaque barrier with 2 slits, $S_1$ and $S_2$, seperated by a distance $a$. The two slits act as a srouce of secondary wavelets. The disturbance beyond the barrier is the superposition of all wavelets spreading out from the two slits.
+Since both wavelets originate from the same source, there is a clear phase relation between them. This phase difference gives rise to an interference pattern.
+\\\\
+The wavefronts will fall on a screen a distance $L$ away. If we consider a point $P$, let $l_1$ and $l_2$ be the distance from $S_1$ and $S_2$ to this point. The xtra path length to $P$ from $S_2$ is given by $\Delta l = l_1 - l_2 = a \sin\theta$. Thus, constructive interference occurs when,
+\begin{equation}
+	a \sin\theta = n \lambda
+\end{equation}
+where there are bright fringes. Dark fringes occurs when,
+\begin{equation}
+	a\sin\theta = \left(n + \frac{1}{2}\right)\lambda.
+\end{equation}
+We are now interested in the intensity map produced on the screen. We know $I \propto A^2$. Let us define the amplitude at any point $P$ on the screen,
+\begin{equation}
+\begin{split}
+	R & = A\left[\cos\left(\omega t - k_l1\right) + \cos(\omega t - kl_2)\right] \\
+	& = 2A\cos\left(\omega t - k\frac{l_1 + l_2}{2}\cos\left(k\frac{l_1 - l_2}{2}\right)\right).
+\end{split}
+\end{equation}
+Given $L >> a$, $l_1 \sim l_2 \sim L$, so we can reasonable estimate,
+\begin{equation}
+	\frac{l_1 + l_2}{2} \simeq L.
+\end{equation}
+So, we can write the intensity as,
+\begin{equation}
+	I = R^2 = 4A^2\cos^2(\omega t - kL)\cos^2\left(\frac{k\Delta L}{2}\right).
+\end{equation}
+We are able to average this expression over time by integrating it from $0 \to T$ and dividing by $T$ to get,
+\begin{equation}
+	I = I_0\cos^2\frac{ka\sin\theta}{2}
+\end{equation}
+where
+\begin{equation}
+	I_0 = 2A^2.
+\end{equation}
+We can determine that the first bright fringe occurs at $a \sin\theta = \pi$. If $\theta$ is small, we can state,
+\begin{equation}
+	a\theta \approx n\lambda
+\end{equation} 
+where $\theta \approx \frac{x}{L}$. This implies that we can write the distance to the $n$th peak as,
+\begin{equation}
+	x_n = \frac{n\lambda L}{a}
+\end{equation}
+and thus, the distance between peaks are given by,
+\begin{equation}
+	x_{n+1} - x_n = \frac{\lambda L}{a}.
+\end{equation}
+\section{Wave Diffraction}
+\begin{figure}
+	\centering
+	\includegraphics[width=300pt]{Single_Slit_Diffraction.pdf}
+	\caption{A slit has finite width, so each infinitesimal point on the slit acts as a source of wavelets, so there is interference. This then leads to a diffraction pattern.}
+	\label{single slit diff}
+\end{figure}
+In practice, a slit will have a finite length, hence, path lengths from different points on the slit to the point $P$ on the screen will be different. So, the phase of the wavelets arriving at $P$ will be different, giving rise to a diffraction pattern. 
+\\\\
+\begin{figure}
+	\centering
+	\includegraphics[width=400pt]{Diffraction_derivation.pdf}
+	\caption{Diagram of single slit diffraction.}
+	\label{single slit derivation}
+\end{figure}\noindent
+Consider a setup like in figure \ref{single slit derivation}. As waves spread, each point on the slit acts as a new source of waves according to Huygen's principle. If we consider a small part of the slit $\dd{x}$, then the resultant amplitude at $P$ can be considered as the superposition of each wavelet over all $\dd{x}$. We can consider $L >> d$, and assume that all wavelets arriving at $P$ have the same amplitude and the lines joining $P$ to all points on the slit make the same angle $\theta$ with the horizontal. If their path difference is given by,
+\begin{equation}
+	s = x\sin\theta
+\end{equation} 
+then the distance to the point $P$ from a source of wavelets is given by,
+\begin{equation}
+	d = \ell - x\sin\theta
+\end{equation}
+where $\ell$ is the distance to $P$ from the centre of the fringe. 
+We can then consider the amplitude of a single wavelet $\dd{R}$,
+\begin{equation}
+	\dd{R} = \alpha \dd{x} \cos\left[\omega t -k(\ell-x\sin\theta)\right],
+\end{equation} 
+where $\alpha$ is a constant. We then integrate over the slit width,
+\begin{equation}
+	R = \int_{-\frac{d}{2}}{\frac{d}{2}} \alpha \dd{x} \cos\left[\omega t -k(\ell-x\sin\theta)\right]
+\end{equation}
+which can be evaluated to,
+\begin{equation}
+	R = \frac{\alpha d}{\frac{kd}{2}\sin\theta}\sin\left[\frac{kd}{2}\sin\theta\right]\cos(\omega t - k\ell).
+\end{equation}
+The diffraction pattern is then achieved by time averaging $R^2$,
+\begin{equation}
+	\begin{split}
+		I(\theta) = I_0 \frac{\sin^2\left[\frac{kd}{2}\sin\theta\right]}{\left[\frac{kd}{2}\sin\theta\right]^2}
+	\end{split}
+\end{equation}
+for,
+\begin{align}
+	I_0 = \frac{\alpha^2d^2}{2} && \beta = \frac{kd}{2}\sin\theta.
+\end{align}
+Dark fringes are observed at $\sin\theta = \pm \frac{n\lambda}{d}$.
+\subsection{Circular aperature}
+The first minimum of a circular aperature is given by,
+\begin{equation}
+	\sin\theta = 1.22 \frac{\lambda}{d}. \label{circ}
+\end{equation}
+If we obserrve an image through a circular aperature, we observe considerable diffraction at close seperation instead of a clear image. However, we can resolve the image of 2 closely spaced objects if the maximum diffraction pattern of the first object falls on the first minimum of the of the diffraction pattern of the second object. We can then resolve the two objects if they are observed with with a lens of diameter $d$ and have an angular seperation $\theta$ which satisfies \eqref{circ}.
+\subsection{Combining with the double slit experiment}
+\begin{figure}
+	\centering
+	\includegraphics[width=400pt]{comb.pdf}
+	\caption{When combining the derivation of dispersion of a signle slit with the double slit experiment, we find that the diffraction pattern acts as an envenlope wave for the interference pattern.}
+	\label{combined}
+\end{figure}
+We are able to combine the equation of diffraction with the young double slit interference equation. This equation is given by,
+\begin{equation}
+	I(\theta) = I_0 \frac{\sin^2\left[\frac{kd}{2}\sin\theta\right]}{\left[\frac{kd}{2}\sin\theta\right]^2}\cos^2\frac{ka\sin\theta}{2}
+\end{equation}
+which results in an intensity map like in figure \ref{combined}, where the double slit pattern is modulated by the intensity pattern due to diffraction.
+\chapter{The Schordinger equation}
+The 1D Schrodinger equation for a particle of mass $m$ moving in a potential $V(x,t)$ is given by,
+\begin{equation}
+	-\frac{\hbar^2}{2m}\pdv[2]{\psi}{x} + V(x,t)\psi = i\hbar \pdv{\psi}{t}.
+\end{equation}
+If the potential is only dependent on $x$ we can solve the equation by seperation of variables by assuming a solution in the form $\psi(x,t)$ = $\psi(x)T(x)$, and solving as we did for standing waves.
+\section{Properties of the wavefunction}
+An interpretation of the wavefunction is that it can give the probability of finding a particle in a space between $x$ and $\dd{x}$ at time $t$ (Born's interpretation),
+\begin{equation}
+	|\psi(x,t)|^2\dd{x}= P(x,t)\dd{x}.
+\end{equation}
+This would imply that,
+\begin{equation}
+	\int_{-\infty}^{\infty}|\psi(x,t)|^2\dd{x} = 1
+\end{equation}
+and thus this places certain restrictions on the wave equation,
+\begin{enumerate}
+	\item $\psi$ must be finite everywhere,
+	\item $\psi$ must be single valued,
+	\item $\psi$ and $\pdv{\psi}{x}$ must be continuous. 
+\end{enumerate}
+These ensure that only certain solutions are allowed.
 \appendix
 \chapter{Common Waveforms and Examples}
 \section{Gaussian Pulse}

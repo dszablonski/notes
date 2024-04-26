@@ -49,7 +49,16 @@
 \contentsline {section}{\numberline {6.1}Phase and grouop velocities in a non-dispersive medium}{29}{}%
 \contentsline {section}{\numberline {6.2}Dispersion}{30}{}%
 \contentsline {subsection}{\numberline {6.2.1}Light dispersion}{30}{}%
-\contentsline {chapter}{\numberline {A}Common Waveforms and Examples}{31}{}%
-\contentsline {section}{\numberline {A.1}Gaussian Pulse}{31}{}%
-\contentsline {section}{\numberline {A.2}Waves on a square membrane}{31}{}%
-\contentsline {chapter}{\numberline {B}Trig Identities}{33}{}%
+\contentsline {section}{\numberline {6.3}Wave interference}{30}{}%
+\contentsline {subsection}{\numberline {6.3.1}Conditions for destructive and constructive interference}{30}{}%
+\contentsline {subsection}{\numberline {6.3.2}Huygen's Principle}{30}{}%
+\contentsline {subsection}{\numberline {6.3.3}Young's Double Slit Experiment}{31}{}%
+\contentsline {section}{\numberline {6.4}Wave Diffraction}{32}{}%
+\contentsline {subsection}{\numberline {6.4.1}Circular aperature}{33}{}%
+\contentsline {subsection}{\numberline {6.4.2}Combining with the double slit experiment}{33}{}%
+\contentsline {chapter}{\numberline {7}The Schordinger equation}{35}{}%
+\contentsline {section}{\numberline {7.1}Properties of the wavefunction}{35}{}%
+\contentsline {chapter}{\numberline {A}Common Waveforms and Examples}{36}{}%
+\contentsline {section}{\numberline {A.1}Gaussian Pulse}{36}{}%
+\contentsline {section}{\numberline {A.2}Waves on a square membrane}{36}{}%
+\contentsline {chapter}{\numberline {B}Trig Identities}{38}{}%
