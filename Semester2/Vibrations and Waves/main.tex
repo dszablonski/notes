@@ -1330,12 +1330,12 @@ We are able to combine the equation of diffraction with the young double slit in
 	I(\theta) = I_0 \frac{\sin^2\left[\frac{kd}{2}\sin\theta\right]}{\left[\frac{kd}{2}\sin\theta\right]^2}\cos^2\frac{ka\sin\theta}{2}
 \end{equation}
 which results in an intensity map like in figure \ref{combined}, where the double slit pattern is modulated by the intensity pattern due to diffraction.
-\chapter{The Schordinger equation}
+\chapter{The Schrodinger equation}
 The 1D Schrodinger equation for a particle of mass $m$ moving in a potential $V(x,t)$ is given by,
 \begin{equation}
 	-\frac{\hbar^2}{2m}\pdv[2]{\psi}{x} + V(x,t)\psi = i\hbar \pdv{\psi}{t}.
 \end{equation}
-If the potential is only dependent on $x$ we can solve the equation by seperation of variables by assuming a solution in the form $\psi(x,t)$ = $\psi(x)T(x)$, and solving as we did for standing waves.
+If the potential is only dependent on $x$ we can solve the equation by seperation of variables by assuming a solution in the form $\psi(x,t)$ = $\psi(x)T(x)$, and solving as we did for standing waves. However, in our case, the shared variable should be $E$, for energy. 
 \section{Properties of the wavefunction}
 An interpretation of the wavefunction is that it can give the probability of finding a particle in a space between $x$ and $\dd{x}$ at time $t$ (Born's interpretation),
 \begin{equation}
@@ -1343,7 +1343,7 @@ An interpretation of the wavefunction is that it can give the probability of fin
 \end{equation}
 This would imply that,
 \begin{equation}
-	\int_{-\infty}^{\infty}|\psi(x,t)|^2\dd{x} = 1
+	\int_{-\infty}^{\infty}|\psi(x,t)|^2\dd{x} = 1 \label{probablility}
 \end{equation}
 and thus this places certain restrictions on the wave equation,
 \begin{enumerate}
@@ -1352,13 +1352,242 @@ and thus this places certain restrictions on the wave equation,
 	\item $\psi$ and $\pdv{\psi}{x}$ must be continuous. 
 \end{enumerate}
 These ensure that only certain solutions are allowed.
+\section{Infinite potential well}
+Let us consider a potential well such that,
+\begin{equation}
+	V(x) = \begin{cases}
+		\infty & x < 0 \\
+		0 & 0 \leq x \leq a \\
+		\infty & x > a
+	\end{cases}.
+\end{equation}
+This resembles an idealised potential seen by electrons in the low energy levels near the nucleus of an atom. We want to find the wavefunction and energy of the particle in this potential. We write the time independent Schordinger equation,
+\begin{equation}
+	\begin{split}
+	& -\frac{\hbar^2}{2m}\dv[2]{\Psi}{x} + V(x)\Psi = E\Psi\\
+	\implies & \dv[2]{\Psi}{x} + \frac{2m}{\hbar^2} \left(E-V(x)\right) = 0.
+	\end{split}
+\end{equation}
+We require $\Psi(x) = 0$ in the regions $x < 0$ and $x > a$, as other wise the LHS would be infinite. For $0 \leq x \leq a$, we have $V(x) =0$, thus,
+\begin{equation}
+	\dv[2]{\Psi}{x} = - \frac{2mE}{\hbar^2}\Psi \label{infinitepotentialequation}.
+\end{equation}
+Let us define the wave number $k$, 
+\begin{equation}
+	k^2 = \frac{2mE}{\hbar^2}.
+\end{equation}
+We then have the general solution to \eqref{infinitepotentialequation},
+\begin{equation}
+	\Psi(x) = A\cos kx + B \sin kx.
+\end{equation}
+Applying boundary conditions,
+\begin{align}
+	\Psi(0) = 0 && \implies && A = 0 \\
+	\Psi(a) = 0 && \implies && B\sin ka = 0
+\end{align}
+We require non-trivial solutions, thus $B \neq 0$, and,
+\begin{equation}
+	\sin k_n a = 0 \implies k_n = \frac{n\pi}{a}, n \in \mathbb{N}.
+\end{equation}
+This implies that only discrete values of $k$ are allowed, which corresponds to discrete energy levels,
+\begin{equation}
+	E_n = \frac{\hbar^2}{2m}k_n^2 = \frac{n^2\hbar^2\pi^2}{2ma^2}
+\end{equation}
+and the wave functions,
+\begin{equation}
+	\Psi(x) = A_n \sin\frac{n\pi x}{a}
+\end{equation}
+are the energy eigen functions (stationary states) for a particle in a 1 dimensionall, infinite potential well.
+\subsection{Time dependent solution}
+By seperation of variables, one finds the time dependent solution,
+\begin{equation}
+	\Psi(x,t) = \begin{cases}
+		0 & x < 0 \\
+		A_n \sin\left(\frac{n\pi x}{a}\right)\exp\left(\frac{-ik_nt}{\hbar}\right) & 0 \leq x \leq a \\
+		0 & x > a
+	\end{cases}.
+\end{equation}
+We can then normalise the equation by applying \eqref{probablility} and finding that,
+\begin{equation}
+	A_ = \sqrt{\frac{2}{a}}
+\end{equation}
+\subsection{Stationary states}
+A stationary state refers to an observable which is independent of time. The energy eigenfunction refers to the eigen vector of the energy operator,
+\begin{equation}
+	\hat{E} = i\hbar \pdv{}{t}
+\end{equation}
+which acts on a given wavefunction.
+
+\section{Tunelling}
+For a finite barrier, there is a probability of finding a particle outside of its clasically forbidden region. This phenomenon is referred to as tunelling.
+\\\\
+The finite barrier has the form,
+\begin{equation}
+	V(x) = \begin{cases}
+		0 & x < 0 \\
+		V_B & 0 \leq x \leq a \\
+		0 & x > a
+	\end{cases}
+\end{equation}
+illustrated in figure \ref{tunnel}.
+\begin{figure}
+	\centering
+	\includegraphics[width=250pt]{tunnel.pdf}
+	\caption{}
+	\label{tunnel}
+\end{figure}
+\\\\
+Clasically, a particle can only be transmitted if $E > V_B$, and is reflected otherwise. However, quantum mechanically it is possible for a particle to be transmitted if $E < V_B$.
+\\\\
+Let us consider region 1. We have $V(x) = 0$,
+\begin{equation}
+	\begin{split}
+		& \dv[2]{\Psi}{x} = -k^2 \Psi \\
+		\implies & \Psi(x) = A_Ie^{ikx} + A_R e^{-ikx}
+	\end{split}
+\end{equation}
+which can be thought of as the sum of incidnet and reflected waves.
+\\\\
+Considering region 2, $V(x) = V_B$. Inside the barrier, we have,
+\begin{equation}
+	\dv[2]{\Psi}{x} = \beta^2 \Psi \text{ for } E = -\frac{\hbar^2\beta^2}{2m} + V_B
+\end{equation}
+which has solutions,
+\begin{equation}
+	\Psi(x) = Ce^{\beta x} + De^{-\beta x}.
+\end{equation}
+The solutions of region 3 have the same form as those of rergion 1, but only the transmitted particle needs to be represented,
+\begin{equation}
+	\Psi (x) = A_Te^{ikx}.
+\end{equation}
+The stationary function in a finite potential well then takes the form,
+\begin{equation}
+	\Psi(x) = \begin{cases}
+		A_Ie^{ikx} + A_Re^{-ikx} & x < 0 \\
+		Ce^{\beta x} + De^{\beta x} & 0 \leq x \leq a \\
+		A_T e^{ikx} & x > a
+	\end{cases}
+\end{equation}
+\subsection{Tunelling probability}
+The continuity of $\dv{\Psi}{x}$ and $\Psi$ at $x=0$ and $x=a$ are our boundary conditions.
+\begin{enumerate}
+	\item Continuity of $\Psi$ at $x = 0$,
+	\begin{equation}
+		\implies A_I + A_R = C + D \label{sumschrod}
+	\end{equation}
+	\item Continuity of $\dv{\Psi}{x}$ at $x = 0$,
+	\begin{equation}
+		\implies ikA_I - ikA_R = \beta C - \beta D \label{sumschroddiv}
+	\end{equation}
+	\begin{itemize}
+		\item We can write \eqref{sumschrod} as,
+		\begin{equation}
+			ikA_i + ik A_R = ikC + ik D \label{bleeeeh}
+		\end{equation}
+		\item $\eqref{bleeeeh} + \eqref{sumschrod}$,
+		\begin{equation}
+			\implies 2kA_I = (\beta + I_K)C - (\beta -ik)D \label{1plus2}.
+		\end{equation}
+	\end{itemize}
+	\item Continuity of $\Psi$ and $\dv{\Psi}{x}$ at $x = a$ gives,
+	\begin{align}
+		Ce^{\beta a} + De^{-\beta a} &= A_T e^{ika} \\
+		C\beta e^{\beta a} - \beta D^{-\beta a} &= ikA_Te^{ika}.
+	\end{align}
+\end{enumerate}
+We seek $A_T$ and $C$ in terms of $D$, 
+\begin{align}
+	A_Te^{ika} & = \frac{a\beta}{\beta - ik}De^{-\beta a} \label{A_T}\\
+	C & = De^{-2\beta a}\left(\frac{\beta + ik}{\beta - ik}\right) \label{C}
+\end{align}
+If the barrier is wide, then,
+\begin{align}
+	e^{-2\beta a} << 1 && C << D.
+\end{align}
+From \eqref{1plus2},
+\begin{equation}
+	2ikA_I \approx -D\left(\beta - ik\right)
+\end{equation}
+and \eqref{A_T},
+\begin{equation}
+	A_Te^{ika} \approx \frac{2\beta }{\beta - ik}\frac{-2ikA_I}{\beta - ik}e^{-\beta a},
+\end{equation}
+hence,
+\begin{equation}
+	\frac{A_T}{A_I} \approx \frac{-4ik\beta e^{-(\beta + ik)a}}{(\beta - ik)^2}.
+\end{equation}
+we can then define a transmission coefficiant by taking the ratio of transmitted particle flux, $v|A_T|^2$ and the incident partice flux $v|A_I|^2$ which gives the \textit{tunnelling probability},
+\begin{equation}
+	T = \frac{|A_T|^2}{|A_I|^2} = \left[\frac{16k^2\beta^2}{(\beta^2 + k^2)^2}\right]e^{-2\beta a}.
+\end{equation}
+Using definitions of $k$ and $\beta$,
+\begin{align}
+	k = \frac{\sqrt{2mE}}{\hbar} && \beta = \frac{\sqrt{2m(V_B - E)}}{\hbar}
+\end{align}
+to define $T$ in terms of $E$ and $V_B$,
+\begin{equation}
+	T = \left[\frac{16E(V_B - E)}{V_B^2}\right] e^{-2\beta a}
+\end{equation}
+which is valid for a wide barrier where the wavefunction is dominated by the $D^{-\beta x}$ term.
+\\\\
+The tunelling probability then depends on,
+\begin{enumerate}
+	\item The width of the barrier,
+	\item The mass of the particle,
+	\item The height of the barrier compared to the energy of the particle.
+\end{enumerate}
+\section{Finite potenial well}
+\begin{figure}
+	\centering 
+	\includegraphics[width=250pt]{finite_potential.pdf}
+	\caption{}
+	\label{finitepotential}
+\end{figure}
+There is a chance a particle may be found outiside of the potential well if its walls are finite. A finite potential well is illustrated in figure \ref{finitepotential}.
+\\\\
+There are two types of solutions for this potential,
+\begin{enumerate}
+	\item Bound solutions $\to |E| < |V_0|$,
+	\item Unbound solutions $\to |E| > |V_0|$.
+\end{enumerate}
+\subsection{Bound states}
+\begin{figure}
+	\centering
+	\includegraphics[width=250pt]{finite_potential4.pdf}
+	\caption{} 
+	\label{boundstate}
+\end{figure}
+This type of solution is illustrated in figure \ref{boundstate}. Wihtin the well, the wavefunctions which satisfy the independent Schrodinger equation are oscillatory standing wave functions,
+\begin{equation}
+	\dv[2]{\Psi}{x} = -k_0^2\Psi \text{ } k_0 = \frac{\sqrt{2m(V_0 + E)}}{\hbar}.
+\end{equation}
+We find that the wavefunction decays exponetially inside the walls of the well and the distance which that wavefunction goes into the clasically forbidden region depends on the height of the barrier.
+\subsection{Unbound states}
+\begin{figure}
+	\centering
+	\includegraphics[width=250pt]{finite_potential2.pdf}
+	\caption{} 
+	\label{unboundstate}.
+\end{figure}
+This setup is illustrated in figure \eqref{unboundstate}. In this case, the solutions are travelling waves where the particle isn't confined to the well, but is affected by the presence of the potential.
+\begin{figure}
+	\centering
+	\includegraphics[width=250pt]{finite_potential3.pdf}
+	\caption{} 
+	\label{lolkek}.
+\end{figure}
+\\\\
+If $k$ describes the wave outside the wall, and $k_0$ inside, then,
+\begin{equation}
+	E = \frac{\hbar^2 k^2}{2m} = \frac{\hbar^2k_0^2}{2m} - V_0
+\end{equation}
+hence, $k_0 > k$, and $\lambda$ is greater outisde the wavefunction than inside, illustrated by figure \ref{lolkek}.
 \appendix
 \chapter{Common Waveforms and Examples}
 \section{Gaussian Pulse}
 \begin{equation}
     y(x,t) = A\exp\left(-\frac{1}{a}(x-vt)^2\right)
 \end{equation}
-
 
 \section{Waves on a square membrane}
 \begin{figure}[h]
@@ -1410,6 +1639,23 @@ The general solution is the sum over all normal modes.
 \end{equation}
 \chapter{Trig Identities}
 \begin{align}
-	& \sin(\alpha + \beta) + \sin(\alpha + \beta) = 2\sin\alpha\cos\beta \label{id1}
+	& \sin(\alpha + \beta) + \sin(\alpha + \beta) = 2\sin\alpha\cos\beta \label{id1}\\
+	& \sin\alpha\sin\beta = \frac{1}{2} (\cos(\alpha - \beta) - \cos(\alpha + \beta)) \\
+	&\cos\alpha\cos\beta = \frac{1}{2} (\cos(\alpha - \beta) + \cos(\alpha + \beta)) \\
+	& \cos\alpha\sin\beta = \frac{1}{2} (\sin(\alpha + \beta) + \sin(\alpha - \beta))
+\end{align}
+\chapter{Solving the time dependent Schrodiner equation}
+If we have that $\Psi(x,t) = \Psi(x)T(t)$, and substituing this into the time dependent schrodinger equation,
+\begin{equation}
+	\left(\frac{-\hbar^2}{2m}\dv[2]{\Psi}{x} + V(x)\Psi(x)\right)T(t) = i\hbar\Psi(x) \dv{T(t)}{t},
+\end{equation}
+which rearranges,
+\begin{equation}
+	\frac{1}{\Psi(x)}\frac{-\hbar^2}{2m}\dv[2]{\Psi}{x} + V(x) = \frac{i\hbar}{T(t)}\frac{T(t)}{t}.
+\end{equation}
+We can equate both sides to a constant, which we can call $E$. This results in two differential equations, with corresponding solutions,
+\begin{align}
+	\frac{i\hbar}{T(t)}\dv{T(t)}{t} = E && \implies && T=T_o\exp\left(-\frac{iEt}{\hbar}\right) = T_0\exp(-i\omega t) \\
+	-\frac{\hbar^2}{2m}\dv[2]{\Psi}{x} + V(x)\Psi = E\Psi && \implies && \text{Stationary state solutions for given potential}
 \end{align}
 \end{document}

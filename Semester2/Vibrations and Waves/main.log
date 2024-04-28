@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.4.16)  26 APR 2024 11:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.4.16)  28 APR 2024 17:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1156,21 +1156,113 @@ Chapter 7.
 [35
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 1422--1425
+
+ []
+
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./tunnel.pdf): PDF inclusion: found PDF
+ version <1.7>, but at most version <1.5> allowed
+<tunnel.pdf, id=642, 231.90135pt x 127.98553pt>
+File: tunnel.pdf Graphic file (type pdf)
+<use tunnel.pdf>
+Package pdftex.def Info: tunnel.pdf  used on input line 1435.
+(pdftex.def)             Requested size: 250.0pt x 137.9782pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1431--1443
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1431--1443
+
+ []
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 1448--1452
+
+ []
+
+[37 <./tunnel.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1530--1534
+
+ []
+
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./finite_potential.pdf): PDF inclusion:
+ found PDF version <1.7>, but at most version <1.5> allowed
+<finite_potential.pdf, id=678, 231.90135pt x 127.98553pt>
+File: finite_potential.pdf Graphic file (type pdf)
+<use finite_potential.pdf>
+Package pdftex.def Info: finite_potential.pdf  used on input line 1542.
+(pdftex.def)             Requested size: 250.0pt x 137.9782pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1546--1549
+
+ []
+
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./finite_potential4.pdf): PDF inclusion
+: found PDF version <1.7>, but at most version <1.5> allowed
+<finite_potential4.pdf, id=679, 231.49414pt x 108.73982pt>
+File: finite_potential4.pdf Graphic file (type pdf)
+<use finite_potential4.pdf>
+Package pdftex.def Info: finite_potential4.pdf  used on input line 1556.
+(pdftex.def)             Requested size: 250.0pt x 117.43556pt.
+[38]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./finite_potential2.pdf): PDF inclusion
+: found PDF version <1.7>, but at most version <1.5> allowed
+<finite_potential2.pdf, id=683, 231.90135pt x 127.98553pt>
+File: finite_potential2.pdf Graphic file (type pdf)
+<use finite_potential2.pdf>
+Package pdftex.def Info: finite_potential2.pdf  used on input line 1568.
+(pdftex.def)             Requested size: 250.0pt x 137.9782pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./finite_potential3.pdf): PDF inclusion
+: found PDF version <1.7>, but at most version <1.5> allowed
+<finite_potential3.pdf, id=684, 231.90135pt x 127.98553pt>
+File: finite_potential3.pdf Graphic file (type pdf)
+<use finite_potential3.pdf>
+Package pdftex.def Info: finite_potential3.pdf  used on input line 1575.
+(pdftex.def)             Requested size: 250.0pt x 137.9782pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1572--1581
+
+ []
+
+[39 <./finite_potential.pdf> <./finite_potential4.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./finite_potential4.pdf): PDF inclusion
+: multiple pdfs with page group included in a single page
+> <./finite_potential2.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./finite_potential2.pdf): PDF inclusion
+: multiple pdfs with page group included in a single page
+>] [40 <./finite_potential3.pdf>]
 Appendix A.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./squaremembrane.pdf): PDF inclusion: f
 ound PDF version <1.7>, but at most version <1.5> allowed
-<squaremembrane.pdf, id=642, 243.37914pt x 192.8893pt>
+<squaremembrane.pdf, id=793, 243.37914pt x 192.8893pt>
 File: squaremembrane.pdf Graphic file (type pdf)
 <use squaremembrane.pdf>
-Package pdftex.def Info: squaremembrane.pdf  used on input line 1366.
+Package pdftex.def Info: squaremembrane.pdf  used on input line 1595.
 (pdftex.def)             Requested size: 200.0pt x 158.50871pt.
-[36
+[41
 
- <./squaremembrane.pdf>] [37]
+ <./squaremembrane.pdf>] [42]
 Appendix B.
-[38
+[43
+
+]
+Appendix C.
+[44
 
 ] (./main.aux)
  ***********
@@ -1183,10 +1275,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 29901 strings out of 476076
- 728044 string characters out of 5793775
+ 29949 strings out of 476076
+ 729205 string characters out of 5793775
  1947187 words of memory out of 5000000
- 51483 multiletter control sequences out of 15000+600000
+ 51531 multiletter control sequences out of 15000+600000
  573089 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  94i,18n,93p,722b,726s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1206,11 +1298,12 @@ fonts/cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sha
 re/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/
 fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (38 pages, 2582544 bytes).
+e1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/type1/public/
+cm-super/sfrm1000.pfb>
+Output written on main.pdf (44 pages, 2680023 bytes).
 PDF statistics:
- 754 PDF objects out of 1000 (max. 8388607)
- 491 compressed objects within 5 object streams
+ 912 PDF objects out of 1000 (max. 8388607)
+ 595 compressed objects within 6 object streams
  0 named destinations out of 1000 (max. 500000)
- 122 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 147 words of extra memory for PDF output out of 10000 (max. 10000000)
 
