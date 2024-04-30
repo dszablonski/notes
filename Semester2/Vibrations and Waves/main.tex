@@ -1333,23 +1333,23 @@ which results in an intensity map like in figure \ref{combined}, where the doubl
 \chapter{The Schrodinger equation}
 The 1D Schrodinger equation for a particle of mass $m$ moving in a potential $V(x,t)$ is given by,
 \begin{equation}
-	-\frac{\hbar^2}{2m}\pdv[2]{\psi}{x} + V(x,t)\psi = i\hbar \pdv{\psi}{t}.
+	-\frac{\hbar^2}{2m}\pdv[2]{\Psi}{x} + V(x,t)\Psi = i\hbar \pdv{\Psi}{t}.
 \end{equation}
-If the potential is only dependent on $x$ we can solve the equation by seperation of variables by assuming a solution in the form $\psi(x,t)$ = $\psi(x)T(x)$, and solving as we did for standing waves. However, in our case, the shared variable should be $E$, for energy. 
+If the potential is only dependent on $x$ we can solve the equation by seperation of variables by assuming a solution in the form $\Psi(x,t)$ = $\psi(x)T(x)$, and solving as we did for standing waves. However, in our case, the shared variable should be $E$, for energy. See appendix C for details.
 \section{Properties of the wavefunction}
 An interpretation of the wavefunction is that it can give the probability of finding a particle in a space between $x$ and $\dd{x}$ at time $t$ (Born's interpretation),
 \begin{equation}
-	|\psi(x,t)|^2\dd{x}= P(x,t)\dd{x}.
+	|\Psi(x,t)|^2\dd{x}= P(x,t)\dd{x}.
 \end{equation}
 This would imply that,
 \begin{equation}
-	\int_{-\infty}^{\infty}|\psi(x,t)|^2\dd{x} = 1 \label{probablility}
+	\int_{-\infty}^{\infty}|\Psi(x,t)|^2\dd{x} = 1 \label{probablility}
 \end{equation}
 and thus this places certain restrictions on the wave equation,
 \begin{enumerate}
-	\item $\psi$ must be finite everywhere,
-	\item $\psi$ must be single valued,
-	\item $\psi$ and $\pdv{\psi}{x}$ must be continuous. 
+	\item $\Psi$ must be finite everywhere,
+	\item $\Psi$ must be single valued,
+	\item $\Psi$ and $\pdv{\Psi}{x}$ must be continuous. 
 \end{enumerate}
 These ensure that only certain solutions are allowed.
 \section{Infinite potential well}
@@ -1395,7 +1395,7 @@ This implies that only discrete values of $k$ are allowed, which corresponds to 
 \end{equation}
 and the wave functions,
 \begin{equation}
-	\Psi(x) = A_n \sin\frac{n\pi x}{a}
+	\Psi(x) = A_n \sin n\pi x
 \end{equation}
 are the energy eigen functions (stationary states) for a particle in a 1 dimensionall, infinite potential well.
 \subsection{Time dependent solution}
@@ -1446,7 +1446,7 @@ Let us consider region 1. We have $V(x) = 0$,
 		\implies & \Psi(x) = A_Ie^{ikx} + A_R e^{-ikx}
 	\end{split}
 \end{equation}
-which can be thought of as the sum of incidnet and reflected waves.
+which can be thought of as the sum of incident and reflected waves.
 \\\\
 Considering region 2, $V(x) = V_B$. Inside the barrier, we have,
 \begin{equation}
