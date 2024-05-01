@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.4.16)  26 APR 2024 18:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.4.16)  1 MAY 2024 12:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1386,24 +1386,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 2174--2217
 <Aframe0001.png, id=221, 562.1pt x 240.9pt>
 File: Aframe0001.png Graphic file (type png)
 <use Aframe0001.png>
-Package pdftex.def Info: Aframe0001.png  used on input line 2265.
+Package pdftex.def Info: Aframe0001.png  used on input line 2291.
 (pdftex.def)             Requested size: 225.0pt x 96.42812pt.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 9.0pt on input line 2266.
+(Font)              scaled to size 9.0pt on input line 2292.
 <Aframe0010.png, id=222, 562.1pt x 240.9pt>
 File: Aframe0010.png Graphic file (type png)
 <use Aframe0010.png>
-Package pdftex.def Info: Aframe0010.png  used on input line 2269.
+Package pdftex.def Info: Aframe0010.png  used on input line 2295.
 (pdftex.def)             Requested size: 225.0pt x 96.42812pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2298--2301
+ [45 <./Aframe0001.png> <./Aframe0010.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 2320--2323
 
  []
 
-[45 <./Aframe0001.png> <./Aframe0010.png>] [46] [47]
+[46] [47]
 Appendix A.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 14.4pt on input line 2369.
+(Font)              scaled to size 14.4pt on input line 2391.
 [48
 
 ] [49]
@@ -1415,15 +1415,15 @@ Appendix C.
 <document_ACDF_10245.pdf, id=248, 120.39178pt x 100.644pt>
 File: document_ACDF_10245.pdf Graphic file (type pdf)
 <use document_ACDF_10245.pdf>
-Package pdftex.def Info: document_ACDF_10245.pdf  used on input line 2579.
+Package pdftex.def Info: document_ACDF_10245.pdf  used on input line 2601.
 (pdftex.def)             Requested size: 250.0pt x 208.99362pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2583--2586
+Underfull \hbox (badness 10000) in paragraph at lines 2605--2608
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2592--2596
+Underfull \hbox (badness 10000) in paragraph at lines 2614--2618
 
  []
 
@@ -1432,7 +1432,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2592--2596
  <./document_ACDF_10245.pdf>] [53] [54]
 Appendix D.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2713--2716
+Underfull \hbox (badness 10000) in paragraph at lines 2735--2738
 
  []
 
@@ -1449,10 +1449,10 @@ L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 41278 strings out of 476076
- 1001969 string characters out of 5793775
+ 41280 strings out of 476076
+ 1002000 string characters out of 5793775
  1972187 words of memory out of 5000000
- 62685 multiletter control sequences out of 15000+600000
+ 62687 multiletter control sequences out of 15000+600000
  580353 words of font info for 116 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  94i,21n,96p,733b,2254s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1478,7 +1478,7 @@ share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/
 type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/pub
 lic/cm-super/sfrm1000.pfb>
-Output written on main.pdf (56 pages, 765994 bytes).
+Output written on main.pdf (56 pages, 767231 bytes).
 PDF statistics:
  409 PDF objects out of 1000 (max. 8388607)
  247 compressed objects within 3 object streams

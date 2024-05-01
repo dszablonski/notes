@@ -2050,7 +2050,7 @@ Causality is the concept that events occur in the same order regardless of refer
 	\begin{equation}
 		\frac{\beta \Delta x}{c} > \Delta t \implies \Delta x > \frac{c \Delta t}{\beta} > c\Delta t.
 	\end{equation}
-	$\implies$ events would have needed to travel a greater distance than light could have travelled in the given time interval. Nothing can travel faster than the speed of light $implies$ contradiction.
+	$\implies$ events would have needed to travel a greater distance than light could have travelled in the given time interval. Nothing can travel faster than the speed of light $\implies$ contradiction.
 \end{proof}
 \noindent\rule{\textwidth}{0.4pt}\vspace{10pt}
 \noindent
@@ -2213,7 +2213,7 @@ in two spatial dimensions on the $x-y$ place. More concretely, if the momentum v
 	\caption{}
 	\label{doppler}
 \end{figure}\\\\
-Now consider a setup like in figure \ref{doppler}. We are considering a source emitting photons isotropically, where the observer is moving away from the source at a velocity $v$ along the $x$-axis in a frame $S$. Let us consider a frame $S'$ moving at velocity $v$ perpendicular to the $x$-axis of $S$ such that the observer is stationary and the source is moving away from them at velocity $v$. Assuming $x_0 > x_s$ and $v>0$, we have,
+Now consider a setup like in figure \ref{doppler}. We are considering a source emitting photons isotropically, where the observer is moving away from the source at a velocity $v$ along the $x$-axis in a frame $S$. Let us consider a frame $S'$ moving at velocity $v$ parallel to the $x$-axis of $S$ such that the observer is stationary and the source is moving away from them at velocity $v$. Assuming $x_0 > x_s$ and $v>0$, we have,
 \begin{equation}
 	P'^{\mu} = \Lambda\indices{^\mu_\nu}P^{\nu} = \begin{pmatrix}
 		\gamma & -\gamma\beta & 0 & 0 \\
@@ -2221,12 +2221,12 @@ Now consider a setup like in figure \ref{doppler}. We are considering a source e
 		0 & 0 & 1 & 0 \\
 		0 & 0 & 0 & 1
 	\end{pmatrix}\begin{pmatrix}
-	\frac{E}{c} & p_x & p_y & p_z
+	\frac{E}{c} \\ p_x \\ p_y \\ p_z
 	\end{pmatrix}.
 \end{equation}
 From this, we can deduce,
 \begin{align}
-	E' = \gamma\left(E - vp_x\right) && p'_x = \gamma\left(p_x - \frac{v.E}{c^2}\right) && p_y' =p_y && p_z' = p_z
+	E' = \gamma\left(E - vp_x\right) && p'_x = \gamma\left(p_x - \frac{vE}{c^2}\right) && p_y' =p_y && p_z' = p_z
 \end{align}
 By \eqref{dopp4mom}, we can rewrite these as,
 \begin{align}
@@ -2238,27 +2238,53 @@ Given \eqref{5.1}, we have,
 \begin{equation}
 	p' = \gamma p (1-\frac{v}{c}\cos\theta). \label{almostdopp}
 \end{equation}
-Given the energy momentum relation in \eqref{energymomentum}, we can rewrite \eqref{almostdopp} as, if we say $p \propto f$ and $p' \propto f'$.
+Given the energy momentum relation in \eqref{energymomentum}, we can write,
 \begin{equation}
-	\frac{f'}{f} = \gamma\left(1 - \frac{v}{c}\right) = \left(\frac{1 - \dfrac{v}{c}}{1 + \dfrac{v}{c}}\right)^{-\frac{1}{2}}
+	\frac{f'}{f} = \gamma\left(1 - \frac{v}{c}\cos\theta\right).
 \end{equation}
-which is the equation of \textbf{longitudonal doppler shift}.
+which, for $\cos\theta = 1$, i.e., the source moving away from the observer, we have
+\begin{equation}
+	\frac{f'}{f} = \gamma\left(1 - \frac{v}{c}\right) = \left(\frac{1 - \dfrac{v}{c}}{1 + \dfrac{v}{c}}\right)^{-\frac{1}{2}}.
+\end{equation}
+For the source moving away from the observer, we would get a change in sign.
+This is the equation of \textbf{longitudonal doppler shift}.
 \subsubsection{Transverse doppler shifting}
 Let us now consider the apparent angle seen by the observer. The observer seees the angle of light change, given by,
 \begin{align}
-	\cos\theta' & = \frac{\cos\theta - \frac{v}{c}}{1 - \frac{v}{c}\cos\theta} \\
+	\cos\theta' & = \frac{\cos\theta - \frac{v}{c}}{1 - \frac{v}{c}\cos\theta} \label{cosrelation} \\
 	\sin\theta' & = \frac{\sin\theta}{\gamma\left(1 - \frac{v}{c}\cos\theta\right)}.
 \end{align}
-In the limit that $v\to -c$, i.e., the observer moving towards the source, approaching the speed of light, we find,
-\begin{align}
-	\cos\theta' \to 1 && \sin\theta' \to 0.
-\end{align}
-Assuming $\theta' = \frac{\pi}{2}$, we have that $\cos\theta = \frac{v}{c}$, meaning that,
+Assuming $\theta' = \frac{\pi}{2}$, i.e., the souce moving perpendicular to the observer, we have that $\cos\theta = \frac{v}{c}$, meaning that,
 \begin{equation}
 	f' = \frac{f}{\gamma}
 \end{equation}
-which is known as \textbf{transverse doppler shifting}.
+which is known as \textbf{transverse doppler shifting}. This is the equivalent of time dialation.
 \subsubsection{Relativistic aberration}
+In the limit that $v\to -c$, i.e., the observer moving towards the source, approaching the speed of light, we find,
+\begin{align}
+	\cos\theta' \to 1 && \sin\theta' \to 0,
+\end{align}
+this suggests that as the observer/source approaches the speed of light, photons bend towards a single point. We can derive a more precise equation if we consider,
+\begin{equation}
+	v = -c + \Delta v \label{velocityrelation}
+\end{equation}
+where $\Delta v > 0$ and is small. Let us keep in mind that we are considering the frame $S'$. Substituting \eqref{velocityrelation} into \eqref{cosrelation},
+\begin{equation}
+	\begin{split}
+		\cos\theta' = \frac{\cos\theta + 1 - \frac{\Delta v}{c}}{1 + \cos\theta - \frac{\Delta v}{c}\cos\theta} = \frac{1- \frac{\Delta v}{c(1 + \cos\theta)}}{1 - \frac{\Delta v}{c}\frac{\cos\theta}{1 + \cos\theta}}
+	\end{split}
+\end{equation}
+we then have $(1 + x)_{-1} = 1 + x$ for $x << 1$, so we can write,
+\begin{equation}
+	\begin{split}
+		\cos\theta' & \approx 1 - \frac{\Delta v}{c(1 + \cos\theta)} + \frac{\Delta v}{c}\frac{\cos\theta}{1 + \cos\theta} + \mathcal{O}\left[(\Delta v)^2\right] \\
+		& \approx 1 - \frac{\Delta V}{c}\left(\frac{1 + \cos\theta}{1 - \cos\theta}\right),
+	\end{split}
+\end{equation}
+now applying the double angle $\tan$ formula,
+\begin{equation}
+	\cos\theta' \approx 1 - \frac{\Delta v}{c}\tan^2\frac{1}{2}\theta + \mathcal{O}\left[(\Delta v)^2\right].
+\end{equation}
 \begin{figure}
 	\centering
 	\begin{subfigure}{0.5\textwidth}
@@ -2272,10 +2298,6 @@ which is known as \textbf{transverse doppler shifting}.
 	\caption{Figure showcasing relativistic aberration.}
 	\label{aberration}
 \end{figure}
-Let us now consider a case where we assume no angle. We can derive,
-\begin{equation}
-	\cos\theta' = 1 - \frac{\Delta v}{c}\tan^2\left(\frac{1}{2}\theta\right) + \mathcal{O}\left[\left(\frac{\Delta v}{c}\right)^2\right].
-\end{equation}
 This means that photons experience aberration towards the observer as the observer moves towards the source, as can be seein in figure \ref{aberration}.
 \subsubsection{Flux due to relativistic aberration}
 In addition to aberration, the observer would experience an increase of flux of the photons as they all concentrate on one point. We can say that the source emits photons at a rate $\Dot{N}$. Thus, the photons per solid per unit time are,
@@ -2289,11 +2311,11 @@ Let us consider a frame $S'$ moving along $x$ with $y$ rotated by an azimuthal a
 		\implies & \dv{N}{\Omega'\dd{t}} = \frac{\Dot{N}}{4\pi}\frac{\left[1 - \left(\frac{v}{c}\right)^2\right]}{\left(1 + \frac{v}{c}\cos\theta'\right)^2}.
 	\end{split}
 \end{equation}
-For $\theta' \approx 0$ (i.e., the limit of $v \to -c$),
+For $\theta' \approx 0$, and using \eqref{velocityrelation},
 \begin{equation}
 	\dv{N}{\Omega'\dd{t}} = \frac{\Dot{N}}{4\pi}\left(\frac{1- \frac{v}{c}}{1 + \frac{v}{c}}\right) \sim \frac{\Dot{N}c}{2\pi\Delta v}
 \end{equation}
-when $v = -c + \Delta v$. In the limit $\Delta v \to 0$, we find that flux $\to \infty$.
+which approaches $\infty$ as $\Delta v \to 0$.
 \section{Relativistic collisions}
 We will now consider the collision of 2 particles in 2-2 scattering. The particles begin in an intial state $(1,2)$, and enter a final state $(A,B)$.
 \\\\
@@ -2345,7 +2367,7 @@ Let us make a Lorentz transformation along the $x$-direction so that,
 \end{align}
 which requires that,
 \begin{equation}
-	\frac{v}{cp} = \frac{cp}{E} < 1
+	\frac{v}{c} = \frac{cp}{E} < 1
 \end{equation}
 which is how the \textit{centre of momentum frame} is defined. We can further define take the inner product on \eqref{totmom4} and define,
 \begin{equation}
