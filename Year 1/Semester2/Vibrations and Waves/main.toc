@@ -1,0 +1,73 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Simple Harmonic Motion}{4}{}%
+\contentsline {section}{\numberline {1.1}Energy in SHM}{4}{}%
+\contentsline {section}{\numberline {1.2}SHM In All Systems}{5}{}%
+\contentsline {subsection}{\numberline {1.2.1}Examples of Other Forms of SHM}{5}{}%
+\contentsline {subsubsection}{Pendulum}{5}{}%
+\contentsline {subsubsection}{LC Circuit}{6}{}%
+\contentsline {section}{\numberline {1.3}General Form of SHM}{6}{}%
+\contentsline {subsection}{\numberline {1.3.1}Period Independent of Mass: Proof by Dimensional Analysis}{6}{}%
+\contentsline {chapter}{\numberline {2}Damped Harmonic Motion}{7}{}%
+\contentsline {section}{\numberline {2.1}Light Damping}{7}{}%
+\contentsline {section}{\numberline {2.2}Heavy Damping}{7}{}%
+\contentsline {section}{\numberline {2.3}Critical Dampinig}{8}{}%
+\contentsline {section}{\numberline {2.4}Quality Factor}{8}{}%
+\contentsline {section}{\numberline {2.5}LCR Circuit}{8}{}%
+\contentsline {section}{\numberline {2.6}General Damped Harmonic Oscillator}{9}{}%
+\contentsline {chapter}{\numberline {3}Driven, Damped Harmonic Oscillator}{10}{}%
+\contentsline {section}{\numberline {3.1}Transient Response}{11}{}%
+\contentsline {section}{\numberline {3.2}AC Circuit}{11}{}%
+\contentsline {subsection}{\numberline {3.2.1}Impedance}{11}{}%
+\contentsline {section}{\numberline {3.3}Absorbed power}{12}{}%
+\contentsline {chapter}{\numberline {4}Coupled Oscillators}{14}{}%
+\contentsline {section}{\numberline {4.1}Equations of motion in coupled pendula}{14}{}%
+\contentsline {subsection}{\numberline {4.1.1}Normal Modes for higher $n$}{15}{}%
+\contentsline {subsubsection}{2 Masses - $n = 2$}{15}{}%
+\contentsline {subsubsection}{Linear Triatomic Molecule $n = 3$}{17}{}%
+\contentsline {section}{\numberline {4.2}Transverse Oscillations}{17}{}%
+\contentsline {subsection}{\numberline {4.2.1}Single Oscillator}{17}{}%
+\contentsline {subsection}{\numberline {4.2.2}2 Oscillators}{18}{}%
+\contentsline {subsection}{\numberline {4.2.3}Higher $n$}{18}{}%
+\contentsline {section}{\numberline {4.3}Forced Coupled Oscillators}{19}{}%
+\contentsline {chapter}{\numberline {5}Waves}{20}{}%
+\contentsline {section}{\numberline {5.1}1D Wave Equation}{20}{}%
+\contentsline {subsection}{\numberline {5.1.1}Sinusoidal Waves}{20}{}%
+\contentsline {subsection}{\numberline {5.1.2}General solution to 1D wave equation}{21}{}%
+\contentsline {subsection}{\numberline {5.1.3}Velocity of travelling waves on a stretched string}{21}{}%
+\contentsline {subsection}{\numberline {5.1.4}Energy Stored in a Wave}{22}{}%
+\contentsline {subsubsection}{Power of a sinusoidal wave}{23}{}%
+\contentsline {section}{\numberline {5.2}Waves at Boundaries}{23}{}%
+\contentsline {section}{\numberline {5.3}Standing Waves}{24}{}%
+\contentsline {subsection}{\numberline {5.3.1}Discrete normal modes}{25}{}%
+\contentsline {subsubsection}{Wavelength of standing waves}{25}{}%
+\contentsline {subsubsection}{Superposition of normal modes}{26}{}%
+\contentsline {section}{\numberline {5.4}Sound Waves}{26}{}%
+\contentsline {section}{\numberline {5.5}The wave equation in 2 dimensions}{26}{}%
+\contentsline {subsection}{\numberline {5.5.1}Solutions in exponential form}{27}{}%
+\contentsline {subsection}{\numberline {5.5.2}2D wave equation in polar coordinates}{27}{}%
+\contentsline {chapter}{\numberline {6}Dispersion and Interference}{29}{}%
+\contentsline {section}{\numberline {6.1}Phase and grouop velocities in a non-dispersive medium}{29}{}%
+\contentsline {section}{\numberline {6.2}Dispersion}{30}{}%
+\contentsline {subsection}{\numberline {6.2.1}Light dispersion}{30}{}%
+\contentsline {section}{\numberline {6.3}Wave interference}{30}{}%
+\contentsline {subsection}{\numberline {6.3.1}Conditions for destructive and constructive interference}{30}{}%
+\contentsline {subsection}{\numberline {6.3.2}Huygen's Principle}{30}{}%
+\contentsline {subsection}{\numberline {6.3.3}Young's Double Slit Experiment}{31}{}%
+\contentsline {section}{\numberline {6.4}Wave Diffraction}{32}{}%
+\contentsline {subsection}{\numberline {6.4.1}Circular aperature}{33}{}%
+\contentsline {subsection}{\numberline {6.4.2}Combining with the double slit experiment}{33}{}%
+\contentsline {chapter}{\numberline {7}The Schrodinger equation}{35}{}%
+\contentsline {section}{\numberline {7.1}Properties of the wavefunction}{35}{}%
+\contentsline {section}{\numberline {7.2}Infinite potential well}{35}{}%
+\contentsline {subsection}{\numberline {7.2.1}Time dependent solution}{36}{}%
+\contentsline {subsection}{\numberline {7.2.2}Stationary states}{36}{}%
+\contentsline {section}{\numberline {7.3}Tunelling}{36}{}%
+\contentsline {subsection}{\numberline {7.3.1}Tunelling probability}{37}{}%
+\contentsline {section}{\numberline {7.4}Finite potenial well}{38}{}%
+\contentsline {subsection}{\numberline {7.4.1}Bound states}{39}{}%
+\contentsline {subsection}{\numberline {7.4.2}Unbound states}{39}{}%
+\contentsline {chapter}{\numberline {A}Common Waveforms and Examples}{41}{}%
+\contentsline {section}{\numberline {A.1}Gaussian Pulse}{41}{}%
+\contentsline {section}{\numberline {A.2}Waves on a square membrane}{41}{}%
+\contentsline {chapter}{\numberline {B}Trig Identities}{43}{}%
+\contentsline {chapter}{\numberline {C}Solving the time dependent Schrodiner equation}{44}{}%

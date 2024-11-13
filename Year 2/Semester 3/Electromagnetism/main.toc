@@ -1,0 +1,49 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Mathematical Preliminaries}{3}{}%
+\contentsline {section}{\numberline {1.1}Vector and Scalar Fields}{3}{}%
+\contentsline {section}{\numberline {1.2}Vector Calculus}{3}{}%
+\contentsline {subsection}{\numberline {1.2.1}Integral Theorems}{4}{}%
+\contentsline {subsection}{\numberline {1.2.2}Curvilinear coordinates}{4}{}%
+\contentsline {section}{\numberline {1.3}Dirac-$\delta $ function}{4}{}%
+\contentsline {subsubsection}{Example: Point charges}{5}{}%
+\contentsline {section}{\numberline {1.4}Lagrange's and Laplace's Equation}{5}{}%
+\contentsline {subsection}{\numberline {1.4.1}Laplace's solution for a spherically symmetric field}{5}{}%
+\contentsline {subsection}{\numberline {1.4.2}Uniqueness of Poisson's Equation}{5}{}%
+\contentsline {subsection}{\numberline {1.4.3}General solution to Poisson's equation}{6}{}%
+\contentsline {chapter}{\numberline {2}Maxwell's Equations in a Vaccuum}{7}{}%
+\contentsline {section}{\numberline {2.1}Currents and the Continuity Equation}{7}{}%
+\contentsline {section}{\numberline {2.2}Integral Forms of Maxwell's Equations}{7}{}%
+\contentsline {subsection}{\numberline {2.2.1}Gauss' Law}{8}{}%
+\contentsline {subsubsection}{Magnetic Monopoles}{8}{}%
+\contentsline {subsection}{\numberline {2.2.2}Faraday-Lenz Law}{8}{}%
+\contentsline {subsection}{\numberline {2.2.3}Ampere's Law and Displacement Current}{8}{}%
+\contentsline {section}{\numberline {2.3}The time independent forms of Maxwell's equations}{9}{}%
+\contentsline {subsection}{\numberline {2.3.1}Electrostatics}{9}{}%
+\contentsline {subsubsection}{Coloumb's Law}{9}{}%
+\contentsline {subsection}{\numberline {2.3.2}Magnetostatics}{10}{}%
+\contentsline {section}{\numberline {2.4}Electric and Magnetic Dipoles}{10}{}%
+\contentsline {section}{\numberline {2.5}Structure of Maxwell's Equations}{11}{}%
+\contentsline {subsection}{\numberline {2.5.1}Potential formulation of Maxwell's equations}{11}{}%
+\contentsline {subsubsection}{Redifining Maxwell's Laws}{11}{}%
+\contentsline {subsection}{\numberline {2.5.2}Lorentz Transformations}{11}{}%
+\contentsline {chapter}{\numberline {3}Electromagnetic Effects in Simple Materials}{12}{}%
+\contentsline {section}{\numberline {3.1}Conductors}{12}{}%
+\contentsline {section}{\numberline {3.2}Method of Images}{12}{}%
+\contentsline {section}{\numberline {3.3}Capacitance and Relative Permitivity}{13}{}%
+\contentsline {section}{\numberline {3.4}Polarisation}{13}{}%
+\contentsline {subsection}{\numberline {3.4.1}Mechanisms for Polarisation}{14}{}%
+\contentsline {subsubsection}{Alignment of instrinsic dipoles}{14}{}%
+\contentsline {subsubsection}{Induced}{14}{}%
+\contentsline {subsubsection}{Combined mechanism}{14}{}%
+\contentsline {section}{\numberline {3.5}Electrostatics in Dielectrics}{15}{}%
+\contentsline {subsection}{\numberline {3.5.1}Properties of the $\vb {D}$ field}{16}{}%
+\contentsline {subsubsection}{Energy in a capacitor}{16}{}%
+\contentsline {subsection}{\numberline {3.5.2}Interfaces between Dielectrics}{16}{}%
+\contentsline {subsubsection}{Electric diplacement between two materials}{16}{}%
+\contentsline {subsubsection}{Electric field between two materials}{17}{}%
+\contentsline {subsubsection}{The general case}{17}{}%
+\contentsline {chapter}{\numberline {A}Proofs}{19}{}%
+\contentsline {section}{\numberline {A.1}Loop integral over perfect differential}{19}{}%
+\contentsline {chapter}{\numberline {B}Examples}{20}{}%
+\contentsline {section}{\numberline {B.1}Coloumb's law for two, straight, parallel wires}{20}{}%
+\contentsline {section}{\numberline {B.2}Coloumb's law for two parallel current carrying wires}{20}{}%

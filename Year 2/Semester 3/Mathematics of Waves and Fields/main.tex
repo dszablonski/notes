@@ -1,0 +1,468 @@
+\documentclass{book}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage[a4paper, margin=1in]{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{xcolor}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{angles,quotes}
+\graphicspath{ {./images/} }
+\usepackage{svg}
+\usepackage{subcaption}
+\usepackage{bm}
+\usepackage{empheq}
+\usetikzlibrary{decorations.text}
+\usepackage[most]{tcolorbox}
+\usepackage{tensor}
+%3D
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{C}{>{$}c<{$}}
+\usepackage{tikz-3dplot}
+\usepackage{appendix}
+\usepackage{pgfplots}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc,patterns,angles,quotes}
+%Tikz Library
+\usetikzlibrary{angles, quotes, intersections}
+\usepackage[bb=dsserif]{mathalpha}
+\usetikzlibrary{decorations.pathmorphing}
+
+\tikzset{snake it/.style={decorate, decoration=snake}}
+
+\usepackage{etoolbox} % ifthen
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{calc} % for adding up coordinates
+\usetikzlibrary{decorations.markings,decorations.pathmorphing}
+\usetikzlibrary{angles,quotes} % for pic (angle labels)
+\usetikzlibrary{arrows.meta} % for arrow size
+\usepackage{xfp} % higher precision (16 digits?)
+
+\renewcommand{\cleardoublepage}{\clearpage}
+
+\title{Mathematics of Waves and Fields}
+\author{Dominik Szablonski}
+\newtheorem{law}{Law}
+\newtheorem{klaw}{Law}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\chapter{Partial Differential Equations}
+\section{Seperation of Variables}
+Suppose we have a PDE whose solution is in the form, $u(r_1,r_2,\ldots,r_n)$ where there are $n$ co-ordinates $r_i$, then we can solve the PDE by seperation of variables by assuming a solution of the form,
+\begin{equation}
+	u(r_1,r_2,\ldots,r_n) = R_1(r_1)R_2(r_2)\cdots R_n(r_n).
+\end{equation}
+This will turn a compatible PDE into an ODE.
+\subsection{Specific solutions}
+We are often most interested in the specific solutions to a wave equation. In order to get a specific solution, constraints/boundary conditions must be provided. The general method is as follows,
+\begin{enumerate}
+	\item Use seperation of variables;
+	\item Build superpositions of solutions;
+	\item Apply boundary conditions and find appropriate constants.
+\end{enumerate}
+\section{Series Solutions}
+The general steps to solving an ODE using this method are,
+\begin{enumerate}
+	\item Assume a series solution of the form,
+	\begin{equation}
+		y = \sum_{n=0}^{\infty}a_kx^k
+	\end{equation}
+	\item Obtain the recurrance relation.
+\end{enumerate}
+\chapter{Fourier Series}
+Given a periodic function $f(x)$ with period $2L$ in the range $-L \leq x \leq L$, the fourier expansion is given by,
+\begin{equation}
+	\boxed{
+	f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n \cos \frac{n\pi x}{L} + b_n \sin\frac{n\pi x}{L}\right)
+	}
+\end{equation}
+for,
+\begin{align}
+	\boxed{a_n = \frac{1}{L}\int_{-L}^{L}f(x)\cos\frac{n\pi x}{L}\dd{x}} && \boxed{b_n = \frac{1}{L}\int_{-L}^{L} f(x)\sin\frac{n\pi x}{L} \dd{x}}
+\end{align}
+In order to expand a function it must meet \textit{Dirichlet's Conditions}, so the function must,
+\begin{enumerate}
+	\item be single valued,
+	\item have a finite number of discontinuities,
+	\item $\int_{-L}^L|f(x)|\dd{x}$ must be finite.
+\end{enumerate}
+We say that $\sin \frac{n\pi x}{L}$ and $\cos\frac{n \pi x}{L}$ form a \textit{complete, orthogonal basis}. And furthermore, the Fourier series allows \textit{an expansion of a function on a set of orthogonal basis functions}.
+\section{Exponential Fourier Series}
+We can further write the Fourier expansion in terms of complex exponentials,
+\begin{equation}
+	\boxed{f(x) = \sum_{n = -\infty}^{\infty} c_n \exp\left(i \frac{n\pi x}{L}\right)}
+\end{equation}
+for,
+\begin{equation}
+	\boxed{c_n = \frac{1}{2L}\int_{-L}^{L}f(x)\exp\left(-i\frac{n\pi x}{L}\right)\dd{x}}
+\end{equation}
+From our complex definition of the Fourier series, we can say that 2 complex functions $u(z)$ and $v(z)$ are orthogonal on the interval $a \leq z \leq b$ if,
+\begin{equation}
+	\int_a^b u(z)v(z) = 0.
+\end{equation}
+\chapter{Fourier Transform}
+If we wish to analyse non-periodic functions, we can take the limit of our range, $\lim_{L\to\infty}(-L,L)$. Let us write,
+\begin{align}
+	k_n = \frac{n\pi}{L} && \Delta k = \frac{\pi}{L}
+\end{align}
+so,
+\begin{align}
+	 \\
+	c_n & = \frac{1}{2L}\int_{-L}^{L}f(x)\exp\left(-ik_nx\right)\dd{x}.
+\end{align}
+Let us write $F(k) = 2Lac_n$,
+\begin{align}
+	F(k_n) = a\int_{-L}^{L}f(x)\exp\left(-ik_nx\right)\dd{x} \\
+	\implies f(x) &= \frac{1}{2\pi a}\sum_{n = -\infty}^{\infty} F(k_n)\exp\left(i k_nx\right)\Delta k.
+\end{align}
+In the limit of $L \to \infty$, we obtain,
+\begin{align}
+	\boxed{F(k) = a\int_{-\infty}^{\infty}f(x)\exp(-ikx)\dd{x}} && \text{Fourier transform of $f(x)$.}\\
+	\boxed{f(x) = \frac{1}{2\pi a}\int_{-\infty}^{\infty}F(k)\exp(ikx)\dd{k}} && \text{Inverse fourier transform of $F(k)$.}
+\end{align}
+We define constant,
+\begin{equation}
+	a = \begin{dcases}
+		\text{unity} & \text{Physics} \\
+		\frac{1}{\sqrt{2\pi}} & \text{Maths}
+	\end{dcases}.
+\end{equation}
+\section{Fourier Transform Theorems}
+\subsection{Similarity Theorem}
+\begin{theorem}
+	\begin{equation}
+		\boxed{\mathscr{F}\left\{f(ax)\right\} = \frac{1}{a}F\left(\frac{k}{a}\right)}.
+	\end{equation}
+\end{theorem}
+\subsection{Reverse fourier transform over all space}
+\begin{theorem}
+	\begin{equation}
+		\boxed{\int_{-\infty}^{\infty}f(x)\dd{x} = F(0)}
+	\end{equation}
+\end{theorem}
+\subsection{Translation of fourier transform}
+\begin{theorem}
+	\begin{equation}
+		\boxed{\mathscr{F}\left\{f(x - a)\right\} = e^{-ika}F(k)}
+	\end{equation}
+\end{theorem}
+\subsection{General manipulation of the fourier transform}
+Most generally,
+\begin{equation}
+	\boxed{\mathscr{F}\left\{f(ax - b)\right\} = e^{-ikb}\frac{1}{a}F\left(\frac{k}{a}\right)}
+\end{equation}
+\section{Dirac-Delta Function}
+Dirac's original approximation of the $\delta$ function used a function $\Pi(x)$ which was defined,
+\begin{equation}
+	\Pi(x) = \begin{dcases}
+		1 & -\frac{1}{2} \leq x \leq \frac{1}{2} \\
+		0 & \text{Elsewhere}
+	\end{dcases}.
+\end{equation}
+Using this definiton we can write,
+\begin{equation}
+	\delta(x) = \lim_{k \to \infty} \left\{k\Pi(kx)\right\}.
+\end{equation}
+It can also be defined using $\mathrm{sinc}$,
+\begin{equation}
+	\delta(x) = \lim_{k \to \infty}\left\{\frac{k}{\pi}\frac{\sin{kx}}{kx}\right\}.
+\end{equation}
+However, the most commonly used, and most applicable form is,
+\begin{equation}
+	\boxed{\delta(x) = \frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}\dd{x}}
+\end{equation}
+We note 4 important properties of the Dirac-Delta,
+\begin{enumerate}
+	\item $\displaystyle \lim_{x \to 0}\delta(x) = \infty$ 
+	\item $\displaystyle \int_{-\infty}^{\infty}\delta(x)\dd{x} = 1$
+	\item $\displaystyle \delta(ax + b) = \dfrac{1}{|a|}\delta\left(x + \dfrac{a}{b}\right)$
+	\item $\delta(x) = \delta(-x)$ i.e., Dirac-Delta is even.
+\end{enumerate}
+\section{Parseval's Theorem}
+\begin{theorem}
+\begin{equation}
+	\boxed{\int_{-\infty}^{\infty} \left|f(x)\right|^2\dd{x} = a\int_{-\infty}^{\infty}\left|F(k)\right|^2\dd{k}}
+\end{equation}
+where $a=1$ for mathematical symmetry, and $a= \frac{1}{2\pi}$ for physical symmetry.
+\begin{proof}
+	\begin{equation}
+		\begin{split}
+		\int_{-\infty}^{\infty}\left|f(x)\right|^2\dd{x} &= \frac{1}{2\pi}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}F(k)e^{ikx}\dd{k}\int_{-\infty}^{\infty}F^*(k)e^{ik'x}\dd{k'}\dd{x}\\
+		& = \int_{-\infty}^{\infty}F(k)\dd{k}\int_{-\infty}^{\infty}F^*(k')\dd{k'}\underbrace{\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{i(k-k')x}\dd{x}}_{\delta(k-k')} \\
+		& = \int_{-\infty}^{\infty}\left|F(k)\right|^2 \dd{k}
+		\end{split}
+	\end{equation}
+\end{proof}
+\end{theorem}
+\section{Convolution}
+We define the convolution $h(x)$ of two functions $f(x)$ and $g(x)$ as,
+\begin{equation}
+	\begin{split}
+		h(x) = f(x) * g(x) & = \int_{-\infty}^{\infty}f(x - x')g(x')\dd{x'} \\
+		& = \int_{-\infty}^{\infty}f(x')g(x - x')\dd{x'}.
+	\end{split}
+\end{equation}
+If we define the fourier transforms of $f(x)$ and $g(x)$,
+\begin{align}
+	F(k) = \mathscr{F}\left\{f(x)\right\} && G(k) = \mathscr{F}\left\{g(x)\right\}
+\end{align}
+then the Fourier transform of the convolution is given by,
+\begin{equation}
+	\mathscr{F}\left\{h(x)\right\} = \mathscr{F}\left\{f(x) * g(x)\right\} = F(k)G(k).
+\end{equation}
+\begin{proof}
+	Let us define $\zeta = x - x'$, then,
+	\begin{equation}
+		\begin{split}
+			H(k) & = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\dd{x}\dd{x'}f(\zeta)g(x')e^{-kx} \\
+			& = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} \dd{x'}\dd{\zeta}f(\zeta)g(x')e^{-ik(\zeta+x')} \\
+			& = \int_{-\infty}^{\infty}g(x')e^{ikx'}\dd{x'}\int_{-\infty}^{\infty}f(\zeta)e^{ik\zeta}\dd{\zeta}
+		\end{split}
+	\end{equation}
+	which clearly corresponds to the product of the two transforms.
+\end{proof}
+\subsection{Example: Diffraction through 2 slits}
+
+\section{Wave Packets}
+In 1 dimension, a forward travelling wave is defined by,
+\begin{equation}
+	\phi(x,t) = e^{-i\left(kx - \omega t\right)}
+\end{equation}
+which satisfies the 1 dimensional wave equation,
+\begin{equation}
+	\pdv[2]{\phi}{x} = \frac{1}{c^2}\pdv[2]{\phi}{t}.
+\end{equation}
+By substituting in the travelling wave, we find,
+\begin{align}
+	k^2 = \frac{1}{c^2}\omega^2 \implies \omega = ck. 
+\end{align}
+A plane wave $\phi(\vb{x},t) = e^{i(\vb{k}\cdot\vb{x} - \omega t)}$ satisfies the 3 dimensional wave equation,
+\begin{equation}
+	\grad^2\phi = \frac{1}{c^2}\pdv{\phi}{t}.
+\end{equation}
+Where we have,
+\begin{equation}
+	\omega = c|k|
+\end{equation}
+for a plane travelling along $k$.
+\\\\
+Returning to the 1 dimensional wave, we can sum these travelling waves along the $+x$ direction,
+\begin{equation}
+	\phi(x,t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}G(k)e^{ik(x-ct)}\dd{k}
+\end{equation}
+where $G(k)$ is the Fourier transform os $\phi(x,0)$. This wave satisfies the wave equation as all components of the wave travel at the same velocity $c$. We are also able to use the wave equation to describe waves in \textit{non-dispersive media}, i.e., those where the velocity of the waves depends on wavelength,
+\begin{equation}
+	v_p(k) = \frac{\omega(k)}{k}.
+\end{equation}
+The most general wave can be written as,
+\begin{equation}
+	\boxed{\phi(x,t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}G(k)e^{i(kx - \omega(t)t)}\dd{k}}.
+\end{equation}
+\subsection{Dispersion}
+A dispersive wave packet will have the following properties,
+\begin{itemize}
+	\item The envelope wave of the wavepacket will move with group velocity,
+	\begin{equation}
+		\boxed{v_g = \dv{\omega}{k} = v_p + k\dv{v_p}{k}}.
+	\end{equation}
+	\item The dispersive effects of the wave are a second order effect. i.e., we must expand any approximations to the second order. We will always assume $\omega \equiv \omega(k)$.
+\end{itemize}
+\chapter{Special Functions}
+\section{Taylor Expansion}
+The taylor expansion about $x_0$ is,
+\begin{equation}
+	\begin{split}
+		f(x) & = f(x_0) + (x-x_0)f'(x) + \frac{(x-x_0)^2}{2!} + \cdots \\
+		& = \sum_{n=0}^{\infty}f^{(n)}(x_0)\frac{(x-x_0)^n}{n!}
+	\end{split}
+\end{equation}
+Let us then redfine this as a simple series,
+\begin{equation}
+	f(x) = \sum_{n=0}^{\infty}u_n
+\end{equation}
+we can then define the convergence criteria,
+\begin{equation}
+	\lim_{n\to\infty}|r_n| = \lim_{n\to\infty}\left|\frac{u_{n+1}}{u_n}\right| < 1.
+\end{equation}
+\section{Hermit's Equation}
+\begin{equation}
+	\dv[2]{y}{x} - 2x\dv{y}{x} + 2ny = 0, \forall y, n \in \mathbb{Z}
+\end{equation}
+We can obtain solutions to Hermit's equation by assuming a series solution,
+\begin{equation}
+	y = \sum_{k=0}^{\infty}x^k.
+\end{equation}
+Substituing this into Hermit's equation,
+\begin{equation}
+	\sum_{k=0}^{\infty}k(k-1)a_kx^{k-2} - 2x\sum_{k=0}^{\infty}ka_kx^{k-1} + 2n\sum_{k=0}^{\infty}a_kx^k = 0
+\end{equation}
+Let us shift $k$ such that, $k \to k + 2$,
+\begin{equation}
+	\begin{split}
+		\sum_{k=0}^{\infty}(k+2)(k+1)a_{k+1}x^k - 2\sum_{k=0}^{\infty}ka_kx^k + 2n\sum_{k=0}^{\infty}a_kx^k & = 0 \\
+		\sum_{k=0}^{\infty}\left\{(k+2)(k+1)a_{k+2} - (2k-2n)a_{k}\right\}x^k = 0
+	\end{split}
+\end{equation}
+from which we obtain the recurrance relation,
+\begin{equation}
+	a_{k+2} = \frac{2(k-n)}{(k+2)(k+1)}a_n.
+\end{equation}
+Using this recurrance relation, we are able to form a solution for $y$, starting at $k=0$ and $k=1$ to obtain the even and odd solutions respectively,
+\begin{equation}
+	\begin{split}
+		y = & a_0\left[1 - \frac{2n}{2!}x^2 - \frac{2n(4-2n)}{4!}x^4 + \cdots\right] + \\
+		& a_1\left[x + \frac{(2-2n)}{3!}x^3 + \frac{(2-2n)(6-2n)}{5!}x^5 + \cdots\right]. \label{eq:hermit solution} 
+	\end{split}
+\end{equation}
+Let us note that at $k=n$ the series will terminate.
+\\\\
+Given the solution to Hermit's equation, by considering different values of $n$, we are able to obtain \textit{Hermit's Polynomials} which are discusssed in the section below.
+\subsection{Hermit's Polynomials}
+We denote Hermit's polynomials by $y \equiv H_n(x)$. By simply looking at eq. \eqref{eq:hermit solution}, we see that the first three even Hermit polynomials are,
+\begin{align}
+	H_0(x) = 1 && H_2(x) = 1 - 2x^2 && H_4(x) = 1 - 4x^2 + \frac{4}{3}x^4,
+\end{align}
+and the first 3 odd ones are,
+\begin{align}
+	H_1(x) = x && H_3(x) = x - \frac{2}{3}x^3 && H_5(x) = x - \frac{4}{3}x^3 + \frac{4}{5}x^5
+\end{align}
+In physics, we often normalise the Hermit polynomials such that the highest order term is positive and has a coefficient $2^n$.
+\subsubsection{Orthogonality of Hermit Polynomials}
+Hermit Polynomials satisfy the orthogonality relation,
+\begin{equation}
+	\int_{-\infty}^{\infty}H_n(x)H_m(x)e^{x^2}\dd{x} = \sqrt{\pi}n!2^m \delta_{nm}.
+\end{equation}
+This means that Hermit's polynomials can be used as a basis for series expansion of a function. We can further define a normalised Hermit function,
+\begin{equation}
+	\psi_m(x) = \left(\frac{1}{\sqrt{\pi}m!2^m}\right)^{1/2}H_me^{\frac{x^2}{2}}
+\end{equation}
+which satisfies,
+\begin{equation}
+	\int_{-\infty}^{\infty}\psi_m(x)\psi_n(x)\dd{x} = \delta_{mn}
+\end{equation}
+\section{Legendre's Equation}
+\begin{equation}
+	\boxed{(1-x^2)\dv[2]{y}{x} - 2x\dv{y}{x} + \ell(\ell + 1)y = 0 \hspace{10pt} l\geq 0, l \in \mathbb{Z}} \label{eq:legendre}
+\end{equation}
+We solve Legendre's equation by series expansion, from which we obtain,
+\begin{equation}
+	(1-x^2)\sum_{n=2} n(n-1)a_nx^{n-2} -2x\sum_{n=1}na_nx^{n-1} \ell(\ell + 1)\sum_{n=0}a_nx^n.
+\end{equation}
+Let us shift the sums so we only have terms in powers of $n$,
+\begin{equation}
+	\sum_{n=0} \left\{(n+2)(n+1)a_{n+2} - n(n-1)a_n - 2na_nx^n - 2na_nx^n + \ell(\ell + 1)a_n\right\}x^n = 0.
+\end{equation}
+From which we can easily obtain a general recurrance relation,
+\begin{equation}
+	\boxed{a_{n+2} = \frac{n(n+1) - \ell(\ell +1)}{(n+2)(n+1)}a_n}
+\end{equation}
+thus the solution for Legendre's equation has even and odd parts given below,
+\begin{equation}
+	\begin{split}
+	y = & a_0\left[(1 - \ell(\ell +1))\frac{x^2}{2!} + (\ell - 2)(\ell(\ell +1)(\ell +3))\frac{x^4}{4!} + \cdots \right] \hspace{27pt} \text{Even} \\
+	& + a_1\left[x - (\ell - 1)(\ell +2)\frac{x^3}{3!} + (\ell -3)(\ell -1)(\ell +2)\frac{x^5}{5!} + \cdots\right] \hspace{10pt} \text{Odd}
+\end{split}
+\end{equation}
+which we can clearly see terminates at $\ell = n$, which allows the series to converge. 
+\subsection{Legendre Polynoials}
+The steps to finding Legendre polynomials $P_n(x)$ are as follows,
+\begin{itemize}
+	\item Decide whether the polynomial is odd or even, and choose which part of $y$ you will use.
+	\item Find the coefficients of the polynomial $y(x)$ in terms of $a_0$ for even polynomials and $a_1$ for odd polynomials.
+	\item Set $y(0) = 1$ to find a value for $a_1$ or $a_0$.
+	\item Evaluate the final polynomial.
+\end{itemize}
+\subsubsection{Orthogonality of Legendre Polynomials}
+Legendre polynomials are orthogonal over the interval $|x| \leq 1$, i.e.,
+\begin{equation}
+	\int_{-1}^{1} P_l(x) P_{m}(x) \dd{x} = 0 \hspace{10pt} m \neq l.
+\end{equation}
+Let us recall eq. \eqref{eq:legendre}, and rewrite,
+\begin{align}
+	\dv{x}\left[(1-x^2)\pdv{P_l}{x}\right]& = - \ell(\ell+1)P_l(x) \\
+	\dv{x}\left[(1-x^2)\pdv{P_m}{x}\right]& = - \ell(\ell+1)P_m(x).
+\end{align}
+Multiply the equation of $P_m$ by $P_l$ and vice versa, and take them away from each other. We have,
+\begin{equation}
+	\begin{split}
+		\text{LHS} = & \int_{-1}^{1}\dv{x}\left[(1-x^2)\pdv{P_l}{x}\right]P_m\dd{x} \\
+		& -\int_{-1}^{1}\dv{x}\left[(1-x^2)\pdv{P_m}{x}\right]P_l\dd{x}
+	\end{split}\label{eq:4.23}
+\end{equation}
+Evaluating eq. \eqref{eq:4.23} by parts, we have,
+	\begin{align}
+		u = P_m && \dv{v}{x} = \dv{x}\left[(1-x^2)\pdv{P_l}{x}\right] \\
+		\dv{u}{x} = \pdv{P_m}{x} && v = (1-x^2)\pdv{P_l}{x}
+	\end{align}
+and similarly for the latter half of the equation. we can then write,
+\begin{equation}
+	\begin{split}
+		\text{LHS} = & \underbrace{\left[(1-x^2)\dv{P_l}{x}P_m\right]_{-1}^{1}}_0 - \int_{-1}^{1}\dv{P_m}{x}(1-x^2)\dv{P_l}{x}\dd{x} \\
+		& - \underbrace{\left[(1-x^2)\dv{P_m}{x}P_l\right]_{-1}^{1}}_0 - \int_{-1}^{1}\dv{P_l}{x}(1-x^2)\dv{P_m}{x}\dd{x} \\
+		= & 0
+	\end{split}
+\end{equation}
+\appendix
+\chapter{Examples: Differential Equations}
+\section{1D Wave Equation}
+The 1 dimensional wave equation for a wavefunction $\phi$ is given by,
+\begin{equation}
+	\boxed{\pdv[2]{\phi}{x} = \frac{1}{c^2}\pdv[2]{\phi}{t}}. \label{eq:1dwave}
+\end{equation}
+\subsection{Euler/d'Alembert solution}
+We can find a general solution to eq. \eqref{eq:1dwave} by using the substitution,
+\begin{align}
+	v & = x - ct \Leftarrow \text{ Backward component}\label{eq:backward}\\
+	u & = x + ct \Leftarrow \text{ Forward component}\label{eq:forward}.
+\end{align}
+Computing the derivative with respect to $x$ by the chain rule,
+\begin{equation}
+	\pdv{\phi}{x} = \pdv{\phi}{v}\pdv{v}{x} + \pdv{\phi}{u}\pdv{\phi}{u} = \left(\pdv{v} + \pdv{u}\right)\phi
+\end{equation}
+from which the second derivative follows,
+\begin{equation}
+	\pdv[2]{\phi}{x} = \left(\pdv{u}+\pdv{v}\right)^2\phi. \label{eq:spacial}
+\end{equation}
+Similarly for the time component,
+\begin{equation}
+	\pdv[2]{\phi}{t} = c^2\left(\pdv{u}-\pdv{v}\right)^2\phi. \label{eq:time}
+\end{equation}
+Applying eqs. \eqref{eq:spacial} and \eqref{eq:time} to eq. \eqref{eq:1dwave}, we find,
+\begin{equation}
+	\begin{split}
+		& \left(\pdv[2]{u} + \pdv[2]{v} + 2\pdv{u}\pdv{v}\right) = \frac{c^2}{c^2}\left(\pdv[2]{u} + \pdv[2]{v} - 2\pdv{u}\pdv{v}\right) \\
+		\implies & \left(\pdv{u}\pdv{v}\right)\phi = 0 \implies \text{The solution is a sum of backward and forward components.}
+	\end{split}
+\end{equation}
+Thus the general solution to eq. \eqref{eq:1dwave} is,
+\begin{equation}
+	\boxed{\phi = \phi(x + ct) - \phi(x-ct)}.
+\end{equation}
+
+\section{Laplace's Equation}
+Laplace's equation is given by,
+\begin{equation}
+	\boxed{\grad^2\phi = 0}
+\end{equation}
+and can be readily solved using seperation of variables.
+\section{Diffusion Equation}
+The diffusion equation is given by,
+\begin{equation}
+	\boxed{\grad^2T = \frac{1}{\alpha}\pdv{T}{t}}
+\end{equation}
+which reduces to Laplace's equation for a steady-state system.
+\end{document}

@@ -1,0 +1,796 @@
+\documentclass{book}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mdframed}[framemethod=PSTricks]
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage[a4paper, margin=1in]{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{xcolor}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{angles,quotes}
+\graphicspath{ {./images/} }
+\usepackage{svg}
+\usepackage{subcaption}
+\usepackage{bm}
+\usepackage{empheq}
+\usetikzlibrary{decorations.text}
+\usepackage[most]{tcolorbox}
+\usepackage{tensor}
+\usepackage{tcolorbox}
+%3D
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{C}{>{$}c<{$}}
+\usepackage{tikz-3dplot}
+\usepackage{appendix}
+\usepackage{pgfplots}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc,patterns,angles,quotes}
+%Tikz Library
+\usetikzlibrary{angles, quotes, intersections}
+\usepackage[bb=dsserif]{mathalpha}
+\usetikzlibrary{decorations.pathmorphing}
+
+\tikzset{snake it/.style={decorate, decoration=snake}}
+
+\usepackage{etoolbox} % ifthen
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{calc} % for adding up coordinates
+\usetikzlibrary{decorations.markings,decorations.pathmorphing}
+\usetikzlibrary{angles,quotes} % for pic (angle labels)
+\usetikzlibrary{arrows.meta} % for arrow size
+\usepackage{xfp} % higher precision (16 digits?)
+
+\renewcommand{\cleardoublepage}{\clearpage}
+
+\title{Properties of Matter}
+\author{Dominik Szablonski}
+\newtheorem{law}{Law}
+\newtheorem{klaw}{Law}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newcommand{\dbar}{\mathrm{d}\hspace*{-0.08em}\bar{}\hspace*{0.1em}}
+\pgfplotsset{compat=1.18}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+
+\begin{document}
+	\global\mdfdefinestyle{blehgh}{%
+		linecolor=black,middlelinewidth=2pt,%
+		leftmargin=1cm,rightmargin=1cm
+	}
+	\mdfsetup{skipabove=\topskip,skipbelow=\topskip}
+\maketitle
+
+\tableofcontents
+
+\chapter{Properties of Solids and Liquids}
+\section{Introduction}
+The kinetic energy per particle is $\approx k_BT$. Solids form when,
+\begin{equation}
+	k_BT << \epsilon
+\end{equation}
+where $\epsilon$ is the binding energy. Further, liquids form when,
+\begin{equation}
+	k_BT \approx \epsilon
+\end{equation}
+and gasses when,
+\begin{equation}
+	k_BT >> \epsilon.
+\end{equation}
+\section{Elasticity of Solids}
+Solids exibit elastic behaviour, i.e., whenn stress is applied they deform (strain) and return to their original shape once removed. The way solids resist strain is defined by elastic moduli, which are general defined,
+\begin{equation}
+	\text{Elastic Modulus} = \frac{\text{Stress}}{\text{Strain}}.
+\end{equation}
+\subsection{Young's Modulus}
+\begin{figure}
+	\centering
+	\includegraphics[width=175px]{Young'sModulus.png}
+	\caption{Solid underegoing deformation due to a force along its axis.} \label{fig:young'smodulus}
+\end{figure}
+\begin{definition}
+	$E$ - The ability of a solid to resist forces along a given axis.
+\end{definition}\noindent
+Consider a setup like in fig. \ref{fig:young'smodulus}. Stress is given by,
+$
+	\frac{F}{A}
+$
+and strain by,
+$
+	\frac{\Delta l}{l}
+$
+where $\Delta l$ is the deformation along the axis of the force. We then have,
+\begin{equation}
+	\boxed{E = \frac{F}{A}\left(\frac{\Delta l}{l}\right)^{-1}.}
+\end{equation}
+\subsection{Shear Modulus}
+\begin{figure}
+	\centering
+	\includegraphics[width=200px]{shearmodulus.png}
+	\caption{A solid undergoing shearing due to a force parallel to and along one of its faces.} \label{fig:shearmodulus}
+\end{figure}
+\begin{definition}
+	$G$ - The ability of a solid to resist shearing when a force is applied parallel to the surface of the solid.
+\end{definition}\noindent
+Consider a setup like in fig. \ref{fig:shearmodulus}. If the solid shears by $\Delta x$ due to a force $F$, then its strain is,
+\begin{equation}
+	\frac{\Delta x}{l} = \tan\theta \approxeq \theta
+\end{equation}
+for small $\theta$. The shear modulus is then,
+\begin{equation}
+	\boxed{G = \frac{F}{A}\left(\frac{\Delta x}{l}\right)^{-1} = \frac{F}{A\theta}}.
+\end{equation}
+\subsection{Bulk Modulus}
+\begin{figure}
+	\centering
+	\includegraphics[width=220px]{bulkmodulus.png}
+	\caption{A solid of volume $V$ being compressed by a force, $\dd{F}$, leading to an infinitesimal change in its volume $\dd{V}$.} \label{fig:bulkmodulus}
+\end{figure}
+\begin{definition}
+	$K$ - Resistance of a material to compression.
+\end{definition}\noindent
+The bulk modulus describes the stress due to a change in pressure $\dd{P}$. If we consider a setup like in fig. \ref{fig:bulkmodulus}, the change in volume is $-\dd{V}$, the strain is $\dd{V}/V$, so the bulk modulus is,
+\begin{equation}
+	\boxed{K = -V \dv{P}{V}}.
+\end{equation}
+The minus sign indicates that an increase in pressure results in a decrease in volume.
+\section{Properties of Static Liquids}
+\subsection{Hydrostatic Pressure}
+\begin{figure}
+	\centering
+	\includegraphics[height=150px]{hydrostatic.png}
+	\caption{A column of liquid of constant density $\rho$, vertical height $h_0$, and cross-sectional area $A$.} \label{fig:hydrostatic}
+\end{figure}
+Consider a column of liquid of constant density $\rho_l$, a depth $d$, and cross-sectional area $A$ as in fig. \ref{fig:hydrostatic}. Since the liquid is static (no net flow), we have $F_{\text{net}} = 0$. The force at $d$ is then,
+\begin{equation}
+	F = P_0A + \rho d g A = P(d)Am
+\end{equation}
+so the pressure at $d$ is,
+\begin{equation}
+	\boxed{P(d) = P_0 + \rho g d}.
+\end{equation}
+$\implies$ as $d$ increases linearly, so does $P$.
+\subsection{Buoyency and Archimedes Principle}
+\begin{figure}
+	\centering
+	\includegraphics[width=150px]{archimedes.png}
+	\caption{An arbitrary hollow shape of volume $V$ filled with liquid of density $\rho$, immersed in a liquid of the same density.} \label{fig:archimedes}
+\end{figure}
+Consider an arbitrary hollow shape of volume $V$ filled with liquid of density $\rho_l$, immersed in a liquid of the same density, as in fig. \ref{fig:archimedes}. The weight of the object is given by,
+\begin{equation}
+	F_w = \rho_l V g.
+\end{equation}
+The pressure acting on the body must be equal and opposite to its weight. We call this the \textit{buoyency force},
+\begin{equation}
+	\boxed{F_b = \rho_l V g}. \label{eq:buoyency}
+\end{equation}
+The buoyency force is \textit{equal and opposite to the weight of the liquid displaced}. I.e., in the case that the mass has a density $\rho_b$ such that $\rho_l > \rho_b$, the force it feels is still of the form eq. \eqref{eq:buoyency}, so will float above the surface of the water.
+\section{Flow of Incompressible Liquid}
+The molecules in a liquid or gas can easily flow, with the same time and position dependent velocity, $\vb{v}(\vb{r},t)$.
+\subsection{Conservation of mass and the continuity equation}
+The rate of mass flow through an area element of a surface $\dd{\vb{S}}$ is $\rho\vb{v}\cdot\dd{\vb{S}}$. The rate of mass flow into a volume bounded by a surface $S$ is this expression evaluated over all space,
+\begin{equation}
+	\dv{m}{t} = \rho\int_S\vb{v}\cdot\dd{\vb{S}}. \label{eq:RMF}
+\end{equation}
+For a liquid of constant density, eq. \eqref{eq:RMF} must equal $0$,
+\begin{equation}
+	\int_S \vb{v}\cdot\dd{\vb{S}} = 0
+\end{equation}
+and by the divergence theorem,
+\begin{equation}
+	\boxed{\div{\vb{v}} = 0}
+\end{equation}
+In the case of compressible liquids (i.e., where $\rho = \rho(\vb{r})$), conservation of mass is satisfied via the continuity equation,
+\begin{equation}
+	\boxed{\pdv{\rho}{t} + \div{(\rho\vb{v})} = 0}.
+\end{equation}
+\subsection{Bernoulli's Principle}
+\begin{figure}
+	\centering
+	\includegraphics[width=200px]{bernouli.png}
+	\caption{Frictionless pipe of arbitrary shape, with each end at a diffferent height $h_1$ and $h_2$ such that $h_2 < h_1$.} \label{fig:bernoulli}
+\end{figure}
+We will investigate how pressure of a liquid depends on flow speed. We assume no surface or iscous forces, and we assume flow is time independent, i.e., $\vb{v} = \vb{v}(\vb{r})$.\\\\
+Particles will flow in streamlines. Consider adjacent streamlines which form a tube of arbitrary shape, where each end is at a different vertical height, $h_1$ and $h_2$ such that $h_2 < h_1$, and there is no flow in or out of the tube, as in fig. \ref{fig:bernoulli}. The liquid enters at height $h_1$, with velocity $v_1$, pressure $P_1$, through an area $A_1$. The liquid leaves at height $h_1$, with velocity $h_2$, pressure $P_2$, through an area $A_2$.
+\\\\
+From the conservation of mass,
+\begin{equation}
+	v_1A_1 = v_2A_2. \label{eq:consofmass}
+\end{equation}
+In a time $\dd{t}$, the work done by pressure $P_1$ on the liquid at entry is,
+\begin{equation}
+	\dd{W}_1 = P_1A_1v_1\dd{t}
+\end{equation}
+and similarly for the exit,
+\begin{equation}
+	\dd{W}_2 = P_2A_2v_2\dd{t}.
+\end{equation}
+The kinetic energy of the liquid is,
+\begin{equation}
+	\dd{K}_1 = \frac{1}{2}\left(\rho v_1A_1 \dd{t}\right)v_1^2,
+\end{equation}
+and the potential energy,
+\begin{equation}
+	\dd{V} = \left(\rho v_1A_1\dd{t}\right)gh_1,
+\end{equation}
+and similarly for the exit. By conservation of energy,
+\begin{equation}
+	\begin{split}
+		\dd{W}_1 + \dd{K}_1 + \dd{V}_1 & = \dd{W}_2 + \dd{K}_2 + \dd{V}_2 \\
+		A_1v_1\left(P_1 + \frac{1}{2}\rho v_1^2 + \rho g h_1\right)\dd{t} & = A_2v_2\left(P_2 + \frac{1}{2}\rho v_2^2 + \rho g h_2\right)\dd{t}
+	\end{split}.\label{eq:conenergy}
+\end{equation}
+By eq. \eqref{eq:consofmass}, we can divide eq. \eqref{eq:conenergy} by $A_1v_1\dd{t}$,
+\begin{equation}
+	P_1 + \frac{1}{2}\rho v_1^2 + \rho g h_1 = P_2 + \frac{1}{2}\rho v_2^2 + \rho g h_2
+\end{equation}
+which leads to Bernoulli's equation,
+\begin{equation}
+	\boxed{P(h,v) + \rho g h + \frac{1}{2}\rho v^2 = \text{constant}}
+\end{equation}
+$\implies$ \textit{faster moving liquids have lower pressure}.
+\subsection{Flow Properties and Viscocity}
+\subsubsection{Laminar Flow}
+\begin{definition}
+	Smooth, regular streamlines that are locally parallel to each other
+\end{definition}\noindent
+The drag force on a spherical object of radius $R$ insterted into a liquid under laminar flow is caused by the liquid's resistance to shearing, and is given by Stoke's law,
+\begin{equation}
+	\boxed{\vb{F}_D = 6\pi \nu R\vb{v}}
+\end{equation}
+where $\nu$ is the viscocity of the liquid.
+\subsubsection{Turbulent Flow}
+\begin{definition}
+	Streamlines are irregular and chaotic du to formation of eddies in the flow.
+\end{definition}\noindent
+The drag force on an object placed in the stream ocurs due to the inertial force required to push the liquid out of the way of the object. The drag force is given by,
+\begin{equation}
+	\boxed{\vb{F}_D = \frac{1}{2}\rho v^2 C_D A \vu{v}}
+\end{equation}
+where $A$ is the cross-sectional area of the object and $C_D$ is a dimensionaless drag coefficiant.
+\subsubsection{Laminar-Turbulent Transition and Reynold's Number}
+Whether a liquid expriences laminar or turbulent flow depends on the ratio of inertial force to viscous force. This ratio is given by Reynold's number,
+\begin{equation}
+	\boxed{Re = \frac{\rho L v}{\nu}}
+\end{equation}
+where $L$ is the length of the object moving through the liquid.
+\section{Liquid Surfaces}
+\textbf{Free Surface}: The surface interface of a liquid is characterised by the surface free energy $\gamma$. This is the energy required to increase the surface area of the interface.\\\\
+\textbf{Liquid-Liquid Interface}: At the interface between two liquids, it is only energetically favourable for them to mix if $\gamma <0$.\\\\
+\textbf{Liquid-Solid Interface}: For $\gamma < 0$, it is energetically favourable for the liquid to spread over the surface of the solid.
+\subsection{Liquids in a Container}
+\subsubsection{Contact Angle}
+\begin{figure}
+	\centering
+	\includegraphics[width=400px]{contactangle.png}
+	\caption{}\label{fig:contactangle}
+\end{figure}
+We are interested in the way a liquid-gas interface meets the solid wall of a container. The shape of the liquid near the wall is known as the meniscus, as in fig. \ref{fig:contactangle}. We can approximate the meniscus as linear, wehre the liquid meets the wall at the contact angle $\theta$, at a height $h$, and horizontal distance $l$ from the surface of the liquid.
+\\\\
+Let us consider the following surface-free energies,
+\begin{enumerate}
+	\item Solid-gas $\gamma_{sg}$,
+	\item Solid-liquid $\gamma_{sl}$,
+	\item Liquid-gas $\gamma_{lg}$.
+\end{enumerate}
+The meniscus free energy (per unit length of the meniscus, thus having dimensions of force) is given by,
+\begin{equation}
+	F_{\text{men}} = \left(\gamma_{sl} - \gamma_{sg}\right) + \gamma_{lg}\left(\sqrt{h^2 + l^2} - l\right).
+\end{equation}
+The free energy is minimised when,
+\begin{equation}
+	\pdv{F_{\text{men}}}{h} = \left(\gamma_{sl} - \gamma_{sg}\right) + \gamma_{lg}\left(\frac{1}{2}\frac{2h}{\sqrt{h^2 + l^2}}\right) = 0.
+\end{equation}
+We have that, 
+\begin{equation}
+	\frac{h}{\sqrt{h^2 + l^2}} = \cos\theta 
+\end{equation}
+which allows us to find Young's equation relating contact angle to surface free energy,
+\begin{equation}
+	\boxed{\gamma_{lg}\cos\theta = \gamma_{sg}-\gamma_{sl}}.
+\end{equation}
+\subsubsection{Capillary Action}
+This occurs when a column of liquid is placed in a narrow tube. Consider a tube of radius $R$ at height $h$ relative to the surface of the bulk liquid. The surface free energy gain is,
+\begin{equation}
+	\Delta F_s = 2\pi r h \left(\gamma_{sl} - \gamma_{sg}\right)
+\end{equation}
+while the increase in gravitational potential energy is,
+\begin{equation}
+	\Delta F_g = \pi R^2 h \rho g \frac{h}{2}
+\end{equation}
+where $h/2$ is used as that is the location of the centre of mass.\\\\
+The total free energy is,
+\begin{equation}
+	F = \Delta F_s + \Delta F_g = \frac{\pi}{2}R^2h^2\rho g + 2\pi Rh \left(\gamma_{sl} - \gamma_{sg}\right)
+\end{equation}
+which is minimised when,
+\begin{equation}
+	\pdv{F}{h} = \pi R^2 h \rho g + 2\pi R\left(\gamma_{sl} - \gamma_{sg}\right) = 0,
+\end{equation}
+which can be rearranged to give a function for $h$,
+\begin{equation}
+	\boxed{h = -\frac{2}{(\gamma_{sl} - \gamma_{sg})}{\rho g R} = \frac{2\gamma_{lg} \cos\theta}{\rho g R}}
+\end{equation}
+\subsection{Surface Tension and Surface Free Energy}
+Consider a wire frame, with one side of length $l$, free to move in the $x$ direction. A thing iglm of liquid covers the space within the frame and shifts teh wire a distacen $\dd{x}$ in order ot minimise the overall free energy.\\\\
+The work done on the wire to move a distance $\dd{x}$ due to a force $F$ applied by the thin film of liquid is,
+\begin{equation}
+	\dd{W} = F\dd{x}. \label{eq:workdone}
+\end{equation}
+The work also contributes to increasing the surface area of the liquid by,
+\begin{equation}
+	\dd{A} = sl \dd{x}.
+\end{equation}
+The energy increase is given by,
+\begin{equation}
+	\dd{E}_s = \gamma \dd{A} = 2\gamma l \dd{x}.\label{eq:energyincrease}
+\end{equation}
+Equating eq. \eqref{eq:workdone} and eq. \eqref{eq:energyincrease} gives an expression for the \textit{surface tension},
+\begin{equation}
+	\boxed{F = 2\gamma l}.
+\end{equation}
+\chapter{Thermodynamics}
+In this chapter we deal with analysing the macroscopic properties of objects composed of many microscopic atoms and particles. We will first consider an idea gas, i.e., one in which,
+\begin{itemize}
+	\item the particles have no volume,
+	\item and the particles have no interatomic forces acting between them.
+\end{itemize}
+This allows us to write down the ideal gas equation in two forms,
+\begin{align}
+	\boxed{\underbrace{P}_{\text{Pressure}}\overbrace{V}^{\text{Volume}} = \underbrace{n}_{\text{Moles}}\overbrace{R}^{\substack{\text{Molar gas }\\{\text{constant}}}}\underbrace{T}_{\text{Temperature}}} \\
+	\boxed{PV = \underbrace{N}_{\substack{\text{Number of}\\\text{molecules}}} \overbrace{k_b}^{\substack{\text{Boltzmann}\\\text{constant}} } T}.
+\end{align}
+1 mole of substance contains $N_A$ (Avogadro's number) amount of molecules. We further have a relation between the molar gas constant and the Boltzman constant which states,
+\begin{equation}
+	R = N_Ak_b.
+\end{equation}
+In this course, we will often discuss 2 different variables,
+\begin{enumerate}
+	\item \textbf{Intensive Variables} - Value is not proportional to the amount of substance.
+	\item \textbf{Extensive Variables} - Value is linearly proportional to the amount of substance. 
+\end{enumerate}
+\section{First law of thermodynamics}
+\begin{law}
+\begin{equation}
+	\boxed{\underbrace{\Delta E}_{\substack{\text{Change in}\\\text{internal energy}} } = \underbrace{W}_{\substack{\text{Work done}\\\text{on the system}}} + \underbrace{Q}_{\substack{\text{Heat supplied}\\\text{to a system}}}}
+\end{equation}
+\end{law}
+We say that $E$ is a function of state, meaning that the value of $E$ is path independent. For an ideal gas, we have that $E = E(T)$ which is the energy due to the kinetic energy of the particles. If we take the limit as $\Delta E \to 0$,
+\begin{equation}
+	\boxed{\dd{E} = \dbar Q + \dbar W}.
+\end{equation}
+Furthermore, $W$ and $Q$ are not functions of state, meaning that their values are path dependent. This means that,
+\begin{equation}
+	\Delta E = W + Q \equiv \text{Const}
+\end{equation}
+however, $W$ and $Q$ will not be constant as they depend on the shape of the function they take on.
+\subsection{Cyclic Process}
+This is a process which starts and ends in the same equilibrium state, so there is no change in energy over the cycle,
+\begin{equation}
+	\oint\dd{E} = E_{\text{final}} - E_{\text{initial}} = 0.
+\end{equation}
+From the first law,
+\begin{equation}
+	\oint \dbar{W} + \oint\dbar{Q} = 0
+\end{equation}
+and thus,
+\begin{equation}
+	\boxed{\oint\dbar{W} = -\oint \dbar{Q}}
+\end{equation}
+for a cyclic process.
+\subsection{Quasistatic Process}
+This is a process that occurs so slowly that the system is always instantaneously in thermal equilibrium. For a quasistatic process. the force applied is approximately equal to the pressure of the fluid itself,
+\begin{equation}
+	\boxed{\frac{\left|\vb{F}\right|}{A}\simeq P}.
+\end{equation}
+\subsection{Reversible Processes}
+For a reversible process, we require,
+\begin{enumerate}
+	\item The process must be \textit{quasistatic}.
+	\item There is no external friction.
+	\item The process must not cause permanent change to the system.
+\end{enumerate}
+\subsubsection{Free expansion of an isolated gas}
+\begin{figure}
+	\centering
+	\includegraphics[width=300px]{FreeExpansion.png}
+	\caption{} \label{fig:free expansion}
+\end{figure}
+Let us consider a gas confined in a volume which is seperated in half, with the gas initially in only one part of the volume as in fig. \ref{fig:free expansion}. If we remove the partition instantaneously, we have,
+\begin{align}
+	W = 0 && Q = 0 && \implies && \Delta E = 0.
+\end{align}
+However, this process is \textit{non-reversible}, as we have caused a permament change to the system.
+\subsubsection{Isothermal expansion of an ideal gas}
+\begin{figure}
+	\centering
+	\includegraphics[width=300px]{Isothermal.png}
+	\caption{} \label{fig:isothermal}
+\end{figure}
+Now consider a setup as in fig. \ref{fig:isothermal}, where we use a piston to change the volume of the container, and we use a source to keep the temperature of the gas constant. We have,
+\begin{align}
+	W < 0 && Q > 0 && \implies (Q+W) = 0 && \implies \Delta E = 0.
+\end{align}
+This process is \textit{reversible} given that,
+\begin{itemize}
+	\item The piston is frictionless,
+	\item The piston moves slowly.
+\end{itemize}
+\subsection{Work Done}
+Generally, the work done on a fluid is represented by an the area under the curve ono an \textit{indicator diagram}, which plots pressure against volume. If we consider a piston of cross-sectional area $A$ compressing a fluid, we can write the work done as,
+\begin{equation}
+	\boxed{\dbar W = \vb{F}\cdot\dd{\vb{x}} = \underbrace{\frac{|\vb{F}|}{A}}_P \underbrace{A\dd{x}}_{-\dd{V}} = -P\dd{V}}. \label{eq:work}
+\end{equation}
+For an ideal gas at temperature, we can evaluate this as,
+\begin{equation}
+	\begin{split}
+	W & = -\int_{V_i}^{V_f} \frac{nRT}{V}\dd{V} \\
+	& = nRT\ln\left(\frac{V_i}{V_f}\right).
+	\end{split}
+\end{equation}
+For a cyclic process, the net work done is an enclosed area on the $P-V$ diagram.
+\subsubsection{Reversible Work}
+\begin{center}\textit{Stretching of a wire}\end{center}
+If we have a string under tension $\Gamma$ which undergoes an infinitesimal change in length $\dd{\ell}$, we have,
+\begin{equation}
+	\dbar W = \Gamma \dd{\ell}.
+\end{equation}
+\begin{center}\textit{Increase in surface area}\end{center}
+For a surface tension $\gamma$ and a change in area $\dd{A}$,
+\begin{equation}
+	\dbar W = \gamma \dd{A}.
+\end{equation}
+\subsection{Heat Capacity}
+Heat capacity $C$ is the amount of energy required to raise the temperature by $\dd{T}$,
+\begin{equation}
+	\dbar Q = C\dd{T}.
+\end{equation}
+\subsubsection{Heat capacity at constant volume}
+Rewriting the first law,
+\begin{equation}
+	\dbar Q = C_V\dd{T} = \dd{E} - \dbar W = \dd{E} + \underbrace{P\dd{V}}_0 \label{eq:9304}
+\end{equation}
+where the subscript $V$ indicates volume is being held constnat. We can take $P\dd{V}= 0$ since $V$ is constant, and $\Delta V \to 0, \dd{V} = 0$. Let us write $E = (V,T)$,
+\begin{equation}
+	\dd{E} = \pdv{E}{T}\dd{T} + \underbrace{\pdv{E}{T}\dd{V}}_0. \label{eq:2309}
+\end{equation}
+Equating eq. \eqref{eq:9304} to \eqref{eq:2309}, we get,
+\begin{equation}
+	\dbar{Q} = C_V\dd{T} = \pdv{E}{T}\dd{T}
+\end{equation}
+from which we obtain our final expression,
+\begin{equation}
+	C_V = \pdv{E}{T}.
+\end{equation}
+\subsubsection{Heat capacity at constant pressure}
+Rewriting the first law,
+\begin{equation}
+	\dbar{Q} = C_P\dd{T} = \dd{E} + P\dd{V}.
+\end{equation}
+Writing $E = E(T, P)$,
+\begin{equation}
+	\dd{E} = \pdv{E}{T}\dd{T} + \underbrace{\pdv{E}{P}\dd{P}}_0.
+\end{equation}
+We can then obtain our final relation,
+\begin{equation}
+	\boxed{ C_P = \pdv{E}{T} + P\pdv{V}{T} }
+\end{equation}
+\subsubsection{Ideal Gas}
+In an ideal gas, $E = E(T)$, i.e., energy has sole dependence on temperature. Thus,
+\begin{equation}
+	\dv{E}{T} = \pdv{E}{T} = C_V(T). \label{eq:20}
+\end{equation}
+From the ideal gas law,
+\begin{equation}
+	P\pdv{V}{T} = nR.
+\end{equation}
+From which we get the relation,
+\begin{equation}
+	\boxed{C_P(T) = C_V(T) + nR}.
+\end{equation}
+\subsection{Adiabatic Processes}
+For an adiabtic procecss, there is \textit{no heat transfer}, i.e., $Q = 0$. From the first law and eq. \eqref{eq:20},
+\begin{equation}
+	\dd{E} - \dbar{W} = C_V\dd{T} - \dbar{W} = 0. \label{eq:203}
+\end{equation}
+From the ideal gas equation,
+\begin{equation}
+	T = \frac{PV}{nR}
+\end{equation}
+whose differential is,
+\begin{equation}
+	\dd{T} = \frac{1}{nR}\left(P\dd{V} + V \dd{P}\right)
+\end{equation}
+from which the differential of $E$ follows,
+\begin{equation}
+	\dd{E} = \frac{C_V}{nR}\left(P\dd{V} + V \dd{P}\right).\label{eq:020321}
+\end{equation}
+Substituting eq. \eqref{eq:020321} into eq. \eqref{eq:20} and assuming a reversible process ($\dbar W = - P \dd{V}$), we obtain,
+\begin{equation}
+	\begin{split}
+		C_V \dd{T} + P\dd{V} = \frac{C_V}{nR}(P\dd{V}+V\dd{P}) + P \dd{V} & = 0 \\
+		C_VV\dd{P} + \underbrace{(C_V nR)}_{C_P}P\dd{V} & = 0 \\
+		\implies \frac{1}{P}\dd{P} + \frac{C_P}{C_V}\frac{1}{V}\dd{V} = 0. \label{eq:adiabtic}
+	\end{split}
+\end{equation}
+If we have that $C_P$ and $C_V$ are constant, let us define,
+\begin{equation}
+	\gamma = \frac{C_P}{C_V}
+\end{equation}
+which is also constant. We can integrate eq. \eqref{eq:adiabtic} from $(P_1,V_1) \to (P_2, V_2)$,
+\begin{equation}
+	\begin{split}
+	\int_{P_1}^{P_2}\frac{1}{P}\dd{P} + \gamma \int_{V_1}^{V_2}\frac{1}{V}\dd{V} & = 0
+	\implies \ln\left(\frac{P_2V_2^{\gamma}}{P_1V_1^{\gamma}}\right) = 0 \label{eq:integrated}
+	\end{split}
+\end{equation}
+Removing the logarithm from eq. \eqref{eq:integrated}, we obtain an expression relating the initial and final pressure and volume for an adiabatic process,
+\begin{equation}
+	\boxed{P_2V_2^{\gamma} = P_1V_2^{\gamma}}
+\end{equation}
+and by using the ideal gas law, we can eliminate variables and find expressions involving temperature,
+\begin{align}
+	\boxed{T_2V_2^{\gamma -1} = T_1V_1^{\gamma -1}} \\
+	\boxed{T_2P_2^{\frac{1}{\gamma} - 1} = T_1P_1^{\frac{1}{\gamma} - 1}}
+\end{align}
+\section{Second Law of Thermodynamics}
+\begin{law}
+	The direction of heat flow approaches equillibrium, such that,
+	\begin{itemize}
+		\item Systems at an intermediate temperature reach equilibrium at an intermediate temperature.
+		\item Heat naturally flows from hot bodies to cold bodies,
+		\item We require an engine to produce work from heat.
+	\end{itemize}
+\end{law}
+\subsection{Heat engines}
+
+Heat engines produce work from heat. They operate in a cyclic process such that,
+\begin{equation}
+	\Delta E = \oint\dd{E} = 0.
+\end{equation}
+\subsubsection{Sterling Engine}
+\begin{figure}
+	\centering
+	\includegraphics[width=200px]{heatengine.png}
+	\caption{} \label{fig:heat engine}
+\end{figure}
+The Sterling engine is a piston operating between two heat reservoirs, with a hot reservoir at temperature $T_H$ and a hot reservoir at temperature $T_C$ where $T_C < T_H$ and contains an ideal gas. It works in a cycle such that,
+\begin{enumerate}
+	\item \textit{Isothermal expansion}
+	\begin{itemize}
+		\item Work done \textit{by} gas,
+		\begin{equation}
+			W_1 = nRT_H\ln{\left(\frac{V_B}{V_A}\right)}
+		\end{equation}
+		\item Heat \textit{absorbed},
+		\begin{equation}
+			Q_1 = W_1
+		\end{equation}
+	\end{itemize}
+	\item \textit{Contact cooling}
+	\begin{itemize}
+		\item No work done.
+		\item Heat \textit{ejected},
+		\begin{equation}
+			Q_2 = E(T_H) - E(T_C)
+		\end{equation}
+	\end{itemize}
+	\item \textit{Isothermal compression}
+	\begin{itemize}
+		\item Work done \textit{on} gas,
+		\begin{equation}
+			W_3 = nRT_C\ln\left(\frac{V_B}{V_A}\right)
+		\end{equation}
+		\item Heat \textit{ejected}
+		\begin{equation}
+			Q_3 = W_3
+		\end{equation}
+	\end{itemize}
+	\item \textit{Contact heating}
+	\begin{itemize}
+		\item No work done
+		\item Heat \textit{absorbed},
+		\begin{equation}
+			Q_4 = E(T_H) - E(T_C)
+		\end{equation}
+	\end{itemize}
+\end{enumerate}
+This cycle can be visualised on an indicator diagram as in fig. \ref{fig:heat engine}. Furhthermore, this cycle can all be derived from the first law and $\dbar W = -P\dd{V}$. 
+\\\\
+Let us look at the cycle in more detail. The net work done \textit{by} the gas is,
+\begin{equation}
+	W = W_1 - W_3 = nR(T_H - T_C)\ln\left(\frac{V_B}{V_A}\right).
+\end{equation}
+The heat absorbed from the resevoir is at $T_H$ is,
+\begin{equation}
+	Q_H = Q_1 + Q_4.
+\end{equation}
+The heat ejected \textit{to} the hot resevoir is,
+\begin{equation}
+	Q_C = Q_2 + Q_3.
+\end{equation}
+From the first law,
+\begin{equation}
+	\Delta E = (-W) + (Q_H - Q_C) = 0
+\end{equation}
+and therefore,
+\begin{equation}
+	W = Q_H - Q_C = nR\ln\left(\frac{V_B}{V_A}\right)T_H + C_V\Delta T - nR\ln\left(\frac{V_B}{V_A}\right)T_C = nR\ln\left(\frac{V_B}{V_A}\right)\Delta T.
+\end{equation}
+where $\Delta T = T_H - T_C$. The efficiency of the engine is the ratio of desired output to required input, so,
+\begin{equation}
+	\eta_E = \frac{W}{Q_H}  = \frac{Q_H - Q_C}{Q_H} = \frac{nR\ln\left(\frac{V_B}{V_A}\right)\Delta T}{nR\ln\left(\frac{V_B}{V_A}\right)T_H + C_V\Delta T}.
+\end{equation}
+A schematic of the heat flow of a Sterling engine is shown in fig. \ref{fig:sterlingengine}.
+\begin{figure}
+	\centering
+	\includegraphics[width=150px]{sterlingengine.png}
+	\caption{}\label{fig:sterlingengine}
+\end{figure}
+\subsection{Heat pumps and refrigirators}
+These are the opposite of engines, they do work on a system to extract heat.
+\subsubsection{Refrigerrator}
+Work is done to extract heat $Q_C$ from a system to lower its temperature $T_C$. In this case, the efficiency of the system is given as,
+\begin{equation}
+	\eta_R = \frac{Q_C}{Q_H - Q_C}.
+\end{equation}
+\subsubsection{Heat Pump}
+In a heat pump, we extract heat from a cooler resevoir at $T_C$ to heat a system to $T_H$. The desired ouput is $Q_H$, so,
+\begin{equation}
+	\eta_P = \frac{Q_H}{Q_H - Q_W}.
+\end{equation}
+If an engine is reversible, then,
+\begin{equation}
+	\eta_P = \frac{1}{\eta_E}.
+\end{equation}
+\subsection{Carnot's Cycle}
+
+Carnot's theorem states,
+\begin{theorem}
+	\hspace{5px}
+	\begin{enumerate}
+		\item A reversible engine is most efficient.
+		\item All reversible engines, operating between two heat baths, have the same efficiency, $\eta_C$ depending only on $T_H$ and $T_C$.
+	\end{enumerate}
+\end{theorem}\noindent
+This type of engine can be constructed using the Carnot cycle (whose P-V diagram is shown in fig. \ref{fig:carnot}),
+\begin{enumerate}
+	\item \textbf{Isothermal Expansion} at $T_H$,
+	\begin{itemize}
+		\item $\Delta T = 0, \Delta E = 0$.
+		\item $\dbar W = nRT_H\ln\left(\frac{V_B}{V_A}\right)$.
+	\end{itemize}
+	\item \textbf{Adiabatic Expansion}
+	\begin{itemize}
+		\item $\dbar Q \implies \dd{E} = \dbar W$
+		\item $PV^{\gamma} = \text{Const.} \implies P \propto V^{-\gamma}$
+		\item By the ideal gas law, $P = \frac{nRT}{V} \implies \frac{nRT}{V}V^{\gamma} = \text{Const.} \implies T_H V_B^{\gamma - 1} = T_CV_C^{\gamma -1}$.
+	\end{itemize}
+	\item \textbf{Isothermal Compression}
+	\begin{itemize}
+		\item $Q = nRT_C\ln\left(\frac{V_C}{V_D}\right)$
+	\end{itemize}
+	\item \textbf{Adiabatic Compression}
+	\begin{itemize}
+		\item $T_H V_A^{\gamma -1} = T_CV_D^{\gamma -1}$.
+	\end{itemize}
+\end{enumerate}
+From the cycle above, we find that the ratio,
+\begin{equation}
+	\frac{V_B}{V_A} = \frac{V_C}{V_D}
+\end{equation}
+holds. From this, we can write down the efficiency of this engine,
+\begin{equation}
+	\eta_C  = \frac{W}{Q_H} = \frac{nRT_H\ln\left(\frac{V_B}{V_A}\right) - nRT_C\ln\left(\frac{V_C}{V_D}\right)}{nRT_H\ln\left(\frac{V_B}{V_A}\right)} = \frac{nRT_H\ln\left(\frac{V_B}{V_A}\right) - nRT_C\ln\left(\frac{V_B}{V_A}\right)}{nRT_H\ln\left(\frac{V_B}{V_A}\right)}
+\end{equation}
+from which we can write donw the final expression for the \textit{Carnot efficiency},
+\begin{equation}
+	\boxed{\eta_C = 1 - \frac{T_C}{T_H}}.
+\end{equation}
+Let us note that we find that the Stirling cycle approaches Carnot efficiency for small values of $C_V$.
+\begin{figure}
+	\centering
+	\includegraphics[width=150px]{carnot.png}
+	\caption{} \label{fig:carnot}
+\end{figure}
+\subsection{Statements of the Second Law}
+It is difficult to state the second law in a concise, general way through onyl understanding heat. However, below are two common formulations.
+
+\subsubsection{Kelvin-Planck Statement}
+\begin{tcolorbox}
+	It is impossible to construct an engine which, operating in a cycle, produces no effect other than the extraction of heat from the reservoir and the performance of an equivalent amount of work.
+\end{tcolorbox}
+
+\subsubsection{Claussius Statement}
+\begin{tcolorbox}
+	It is impossible to construct a refrigirator which, operating in a cycle, produces no effect other than the transfer of heat from a cooler body to a hotter one.
+\end{tcolorbox}
+\section{Entropy}
+Entropy is encoded into Calusiu's inequality, which states that if a system is taken over a cycle, absorbing infinitesimal amounts of heat $\dbar Q$, from various reservoirs at varing temperatures T, throughout, then
+\begin{equation}
+	\oint \frac{\dbar Q}{T} \leq 0.
+\end{equation}
+\subsection{Proof}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{clausius.png}
+	\caption{}
+	\label{fig:clausius}
+\end{figure}
+Let us consider a cycle as in fig. \ref{fig:clausius}. We have that the heat input is,
+\begin{equation}
+	Q_H = \oint\dbar Q_H = T_H \oint\frac{\dbar Q_i}{T_i}
+\end{equation}
+and the total work done is,
+\begin{equation}
+	W = \oint \dbar W_i.
+\end{equation}
+The only way for this cycle to be possible is if the work done is 0 or negative. Thus,
+\begin{equation}
+	\oint\dbar W_i \leq 0.
+\end{equation}
+We can write $\oint \dbar W_i = \oint \dbar Q_i$ and,
+\begin{equation}
+	\oint \frac{\dbar Q_i}{T_i} \leq 0.
+\end{equation}
+\subsection{Mathematical definition of entropy}
+We define infinitesimal entropy of a system,
+\begin{equation}
+	\dd{S} = \frac{\dbar Q}{T}.
+\end{equation}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{cycle.png}
+	\caption{}
+	\label{fig:cycle}
+\end{figure}
+We only have constant entropy in equilibrium. Let us consider a process like in fig. \ref{fig:cycle}. The total entropy of this sytem is,
+\begin{equation}
+	\begin{split}
+	&\oint\frac{\dbar Q}{T} = \int_A^B \frac{\dbar Q}{T} + \int_B^A \frac{\dbar Q}{T} = 0 \\
+	\implies & \int_A^B \frac{\dbar Q}{T} - \int_A^B \frac{\dbar Q}{T} = 0
+	\end{split}
+\end{equation}
+thus we have shown that entropy is path independent and thus is a function of state. Let us now define entropy further. Let us consider a reference state $O$ as we go from $A$ to $B$. We have,
+\begin{equation}
+	\begin{split}
+		\int_A^B &= \int_A^O \frac{\dbar Q}{T} + \int_B^A \frac{\dbar Q}{T} \\
+		& = \int_O^B \frac{\dbar Q}{T} - \int_O^A \frac{\dbar Q}{T}\\
+		& = S(B) - S(A).
+	\end{split}
+\end{equation}
+We can then define the entropy,
+\begin{equation}
+	\boxed{S(A) = \int_O^A \frac{\dbar Q_{\text{rev}}}{T}}.
+\end{equation}
+NOTE: Entropy is defined in terms of a reversible process.
+\subsection{The law of increase in entropy}
+Let us now consider a similar scenario to fig. \ref{fig:cycle}, but we have an irreversible process as we go from $A$ to $B$. Applying Clausius' inequality,
+\begin{equation}
+	\begin{split}
+		\int_A^B \frac{\dbar Q_{\text{irrev}}}{T} + \int_B^A \frac{\dbar Q_{\text{rev}}}{T} & \leq 0\\
+		\int_A^B\frac{\dbar Q_{\text{irrev}}}{T} \geq \int_A^B\frac{\dbar Q_{\text{rev}}}{T}
+	\end{split}
+\end{equation}
+which gives us our final statement,
+\begin{equation}
+	S(B) - S(A) \geq \int_A^B \frac{\dbar Q_{\text{irrev}}}{T}
+\end{equation}
+\appendix
+\chapter{Definitions}
+\textbf{Isothermal Process}:  Happens at constant temperature, $\Delta E = 0$ for an ideal gas.
+\\\\
+\textbf{Isobaric Process}: Happens at constant pressure.
+\\\\
+\textbf{Isochoric Process}: Happens at constant volume $\implies \dbar W = 0$.
+\\\\
+\textbf{Adiabatic Process}: Happens with no heat flow $\implies \dbar Q = 0$.
+\\\\
+\textbf{Heat Capacity}: Relates heat flow to temperature change $\dbar Q = C \dd{T}$.
+\end{document}

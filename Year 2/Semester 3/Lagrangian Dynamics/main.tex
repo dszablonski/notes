@@ -1,0 +1,483 @@
+\documentclass{book}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage[a4paper, margin=1in]{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{xcolor}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{angles,quotes}
+\graphicspath{ {./images/} }
+\usepackage{svg}
+\usepackage{subcaption}
+\usepackage{bm}
+\usepackage{empheq}
+\usetikzlibrary{decorations.text}
+\usepackage[most]{tcolorbox}
+\usepackage{tensor}
+%3D
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{C}{>{$}c<{$}}
+\usepackage{tikz-3dplot}
+\usepackage{appendix}
+\usepackage{pgfplots}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc,patterns,angles,quotes}
+%Tikz Library
+\usetikzlibrary{angles, quotes, intersections}
+\usepackage[bb=dsserif]{mathalpha}
+\usetikzlibrary{decorations.pathmorphing}
+
+\tikzset{snake it/.style={decorate, decoration=snake}}
+
+\usepackage{etoolbox} % ifthen
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{calc} % for adding up coordinates
+\usetikzlibrary{decorations.markings,decorations.pathmorphing}
+\usetikzlibrary{angles,quotes} % for pic (angle labels)
+\usetikzlibrary{arrows.meta} % for arrow size
+\usepackage{xfp} % higher precision (16 digits?)
+
+\renewcommand{\cleardoublepage}{\clearpage}
+
+\title{Lagrangian Dynamics}
+\author{Dominik Szablonski}
+\newtheorem{law}{Law}
+\newtheorem{klaw}{Law}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\chapter{Lagrangian Mechanics}
+\section{Introduction}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[axis lines=left, xlabel=$x$, ylabel=$V(x)$,]
+			\addplot [
+			domain=-10:10, 
+			samples=100, 
+			color=black,
+			]
+			{-0.33*x^4 + 58*x^3 + 2*x - 1};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Arbitrary potential} \label{fig:arbitrary potential}
+\end{figure}
+We have up until now solved dynamical problems using Newton's laws. However, they are not applicable to all scenarios. The laws are the following,
+\begin{enumerate}
+	\item A body acted on with no forces moves with uniform velocity.
+	\begin{itemize}
+		\item Einstein's general relativity is a counterexample to this law.
+	\end{itemize}
+	\item The rate of change of momentum of a body is give by the total force acting on that body.
+	\begin{itemize}
+		\item In quantum mechanics, momentum is probabilistic.
+	\end{itemize}
+	\item Every action force has an equal and opposite reaction force.
+	\begin{itemize}
+		\item This is not true in collective phenomenon, e.g. confiment of quarks in a proton.
+	\end{itemize}
+\end{enumerate}
+Lagrangian/Hamiltonian mechanics is able to solve all systems where Newtonian mechanics is applicable\footnote{Except for cases with friction, which will be omitted in this course.}, as well as alleviating Newtonian mechanics of its shortcomings.
+\section{Review of classical mechanics and mathematicl preliminaries}
+Consider a particle of mass $m$ moving in 1 dimension in an arbitrary, explicitly time-independent potential $V(x)$. The particle will feel a force $F$ due to the potential such that,
+\begin{equation}
+	F = -\pdv{V}{x}
+\end{equation}
+and has an acceleration such that,
+\begin{equation}
+	F = m\Ddot{x}.
+\end{equation}
+The kinetic energy of the particle is given by,
+\begin{equation}
+	T = \frac{1}{2}m\Dot{x}^2
+\end{equation}
+and the total energy,
+\begin{equation}
+	E = T + V
+\end{equation}
+is conserved. The momentum,
+\begin{equation}
+	p = m\Dot{x}
+\end{equation}
+is not conserved.
+\subsection{Potential confusion}
+We have stated that the potential is \textit{explicitly} time independent, however, we may have reason to suspect this is not the case. There are two ways to looks at this,
+\begin{enumerate}
+	\item \textbf{NO} $\to$ The potential does not depend on $t$ as we have not specified it to be so. Mathematically, we can express this via the partial derivative,
+	\begin{equation}
+		\pdv{V}{t} = 0.
+	\end{equation}
+	\item \textbf{YES} $\to$ The potential does depend on time, as the particle may move to a different position, and thus be in an area of different potential, i.e. the time dependence is \textit{implicit}. Mathematically, this is expressed by considering the total derivative,
+	\begin{equation}
+		\begin{split}
+			\dv{V}{t} &= \pdv{V}{t} + \pdv{V}{x}\dv{x}{t} + \pdv{V}{\Dot{x}}\dv{\Dot{x}}{t}\\
+			& = \pdv{V}{x}\dv{x}{t} =\pdv{V}{x}\Dot{x}.
+		\end{split}
+	\end{equation}
+\end{enumerate}
+We can extend this concept further to kinetic energy $T$ and total energy $E$, whose total derivatives with time are,
+\begin{align}
+	\dv{T}{t} & = m\Dot{x}\Ddot{x} \\
+	\dv{E}{t} & = \dv{t}\left(T + V\right) = \Dot{x}\left(\pdv{V}{x} + m\Ddot{x}\right). \label{eq:total energy time derivative}
+\end{align}
+We can get some very interesting physics from eq. \eqref{eq:total energy time derivative}, and where \textit{Lagrange's approach} to mechanics falls in. Lagrange's method says to assume two solutions to eq. \eqref{eq:total energy time derivative},
+\begin{align}
+	\Dot{x} = 0 && \pdv{V}{x} + m\Ddot{x} = 0
+\end{align}
+where the latter is what we wish to investigate.
+\section{Lagrangian and Lagranges Equation}
+Let us define the \textit{Lagrangian},
+\begin{equation}
+	\boxed{L = T - V}.
+\end{equation}
+In the 1 dimensional case,
+\begin{equation}
+	\begin{split}
+		L(x, \Dot{x}) & = \frac{1}{2}m\Dot{x}^2 - V(x) \\
+		\pdv{L}{x} & = \underbrace{-\pdv{V}{x} = m\Ddot{x}}_{\substack{\text{Newton's seconod}\\\text{law}}} = \dv{}{t}\left(m\Dot{x}\right) = \dv{}{t}\left(\pdv{L}{\Dot{x}}\right).
+		\end{split} \label{eq:lang derv 1}
+\end{equation}
+From eq. \eqref{eq:lang derv 1}, we obtain \textit{Lagrange's equation},
+\begin{equation}
+	\boxed{\dv{t}\left(\pdv{L}{\Dot{x}}\right) = \pdv{L}{x}}.
+\end{equation}
+\subsection{Generalised approach to solving a dynamical system}
+\begin{enumerate}
+	\item Work out the degrees of freedom of a system, that is,
+	\begin{align}
+		\left\{q_i\right\} && \text{Set of generalised coordinates} \\
+		\left\{\Dot{q}_i\right\} && \text{Set of generalised velocities}.
+	\end{align}
+	\item Write down the Lagrangian,
+	\begin{equation}
+		L\left(\left\{q_i\right\},\left\{\Dot{q}_i\right\},t\right) = T - V.
+	\end{equation}
+	\item Derive the equations of motion using Lagrange's equation,
+	\begin{equation}
+		\dv{t}\underbrace{\left(\pdv{L}{\Dot{q}_i}\right)}_{\substack{\text{Generalised}\\\text{Momentum}}} = \overbrace{\pdv{L}{q_i}}^{\substack{\text{Generalised}\\ \text{Force}}} \label{eq: generalised lagrangian}
+	\end{equation}
+\end{enumerate}
+\subsection{Generalised Coordinates}
+Before we proceed to talking about generalised coordinates, lets find the Lagrangian in plane polar coordinates. We require the following velocities to compute the Lagrangian,
+\begin{align}
+	v_r = \Dot{r} && v_{\theta} = r\Dot{\theta} && v^2 = \Dot{r}^2 + r^2\Dot{\theta}^2.
+\end{align}
+The kinetic energy is then,
+\begin{equation}
+	T = \frac{1}{2}m(\Dot{r}^2 + r^2\Dot{\theta}^2),
+\end{equation}
+and the Lagrangian,
+\begin{equation}
+	L = \frac{1}{2}m(\Dot{r}^2 + r^2\Dot{\theta}^2) - V(r, \theta).
+\end{equation}
+Since there are two coordinates in the Lagrangian, we have 2 equations of motion, given by,
+\begin{align}
+	\dv{t}\left(\pdv{L}{\Dot{r}}\right) &= \pdv{L}{r}, \\
+	\dv{t}\left(\pdv{L}{\Dot{\theta}}\right) &= \pdv{L}{\theta}.
+\end{align}
+We find that each coordinate (degree of freedom) is treated democratically. If we were to do this in spherical polar coordiantes, we would find that we would get 3 equations of motion, etc. Instead of being restricted to a set coordinate system, let us describe the lagrangian for a \textit{generalised coordinate system}. Below are the generalised quantities we should be aware of:
+\begin{align}
+	\text{Generalised coordinates} && q_i(t) \\
+	\text{Generalised velocities} && \Dot{q}_i(t) \\
+	\text{Generalised momenta} && p_i(t) = \pdv{L}{\Dot{q}_i}
+\end{align}
+for which the generalised Lagrangian equation is given by eq. \eqref{eq: generalised lagrangian}.
+\chapter{The Calculus of Variations}
+\section{The Principle of Least Action}
+We define the action $S$,
+\begin{equation}
+	\boxed{S = \int L\dd{t}}
+\end{equation}
+and we assert that a system evolved over time such that the action is minimised. This is a fundamental law of physics. We have that $S = S\left[x(t)\right]$, indicating it is a function of a function.
+\\\\
+Our general problem is that we wish to find a function $x(t)$ which minimises,
+\begin{equation}
+	S\left[x(t)\right] = \int_{t_1}^{t_2} L\left(x(t),\Dot{x}(t),t\right)\dd{t}
+\end{equation}
+subject to the boundary conditions,
+\begin{align}
+	x(t_1) &= x_1 \\
+	x(t_2) & = x_2
+\end{align}
+for single values functions of time.\\\\
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[>=latex]
+		\begin{axis}[
+			axis x line = center,
+			axis y line = center,
+			xtick = {0, 1, 2, 3, 4, 5},
+			ytick = {0, 1, 2, 3, 4, 5},
+			ticks = none,
+			xmin=0,
+			ymin=0,
+			xmax=5.5,
+			ymax=5.5,
+			xlabel={$t$},
+			ylabel={$x(t)$}
+			]
+			\addplot [black, mark = *, nodes near coords={$x_1$},every node near coord/.style={anchor=east}] coordinates {(1, 1)};
+			\addplot [black, mark = *, nodes near coords={$x_1$},every node near coord/.style={anchor=east}] coordinates {(4, 4)};s
+		\end{axis}
+	\end{tikzpicture}
+\end{figure}
+Let us suppose a function $x(t)$ minimises $S$. Let us now consider a small displacement $\delta x(t)$ on $x(t)$, such that we have a modified path $x(t) + \delta x(t)$. This modified path must obey the boundary conditions, so
+\begin{align}
+	\delta x(t_1) &= 0\\
+	\delta x(t_2) & = 0.
+\end{align}
+We must find an $x(t)$ such that $\delta x (t)$ does not change the value of $S$. We can write the modified Lagrangian,
+\begin{equation}
+	L\left(x(t) + \delta x(t), \Dot{x}(t) + \dv{t}\delta x(t), t\right) = L + \delta L.
+\end{equation}
+We can then calculate the modified action,
+\begin{equation}
+	\delta S = \int_{t_1}^{t_2} \delta L \dd{t} = \int_{t_1}^{t_2}\left[\pdv{L}{x}\delta x(t) + \pdv{L}{\Dot{x}}\dv{t}\left(\delta x(t)\right)\right]\dd{t}. \label{eq:modified path}
+\end{equation}
+We can integrate the second term of eq. \eqref{eq:modified path} by parts,
+\begin{equation}
+	\begin{split}
+	\int_{t_1}^{t_2}\pdv{L}{\Dot{x}} \dv{t}\left(\delta x(t)\right)\dd{t}& = \underbrace{\left[\pdv{L}{x}\delta x(t)\right]_{t_1}^{t_2}}_{0 \text{ by BCs}} -\int_{t_1}^{t_2} \delta x(t) \dv{t}\left(\pdv{L}{\Dot{x}}\right)\dd{t} \\
+	& = -\int_{t_1}^{t_2}\dv{t}\left(\pdv{L}{\Dot{x}}\right)\delta x(t)\dd{t} \dd{t} \\
+	\implies \delta S & = \int_{t_1}^{t_2}\left[\pdv{L}{x} - \dv{t}\left(\pdv{L}{\Dot{x}}\right)\right]\delta x(t) \dd{t} = 0.
+	\end{split} \label{eq:blah balh}
+\end{equation}
+We can interpret eq. \eqref{eq:blah balh} in 2 ways,
+\begin{enumerate}
+	\item $\delta x(t)$ is carefully chosen such that the integrand is non-zero, but integrates to 0. However, since $\delta x(t)$ is arbitrary, we can choose it to not be so;
+	\item The integrand is 0 everywhere.
+\end{enumerate}
+Given the second conclusion, we have that,
+\begin{align}
+	\delta x(t) = 0 && \boxed{\pdv{L}{x} - \dv{t}\left(\pdv{L}{\Dot{x}}\right) = 0} \label{eq:euler lagrange}
+\end{align}
+and we have thus derived the Euler-Lagrange equations.
+\\\\
+A furhter conclusion is that the principle of least action directly implies that $x(t)$ obeys Lagrange's equation, which directly implies Newton's laws.
+\subsubsection{Principle of Least Action - More Generally}
+Any function defined,
+\begin{equation}
+	f = f(y_i(x), y'_i(x), x)
+\end{equation}
+with an integral,
+\begin{equation}
+	S = \int_{x_1}^{x_2}f\dd{x}
+\end{equation}
+is minimised by,
+\begin{equation}
+	\dv{x}\left(\pdv{f}{y_i'}\right) = \pdv{f}{y_i}. \label{eq:sols}
+\end{equation}
+\chapter{Hamiltonian Mechanics}
+We are motivated to reformulate our approach to mechanics to directly include the conservation of momentum. However, because of the nature of partial derivatives, simply rewriting the Lagrangian to be $L = L(q, p, t)$ violates the principle of least action. We require a new quantity, which we will call the Hamiltonian, which we write $H = H(\left\{q_i\right\},\left\{p_i\right\}, t)$ which we can obtain by the \textit{Legendre Transform}.
+\\\\
+Let us begin by writing,
+\begin{equation}
+	\dd{L} = \pdv{L}{q}\dd{q} + \pdv{L}{\dot{q}}\dd{\Dot{q}} + \pdv{L}{t}\dd{t}. \label{eq:inf lagrangian}
+\end{equation}
+We want to find a function $H(q, p, t)$ where,
+\begin{equation}
+	p \equiv \pdv{L}{\dot{q}}
+\end{equation}
+where,
+\begin{equation}
+	\dd{H} = \pdv{H}{q}\dd{q} \pdv{H}{p} + \pdv{H}{t}\dd{t} . \label{eq: akjh}
+\end{equation}
+We have that the Legendre transformation of $L$ is $H$, so,
+\begin{equation}
+	H = p\dot{q} - L. \label{eq:hamiltonian}
+\end{equation}
+From eq. \eqref{eq:hamiltonian},
+\begin{equation}
+	\dd{H} = p\dd{\dot{q}} + \dot{q}\dd{p} - \dd{L}.
+\end{equation}
+and by eq. \eqref{eq:inf lagrangian},
+\begin{equation}
+	\begin{split}
+	\dd{H} = p\dd{\dot{q}} + \Dot{q}\dd{p} - \pdv{L}{q} \dd{q} - \underbrace{\pdv{L}{\Dot{q}}\dd{\Dot{q}}}_{p\dd{\dot{q}}} - \pdv{L}{t}\dd{t} \\
+	\Dot{q}\dd{p} - \pdv{L}{q}\dd{q} - \pdv{L}{t}\dd{t}. \label{eq:inf hamilt}
+	\end{split}
+\end{equation}
+By comparing the coefficients of eqs. \eqref{eq: akjh} and \eqref{eq:inf hamilt}, we obtain \textit{Hamilton's equations},
+\begin{align}
+	\pdv{H}{p} = \Dot{q} && \pdv{H}{q} = -\dot{p} && \pdv{H}{t} = -\pdv{L}{t}. \\
+\end{align}
+Most generally, for a system of $N$ degrees of freedom $\left\{q_i\right\}$, and Lagrangian, $L(\left\{q_i\right\}, \left\{\Dot{q}_i\right\}, t)$, the hamiltonian is defined,
+\begin{equation}
+	\boxed{H(\left\{q_i\right\}, \left\{p_i\right\}, t) = \sum_ip_i\Dot{q_i} - L(\left\{q_i\right\}, \left\{\Dot{q}_i\right\}, t)}
+\end{equation}
+for,
+\begin{equation}
+	p_i = \pdv{L}{\Dot{q}_i},
+\end{equation}
+and Hamilton's equations,
+\begin{align}
+	\boxed{\pdv{H}{p_i} = \Dot{q}_i} \\
+	\boxed{\pdv{H}{q_i} = \Dot{p}_i} \\
+	\boxed{\pdv{H}{t} = - \pdv{L}{t}},
+\end{align}
+which produce $2N$ 1$^{\text{st}}$ order differential equations, in contrast to the $N$ 2$^{\text{nd}}$ order differential equations produces by Lagrange's method. Let us further state that,
+\begin{equation}
+	\pdv{H}{t} = \dv{H}{t}.
+\end{equation}
+\section{Euler-Lagrange Equations of the Seecond Kind}
+Equations eq. \eqref{eq:euler lagrange} are known as the Euler-Lagrange equations of the first kind. Let us consider a general function $f(y(x), y'(x), x)$ and its total derivative in $x$,
+\begin{equation}
+	\dv{f}{x} = \pdv{f}{x} + \pdv{f}{y}y' + \pdv{f}{y'}y''.
+\end{equation}
+If $y$ is a solution of the Euler-Lagrange equations, then eq. \eqref{eq:sols} holds, and,
+\begin{equation}
+	\begin{split}
+	\dv{f}{x} & = \pdv{f}{x} + \dv{x}\left(\pdv{f}{y'}\right)y' + \pdv{f}{y'}y'' \\
+	& = \pdv{f}{x} + \dv{x}\left(y'\pdv{f}{y'}\right) \label{eq:fhdso}
+	\end{split}
+\end{equation}
+where the latter terms were reduced by the reverse product rule. By trivial rearranging, eq. \eqref{eq:fhdso} becomes the Euler-Lagrange equations of the second kind,
+\begin{equation}
+	\boxed{\pdv{f}{x} = \dv{x}\left(f - y'\pdv{f}{y'}\right)}. \label{eq:E-L 2nd}
+\end{equation}
+Applying eq. \eqref{eq:E-L 2nd} to the Lagrangian,
+\begin{equation}
+	\begin{split}
+	&\dv{t}\underbrace{\left(L - \Dot{x}\pdv{L}{\Dot{x}}\right)}_{-H} = \underbrace{\pdv{L}{t}}_{-\pdv{H}{t}} \\
+	\implies & \dv{H}{t} = \pdv{H}{t}.
+	\end{split}
+\end{equation}
+\section{Theory of (Galilean) Relativity}
+The postulates of Galilean relativity state that there is no preferred,
+\begin{enumerate}
+	\item Origin of time;
+	\item Position in space;
+	\item Inertial frame of reference;
+	\item Oritentation in space;
+\end{enumerate}
+which hold in classical physics. Let us analyse the consequences of these postulates in the Hamiltonian. Let us first define our system:
+\\\\
+\textit{Consider an isolated system of N particles of mass $m_j$ with vector coordinates $\vb{r}_j$ and momenta $\vb{p}_j$.}
+\\\\
+For a system of $N$ particles in 3 dimensions, we have $3N$ degrees of freedom and $6N$ independent variables. The total momentum can be defined,
+\begin{equation}
+	\vb{P} = \sum_j\vb{p}_j.
+\end{equation}
+We can then summarise the consequences of the postulates,
+\begin{enumerate}
+	\item[1.] Equations of motion are unchanged by a displacement in time, i.e., $t \to t + \delta t$. This requires the Hamiltonain to be explicitly time independent,
+	\begin{equation}
+		\pdv{H}{t} = 0 = \dv{H}{t}
+	\end{equation}
+	implying $H$ is a conserved quantity.
+	\item[2.] Equations of motion are unchagned by a displacement of the entire system in space. We must then requiure $H(q_i,p_i)$ to only depend on relative position,
+	\begin{equation}
+		\vb{r}_j - \vb{r_k} = \vb{r}_{jk} \equiv \vb{r}_j
+	\end{equation}
+	\item[4.] Equations of motion are invariant under spacial rotations. We require $H$ to only depend on scalar products of $\vb{r}_{jk}$.
+\end{enumerate}
+We will analyse these in more detail in the sections below.
+\subsection{Time Dependence}
+Consider a genreal functions, $F(q_i,p_i,t)$. The general equation for change of the function with time is,
+\begin{equation}
+	\begin{split}
+	\dv{F}{t} & = \sum_i\left(\pdv{F}{q_i}\Dot{q}_i + \pdv{F}{p_i}\Dot{p}_i\right) + \pdv{F}{t} \\
+	\text{Hamilton's Equations} \implies & = \underbrace{\sum_i\left(\pdv{F}{q_i}\pdv{H}{p_i}-\pdv{F}{p_i}\pdv{H}{q_i}\right)}_{\left[F,H\right]} + \pdv{F}{t}
+	\end{split} \label{eq:dghsalksd}
+\end{equation}
+Above, we have defined the \textit{possoin bracket}, denoted as $\left[F,H\right]$. Let us note that $\left[F,G\right] = - \left[G,F\right]$ for any function $F$ and $G$. Let us then rewrite eq. \eqref{eq:dghsalksd} fully,
+\begin{equation}
+	\boxed{\pdv{F}{t} = \left[F,H\right] + \pdv{F}{t}} \label{eq:important}
+\end{equation}
+$\implies$ \textit{The Hamiltonian generates a displacement in time.}.
+\\\\
+If $\pdv{F}{t} = 0$, and $\left[F, H\right]$, then we say $F$ commutes and is a \textit{conserved quantity}. Furthermore, the Poisson bracket for the set $\left\{\left\{q_i\right\},\left\{q_i\right\}\right\}$ is given by,
+\begin{equation}
+	\left[q_{\alpha},p_{\beta}\right] = \delta_{\alpha\beta}.
+\end{equation}
+\subsection{Spatial Dependence}
+Let us denote the generalised coordinates $q_i$ as $q_{sj}$, where $s$ represents the spacial direction, and $j$ denotes the particle. Let us consider a displacement of $N$ particles in the $x$ direction,
+\begin{equation}
+	q_{xj} \to q_{xj} + \delta x, \forall j \in \mathbb{N}
+\end{equation}
+Our function $F$ then undergoes a displacement,
+\begin{equation}
+	F \to F + \delta F
+\end{equation}
+where we can approximate $\delta F$ by Taylor expansion,
+\begin{equation}
+	\delta F = \sum_i \pdv{F}{q_{xj}}\delta x.
+\end{equation}
+Let us assume that this displacement is generated by the total $x$ momentum, $P_x = \sum_k p_{xk}$. Let us study the behaviour of the Poisson bracket,
+\begin{equation}
+	\begin{split}
+		\left[F,P_x\right] & = \sum_j\sum_s\left(\pdv{F}{q_{sj}}\underbrace{\pdv{P_x}{P_{sj}}}_{\delta_{sx}} - \pdv{F}{P_{sj}}\underbrace{\pdv{P_x}{q_{sj}}}_0\right) \\
+		& = \sum_j \pdv{F}{q_{xj}} \\
+		\implies \delta F & = \left[F,P_x\right]\delta x
+	\end{split}
+\end{equation}
+which in words, states, \textit{$P_x$ generates a displacement in the x-direction of the entire system}.
+\\\\
+$P_x$ can be applied to any observable, so let us apply it to the Hamiltonian. We have,
+\begin{equation}
+	\Delta H = \left[H, P_x\right]\delta x
+\end{equation}
+Spatial displacements leave the Hamiltonian unchanged, so we have,
+\begin{equation}
+	\left[H, P_x\right] = 0.
+\end{equation}
+We furthermore have the relation in eq. \eqref{eq:important}, when applied to $P_x$,
+\begin{equation}
+	\dv{P_x}{t} = \left[P_x, H\right] = -\left[H,P_x\right] = 0
+\end{equation}
+which reveals linear momentum is a conserved quantity.
+\subsection{Spatial Orientation}
+Generator of rotations about an axis is the component of angular momentum along that axis. Angular momentum is conserved.
+\subsection{Independence of Reference Frame}
+A boost is a change of intertial frame by a constant velocity. We wish to find the generator of boosts. Let us call this quantity $B$,
+\begin{equation}
+	\boxed{B = \sum_i\left(m_ix_i - tp_i\right)}
+\end{equation}
+which is the position of where the centre of mass was at $t=0$, multiplied by the total mass, $M = \sum_i m_i$. We wish to use this quantity as it is conserved. Let us consdier the possion bracket of an arbitrary function $F$ with $B$,
+\begin{equation}
+	\begin{split}
+		\left[F,B\right] & = \sum_i\left(\pdv{F}{q_i}\pdv{B}{p_i} - \pdv{B}{q_i}\pdv{F}{p_i}\right) \\ 
+		& = sum_i\left(\pdv{F}{q_i}\left(-t\right) - \pdv{F}{q_i}\left(m_i\right)\right)
+	\end{split}
+\end{equation}
+Let us now set $F = q_{\alpha}$. A small displacement to this generalised coordinate can be written as, $\delta q_k = -t\varepsilon$, where $\varepsilon$ is a small velocity. The transformation caused by the generator $B$ in the $x$-coordinate is then,
+\begin{equation}
+	x_{\alpha} \to x_{\alpha} - \varepsilon t.
+\end{equation}
+Similarly, let us consider $F = p_{\alpha}$. The small displacement in this generalised momentum is, $p_{\alpha} = -m_{\alpha}\varepsilon$. So, the transformation caused by the generator $B$ in the $x$ component of momentum is,
+\begin{equation}
+	p_{\alpha x} \to p_{\alpha x} - m\varepsilon
+\end{equation}
+In summary, \textit{$B$ generates boosts in the x direction of velocity $\varepsilon$.}
+\subsubsection{Boost generator behaviour with the Hamiltonian}
+Given that $B$ is a conservative quantity, we must write,
+\begin{equation}
+	\dv{B}{t} = \left[H,B\right] + \pdv{B}{t} = 0.
+\end{equation}
+Rearranging this,
+\begin{equation}
+	\left[H,B\right] = -\pdv{B}{t} = \sum_ip_i = P. \label{eq:HB}
+\end{equation}
+In order for eq. \eqref{eq:HB} to hold, we require $H \propto P^2$, i.e., kinetic energy depending quadratically on momenta is a consequence of the principle of relativity.
+\appendix
+\chapter{Misc. Forumlae}
+\section{Total Derivative}
+\begin{equation}
+	\dv{f}{t} = \sum_i \pdv{f}{r_i}\dv{r_i}{t} \label{eq:totalderivative}
+\end{equation}
+for $r_i = r_i(t)$.
+\end{document}
