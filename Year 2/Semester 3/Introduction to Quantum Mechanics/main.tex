@@ -1026,7 +1026,43 @@ thus the normalisation conditions are,
 	\hat{a}_-\ket{n} = \sqrt{n}\ket{n-1} \\
 	\hat{a}_+\ket{n} = \sqrt{n+1}\ket{n+1}.
 \end{align}
-We can define a Hermitian operator $\hat{N}$ 
+We can define a Hermitian operator $\hat{N}$,
+\begin{equation}
+	\hat{a}_+\hat{a}_- =\hat{N}
+\end{equation}
+which behaves,
+\begin{equation}
+	\hat{N} \ket{n} = n \ket{n}
+\end{equation}
+i.e., it tells you the energy level of the observed state.
+\subsection{Energy Eigenstates of the Simple Harmonic Oscillator}
+Analysing the Hamiltonian more closely, if we attempt to act on an $n$th energy eigenstate,
+\begin{equation}
+	\begin{split}
+	\hat{H} \ket{n} & = \hbar\omega\left(\hat{a}_+\hat{a}_- + \frac{1}{2}\right)\ket{n} \\
+	& = \hbar \omega \left(n + \frac{1}{2}\right)\ket{n}
+\end{split} 
+\end{equation}
+therefore, the energy of the $n$th eigenstate is given by,
+\begin{equation}
+	E_n =  \hbar\omega\left(n + \frac{1}{2}\right) \hspace{1em} n \in \mathbb{Z}^+.
+\end{equation}
+Let us now analyse the eigenfunctions of the harmonic oscillator. We have that,
+\begin{equation}
+	\hat{a}_-\phi_0(x) = 0
+\end{equation}
+where $\phi_0(x)$ indicates the ground state of the energy eigenfunction. We then have,
+\begin{equation}
+	\begin{split}
+	& \pdv{x} \phi_0(x) = -\frac{m\omega}{\hbar}x\phi_0(x) \\
+	\implies & \phi_0(x) = Ae^{-\alpha x^2}
+\end{split}
+\end{equation}
+by inspection. By normalising the wavefunction, we find that the ground energy eigenfunction is given by,
+\begin{equation}
+	\phi_0(x) = \left(\frac{m\omega}{\pi \hbar}\right)^{\frac{1}{4}} e^{-\frac{m\omega x^2}{2\hbar}}.
+\end{equation}
+Subsequent energy eigenfunctions can be found by using the raising operator.
 \appendix
 \chapter {Matrix Mathematics}
 \section{Eigenvalues and Eigenvectors}

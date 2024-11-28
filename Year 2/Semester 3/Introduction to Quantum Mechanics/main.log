@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  28 NOV 2024 15:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  28 NOV 2024 15:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1212,23 +1212,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 982--986
 
  []
 
-[23]
+[23] [24]
 Appendix A.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1036--1040
+Underfull \hbox (badness 10000) in paragraph at lines 1072--1076
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1046--1050
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1086
 
  []
 
-[24
+[25
 
-] [25]
+] [26]
 Appendix B.
-[26
+[27
 
 ] (./main.aux)
  ***********
@@ -1267,10 +1267,10 @@ are/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/share/texmf-dist/font
 s/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/cm-super/sfrm1000.pfb>
-Output written on main.pdf (26 pages, 442610 bytes).
+Output written on main.pdf (27 pages, 445889 bytes).
 PDF statistics:
- 269 PDF objects out of 1000 (max. 8388607)
- 157 compressed objects within 2 object streams
+ 272 PDF objects out of 1000 (max. 8388607)
+ 159 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  167 words of extra memory for PDF output out of 10000 (max. 10000000)
 
