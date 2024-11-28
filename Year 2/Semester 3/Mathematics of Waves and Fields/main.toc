@@ -28,11 +28,12 @@
 \contentsline {subsection}{\numberline {4.3.2}Legendre Polynomial Expansion}{12}{}%
 \contentsline {section}{\numberline {4.4}Bessel Functions}{12}{}%
 \contentsline {subsection}{\numberline {4.4.1}Solving Bessel Functions}{13}{}%
-\contentsline {subsubsection}{Convergence of the solution}{14}{}%
-\contentsline {chapter}{\numberline {A}Examples: Differential Equations}{15}{}%
-\contentsline {section}{\numberline {A.1}1D Wave Equation}{15}{}%
-\contentsline {subsection}{\numberline {A.1.1}Euler/d'Alembert solution}{15}{}%
-\contentsline {section}{\numberline {A.2}Laplace's Equation}{15}{}%
-\contentsline {section}{\numberline {A.3}Diffusion Equation}{16}{}%
-\contentsline {chapter}{\numberline {B}Misc. Notes}{17}{}%
-\contentsline {section}{\numberline {B.1}Plane Wave Nature}{17}{}%
+\contentsline {subsubsection}{Convergence of the solution}{15}{}%
+\contentsline {subsection}{\numberline {4.4.2}Modes in a Circular Membrane}{15}{}%
+\contentsline {chapter}{\numberline {A}Examples: Differential Equations}{17}{}%
+\contentsline {section}{\numberline {A.1}1D Wave Equation}{17}{}%
+\contentsline {subsection}{\numberline {A.1.1}Euler/d'Alembert solution}{17}{}%
+\contentsline {section}{\numberline {A.2}Laplace's Equation}{17}{}%
+\contentsline {section}{\numberline {A.3}Diffusion Equation}{18}{}%
+\contentsline {chapter}{\numberline {B}Misc. Notes}{19}{}%
+\contentsline {section}{\numberline {B.1}Plane Wave Nature}{19}{}%

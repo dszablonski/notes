@@ -1049,6 +1049,35 @@ If we approximate the interface line between two states as being linear, such th
 	\frac{\delta P}{\delta T} = \frac{\Delta H}{T \Delta\mathcal{V}}
 \end{equation}
 where $\mathcal{V}$ is the molar volume, and $\Delta H$ is the molar change in enthalpy, often written as $L$, and referred to as the latent heat.
+\subsection{Liquid Gas-Transition}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{pv phase.png}
+	\caption{}
+	\label{fig:pv phase}
+\end{figure}
+We wish to anallyse the liquid-gas transition more carefully. With the liquid-gas coexistance line ending at the critical point, we can infer that it is possible we can reach the gas phase from the liquid phase without a phase transitition. Thus, we could describe both liquid and gas with the same equation of state. If we insepct the $P-V$ diagram in figure \ref{fig:pv phase}, we see that at there is a saddle point at the critical point,
+\begin{align}
+	\left(\pdv{P}{V}\right)_{T_C} = 0 && \left(\pdv[2]{P}{V}\right)_{T_C} = 0 \label{eq:fkjhdsklaj}
+\end{align}
+Below the critical point, we see there is a region where we have unstable states, known as supercooled or superheated states.
+\subsection{Real Gasses}
+In order to describe the liquid phase, we must take into account interactions between molecules. This is encoded in the van der Walls equation,
+\begin{equation}
+	\boxed{\left(P + \frac{n^2a}{V^2}\right)\left(V - nb\right) = RT}.
+\end{equation}
+The Van der Walls equation reduces to the ideal gas equation when $V > nb$, where in turn $V >> \sqrt{a/P}$. If we apply eq. \eqref{eq:fkjhdsklaj} to the Van der Wall's equation, we obtain the critical values for a fluid at the critical point,
+\begin{align}
+	V_c = 3b, && T_C = \frac{8a}{27Rb}, && P_c = \frac{a}{27b^2}
+\end{align}
+If we analyse the isotherms produces by the Van der Wall's equation, as in figure \ref{fig:pv van}, we find that instability occurs due to positive gradients on the PV diagram.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{pv van.png}
+	\caption{}
+	\label{fig:pv van}
+\end{figure}
+\chapter{Kinetic Theory and Transport Properties of Gasses}
 \appendix
 \chapter{Definitions}
 \textbf{Isothermal Process}:  Happens at constant temperature, $\Delta E = 0$ for an ideal gas.
@@ -1060,7 +1089,7 @@ where $\mathcal{V}$ is the molar volume, and $\Delta H$ is the molar change in e
 \textbf{Adiabatic Process}: Happens with no heat flow $\implies \dbar Q = 0$.
 \\\\
 \textbf{Heat Capacity}: Relates heat flow to temperature change $\dbar Q = C \dd{T}$.
-\chapter{Important Misc. Facts}
+\\\\
 For an ideal gas at constant volume, the change in energy $\dd{E}$ is always given by,
 \begin{equation}
 	\dd{E} = C_V \dd{T}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  24 NOV 2024 16:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  28 NOV 2024 21:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1355,33 +1355,50 @@ File: P-T-diagram.png Graphic file (type png)
 <use P-T-diagram.png>
 Package pdftex.def Info: P-T-diagram.png  used on input line 1023.
 (pdftex.def)             Requested size: 226.48395pt x 155.90472pt.
- [24] [25 <./P-T-diagram.png>]
-Appendix A.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1054--1063
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1054--1063
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1054--1063
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1054--1063
-
- []
-
-[26
+ [24]
+<pv phase.png, id=167, 811.03pt x 586.19pt>
+File: pv phase.png Graphic file (type png)
+<use pv phase.png>
+Package pdftex.def Info: pv phase.png  used on input line 1055.
+(pdftex.def)             Requested size: 271.7835pt x 196.43971pt.
+ [25 <./P-T-diagram.png> <./pv phase.png>]
+<pv van.png, id=174, 738.76pt x 534.99875pt>
+File: pv van.png Graphic file (type png)
+<use pv van.png>
+Package pdftex.def Info: pv van.png  used on input line 1076.
+(pdftex.def)             Requested size: 226.48395pt x 164.01112pt.
+ [26 <./pv van.png>]
+Chapter 3.
+[27
 
 ]
-Appendix B.
-[27
+Appendix A.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1083--1094
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1083--1094
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1083--1094
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1083--1094
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1083--1094
+
+ []
+
+[28
 
 ] (./main.aux)
  ***********
@@ -1390,10 +1407,10 @@ L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 40527 strings out of 476076
- 985138 string characters out of 5793774
+ 40544 strings out of 476076
+ 985429 string characters out of 5793774
  1950187 words of memory out of 5000000
- 61897 multiletter control sequences out of 15000+600000
+ 61914 multiletter control sequences out of 15000+600000
  573787 words of font info for 92 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  94i,25n,96p,733b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1414,10 +1431,10 @@ sfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
 re/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fon
 ts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (27 pages, 781895 bytes).
+Output written on main.pdf (28 pages, 851550 bytes).
 PDF statistics:
- 263 PDF objects out of 1000 (max. 8388607)
- 138 compressed objects within 2 object streams
+ 270 PDF objects out of 1000 (max. 8388607)
+ 140 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 232 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 242 words of extra memory for PDF output out of 10000 (max. 10000000)
 

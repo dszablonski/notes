@@ -564,13 +564,100 @@ where $j \in \mathbb{Z}^{+}$. We can then write the general solution to Bessel's
 \begin{equation}
 	y(x) = \sum_{n=0}^{\infty}a_nx^{m+n} = \sum_{j=0}^{\infty}a_{2j}x^{m+2j}.
 \end{equation}
-For non-integer values of $m$, we must use the \textit{gamma function}.
+We often rewrite $y(x)$ as,
+\begin{equation}
+	y(x) = a_0m!2^m \sum_{j=0}^{\infty} \frac{(-1)^j}{2^{2j}2^mj!(m+j)!}x^{m + 2j}
+\end{equation}
+where we obtain \textit{Bessel's function of the first kind},
+\begin{equation}
+	\boxed{J_m(x) = \sum_{j=0}^{\infty}} \frac{(-1)^j}{j!(m+j)!}\left(\frac{x}{2}\right)^{m + 2j}
+\end{equation}
+which obeys the orthogonality condition,
+\begin{equation}
+	\int_0^L xJ_p\left(\frac{\chi_n x}{l}\right)J_p\left(\frac{\chi_m x}{l}\right)\dd{x} = \frac{l^2}{2}\left[J_{p+1}\left(\chi_m\right)\right]^2\delta_{mn}
+\end{equation}
+where,
+\begin{equation}
+	J_p\left(\chi_n\right) = 0 \hspace{1em} n \in \mathbb{Z}^+
+\end{equation}
+i.e., $\chi_n$ is the $n$th zero point of the $p$th Bessel function.
+\\\\
+For non-integer values of $m$, we must use the \textit{gamma function},
+\begin{equation}
+	J_m(x) = \sum_{j=0}^{\infty}\frac{(-1)^j}{j!\Gamma(m + j + 1)}\left(\frac{x}{2}\right)^{x + 2j}
+\end{equation}
+where $\Gamma$ is defined,
+\begin{equation}
+	\Gamma(s) = \int_0^{\infty}e^{-t}t^{s-1}\dd{t}.
+\end{equation}
+We find that,
+\begin{equation}
+	J_m(-x) = (-1)^mJ_m(x)
+\end{equation}
+so the $m$th Bessel function is even for even $m$, and odd for odd $m$.
 \subsubsection{Convergence of the solution}
 By considering,
 \begin{equation}
 	\left|r_n\right| = \left|\frac{a_{n+2}x^{n+2}}{a_nx^n}\right| = \left|\frac{x^2}{(n+2 +m)}\right|
 \end{equation}
 which clearly converges, as in the limit $n \to 0$, $\left|r_n\right| \to 0$ $\forall x$
+\subsection{Modes in a Circular Membrane}
+Consider a circular membrane clamped at its edges. Using the typical 3D wave equation, we use seperation of variables,
+\begin{equation}
+	\phi = F(r,\theta)T(t)
+\end{equation}
+where $F(r,\theta) = R(r)\Theta(\theta)$. We have,
+\begin{equation}
+	\frac{1}{F}\laplacian{F} = \frac{1}{c^2T}\pdv[2]{T}{t} = - k^2
+\end{equation}
+and applying the laplacian in polar coordinates,
+\begin{equation}
+	\frac{1}{r}\pdv{r}\left(r\pdv{F}{r}\right) + \frac{1}{r^2} \pdv[2]{F}{\theta} + k^2F = 0. \label{eq:fjksdh}
+\end{equation}
+Let us multiply eq. \eqref{eq:fjksdh} by $r^2/F$,
+\begin{equation}
+	\underbrace{\frac{r}{R}\dv{r}\left(r\dv{R}{r}\right) k^2r^2}_{n^2}  + \underbrace{\frac{1}{\Theta}\dv{\Theta}{\theta}}_{-n^2} = 0.
+\end{equation}
+We then have,
+\begin{align}
+	\frac{1}{\Theta}\dv{\Theta}{\theta} + n^2 = 0 \label{eq:theta}\\
+	\frac{r}{R}\dv{r}\left(r\dv{R}{r}\right) + k^2r^2 - n^2 = 0 \label{eq:r}
+\end{align}
+We can clearly see that eq. \eqref{eq:theta} produces a cyclic solution. However, rearranging eq. \eqref{eq:r},
+\begin{equation}
+	r\dv{r}\left(r\dv{R}{r}\right) + (k^2r^2 - n^2)R = 0
+\end{equation}
+which is Bessel's equation, so, $R(r) \approx J_n(kr)$. Given the boundary condition,
+\begin{equation}
+	R(a) = 0
+\end{equation}
+we have,
+\begin{equation}
+	J_n(ka) = 0
+\end{equation}
+so we require,
+\begin{equation}
+	k_{nm}a = \chi_{nm}
+\end{equation}
+where $\chi_{nm}$ is the $m$th root of the $n$th Bessel function of the first kind. We then require the angular frequency of the modes of oscillation of the membrane to be,
+\begin{equation}
+	\omega_{nm} = k_{nm}c = \frac{\chi_{nm}c}{a}.
+\end{equation}
+Some normal modes of the membrane are shown in figure \ref{fig:normal modes memb}.
+\\\\
+NOTE: Frequencies of virbation are not integer multiples of the fundamental mode, as it might be with a regular wave.
+\\\\
+The final solution for the vibrations of the membrane is given by,
+\begin{equation}
+	\phi = \sum_{n=0}^{\infty}\sum_{m=0}^{\infty}J_n(k_{nm}r)\left[A_{nm}\cos(n\theta) + B_{nm}\sin(n\theta)\right]\cos(\omega_{nm}t)
+\end{equation}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{normal modes.pdf}
+	\caption{}
+	\label{fig:normal modes memb}
+\end{figure}
+
 \appendix
 \chapter{Examples: Differential Equations}
 \section{1D Wave Equation}
