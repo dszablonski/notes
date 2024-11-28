@@ -37,6 +37,7 @@
 
 \tikzset{snake it/.style={decorate, decoration=snake}}
 
+
 \usepackage{etoolbox} % ifthen
 \usepackage[outline]{contour} % glow around text
 \usetikzlibrary{calc} % for adding up coordinates
@@ -393,10 +394,10 @@ Legendre polynomials are orthogonal over the interval $|x| \leq 1$, i.e.,
 \end{equation}
 Let us recall eq. \eqref{eq:legendre}, and rewrite,
 \begin{align}
-	\dv{x}\left[(1-x^2)\pdv{P_l}{x}\right]& = - \ell(\ell+1)P_l(x) \\
-	\dv{x}\left[(1-x^2)\pdv{P_m}{x}\right]& = - \ell(\ell+1)P_m(x).
+	\dv{x}\left[(1-x^2)\pdv{P_l}{x}\right]& = - l(l+1)P_l(x) \label{eq:fdh}\\
+	\dv{x}\left[(1-x^2)\pdv{P_m}{x}\right]& = - m(m + 1)P_m(x). \label{eq:fdh2}
 \end{align}
-Multiply the equation of $P_m$ by $P_l$ and vice versa, and take them away from each other. We have,
+Multiply eq. \eqref{eq:fdh} by $P_m$, and eq. \eqref{eq:fdh2} by $P_l$, and take them away from each other. We have,
 \begin{equation}
 	\begin{split}
 		\text{LHS} = & \int_{-1}^{1}\dv{x}\left[(1-x^2)\pdv{P_l}{x}\right]P_m\dd{x} \\
@@ -411,11 +412,165 @@ Evaluating eq. \eqref{eq:4.23} by parts, we have,
 and similarly for the latter half of the equation. we can then write,
 \begin{equation}
 	\begin{split}
-		\text{LHS} = & \underbrace{\left[(1-x^2)\dv{P_l}{x}P_m\right]_{-1}^{1}}_0 - \int_{-1}^{1}\dv{P_m}{x}(1-x^2)\dv{P_l}{x}\dd{x} \\
-		& - \underbrace{\left[(1-x^2)\dv{P_m}{x}P_l\right]_{-1}^{1}}_0 - \int_{-1}^{1}\dv{P_l}{x}(1-x^2)\dv{P_m}{x}\dd{x} \\
+		\text{LHS} = & \underbrace{\left[(1-x^2)\dv{P_l}{x}P_m\right]_{-1}^{1}}_0 - \int_{-1}^{1} (1-x^2) \dv{P_m}{x}  \dv{P_l}{x}\dd{x} \\
+		& - \underbrace{\left[(1-x^2)\dv{P_m}{x}P_l\right]_{-1}^{1}}_0 - \int_{-1}^{1}(1-x^2)\dv{P_l}{x} \dv{P_m}{x}\dd{x} \\
 		= & 0
 	\end{split}
 \end{equation}
+We then have that, for $n\neq m$, the LHS is,
+\begin{equation}
+	\left[m(m+1)-l(l+1)\right]P_{l}(x)P_m(x) = 0
+\end{equation}
+Furthermore, we can show,
+\begin{equation}
+	\boxed{\int_{-1}^1 P_l(x)P_m(x) \dd{x} = \frac{2}{2l + 1}\delta_{lm}}.
+\end{equation}
+\subsection{Legendre Polynomial Expansion}
+We can use the Legendre polynomials to perform a Legendre series expansion,
+\begin{equation}
+	f(x) = \sum_{l=0}^{\infty}c_lP_l(x), \hspace{1em} -1 \leq x \leq 1
+\end{equation}
+where the coefficients are given by,
+\begin{equation}
+	c_l = \frac{1}{2}(2l + 1)\int_{-1}^{1}\int_{-1}^{1}f(x)P_l(x)\dd{x}.
+\end{equation}
+\section{Bessel Functions}
+We will anaylse the temperature distribution on a circular plate. In order to do this, we must solve the diffusion equation,
+\begin{equation}
+	\laplacian{T} = \frac{1}{\alpha^2}\pdv{T}{t}.
+\end{equation}
+Given we have a circular plate, we wish to use the polar form of the Laplacian. We have,
+\begin{equation}
+	\frac{1}{r}\pdv{r}\left(r\pdv{T}{r}\right) + \frac{1}{r^2} \pdv[r]{T}{\theta} = \frac{1}{\alpha^2}\pdv{T}{t}.
+\end{equation}
+The circular plate has an insulating boundary, and has a cyclic boundary condition,
+\begin{align}
+	\eval{\pdv{T}{r}}_{r=a} = 0 \\
+	T(r,\theta,t) = T(r, \theta + 2n\pi, t).
+\end{align}
+We then solve the diffusion equation by seperation of variables, $T = R(r)\Theta(\theta)\tau(t)$,
+\begin{equation}
+	\frac{1}{Rr}\dv{r}\left(r\dv{R}{r}\right) + \frac{1}{\Theta r^2}\dv[2]{\Theta}{\theta} = \frac{1}{\alpha^2\tau}\dv{\tau}{t} = -k^2. \label{eq:fhdj}
+\end{equation}
+The \textit{time equation} is,
+\begin{equation}
+	\frac{\dd{\tau}}{\tau} = -k^2\alpha^2\dd{t}
+\end{equation}
+which has an exponential solution,
+\begin{equation}
+	\tau = Ae^{-k^2\alpha^2t}.
+\end{equation}
+Let us anaylyse the $\theta$ and $r$ dependence in eq. \eqref{eq:fhdj},
+\begin{equation}
+	\frac{r}{R}\left(r\dv{R}{r}\right) + k^2r^2 = - \frac{1}{\Theta}\dv[2]{\Theta}{\theta} = m^2
+\end{equation} 
+The cyclic equation is given by, 
+\begin{equation}
+	\dv{\Theta}{\theta} = -m^2\Theta
+\end{equation}
+which has a trigonometric solution,
+\begin{equation}
+	\Theta = A\cos(m\theta) + B\sin(m\theta)
+\end{equation}
+where we require $m \in \mathbb{N}^+$ to satisfy the cyclic boundary condition.
+\\\\
+The \textit{radial equation} is given by,
+\begin{equation}
+	\boxed{r^2\dv[2]{R}{r} + r\dv{r}{R} + (k^2r^2 - m^2)R = 0}
+\end{equation}
+which is also known as \textit{Bessel's equation}. The solutions to this equation is given by,
+\begin{equation}
+	R = J_m(kr)
+\end{equation}
+where $J_m(kr)$ is an $m^{\text{th}}$ order Bessel function.
+
+\begin{figure}
+	\centering
+\begin{tikzpicture} % requires \usepackage{pgfplots}
+	\begin{axis}
+		[xmin= 0.0, xmax=15.0,
+		ymin=-0.45, ymax=1.05,
+		xlabel=$x$, ylabel=$J_n(x)$,
+		grid=major, grid style={dashed,gray!30},
+		legend entries = {$J_0$, $J_1$, $J_2$, $J_3$, $J_4$, $J_5$}]
+		\addplot[blue] table [x index=0, y index=1]{example-04.txt};
+		\addplot[red] table [x index=0, y index=2]{example-04.txt};
+		\addplot[green] table [x index=0, y index=3]{example-04.txt};
+		\addplot[teal] table [x index=0, y index=4]{example-04.txt};
+		\addplot[orange] table [x index=0, y index=5]{example-04.txt};
+		\addplot[purple] table [x index=0, y index=6]{example-04.txt};
+	\end{axis}
+\end{tikzpicture}
+\caption{The first six Bessel functions.} % requires \usepackage{caption
+\end{figure}
+\subsection{Solving Bessel Functions}
+The most general bessel equation is given by,
+\begin{equation}
+	\boxed{x^2\dv[2]{y}{x} + x\dv{y}{x} + (x^2 - m^2)y = 0} \label{eq:bessel}
+\end{equation}
+We can find a general solution by,
+\begin{equation}
+	y(x) = x^s\sum_{n=0}^{\infty}a_nx^n \label{eq:trial}
+\end{equation}
+where we impose a boundary condition that $y(0)$ must be finite. Substituting eq \eqref{eq:trial} into eq. \eqref{eq:bessel},
+\begin{align}
+	x\dv{x}{y} = \sum_{n=0}^{\infty}a_n(n+s)x^{n+s} \\
+	x^2\dv[2]{x}{y} = \sum_{n=0}^{\infty}a_n(n+s)(n+s-1)x^{n+s} \\
+\end{align}
+\begin{equation}
+	\begin{split}
+		(x^2 - m^2)y & = \sum_{n=0}^{\infty}a_nx^{n+s+2} - m^2\sum a_n x^{n+s} \\
+		& = \sum_{n=2}^{\infty}a_{n-2}x^{n+s} - m^2\sum a_n x^{n+s}
+	\end{split}
+\end{equation}
+Putting all these terms together, we can get rid of the $x^{n+s}$ as we require the equation to be true $\forall x$.
+\begin{equation}
+	\sum_{n=0}^{\infty}a_n\left[(n+s)(n+s-1) + (n+s) - m^2\right] + \sum_{n=2}^{\infty}a_{n-2} = 0.
+\end{equation}
+We must first consider $n=0$ and $n=1$ before we can find the recurrance relation. For $n=0$,
+\begin{equation}
+	\begin{split}
+		& a_0s(s-1) + a_0s - m^2a_0 = 0 \\
+		& a_0s^2 - m^2 a_0 \\
+		\implies & s = \pm m.
+	\end{split}
+\end{equation}
+For $n=1$,
+\begin{equation}
+	\begin{split}
+		& a_1s(s+1) + a_1(s+1) - m^2a_1 = 0 \\
+		& a_1 (s+1)(s+1) - m^2a_1 = 0 \\
+		\implies & a_1\left[(s+1)^2 - m^2\right]
+	\end{split}
+\end{equation}
+for which we require $a_1 = 0$ unless $s = \pm m = -\frac{1}{2}$. Otherwise, there will be no odd terms in our solution.
+\\\\
+We may now move onto the general recurrance relation,
+\begin{equation}
+	\begin{split}
+		\left[(n+s)(n+s - 1) + (n+s) - m^2\right]a_n - a_{n-2} & = 0 \\
+		\left[(n+s)^2 - m^2\right]a_n + a_{n-2} & = 0
+	\end{split}
+\end{equation}
+we then have the recurrance relation,
+\begin{equation}
+	a_n = -\frac{a_{n-2}}{(n+m)^2 - m^2} = -\frac{a_{n-2}}{(2m+n)n}
+\end{equation}
+which can be further generalised to,
+\begin{equation}
+	a_{2j} = (-1)^{j}\frac{m!}{2^{2j}j!(m+j)!}a_0
+\end{equation}
+where $j \in \mathbb{Z}^{+}$. We can then write the general solution to Bessel's equation,
+\begin{equation}
+	y(x) = \sum_{n=0}^{\infty}a_nx^{m+n} = \sum_{j=0}^{\infty}a_{2j}x^{m+2j}.
+\end{equation}
+For non-integer values of $m$, we must use the \textit{gamma function}.
+\subsubsection{Convergence of the solution}
+By considering,
+\begin{equation}
+	\left|r_n\right| = \left|\frac{a_{n+2}x^{n+2}}{a_nx^n}\right| = \left|\frac{x^2}{(n+2 +m)}\right|
+\end{equation}
+which clearly converges, as in the limit $n \to 0$, $\left|r_n\right| \to 0$ $\forall x$
 \appendix
 \chapter{Examples: Differential Equations}
 \section{1D Wave Equation}
@@ -465,4 +620,18 @@ The diffusion equation is given by,
 	\boxed{\grad^2T = \frac{1}{\alpha}\pdv{T}{t}}
 \end{equation}
 which reduces to Laplace's equation for a steady-state system.
+\chapter{Misc. Notes}
+\section{Plane Wave Nature}
+We have that travelling waves in 3D are given by $e^{i(\vb{k}\cdot\vb{x})}$ and have a plane wave nature, such that,
+\begin{equation}
+	(\vb{k}\cdot\vb{x}-\omega t) = \phi
+\end{equation}
+where $\phi$ is constant. This corresponds to a plane wave with constant phase. So, we can write,
+\begin{equation}
+	\begin{split}
+		& |\vb{k}||\vb{x}| - \omega = \phi \\
+		\implies & |\vb{x}| = \frac{\omega t + \phi}{|\vb{k}|}
+	\end{split}
+\end{equation}
+which is the equation of a sphere with radius $\frac{\omega t + \phi}{|\vb{k}|}$. Thus, a travelling wave in 3D represents spherical waves propogating outwards with velocity $\frac{\omega}{|\vb{k}|}$.
 \end{document}

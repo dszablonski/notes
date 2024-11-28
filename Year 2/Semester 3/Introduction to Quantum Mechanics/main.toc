@@ -1,42 +1,51 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {1}Quantum States}{3}{}%
-\contentsline {section}{\numberline {1.1}Amplitudes and Interference}{3}{}%
-\contentsline {section}{\numberline {1.2}States of Quantum Systems}{4}{}%
-\contentsline {subsection}{\numberline {1.2.1}Transforming a quantum state}{4}{}%
-\contentsline {section}{\numberline {1.3}Quantum States as Vectors}{5}{}%
-\contentsline {subsection}{\numberline {1.3.1}Dual of the quantum state}{5}{}%
-\contentsline {subsection}{\numberline {1.3.2}Quantum State Overlaps}{5}{}%
-\contentsline {subsection}{\numberline {1.3.3}Basis States}{6}{}%
-\contentsline {subsubsection}{Changing of basis}{6}{}%
-\contentsline {chapter}{\numberline {2}Measurement}{7}{}%
-\contentsline {section}{\numberline {2.1}Stern-Gerlach Experiment}{7}{}%
-\contentsline {section}{\numberline {2.2}Operators}{8}{}%
-\contentsline {subsection}{\numberline {2.2.1}Functions of linear operators}{9}{}%
-\contentsline {subsection}{\numberline {2.2.2}Eigenstates of linear operators}{9}{}%
-\contentsline {section}{\numberline {2.3}Observables and Measurement}{9}{}%
-\contentsline {section}{\numberline {2.4}Commutators}{10}{}%
-\contentsline {subsection}{\numberline {2.4.1}Compatibility of Measurement}{10}{}%
-\contentsline {chapter}{\numberline {3}Spin and Real Uses of Quantum Mechanics}{11}{}%
-\contentsline {section}{\numberline {3.1}Spin Operators}{11}{}%
-\contentsline {subsection}{\numberline {3.1.1}Spin-$\frac {1}{2}$ Particles}{12}{}%
-\contentsline {subsubsection}{Pauli Operators}{12}{}%
-\contentsline {subsubsection}{Ladder Operators}{12}{}%
-\contentsline {subsubsection}{Spin Eigenstates}{12}{}%
-\contentsline {section}{\numberline {3.2}Quantum Hamiltonians}{12}{}%
-\contentsline {subsection}{\numberline {3.2.1}Time evolution of a quantum system}{13}{}%
-\contentsline {subsection}{\numberline {3.2.2}Time evolution of expectation values}{13}{}%
-\contentsline {section}{\numberline {3.3}Composite Systems}{14}{}%
-\contentsline {subsection}{\numberline {3.3.1}Tensor product mathematics}{14}{}%
-\contentsline {section}{\numberline {3.4}Entanglement}{15}{}%
-\contentsline {chapter}{\numberline {4}Higher Dimensional Systems}{16}{}%
-\contentsline {section}{\numberline {4.1}Positions and Wavefunctions}{16}{}%
-\contentsline {section}{\numberline {4.2}Continuous Operators}{17}{}%
-\contentsline {subsection}{\numberline {4.2.1}Commutation relations}{17}{}%
-\contentsline {subsection}{\numberline {4.2.2}Hermitian Properties}{18}{}%
-\contentsline {section}{\numberline {4.3}Equation of a free particle}{18}{}%
-\contentsline {subsection}{\numberline {4.3.1}Scattering of free particles}{18}{}%
-\contentsline {chapter}{\numberline {A}Matrix Mathematics}{20}{}%
-\contentsline {section}{\numberline {A.1}Eigenvalues and Eigenvectors}{20}{}%
-\contentsline {section}{\numberline {A.2}Hermitian Matrices}{20}{}%
-\contentsline {section}{\numberline {A.3}Tensor Product Properties}{21}{}%
-\contentsline {chapter}{\numberline {B}Postulates of Quantum Mechanics}{22}{}%
+\contentsline {chapter}{\numberline {1}Quantum States}{4}{}%
+\contentsline {section}{\numberline {1.1}Amplitudes and Interference}{4}{}%
+\contentsline {section}{\numberline {1.2}States of Quantum Systems}{5}{}%
+\contentsline {subsection}{\numberline {1.2.1}Transforming a quantum state}{5}{}%
+\contentsline {section}{\numberline {1.3}Quantum States as Vectors}{6}{}%
+\contentsline {subsection}{\numberline {1.3.1}Dual of the quantum state}{6}{}%
+\contentsline {subsection}{\numberline {1.3.2}Quantum State Overlaps}{6}{}%
+\contentsline {subsection}{\numberline {1.3.3}Basis States}{7}{}%
+\contentsline {subsubsection}{Changing of basis}{7}{}%
+\contentsline {chapter}{\numberline {2}Measurement}{8}{}%
+\contentsline {section}{\numberline {2.1}Stern-Gerlach Experiment}{8}{}%
+\contentsline {section}{\numberline {2.2}Operators}{9}{}%
+\contentsline {subsection}{\numberline {2.2.1}Functions of linear operators}{10}{}%
+\contentsline {subsection}{\numberline {2.2.2}Eigenstates of linear operators}{10}{}%
+\contentsline {section}{\numberline {2.3}Observables and Measurement}{10}{}%
+\contentsline {section}{\numberline {2.4}Commutators}{11}{}%
+\contentsline {subsection}{\numberline {2.4.1}Compatibility of Measurement}{11}{}%
+\contentsline {chapter}{\numberline {3}Spin and Real Uses of Quantum Mechanics}{12}{}%
+\contentsline {section}{\numberline {3.1}Spin Operators}{12}{}%
+\contentsline {subsection}{\numberline {3.1.1}Spin-$\frac {1}{2}$ Particles}{13}{}%
+\contentsline {subsubsection}{Pauli Operators}{13}{}%
+\contentsline {subsubsection}{Ladder Operators}{13}{}%
+\contentsline {subsubsection}{Spin Eigenstates}{13}{}%
+\contentsline {section}{\numberline {3.2}Quantum Hamiltonians}{13}{}%
+\contentsline {subsection}{\numberline {3.2.1}Time evolution of a quantum system}{14}{}%
+\contentsline {subsection}{\numberline {3.2.2}Time evolution of expectation values}{14}{}%
+\contentsline {section}{\numberline {3.3}Composite Systems}{15}{}%
+\contentsline {subsection}{\numberline {3.3.1}Tensor product mathematics}{15}{}%
+\contentsline {section}{\numberline {3.4}Entanglement}{16}{}%
+\contentsline {chapter}{\numberline {4}Higher Dimensional Systems}{17}{}%
+\contentsline {section}{\numberline {4.1}Positions and Wavefunctions}{17}{}%
+\contentsline {section}{\numberline {4.2}Continuous Operators}{18}{}%
+\contentsline {subsection}{\numberline {4.2.1}Commutation relations}{18}{}%
+\contentsline {subsection}{\numberline {4.2.2}Hermitian Properties}{19}{}%
+\contentsline {section}{\numberline {4.3}Equation of a free particle}{19}{}%
+\contentsline {subsection}{\numberline {4.3.1}Scattering of free particles}{19}{}%
+\contentsline {section}{\numberline {4.4}Bound Particles}{20}{}%
+\contentsline {subsection}{\numberline {4.4.1}Infinite Potential Well}{20}{}%
+\contentsline {subsection}{\numberline {4.4.2}Potential Barriers}{21}{}%
+\contentsline {subsection}{\numberline {4.4.3}Finite Potential Wells}{21}{}%
+\contentsline {section}{\numberline {4.5}Expectation Values}{21}{}%
+\contentsline {subsection}{\numberline {4.5.1}Expectation Position of an Infinite Potential Well}{22}{}%
+\contentsline {section}{\numberline {4.6}Time Evolution}{22}{}%
+\contentsline {subsection}{\numberline {4.6.1}Time evolution of expectation values}{22}{}%
+\contentsline {section}{\numberline {4.7}Simple Harmonic Oscillator}{23}{}%
+\contentsline {chapter}{\numberline {A}Matrix Mathematics}{24}{}%
+\contentsline {section}{\numberline {A.1}Eigenvalues and Eigenvectors}{24}{}%
+\contentsline {section}{\numberline {A.2}Hermitian Matrices}{24}{}%
+\contentsline {section}{\numberline {A.3}Tensor Product Properties}{25}{}%
+\contentsline {chapter}{\numberline {B}Postulates of Quantum Mechanics}{26}{}%

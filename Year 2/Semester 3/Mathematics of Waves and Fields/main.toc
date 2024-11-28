@@ -25,8 +25,14 @@
 \contentsline {section}{\numberline {4.3}Legendre's Equation}{10}{}%
 \contentsline {subsection}{\numberline {4.3.1}Legendre Polynoials}{11}{}%
 \contentsline {subsubsection}{Orthogonality of Legendre Polynomials}{11}{}%
-\contentsline {chapter}{\numberline {A}Examples: Differential Equations}{12}{}%
-\contentsline {section}{\numberline {A.1}1D Wave Equation}{12}{}%
-\contentsline {subsection}{\numberline {A.1.1}Euler/d'Alembert solution}{12}{}%
-\contentsline {section}{\numberline {A.2}Laplace's Equation}{12}{}%
-\contentsline {section}{\numberline {A.3}Diffusion Equation}{13}{}%
+\contentsline {subsection}{\numberline {4.3.2}Legendre Polynomial Expansion}{12}{}%
+\contentsline {section}{\numberline {4.4}Bessel Functions}{12}{}%
+\contentsline {subsection}{\numberline {4.4.1}Solving Bessel Functions}{13}{}%
+\contentsline {subsubsection}{Convergence of the solution}{14}{}%
+\contentsline {chapter}{\numberline {A}Examples: Differential Equations}{15}{}%
+\contentsline {section}{\numberline {A.1}1D Wave Equation}{15}{}%
+\contentsline {subsection}{\numberline {A.1.1}Euler/d'Alembert solution}{15}{}%
+\contentsline {section}{\numberline {A.2}Laplace's Equation}{15}{}%
+\contentsline {section}{\numberline {A.3}Diffusion Equation}{16}{}%
+\contentsline {chapter}{\numberline {B}Misc. Notes}{17}{}%
+\contentsline {section}{\numberline {B.1}Plane Wave Nature}{17}{}%

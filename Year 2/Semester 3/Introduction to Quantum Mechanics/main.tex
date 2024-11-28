@@ -4,6 +4,7 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{cancel}
 \usepackage{enumerate}
 \usepackage[shortlabels]{enumitem}
 \usepackage{empheq}
@@ -20,6 +21,7 @@
 \usepackage{bm}
 \usepackage{empheq}
 \usetikzlibrary{decorations.text}
+
 \usepackage[most]{tcolorbox}
 \usepackage{tensor}
 %3D
@@ -39,6 +41,8 @@
 
 \tikzset{snake it/.style={decorate, decoration=snake}}
 
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 \newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
 
 \makeatletter
@@ -812,7 +816,7 @@ NOTE: This wavefunction is different as it is not normalisable. however it is st
 	\centering
 	\includegraphics[width=0.75\textwidth]{potential.png}
 	\caption{}
-	\label{eq:potential barrier}
+	\label{fig:potential barrier}
 \end{figure}
 Let us now consider a particle beam travelling in space under a potential,
 \begin{equation}
@@ -825,7 +829,7 @@ with an intial wavefunction,
 \begin{equation}
 	\psi(x) = Ae^{ikx}
 \end{equation}
-where it will encounter a potential step at $x = 0$. We will have a reflected solution for $x<0$, and a solution where the wave travels past the potential step. We can sum up this wave equation as,
+where it will encounter a potential step at $x = 0$, as in fig \ref{fig:potential barrier} We will have a reflected solution for $x<0$, and a solution where the wave travels past the potential step. We can sum up this wave equation as,
 \begin{equation}
 	\psi(x) = \begin{cases}
 		Ae^{ikx} + Be^{-ikx} & x<0 \\
@@ -862,6 +866,167 @@ We can then define the Reflection and Transmission ratios by,
 	\boxed{\mathcal{R} = \frac{j_{\text{ref}}}{j_{\text{inc}}} = \frac{(k-k')^2}{(k+k')^2}} && \boxed{\mathcal{T} = \frac{j_{\text{trans}}}{j_{\text{inc}}} = \frac{4kk'}{(k+k')^2}}
 \end{align}
 which further satisfy $\mathcal{R} + \mathcal{T} = 1$.
+\section{Bound Particles}
+\subsection{Infinite Potential Well}
+Consider the potential,
+\begin{equation}
+	V(x) = \begin{cases}
+		0 & 0 \leq x \leq L \\
+		\infty & \text{Otherwise}
+	\end{cases}.
+\end{equation}
+The Schrodinger equation in this case is identical to that of the free particle,
+\begin{equation}
+	-\frac{\hbar^2}{2m}\pdv{x}\ket{\psi} = E\ket{\psi}
+\end{equation}
+but subject to the boundary conditions,
+\begin{equation}
+	\psi(x) = 0 \text{ for } x \leq 0, x \geq 0.
+\end{equation}
+Considering the general solution to the wave equation,
+\begin{equation}
+	\psi(x) = Ae^{ikx} + Be^{-ikx}
+\end{equation}
+and applying the boundary condition at $x=0$, we find $A = -B$, and,
+\begin{equation}
+	\psi(x) = A(e^{ikx} - e^{-ikx}) = 2Ai\sin{kx}.
+\end{equation}
+Applying the boundary condition at $x = L$, we find that the wavenumber is quantised, so that we have integer number of wavelengths,
+\begin{equation}
+	k = \frac{n\pi}{L} \hspace{1em} n \in \mathbb{Z}^+.
+\end{equation}
+We are then able to normalise the wavefunction to,
+\begin{equation}
+	\psi(x) = \sqrt{\frac{2}{L}}\sin(kx).
+\end{equation}
+We can then find the quantised energy Eigenstates,
+\begin{equation}
+	E_n = \frac{\hbar^2 n^2 \pi^2}{2mL^2}
+\end{equation}
+which correspond to the normal modes of the wavefunction.
+\subsection{Potential Barriers}
+For a potential step, we have that there is a probability that the particle will be found within the potential barrier, such that $\psi(x) \propto e^{-\eta x}$. However, the particle current in the region inside the barrier is 0. 
+\subsection{Finite Potential Wells}
+For a finite potential well, when the particle is at an energy $0 < E < -U$, we find that the general wavefunction is given by odd and even wavefunctions,
+\begin{align}
+	\psi(x)_{\text{odd}} = \begin{cases}
+		A e^{\eta x} & x < -a\\
+		\cos{kx} & |x| < a \\
+		Be^{-\eta x} & x > a
+	\end{cases}, && \psi(x)_{\text{even}} = \begin{cases}
+	A e^{\eta x} & x < -a\\
+	\sin{kx} & |x| < a \\
+	-Be^{-\eta x} & x > a
+	\end{cases}.
+\end{align}
+we have that,
+\begin{align}
+	k^2 = \frac{2m(E-U)}{\hbar^2} && \nu^2 = - \frac{2mE}{\hbar^2}.
+\end{align}
+which we can relate by,
+\begin{equation}
+	\boxed{k^2 + \eta^2 \frac{2mU}{\hbar^2}}. \label{eq:sol1}
+\end{equation}
+By considering the continuity boundary conditions, we find that,
+\begin{equation}
+	\boxed{k\tan{(ka)} = \eta}. \label{eq:sol2}
+\end{equation}
+We require both eq. \eqref{eq:sol1} and eq. \eqref{eq:sol2} to be solutions. However, no analytical soluton exists. We must then use a graphical solution, as in figure \ref{fig:graph}. The amount of points of interesection represent the number of solutions for the potential well, which indicate the number of eigenstates.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\textwidth]{graph.png}
+	\caption{Dashes lines represent odd solutions.}
+	\label{fig:graph}
+\end{figure}
+\section{Expectation Values}
+Recall the procedure for findng the expectation value of an observable for a discrete system,
+\begin{equation}
+	\left<\hat{x}\right> = \bra{\psi}\hat{x}\ket{\psi}.
+\end{equation}
+We can extend this to a continuous system,
+\begin{equation}
+	\boxed{\left<\hat{x}\right> = \int_{-\infty} \psi^*\hat{x}\psi \dd{x}}.
+\end{equation}
+\subsection{Expectation Position of an Infinite Potential Well}
+Let us state the position expectation value for position (computation is trivial),
+\begin{equation}
+	\frac{L}{2} = \left<\hat{x}\right>.
+\end{equation}
+Let us note that the expectation value is independent of the wavenumber, implying that the expectation value for a particle is the same for all energy states.
+\section{Time Evolution}
+If we have an intial wavefunction $\psi(x) \equiv \psi(x,t=0)$, with energy eigenfucntions $\left\{\psi_n(x)\right\}$, we can rewrite the time independent wavefunction as a sum of weighted eigenfunctions,
+\begin{equation}
+	\psi(x) = \sum_n c_n \phi_n(x)
+\end{equation}
+where the coefficient $c_n$ is determined by,
+\begin{equation}
+	c_n = \braket{\phi_n}{\psi} = \int_{-\infty}^{\infty} \phi_n^*\psi\dd{x}.
+\end{equation}
+We can describe the time evolution of the wavefunction by first considering the time evolution of the energy eigenfunctions, which is given trivially by the time-dependent Schoridinger equation, as in the discrete case,
+\begin{equation}
+	\phi_n(x,t) = \phi_n(x)e^{-\frac{iE_nt}{\hbar}}
+\end{equation}
+and thus, the time evolution of the wavefunction as a whole is given by,
+\begin{equation}
+	\psi(x,t) = \sum_n c_n \phi_n(x,0)e^{-\frac{iE_nt}{\hbar}}.
+\end{equation}
+\subsection{Time evolution of expectation values}
+We can simply calculate the time evolved expectation value by considering the inner produce of the time evolved wavefunction,
+\begin{equation}
+	\left<\hat{x}\right>(t) = \bra{\psi(t)}\hat{x}\ket{\psi(t)}.
+\end{equation}
+\section{Simple Harmonic Oscillator}
+The potentials which we have studied are often not as simple. We often wish to study arbitrary potentials $V(x)$, however the Hamiltonian concerning arbitrary potentials are very difficult to solve. We often employ approximations of continuous potentials, particularly about stationary points $x_0$,
+\begin{equation}
+	V(x - x_0) = V(x_0) + (x-x_0)\cancelto{0}{\eval{\dv{V}{x}}_{x_0}} + \frac{1}{2}(x-x_0)^2\eval{\dv{V}{x}}_{x_0} + \cdots
+\end{equation}
+We can neglect the offset of our expansion, which leads to the first term of the expansion to be the quadratic term, which results in the approximation being a \textit{harmonic oscillator}.
+\\\\
+We can write the hamiltonina of the harmonic oscillator,
+\begin{equation}
+	\hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2}m\omega^2\hat{x}^2.
+\end{equation}
+This Hamiltonian is very difficult to solve by itself. We can instead reformulate it in terms of the lowering and raising operators, defined by,
+\begin{align}
+	\hat{a}_+ = \sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x} - i \frac{\hat{p}}{m\omega}\right) && \text{Raising} \\
+	\hat{a}_+ = \sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x} + i \frac{\hat{p}}{m\omega}\right) && \text{Lowering}
+\end{align}
+Let us notice that $\hat{a}_+$ is the Hermitian conjuage of $\hat{a}_-$ and vice versa. Using these definitions, we can rewrite the position and momentum operators,
+\begin{align}
+	\hat{x} = \sqrt{\frac{\hbar}{2m\omega}\left(\hat{a}_+ + \hat{a}_-\right)} && \hat{y} = \sqrt{\frac{\hbar m\omega}{2}\left(\hat{a}_+ - \hat{a}_-\right)}
+\end{align}
+Let us analyse the behaviour of $\hat{a}_+\hat{a}_-$,
+\begin{equation}
+	\begin{split}
+		\hat{a}_+\hat{a}_- & = \frac{m\omega}{2\hbar} \left(\hat{x} - \frac{i\hat{p}}{m\omega}\right)\left(\hat{x} + \frac{i\hat{p}}{m\omega}\right) \\
+		& = \frac{m\omega}{2\hbar} \left(\hat{x}^2 + \frac{i}{m\omega}\underbrace{\left[\hat{x}\hat{p} - \hat{p}\hat{x}\right]}_{\left[\hat{x},\hat{p}\right] = i\hbar} +\frac{\hat{p}^2}{m^2 \omega^2}\right).
+	\end{split}
+\end{equation}
+Thus, we can write the Hamiltonian,
+\begin{equation}
+	\hat{H} = \hbar \omega \left(\hat{a}_+\hat{a}_- + \frac{1}{2}\right).
+\end{equation}
+Let us now consider the behavour of the lowering and raising operators. We must impose the ladder termination condition on the lowering operator, which states that when acting on a ground state $\ket{0}$,
+\begin{equation}
+	\boxed{\hat{a}_- \ket{0} = 0}.
+\end{equation}
+The lowering and raising operators general have a behaviour,
+\begin{equation}
+	\hat{a}_{\pm}\ket{n} \to \ket{n \pm 1}.
+\end{equation}
+Let us keep in mind that $\braket{n}{n} = 1$, so we require the lowering and raising operators to preserve normalisation. We then require,
+\begin{equation}
+	\begin{split}
+		\braket{n-1}{n-1} = \bra{n}\hat{a}_+\hat{a}_-\ket{n} & = 1 \\
+		\bra{n}n\ket{n} = n\braket{n}{n} = 1
+	\end{split}
+\end{equation}
+thus the normalisation conditions are,
+\begin{align}	
+	\hat{a}_-\ket{n} = \sqrt{n}\ket{n-1} \\
+	\hat{a}_+\ket{n} = \sqrt{n+1}\ket{n+1}.
+\end{align}
+We can define a Hermitian operator $\hat{N}$ 
 \appendix
 \chapter {Matrix Mathematics}
 \section{Eigenvalues and Eigenvectors}

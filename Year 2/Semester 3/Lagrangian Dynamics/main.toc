@@ -17,5 +17,14 @@
 \contentsline {subsection}{\numberline {3.2.3}Spatial Orientation}{11}{}%
 \contentsline {subsection}{\numberline {3.2.4}Independence of Reference Frame}{11}{}%
 \contentsline {subsubsection}{Boost generator behaviour with the Hamiltonian}{12}{}%
-\contentsline {chapter}{\numberline {A}Misc. Forumlae}{13}{}%
-\contentsline {section}{\numberline {A.1}Total Derivative}{13}{}%
+\contentsline {subsection}{\numberline {3.2.5}Other Symmetries of the Lagrangian and the Hamiltonian}{12}{}%
+\contentsline {chapter}{\numberline {4}Normal Modes for Lagrangian Dynamics}{13}{}%
+\contentsline {section}{\numberline {4.1}Informal Method}{13}{}%
+\contentsline {section}{\numberline {4.2}More Formal Method}{14}{}%
+\contentsline {section}{\numberline {4.3}Formal Matrix Treatment}{14}{}%
+\contentsline {subsection}{\numberline {4.3.1}Lagrangian in Matrix Form}{15}{}%
+\contentsline {subsection}{\numberline {4.3.2}Diagonalisation of the equations of motion}{15}{}%
+\contentsline {subsection}{\numberline {4.3.3}Zero-Point Modes}{15}{}%
+\contentsline {subsection}{\numberline {4.3.4}Degenderate Normal Modes}{15}{}%
+\contentsline {chapter}{\numberline {A}Misc. Forumlae}{16}{}%
+\contentsline {section}{\numberline {A.1}Total Derivative}{16}{}%

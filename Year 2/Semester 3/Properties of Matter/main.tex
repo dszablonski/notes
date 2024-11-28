@@ -20,6 +20,7 @@
 \usetikzlibrary{decorations.text}
 \usepackage[most]{tcolorbox}
 \usepackage{tensor}
+\usepackage{cancel}
 \usepackage{tcolorbox}
 %3D
 \usepackage{mathtools}
@@ -782,6 +783,272 @@ which gives us our final statement,
 \begin{equation}
 	S(B) - S(A) \geq \int_A^B \frac{\dbar Q_{\text{irrev}}}{T}
 \end{equation}
+\subsection{Thermally Isolated Systems}
+For thermally isolated systems, it always holds that,
+\begin{equation}
+	S(B) - S(A) \geq 0.
+\end{equation}
+For a system doing the maximum amount of work, we have that,
+\begin{equation}
+	S(B) - S(A) = 0.
+\end{equation}
+For a system acting between two finite reservoirs, they will reach a final temperature given by,
+\begin{equation}
+	T_f = \sqrt{T_HT_C}.
+\end{equation}
+\subsection{Entropy and Heat Capacity}
+Entropy can be used to define the heat capacity of for a given constant variable $X$. This is given by,
+\begin{equation}
+	C_X = T\left(\pdv{S}{T}\right)_X
+\end{equation}
+which, integrating, gives,
+\begin{equation}
+	S(T,X) - S(T_0, X) = \int_{T_0}^T \frac{C_X(T', X)}{T'}\dd{T'}.
+\end{equation}
+\subsection{Fundamental Relation of Thermodynamics}
+The fundamental theorem of thermodynamics is a restatement of the second law,
+\begin{equation}
+	\boxed{\dd{E} = T\dd{S} + \dbar W_{\text{rev}}}.
+\end{equation}
+For an ideal gas, this is,
+\begin{equation}
+	\dd{E} = T \dd{S} - P\dd{V}.
+\end{equation}
+If we think of the second law, and energy being of the form $E \equiv E(S,V)$, we can write,
+\begin{equation}
+	\dd{E} = \left(\pdv{E}{S}\right)_V \dd{S} + \left(\pdv{E}{V}\right)_S \dd{V}
+\end{equation}
+which wen equating coefficients allows us to find,
+\begin{align}
+	\boxed{T = \left(\pdv{E}{S}\right)_V } && \boxed{P = -  \left(\pdv{E}{V}\right)_S}
+\end{align}
+\section{Thermodynamic Potentials}
+From the fundamental relation of thermodynamics, we are able to derive different thermodynamic potentials, which allow us to state whether a reaction can happen spontaneously. 
+\subsection{Work Availability}
+We wish to find the maximum amount of work we can extract from a system initially out of equilibrium with the surroundings. A system like this will always increases its entropy if it can. We have that, for a system with the environment at pressure $P_0$ and temperature $T_0$, we have,
+\begin{equation}
+	\begin{split}
+		\Delta S_{\text{tot}} & = \Delta S_{\text{sys}} + \Delta S_{\text{env}} \\
+		& = \Delta S + \frac{Q}{T_0} \\
+		& = \Delta S + \frac{-\Delta E - P\dd{V}}{T_0} \\
+		& = \frac{T_0 \Delta S - \Delta E - P\dd{V}}{T_0} \geq 0
+	\end{split}
+\end{equation}
+From this we can define the \textit{availability} of a system,
+\begin{equation}
+	- \Delta A = T_0 \Delta S - \Delta E - P\dd{V} \geq 0,
+\end{equation}
+for which we have that the entropy of a system increases given that $\Delta A \leq 0$. We can further interpret the availability as the useful work done by a system. We have that,
+\begin{equation}
+	\boxed{W_{\text{useful}} \leq -\Delta A}.
+\end{equation}
+We can further relate available work to thermodynamic potentials (described in detail in sections below).
+\begin{itemize}
+	\item For a process at constant temperature and pressure, the availability is related to the Gibbs free energy,
+	\begin{equation}
+		\boxed{W_{\text{usefull}} \leq -\Delta G}
+	\end{equation}
+	\item For a process at constant volume and temperature, the availability is related to the Helmholtz free energy,
+	\begin{equation}
+		\boxed{W_{\text{useful}} \leq -\Delta F}.
+	\end{equation}
+\end{itemize}
+\subsection{Helmholtz Free Energy}
+We can derive this from the Helmholtz free energy from the fundamental relation of thermodynamics,
+\begin{equation}
+	\begin{split}
+		\dd{E} & = T\dd{S} - P\dd{V} \\
+		& = T\dd{S} + S\dd{T} - S\dd{T} - P\dd{V} \\
+		& = \dd{(TS)} - S\dd{T} - P\dd{V} \\
+		\implies & \underbrace{\dd{E - TS}}_{\dd{F}} = \underbrace{- S \dd{T} - P \dd{V}}_{\dd{T} = 0, \dd{V} = 0}
+	\end{split}
+\end{equation}
+From this we can define the Helmholtz free energy,
+\begin{equation}
+	\boxed{F(T,V) = E - TS}.
+\end{equation}
+Which holds for constnat $T$ and $V$. We can further consider the expansion of $\dd{F}$,
+\begin{equation}
+	\dd{F} = \left(\pdv{F}{T}\right)_V \dd{T} + \left(\pdv{F}{V}\right)_T \dd{V}
+\end{equation}
+and equating coefficients,
+\begin{align}
+	S = -\left(\pdv{F}{T}\right)_V && P = -\left(\pdv{F}{V}\right)_T.
+\end{align}
+We then have that,
+\begin{equation}
+	\dd{F} \leq 0
+\end{equation}
+where equality holds for equilibrium, and spontaneous change for $\dd{F} < 0$.
+\subsection{Gibbs Free Energy}
+We derive the Gibbs free energy from the Helmholtz free energy. We have,
+\begin{equation}
+	\begin{split}
+		\dd{F} & = \dd{(E - TS)} = -S\dd{T} - P \dd{V} \\
+		& = -S\dd{T} - p\dd{V} -v\dd{P} + V\dd{P} \\
+		& = -S\dd{T} - \dd{(PV)} + V\dd{P} = \dd{(E - TS)} \\
+		\implies & \underbrace{\dd{(E - TS + PV)}}_{\dd{G}} = -S\dd{T} + V\dd{P}
+	\end{split}
+\end{equation}
+The Gibbs free energy is then,
+\begin{equation}
+	\boxed{G(T,P) = E - TS + PV}.
+\end{equation}
+The Gibbs free energy tells us about the non-reversible work in the system. Expanding $\dd{(E - TS + PV)}$, 
+\begin{equation}
+	\begin{split}
+	& \dd{E} - \cancelto{0}{S\dd{T}} - T\dd{S} + P\dd{V} + \cancelto{0}{V\dd{P}} = \cancelto{0}{-S\dd{T}} + \cancelto{0}{V \dd{P}} \\
+	\implies & \underbrace{\dd{E} - T\dd{S}}_{\dbar W_{\text{rev}}} + \underbrace{P\dd{V}}_{\dbar W_{\text{vol}}} = \dbar W_{\text{other}}
+	\end{split}
+\end{equation}
+\subsection{Enthalpy}
+Enthalpy is derived from the Gibbs free energy. We consider enthalpy at constant entropy and pressure. Furthermore, for a system at constant pressure, the enthalpy is interpreted as the heat released during the process. The derivation is shown below,
+\begin{equation}
+	\begin{split}
+	\dd{(E - TS + PV)} & = -S \dd{T} + V\dd{P} \\
+	& = -S\dd{T} -T\dd{S} + T\dd{S} + V\dd{P} \\
+	& = - \dd{(TS)} + T\dd{S} + V\dd{P} \\
+	\implies \dd{(E + PV)} & = T\dd{S} + V\dd{P}
+	\end{split}
+\end{equation}
+we then define the enthalpy $H$,
+\begin{equation}
+	H = E + PV
+\end{equation}
+where we have,
+\begin{equation}
+	\boxed{\dd{H} = T\dd{S} V\dd{P}}
+\end{equation}
+and the relations,
+\begin{align}
+	\left(\pdv{H}{S}\right)_P = T && \left(\pdv{H}{P}\right)_S = V.
+\end{align}
+We can further define the Gibbs free energy in terms of enthalpy,
+\begin{equation}
+	\dd{G} = \dd{H} - T\dd{S}
+\end{equation}
+where we require $\dd{G} \leq 0$ for spontaneous change.
+\subsection{Interpretation of Thermodynamic Potentials}
+\subsubsection{Internal Energy}
+For thermally isolated systems, ($Q = 0$),
+\begin{equation}
+	\begin{split}
+	& \Delta A = \Delta E + P_0\Delta V = 0 \\
+	\implies & \Delta E = - P_0 \Delta V.
+	\end{split}
+\end{equation}
+\subsubsection{Entropy}
+For thermally isolated systems at fixed volume,
+\begin{equation}
+	\Delta A = - T_0 \Delta S
+\end{equation}
+thus,
+\begin{equation}
+	(\Delta S)_{E,V} \geq 0
+\end{equation}
+for spontaneous change. I.e., entropy must be maximised.
+\subsubsection{Helmholtz Free Energy}
+For a system that starts and ends at the same temperature, with constant volume,
+\begin{equation}
+	\Delta A = \Delta (E - T_0 S) = \Delta F
+\end{equation}
+so,
+\begin{equation}
+	(\Delta F)_{T,V} \leq 0
+\end{equation}
+for spontaneous change.
+\subsubsection{Gibbs Free Energy}
+If the system starts and ends at the same pressure and temperature, the availability becomes,
+\begin{equation}
+	\Delta A = \Delta (E - T_0S + P_0V) = \Delta G
+\end{equation}
+thus for spontaneous change,
+\begin{equation}
+	(\Delta G)_{T,P} \leq 0
+\end{equation}
+and for equilibrium, we minimise the Gibbs free energy.
+\subsubsection{Enthalpy}
+For a system at constant pressure, the work done is $P_0\Delta V$. From the first law,
+\begin{equation}
+	\Delta E = Q - P_0 \Delta V.
+\end{equation}
+The change in enthalpy is,
+\begin{equation}
+	\Delta H = \Delta E + P_0 \Delta V
+\end{equation}
+and we therefore have,
+\begin{equation}
+	(\Delta H)_P = Q
+\end{equation}
+so the change in enthalpy is the heat released during a process.
+\subsection{Maxwell Relations}
+The Maxwell relations are given below, with proof given for the first below,
+\begin{tcolorbox}
+	\begin{align}
+		\left(\pdv{P}{S}\right)_V &= - \left(\pdv{T}{V}\right)_S \label{eq:maxwell 1}\\
+		\left(\pdv{S}{V}\right)_T &= \left(\pdv{P}{T}\right)_V \\
+		\left(\pdv{T}{P}\right)_S &= \left(\pdv{V}{S}\right)_P \\
+		\left(\pdv{S}{P}\right)_T &= - \left(\pdv{V}{T}\right)_P 
+	\end{align}
+\end{tcolorbox}\noindent
+We will show the proof for eq. \eqref{eq:maxwell 1}, but the proofs for all other relations follow similarly.
+\begin{proof}
+	\begin{equation*}
+		\begin{split}
+			\dd{E} = T\dd{S} - P\dd{V} = \left(\pdv{E}{S}\right) \dd{S} + \left(\pdv{E}{V}\right)_S \dd{V}
+		\end{split}
+	\end{equation*}
+	\begin{align*}
+		T = (\pdv{E}{S})_V && P = -\left(\pdv{E}{V}\right)_S
+	\end{align*}
+	\begin{equation*}
+		\begin{split}
+			\pdv{V}\left(\pdv{E}{S}\right)  & = \pdv{S}\left(\pdv{E}{V}\right)\\
+			\implies \left(\pdv{P}{S}\right)_V & = - \left(\pdv{T}{V}\right)_S 
+		\end{split}
+	\end{equation*}
+\end{proof}
+\section{Phase Transitions}
+In order to consider phase transitions, we must consider \textit{open systems}, i.e., systems where the number of particles can change. We can then write the internal energy to account for open systems,
+\begin{equation}
+	E = TS - PV + \mu N
+\end{equation}
+where $\mu$ is the chemical potential. We can then write the FTR,
+\begin{equation}
+	\dd{E} = T\dd{S} - P\dd{V} + \mu \dd{N}.
+\end{equation}
+We can visualise phase transitions on a P-T diagram, as in figure \ref{fig:pt},
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{P-T-diagram.png}
+	\caption{}
+	\label{fig:pt}
+\end{figure}
+\subsection{Phase Transition Conditions}
+For a substance to transition from one state to another, it must be possible for the two states to be in equilibrium. Considering a total isolated systems composed of two systems in two different states,
+\begin{equation}
+	S(E,V,N) = S_1(E_1, V_1, N_1) + S_2(E_2,V_2,N_2)
+\end{equation}
+Considering $\dd{S}$ for each part of the system, we obtain the differentials,
+\begin{align}
+	\left(\pdv{S_1}{E_1}\right)_{V_1,N_1} = \left(\pdv{S_2}{E_2}\right)_{V_2,N_2} \\
+	\left(\pdv{S_1}{V_1}\right)_{E_1,N_1} = \left(\pdv{S_2}{V_2}\right)_{E_2,N_2}\\
+	\left(\pdv{S_1}{N_1}\right)_{E_1,V_1} = \left(\pdv{S_2}{N_2}\right)_{E_2,V_2}
+\end{align}
+These lead to the conditions for phase equilibrium,
+\begin{tcolorbox}
+	\begin{itemize}
+		\item $T_1 = T_2$, no heat flow between systems.
+		\item $P_1 = P_2$, the systems are at mechanical equilibrium.
+		\item $\mu_1 = \mu_2$, there is no preference to be in one state over another.
+	\end{itemize}
+\end{tcolorbox}
+\subsection{Clausius-Clapeyron Relation}
+If we approximate the interface line between two states as being linear, such that we go from points $(T,P) \to (T+\delta T, P + \delta P)$, we can write the Clausius-Clapeyron relation as,
+\begin{equation}
+	\frac{\delta P}{\delta T} = \frac{\Delta H}{T \Delta\mathcal{V}}
+\end{equation}
+where $\mathcal{V}$ is the molar volume, and $\Delta H$ is the molar change in enthalpy, often written as $L$, and referred to as the latent heat.
 \appendix
 \chapter{Definitions}
 \textbf{Isothermal Process}:  Happens at constant temperature, $\Delta E = 0$ for an ideal gas.
@@ -793,4 +1060,10 @@ which gives us our final statement,
 \textbf{Adiabatic Process}: Happens with no heat flow $\implies \dbar Q = 0$.
 \\\\
 \textbf{Heat Capacity}: Relates heat flow to temperature change $\dbar Q = C \dd{T}$.
+\chapter{Important Misc. Facts}
+For an ideal gas at constant volume, the change in energy $\dd{E}$ is always given by,
+\begin{equation}
+	\dd{E} = C_V \dd{T}
+\end{equation}
+
 \end{document}

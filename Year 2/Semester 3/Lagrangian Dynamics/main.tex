@@ -4,7 +4,8 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amsfonts}
-
+\usepackage[T1]{fontenc}
+\usepackage[siunitx, RPvoltages]{circuitikz}
 \usepackage{physics}
 \usepackage{tikz}
 \usepackage[a4paper, margin=1in]{geometry}
@@ -473,6 +474,169 @@ Rearranging this,
 	\left[H,B\right] = -\pdv{B}{t} = \sum_ip_i = P. \label{eq:HB}
 \end{equation}
 In order for eq. \eqref{eq:HB} to hold, we require $H \propto P^2$, i.e., kinetic energy depending quadratically on momenta is a consequence of the principle of relativity.
+\subsection{Other Symmetries of the Lagrangian and the Hamiltonian}
+\begin{enumerate}
+	\item $L$ is invariant under the adding of a constant independent of $q_i, \Dot{q}_i, t$.
+	\item $L$ is invariant under scaling, i.e., $L$ is invariant under a transformation $L' = KL$ where $K \neq K(q_i, \Dot{q}_i, t$.
+	\item Invariant under the addition of a term of the form $\dv{f}{t}$ where $f = f(q_i, t)$. I.e., invariant under transformation $L' = L + \dv{f}{t}$.
+	\begin{proof}
+		Consider the action,
+		\begin{equation}
+			\begin{split}
+				S' = \int_{t_1}^{t_2}L'(q_i, \dot{q}_i, t)\dd{t} & = \int_{t_1}^{t_2}L(q_i, \Dot{q}_i, t)\dd{t} + \int_{t_1}^{t_2}\dv{f}{t} \dd{t} \\
+				& = S + \left[f\right]_{t_1}^{t_2} \\
+				& = S + f(q_i(t_1), t_1) - f(q_i(t_2), t_2)
+			\end{split}
+		\end{equation}
+		and the latter terms only depend on the end points of the action. These points are fixed, which imply that the function $f$ does not depend on the path. So we have that $\delta S' = \delta S = 0$, and the action after the transformation corresponds to the same path as before the transformation. So the equations of motion remain unchanged.
+	\end{proof} 
+\end{enumerate}
+\chapter{Normal Modes for Lagrangian Dynamics}
+Normal modes are the modes of the system where all parts of the system are oscillating at the same frequency. "Normal" refers to orthogonality of the modes, meaning that there is no coupling between the modes. If a system oscillates in one of its normal modes, it will stay in that mode.
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[]
+		\draw (-0.5,2) -- (2.5,2);
+		\draw (0,0) to[cute inductor,
+		inductors/coils=9, inductors/width=1.4,
+		nodes width=0.1, l=$s$, 
+		o-o] (2,0);
+		\draw (0,0) -- ++(0,2) node[left, midway]{$l$};
+		\draw (2,0) -- ++(0,2) node[right, midway]{$l$};
+		\draw (0,-.5) node[flowarrow, label=below:$x_1$]{};
+		\draw (2,-.5) node[flowarrow, label=below:$x_2$]{};
+	\end{tikzpicture}
+	\caption{}
+	\label{fig:coupled pendula}
+\end{figure}
+\\\\
+We will consider 3 different methods of finding normal modes by analysing a simple coupled pendulum. Let us first state the lagrangian for this system,
+\begin{equation}
+	L = \frac{1}{2}m\left(\Dot{x}^2_1 + \Dot{x}_2^2\right) - \frac{1}{2}k(x_2 - x_1)^2 - \frac{1}{2}\frac{mg}{l}
+\end{equation}
+with the corresponding equations of motion,
+\begin{align}
+	m\Ddot{x}_1 & = -k(x_1 - x_2) - \frac{mg}{l}x_1 \label{eq:1} \\
+	m\Ddot{x}_2 & = +k(x_1 - x_2) - \frac{mg}{l}x_2 \label{eq:2}
+\end{align}
+\section{Informal Method}
+Let us add eq. \eqref{eq:1} and eq. \eqref{eq:2}, and define $X_1 = x_1 + x_2$,
+\begin{equation}
+	m\Ddot{X_1} = -m\frac{g}{l}X_1
+\end{equation}
+from which we can clearly identify SHM in $X_1$ with $\omega^2 = \frac{g}{l}$, corresponding to the first normal mode.
+\\\\
+Let us now subtract the two equations of motion and define $X_2 = x_1 - x_2$,
+\begin{equation}
+	\Ddot{X}_2 = -\left(\frac{2k}{m} + \frac{g}{l}\right)X_2
+\end{equation}
+which is clearly SHM in $X_2$ with $\omega^2 = \frac{2k}{m} + \frac{g}{l}$.
+\section{More Formal Method}
+In normal modes, all components oscillate with the same frequency. We can then assume a general solution,
+\begin{equation}
+	x_j = C_j e^{i\omega_n t} \implies \Ddot{x}_j = -\omega_n^2C-j e^{i\omega_n t}.
+\end{equation}
+Doing this transforms a simultaneous differential equation into a purely algebraic form. Substituting this into our equations of motion and dividing through by $e^{i\omega_nt}$, 
+\begin{align}
+	-m\omega_n^2C_1 & = - k(C_1 -C_2) - m\frac{g}{l}C_1 \\
+	-m\omega_n^2C_2 & = + k(C_1 - C_2) - m\frac{g}{l}C_2.
+\end{align}
+We then obtain two solutions,
+\begin{align}
+	C_2 = C_1 && C_2 = -C_1
+\end{align}
+which correspond to the pendula moving in the same direction with equal amplitude, and moving in opposite directions with equal amplitude. Our solutions for the normal modes are as in the previous section.
+\section{Formal Matrix Treatment}
+Let us consider the equations of motion again, assuming that all parts of the system are performing simple harmonic motion,
+\begin{align}
+	m\Ddot{x}_1 = -m\omega_n^2x_1 = -\left(\frac{mg}{l} + k\right)x_1 -(-k)x_2\label{eq:12} \\
+	m\Ddot{x}_1 = -m\omega_n^2x_2 = -(-k)x_1 -\left(\frac{mg}{l} + k\right)x_2 \label{eq:22} \\
+\end{align}
+We can clearly rewrite these equations as a single matrix equation,
+\begin{equation}
+	M\Ddot{X} = -\omega_n^2MX = -KX
+\end{equation}
+if we define,
+\begin{align}
+	X = \begin{pmatrix}
+		x_1 \\ x_2
+	\end{pmatrix} && M = \begin{pmatrix}
+	m & 0 \\ 0 & m
+	\end{pmatrix} && K = \begin{pmatrix}
+	\frac{mg}{l}+k & -k \\
+	-k & \frac{mg}{k}+k
+	\end{pmatrix}
+\end{align}
+where $X$ is the vector of our degrees of freedom, $M$ is our mass matrix, and $K$ encodes the restoring forces acting on the system. We are further able to identify the equation,
+\begin{equation}
+	KX = \omega_n^2MX. \label{eq:293}
+\end{equation}
+Mutliplying eq. \eqref{eq:293} by $M^{-1}$,
+\begin{equation}
+	\boxed{M^{-1}K X = \omega_n ^2X} \label{eq:matrix eq motion}
+\end{equation}
+which is the general for motion \textit{close to an equilibrium} in matrix form, which is an eigen equation. The eigenvalues of this equation represent the normal frequencies, i.e., solving,
+\begin{equation}
+	\det{M^{-1}K - \omega_n^2I} = 0.
+\end{equation} 
+Evaluating this produces the normal frequencies as in the previous sections. By further finding the eigenvectors of the eigenequation, we are able to identify the normal modes of the system. For our particular system with the coupled pendula, we find that the eigenvectors are,
+\begin{align}
+	X_1 = \frac{1}{\sqrt{2}}\begin{pmatrix}
+		1 \\ 1
+	\end{pmatrix}C && X_2 = \frac{1}{\sqrt{2}}\begin{pmatrix}
+	1 \\ -1
+	\end{pmatrix}C
+\end{align}
+where $C$ is the amplitude of the oscillation. We can interpret the first normal mode corresponds to the two masses moving in the same direction, while the second normal mode corresponds to the two masses moving in opposite directions with equal amplitude.
+\\\\
+In order to write the general displacement of a mass $m_j$ in the $n$th normal mode, we must take into account the amplitude and phase,
+\begin{equation}
+	x_j^{(n)} = X_n^{(j)}C_ne^{i(\omega_n t)}
+\end{equation}
+and to get the total displacement of the mass $m_j$, we must sum over all normal modes,
+\begin{equation}
+	x_j = \sum_n\left(Q_n^{(j)} C_ne^{i(\omega_nt)}\right)
+\end{equation}
+where we determine $C_n$ from intial conditions. $C_n$ can be complex in order to encode the phase differencec. NOTE: We require 2N conditions for $N$ degrees of freedom.
+\subsection{Lagrangian in Matrix Form}
+The Lagrangian in matrix form is given by,
+\begin{equation}
+	\boxed{L = \frac{1}{2}\Dot{X}^TM\Dot{X} - \frac{1}{2}X^TKX}
+\end{equation}
+\subsection{Diagonalisation of the equations of motion}
+We can diagonalise our equations of motion. If eigenvectors of our equations of motion are orthogonal, such that,
+\begin{equation}
+	\vb{X}^{(j)}\cdot\vb{X}^{(k)} = \delta_{ij}
+\end{equation}
+then we can construct an orthogonal matrix, whose columns are the eigenvectors of the system,
+\begin{equation}
+	B_{ij} = \vb{X}_i^{(j)}.
+\end{equation}
+From this we can diagonalise our equation of motion, i.e., eq. \eqref{eq:matrix eq motion},
+\begin{equation}
+	\boxed{\underbrace{(B^{-1}M^{-1}KB)}_{\substack{\text{Diagonal}\\\text{Matrx}}}\underbrace{(B^{-1}\vb{X})}_{Q} = \omega_n^2 \underbrace{\left(B^{-1}X\right)}_{Q}}
+\end{equation}
+which produces equations of motion whcih are diagonal in the normal modes of our system, or viewing this another way, in the normal coordinates of the system. We can further diagonalise the Lagrangian,
+\begin{equation}
+	\boxed{L = \frac{1}{2}\Dot{Q}^TB^TMB\Dot{Q} - \frac{1}{2}\Dot{Q}^TB^TKBQ}
+\end{equation}
+This allows for the normal modes of the system to be decoupled.
+\subsection{Zero-Point Modes}
+Zero point modes occur for eigenvalues of $\lambda = 0$. In a system close to equilibrium, this means $\omega^2 = 0$. We have,
+\begin{equation}
+	\Ddot{\vb{X}} = \omega^2\vb{X} \implies \Ddot{\vb{X}} = 0.
+\end{equation}
+The normal mode is then,
+\begin{equation}
+	\Dot{x_1} = \Dot{x_2} = \Dot{x_3} = \text{Const.}.
+\end{equation}
+which is known as free motion.
+\subsection{Degenderate Normal Modes}
+Degenerate modes occur when we have a solution to the eigenvector equation such that,
+\begin{equation}
+	x_1 + x_2 + x_3 = 0 \label{eq:cond}
+\end{equation}
+which implies that there are infinitely many eigenvectors, so long that they satisfy eq. \eqref{eq:cond}. Furthermore, the linear of two degenerate normal modes always produces another degenerate normal mode which satisfied eq. \eqref{eq:cond}.
 \appendix
 \chapter{Misc. Forumlae}
 \section{Total Derivative}
