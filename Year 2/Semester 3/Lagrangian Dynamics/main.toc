@@ -26,5 +26,3 @@
 \contentsline {subsection}{\numberline {4.3.2}Diagonalisation of the equations of motion}{15}{}%
 \contentsline {subsection}{\numberline {4.3.3}Zero-Point Modes}{15}{}%
 \contentsline {subsection}{\numberline {4.3.4}Degenderate Normal Modes}{15}{}%
-\contentsline {chapter}{\numberline {A}Misc. Forumlae}{16}{}%
-\contentsline {section}{\numberline {A.1}Total Derivative}{16}{}%

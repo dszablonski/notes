@@ -395,7 +395,10 @@ Consider a genreal functions, $F(q_i,p_i,t)$. The general equation for change of
 	\text{Hamilton's Equations} \implies & = \underbrace{\sum_i\left(\pdv{F}{q_i}\pdv{H}{p_i}-\pdv{F}{p_i}\pdv{H}{q_i}\right)}_{\left[F,H\right]} + \pdv{F}{t}
 	\end{split} \label{eq:dghsalksd}
 \end{equation}
-Above, we have defined the \textit{possoin bracket}, denoted as $\left[F,H\right]$. Let us note that $\left[F,G\right] = - \left[G,F\right]$ for any function $F$ and $G$. Let us then rewrite eq. \eqref{eq:dghsalksd} fully,
+Above, we have identified the \textit{possoin bracket}. For any two functions $A$ and $B$, their Poisson bracket is given by,
+\begin{equation}
+	\left[A,B\right] = \sum_i \left(\pdv{A}{q_i}\pdv{B}{p_i} - \pdv{A}{p_i}\pdv{B}{q_i}\right).
+\end{equation} Let us note that $\left[F,G\right] = - \left[G,F\right]$ for any function $F$ and $G$. Let us then rewrite eq. \eqref{eq:dghsalksd} fully,
 \begin{equation}
 	\boxed{\pdv{F}{t} = \left[F,H\right] + \pdv{F}{t}} \label{eq:important}
 \end{equation}
@@ -452,7 +455,7 @@ which is the position of where the centre of mass was at $t=0$, multiplied by th
 \begin{equation}
 	\begin{split}
 		\left[F,B\right] & = \sum_i\left(\pdv{F}{q_i}\pdv{B}{p_i} - \pdv{B}{q_i}\pdv{F}{p_i}\right) \\ 
-		& = sum_i\left(\pdv{F}{q_i}\left(-t\right) - \pdv{F}{q_i}\left(m_i\right)\right)
+		& = \sum_i\left(\pdv{F}{q_i}\left(-t\right) - \pdv{F}{p_i}\left(m_i\right)\right)
 	\end{split}
 \end{equation}
 Let us now set $F = q_{\alpha}$. A small displacement to this generalised coordinate can be written as, $\delta q_k = -t\varepsilon$, where $\varepsilon$ is a small velocity. The transformation caused by the generator $B$ in the $x$-coordinate is then,
@@ -554,11 +557,11 @@ Let us consider the equations of motion again, assuming that all parts of the sy
 \end{align}
 We can clearly rewrite these equations as a single matrix equation,
 \begin{equation}
-	M\Ddot{X} = -\omega_n^2MX = -KX
+	M\Ddot{\vb{X}} = -\omega_n^2M\vb{X} = -K\vb{X}
 \end{equation}
 if we define,
 \begin{align}
-	X = \begin{pmatrix}
+	\vb{X} = \begin{pmatrix}
 		x_1 \\ x_2
 	\end{pmatrix} && M = \begin{pmatrix}
 	m & 0 \\ 0 & m
@@ -567,13 +570,13 @@ if we define,
 	-k & \frac{mg}{k}+k
 	\end{pmatrix}
 \end{align}
-where $X$ is the vector of our degrees of freedom, $M$ is our mass matrix, and $K$ encodes the restoring forces acting on the system. We are further able to identify the equation,
+where $\vb{X}$ is the vector of our degrees of freedom, $M$ is our mass matrix, and $K$ encodes the restoring forces acting on the system. We are further able to identify the equation,
 \begin{equation}
-	KX = \omega_n^2MX. \label{eq:293}
+	K\vb{X} = \omega_n^2M\vb{X}. \label{eq:293}
 \end{equation}
 Mutliplying eq. \eqref{eq:293} by $M^{-1}$,
 \begin{equation}
-	\boxed{M^{-1}K X = \omega_n ^2X} \label{eq:matrix eq motion}
+	\boxed{M^{-1}K \vb{X} = \omega_n ^2\vb{X}} \label{eq:matrix eq motion}
 \end{equation}
 which is the general for motion \textit{close to an equilibrium} in matrix form, which is an eigen equation. The eigenvalues of this equation represent the normal frequencies, i.e., solving,
 \begin{equation}
@@ -581,9 +584,9 @@ which is the general for motion \textit{close to an equilibrium} in matrix form,
 \end{equation} 
 Evaluating this produces the normal frequencies as in the previous sections. By further finding the eigenvectors of the eigenequation, we are able to identify the normal modes of the system. For our particular system with the coupled pendula, we find that the eigenvectors are,
 \begin{align}
-	X_1 = \frac{1}{\sqrt{2}}\begin{pmatrix}
+	\vb{X}_1 = \frac{1}{\sqrt{2}}\begin{pmatrix}
 		1 \\ 1
-	\end{pmatrix}C && X_2 = \frac{1}{\sqrt{2}}\begin{pmatrix}
+	\end{pmatrix}C && \vb{X}_2 = \frac{1}{\sqrt{2}}\begin{pmatrix}
 	1 \\ -1
 	\end{pmatrix}C
 \end{align}
@@ -601,7 +604,7 @@ where we determine $C_n$ from intial conditions. $C_n$ can be complex in order t
 \subsection{Lagrangian in Matrix Form}
 The Lagrangian in matrix form is given by,
 \begin{equation}
-	\boxed{L = \frac{1}{2}\Dot{X}^TM\Dot{X} - \frac{1}{2}X^TKX}
+	\boxed{L = \frac{1}{2}\Dot{\vb{X}}^TM\Dot{\vb{X}} - \frac{1}{2}\vb{X}^TK\vb{X}}
 \end{equation}
 \subsection{Diagonalisation of the equations of motion}
 We can diagonalise our equations of motion. If eigenvectors of our equations of motion are orthogonal, such that,

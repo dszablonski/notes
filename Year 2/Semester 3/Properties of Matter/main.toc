@@ -69,4 +69,7 @@
 \contentsline {subsection}{\numberline {2.5.3}Liquid Gas-Transition}{25}{}%
 \contentsline {subsection}{\numberline {2.5.4}Real Gasses}{26}{}%
 \contentsline {chapter}{\numberline {3}Kinetic Theory and Transport Properties of Gasses}{27}{}%
-\contentsline {chapter}{\numberline {A}Definitions}{28}{}%
+\contentsline {section}{\numberline {3.1}Probability Distributions}{27}{}%
+\contentsline {section}{\numberline {3.2}The Boltzmann Factor}{27}{}%
+\contentsline {subsection}{\numberline {3.2.1}Example: Isothermal Atmosphere}{28}{}%
+\contentsline {chapter}{\numberline {A}Definitions}{29}{}%

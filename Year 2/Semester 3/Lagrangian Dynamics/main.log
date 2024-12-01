@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  28 NOV 2024 21:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  1 DEC 2024 16:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1265,55 +1265,51 @@ Underfull \hbox (badness 10000) in paragraph at lines 368--373
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 401--405
+Underfull \hbox (badness 10000) in paragraph at lines 404--408
 
  []
 
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 10.0pt on input line 411.
+(Font)              scaled to size 10.0pt on input line 414.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 7.0pt on input line 411.
+(Font)              scaled to size 7.0pt on input line 414.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 5.0pt on input line 411.
+(Font)              scaled to size 5.0pt on input line 414.
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 428--432
+Underfull \hbox (badness 10000) in paragraph at lines 431--435
 
  []
 
 [11] [12]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 495--514
+Underfull \hbox (badness 10000) in paragraph at lines 498--517
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 526--530
+Underfull \hbox (badness 10000) in paragraph at lines 529--533
 
  []
 
 [13
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 589--593
+Underfull \hbox (badness 10000) in paragraph at lines 592--596
 
  []
 
-[14] [15]
-Appendix A.
-[16
-
-] (./main.aux)
+[14] [15] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 60567 strings out of 476076
- 1600206 string characters out of 5793774
- 2354789 words of memory out of 5000000
- 81889 multiletter control sequences out of 15000+600000
+ 60566 strings out of 476076
+ 1600186 string characters out of 5793774
+ 2354772 words of memory out of 5000000
+ 81888 multiletter control sequences out of 15000+600000
  584169 words of font info for 101 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,25n,107p,733b,2447s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1338,10 +1334,10 @@ fb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/
 texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/font
 s/type1/public/cm-super/sfsl1000.pfb></usr/share/texmf-dist/fonts/type1/public/
 cm-super/sfti1000.pfb>
-Output written on main.pdf (16 pages, 423825 bytes).
+Output written on main.pdf (15 pages, 421615 bytes).
 PDF statistics:
- 226 PDF objects out of 1000 (max. 8388607)
- 131 compressed objects within 2 object streams
+ 223 PDF objects out of 1000 (max. 8388607)
+ 129 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  157 words of extra memory for PDF output out of 10000 (max. 10000000)
 

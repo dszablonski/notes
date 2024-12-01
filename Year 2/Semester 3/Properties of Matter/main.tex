@@ -1078,6 +1078,70 @@ If we analyse the isotherms produces by the Van der Wall's equation, as in figur
 	\label{fig:pv van}
 \end{figure}
 \chapter{Kinetic Theory and Transport Properties of Gasses}
+\section{Probability Distributions}
+Given a probability distribution $p(\vb{v})$,
+\begin{equation}
+	P = \int p(\vb{v}) \dd^3v
+\end{equation}
+is the probablility of a particle having a velocity vector $\vb{v}$ between $\vb{v}$ and $\vb{v} + \dd^3v$, i.e., that the particle's velocity will be found in a box of dimensions $\dd{v}_x\dd{v}_y\dd{v}_z$. Below are listed some properties of probability distributions,
+\begin{itemize}
+	\item $p(\vb{v}) \geq 0$ $\forall \vb{v}$.
+	\item The distribution is normalised, $\int_{-\infty}^{\infty} p(\vb{v})\dd^3v = 1$.
+	\item For independent, uncorrelated variables,
+	\begin{equation}
+		p(\vb{v}) = p(v_x)p(v_y)p(v_z)
+	\end{equation}
+	\item The mean value of a quantity described by $f(\vb{v})$ is given by,
+	\begin{equation}
+		\left<f\right> = \int f(\vb{v})p(\vb{v})\dd^3v.
+	\end{equation}
+	\item The variance is given by,
+	\begin{equation}
+		\sigma^2(f) = \left<f^2\right> - \left<f\right>^2.
+	\end{equation}
+\end{itemize}
+\section{The Boltzmann Factor}
+For a fixed number of paticles in thermall equilibrium at temperature $T$,
+\begin{equation}
+	\boxed{p(\text{state}) \propto \exp\left(-\frac{E(\text{state})}{k_BT}\right)}
+\end{equation}
+\begin{itemize}
+	\item As $T \to \infty$, all states have equal probability
+	\item As $T \to 9$, lowest energy states have higher probability.
+\end{itemize}
+If we wish to use this probability distribution, we must first normalise it, such that,
+\begin{equation}
+	p(\text{s}) = \frac{1}{Z}\exp\left(-\frac{E(\text{s})}{k_BT}\right)
+\end{equation}
+where the normalisation constant is,
+\begin{equation}
+	Z = \int_{\text{all states}}\exp\left(-\frac{E(\text{s})}{k_BT}\right)\dd{s}
+\end{equation}
+\subsection{Example: Isothermal Atmosphere}
+If we consider a planet that has an atmosphere consisting of a gas of non-interacting molecules with mass $m$, temperature $T$, with an acceleration due to gravity $g$ at a height $y$ above the planet's surface, we can describe the probability of finding a particle at a height $y$ using teh Boltzmann factor. A single particle will be subject to a potential $mgy$, so its probability distribution will be,
+\begin{equation}
+	p(y) = \frac{1}{Z} \exp \left(-\frac{mgy}{k_BT}\right)
+\end{equation}
+which is normalised by,
+\begin{equation}
+	Z = \int_0^\infty \exp\left(-\frac{mgy}{k_BT}\right) \dd{y} = \frac{k_BT}{mg}.
+\end{equation}
+We understand that an atmosphere is made up of more than 1 molecule of gas. For non-interacting molecules, we can say that the density of the gas is proportional to its probability density, $\rho(y) \propto p(y)$, such that,
+\begin{equation}
+	\rho(y) = \rho_0 \exp \left(-\frac{mgy}{k_BT}\right).
+\end{equation}
+If we consider pressure due to the weight of the particles, for an incremental increase in height $\dd{y}$, the chanve in pressure is given by $\dd{P} = - \rho g \dd{y}$. We can then write,
+\begin{equation}
+	\begin{split}
+		P(y) & = \int_{\infty}^{y}-\dd{P} = -g\rho_0 \int_{-\infty}^{y}\exp\left(-\frac{mgy}{k_BT}\right) \\
+		& = \frac{k_BT}{m}\rho_0 \exp\left(-\frac{mgy}{k_BT}\right)  = \frac{k_BT}{m}\rho(y).
+	\end{split}
+\end{equation}
+If we consider $\frac{\rho}{m} = \frac{N}{V}$ where $N$ is the number of molecules, we get
+\begin{equation}
+	PV = Nk_BT
+\end{equation}
+whcih is the ideal gas law.
 \appendix
 \chapter{Definitions}
 \textbf{Isothermal Process}:  Happens at constant temperature, $\Delta E = 0$ for an ideal gas.
