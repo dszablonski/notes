@@ -301,7 +301,7 @@ Let us begin with some elementary definitions. The Lorentz force is defined,
 \end{equation}
 The electromagnetic energy density in a vaccuum is defined,
 \begin{equation}
-	u = \frac{1}{2}\epsilon_{0} |\vb{E}|^2 + \frac{1}{2\mu_0}|\vb{B}|^2.
+	u = \frac{1}{2}\varepsilon_0 |\vb{E}|^2 + \frac{1}{2\mu_0}|\vb{B}|^2.
 \end{equation}
 The electromotive force is defined,
 \begin{equation}
@@ -313,11 +313,11 @@ The electromotive force is defined,
 \end{definition}
 The integral form is given by,
 \begin{equation}
-	\boxed{\int_S \vb{E}\cdot\dd{\vb{S}} = \frac{1}{\epsilon_0}\int_V\rho\dd{V}}
+	\boxed{\int_S \vb{E}\cdot\dd{\vb{S}} = \frac{1}{\varepsilon_0}\int_V\rho\dd{V}}
 \end{equation}
 and the differential form,
 \begin{equation}
-	\boxed{\div{\vb{E}} = \frac{1}{\epsilon_{0}}\rho}.
+	\boxed{\div{\vb{E}} = \frac{1}{\varepsilon_0}\rho}.
 \end{equation}
 \subsubsection{Magnetic Monopoles}
 Magnetic monopoles do not exist, whether the magnetic field is time varying or static. Thus,
@@ -334,7 +334,7 @@ This can be summarised,
 \end{equation}
 From the definition of EMF, we can then obtain,
 \begin{equation}
-	\boxed{\curl{\vb{E}} + \Dot{B} = 0}.
+	\boxed{\curl{\vb{E}} + \Dot{\vb{B}} = 0}.
 \end{equation}
 \subsection{Ampere's Law and Displacement Current}
 \begin{definition}
@@ -350,18 +350,18 @@ and in differential form,
 \end{equation}
 However, eqs. \eqref{eq: ampere 1} and \eqref{eq: ampere 2} only work in the case where charge density is time independent. To factor in time-dependence, we must add a \textit{displacement current} to the equations, in the form,
 \begin{equation}
-	\vb{j}_{\text{disp}} = \epsilon_{0} \Dot{\vb{E}}.
+	\vb{j}_{\text{disp}} = \varepsilon_0 \Dot{\vb{E}}.
 \end{equation}
 The equations then become,
 \begin{align}
-	\boxed{\oint_L \vb{B}\cdot\dd{\vb*{\ell}} = \mu_0 \left(\vb{j} + \epsilon_0\Dot{\vb{E}}\right)\cdot\dd{\vb{S}}} \\
-	\boxed{\curl{\vb{B}} - \mu_0\epsilon_{0}\Dot{\vb{E}} = \mu_0\vb{j}}.
+	\boxed{\oint_L \vb{B}\cdot\dd{\vb*{\ell}} = \mu_0 \left(\vb{j} + \varepsilon_0\Dot{\vb{E}}\right)\cdot\dd{\vb{S}}} \\
+	\boxed{\curl{\vb{B}} - \mu_0\varepsilon_0\Dot{\vb{E}} = \mu_0\vb{j}}.
 \end{align}
 
 \section{The time independent forms of Maxwell's equations}
 \begin{align}
 	\text{Differential} && \text{Integral}\\
-	\div{\vb{E}} = \frac{\rho}{\epsilon_0} && \oint_S\vb{E}\cdot\dd{\vb{S}} = \frac{Q}{\epsilon_0} \label{eq:1} \\
+	\div{\vb{E}} = \frac{\rho}{\varepsilon_0} && \oint_S\vb{E}\cdot\dd{\vb{S}} = \frac{Q}{\varepsilon_0} \label{eq:1} \\
 	\curl{\vb{E}} = 0 && \oint_L \vb{E}\cdot\dd{\vb*{\ell}} = 0 \label{eq:2}\\
 	\div{\vb{B}} = 0 && \oint_S \cdot\dd{\vb{S}} = 0 \label{eq:3}\\
 	\curl{\vb{B}} = 0 && \oint_L\vb{B}\cdot\dd{\vb*{\ell}} = \mu_0 \sum I_j \label{eq:4}
@@ -374,7 +374,7 @@ If we define $\vb{A}$ as the vector magnetic potential, and $\phi$ as the scalar
 \end{align}
 from which we can write,
 \begin{align}
-	\grad^2 \phi = -\frac{\rho}{\epsilon_0} && \grad^2 \vb{A} = -\mu_0\vb{j}
+	\laplacian \phi = -\frac{\rho}{\varepsilon_0} && \laplacian \vb{A} = -\mu_0\vb{j}
 \end{align}
 which are Poisson's eqations which can be readily solved.
 \\\\
@@ -389,12 +389,12 @@ for any choice of $\psi$. This can be removed by choosing the Coloumb guage,
 \subsection{Electrostatics}
 The solution to the electrostatic Poisson's equation is of the form given by eq. \eqref{eq:int}, so,
 \begin{equation}
-	\boxed{\phi(\vb{r}) = \frac{1}{4\pi \epsilon_0}\int_{V}\dd{V'} \frac{\rho(\vb{r}')}{|\vb{r} - \vb{r}'|}}
+	\boxed{\phi(\vb{r}) = \frac{1}{4\pi \varepsilon_0}\int_{V}\dd{V'} \frac{\rho(\vb{r}')}{|\vb{r} - \vb{r}'|}}
 \end{equation}
 and the solution is,
 \begin{equation}
 	\begin{split}
-	\boxed{\vb{E} = -\grad\phi = -\frac{1}{4\pi\epsilon_{0}} \int_V \dd{V'} \frac{\rho(\vb{r}')(\vb{r} - \vb{r}')}{|\vb{r} - \vb{r}'|^2}}.
+	\boxed{\vb{E} = -\grad\phi = -\frac{1}{4\pi\varepsilon_0} \int_V \dd{V'} \frac{\rho(\vb{r}')(\vb{r} - \vb{r}')}{|\vb{r} - \vb{r}'|^2}}.
 	\end{split}
 \end{equation}
 \subsubsection{Coloumb's Law}
@@ -405,17 +405,17 @@ A distribution of point charges is given by,
 So an electrostatic potential can be written,
 \begin{equation}
 	\begin{split}
-		\rho(\vb{r}) &= \frac{1}{4\pi\epsilon_0}\int_v\dfrac{\sum_iq_i\delta^{(3)}(\vb{r}' - \vb{r}'_i)}{|\vb{r}-\vb{r}'|} \dd{V'} \\
-		& = \frac{1}{4\pi\epsilon_0}\sum_i \frac{q_i}{|\vb{r}-\vb{r}'|}.
+		\rho(\vb{r}) &= \frac{1}{4\pi\varepsilon_0}\int_v\dfrac{\sum_iq_i\delta^{(3)}(\vb{r}' - \vb{r}'_i)}{|\vb{r}-\vb{r}'|} \dd{V'} \\
+		& = \frac{1}{4\pi\varepsilon_0}\sum_i \frac{q_i}{|\vb{r}-\vb{r}'|}.
 	\end{split}
 \end{equation}
 Then the electric field is,
 \begin{equation}
-	\vb{E}(\vb{r}) = \frac{1}{4\pi\epsilon_0}\sum_i \frac{q_i(\vb{r} -\vb{r}_i)}{|\vb{r}-\vb{r}_i|^3}.
+	\vb{E}(\vb{r}) = \frac{1}{4\pi\varepsilon_0}\sum_i \frac{q_i(\vb{r} -\vb{r}_i)}{|\vb{r}-\vb{r}_i|^3}.
 \end{equation}
 Let us consider charges denote bed $i=1$ and $i=2$. The force on charge 1 due to charge 2,
 \begin{equation}
-	\vb{F}_{12} = q_i\vb{E}_2(\vb{r}_1) = \frac{q_1q_2}{4\pi\epsilon_0}\frac{\vb{r}_1 - \vb{r}_2}{|\vb{r}_1 -\vb{r}_2|^3} = -\vb{F}_{21}.
+	\vb{F}_{12} = q_i\vb{E}_2(\vb{r}_1) = \frac{q_1q_2}{4\pi\varepsilon_0}\frac{\vb{r}_1 - \vb{r}_2}{|\vb{r}_1 -\vb{r}_2|^3} = -\vb{F}_{21}.
 \end{equation}
 \subsection{Magnetostatics}
 The solution is as previous,
@@ -450,7 +450,7 @@ which evaluates to,
 \end{equation}
 We are able to then write the electric field due to a dipole as,
 \begin{equation}
-	\boxed{\vb{E}(\vb{r})  = \frac{q}{4\pi \epsilon_0} \frac{1}{r^3}\left(3(\vu{r}\cdot\vb{p})\vu{r} - \vb{p}\right)}.
+	\boxed{\vb{E}(\vb{r})  = \frac{q}{4\pi \varepsilon_0} \frac{1}{r^3}\left(3(\vu{r}\cdot\vb{p})\vu{r} - \vb{p}\right)}.
 \end{equation}
 The magnetic equivalent is given by,
 \begin{align}
@@ -485,21 +485,21 @@ In the case that the Lorenz guage is not satisfied for some $\phi$ or $\vb{A}$, 
 \end{align}
 so that we obtain,
 \begin{equation}
-	\frac{1}{c^2}\Dot{\phi}' + \div{\vb{A}} = \frac{1}{c^2}+\div{\vb{A}} - \left(\frac{1}{c^2}\ddot{\Psi} - \grad^2\Psi\right)
+	\frac{1}{c^2}\Dot{\phi}' + \div{\vb{A}} = \frac{1}{c^2}+\div{\vb{A}} - \left(\frac{1}{c^2}\ddot{\Psi} - \laplacian\Psi\right)
 \end{equation}
 and choose $\Psi$ to be a solution of,
 \begin{equation}
-	\frac{1}{c^2}\Ddot{\psi}-\grad^2\Psi = \frac{1}{c^2}\Dot{\phi} + \div{\vb{A}}.
+	\frac{1}{c^2}\Ddot{\psi}-\laplacian\Psi = \frac{1}{c^2}\Dot{\phi} + \div{\vb{A}}.
 \end{equation}
 \subsubsection{Redifining Maxwell's Laws}
 We can redefine Maxwell's laws in terms of potentials. These are listed below,
 \begin{align}
-	-\grad^2\phi + \frac{1}{c^2}\pdv[2]{\phi}{t} = \frac{1}{\epsilon_0}\rho && \text{Gauss' Law} \label{eq:pot gauss} \\
-	-\grad^2\vb{A} + \frac{1}{c^2}\Ddot{\vb{A}} = \mu_0 \vb{j} && \text{Ampere-Maxwell Law} \label{eq:pot ampere}
+	-\laplacian\phi + \frac{1}{c^2}\pdv[2]{\phi}{t} = \frac{1}{\varepsilon_0}\rho && \text{Gauss' Law} \label{eq:pot gauss} \\
+	-\laplacian\vb{A} + \frac{1}{c^2}\Ddot{\vb{A}} = \mu_0 \vb{j} && \text{Ampere-Maxwell Law} \label{eq:pot ampere}
 \end{align}
 Let us define the differential "wave" operator,
 \begin{equation}
-	\Box = \frac{1}{c^2}\pdv[2]{t} - \grad^2
+	\Box = \frac{1}{c^2}\pdv[2]{t} - \laplacian
 \end{equation}
 from whcih we can redefine eqs. \eqref{eq:pot ampere} and \eqref{eq:pot gauss},
 \begin{align}
@@ -529,7 +529,7 @@ which is a form of Ohm's law which can be used in the context of Maxwell's equat
 \\\\
 Using the continuity equation and Gauss' law, we have,
 \begin{equation}
-	\Dot{\rho} + \div{\vb{j}} = \Dot{\rho} + \sigma\div{\vb{E}} = \Dot{\rho} + \frac{\sigma}{\epsilon_0} = 0. \label{eq:blah blah blah}
+	\Dot{\rho} + \div{\vb{j}} = \Dot{\rho} + \sigma\div{\vb{E}} = \Dot{\rho} + \frac{\sigma}{\varepsilon_0} = 0. \label{eq:blah blah blah}
 \end{equation}
 Integrating eq. \eqref{eq:blah blah blah}, 
 \begin{equation}
@@ -537,7 +537,7 @@ Integrating eq. \eqref{eq:blah blah blah},
 \end{equation}
 where we define
 \begin{equation}
-	t_R = \frac{\epsilon_0}{\sigma}
+	t_R = \frac{\varepsilon_0}{\sigma}
 \end{equation}
 which can be interpreted as the relaxation time scale for the movement of conduction electrons to smooth out non-uniformities in the charge density.
 \section{Method of Images}
@@ -550,8 +550,8 @@ We will use the result that at a perfect conducter, the electric field is 0, whi
 Consider a point charge $q$ a distance $a$ above an infinite, perfectly conducting plane at $z = 0$. The plane is grounded such that $\phi(x,y,0) = 0$. We further have that $\vb{E} = 0$. We wish to solve Poisson's equation given these boundary conditions. Let us consider an "image charge" at $z = -a$, with charge $-q$. If we choose to ignore the plane, we thus have,
 \begin{equation}
 	\begin{split}
-	\phi(\vb{r}) & = \frac{q}{4\pi\epsilon_0}\left[\frac{1}{|\vb{r}-\vb{a}|} - \frac{1}{|\vb{r} + \vb{a}|}\right] \\
-	& = \frac{q}{4\pi\epsilon_0} \left[\frac{1}{\sqrt{x^2 + y^2 + (z-a)^2}}- \frac{1}{\sqrt{x^2 + y^2 + (z+a)^2}}\right].
+	\phi(\vb{r}) & = \frac{q}{4\pi\varepsilon_0}\left[\frac{1}{|\vb{r}-\vb{a}|} - \frac{1}{|\vb{r} + \vb{a}|}\right] \\
+	& = \frac{q}{4\pi\varepsilon_0} \left[\frac{1}{\sqrt{x^2 + y^2 + (z-a)^2}}- \frac{1}{\sqrt{x^2 + y^2 + (z+a)^2}}\right].
 	\end{split}
 \end{equation} 
 Substituting in the boundary conditions, we find $\phi(x,y,0) = 0$. Thus, the solution satisfies the boundary condition, and by the uniqueness theorem is the only solution. We have thus reformulated the problem to be much simpler to understand and compute.
@@ -1009,7 +1009,7 @@ This allows us to formulate an equation for $\vb{H}$ in terms of a potential,
 \end{equation}
 From this, we are able to write a poisson equation for the magnetic potential $\psi$,
 \begin{equation}
-	\boxed{\grad^2\psi = -\psi_m = \div{\vb{M}}} 
+	\boxed{\laplacian\psi = -\psi_m = \div{\vb{M}}} 
 \end{equation}
 which gives way to a solution,
 \begin{equation}
@@ -1032,21 +1032,25 @@ To reduce energy, we must align the moments such that,
 \subsection{Formation of Domains}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.1\textwidth]{T=T_c - Epsilon.png}
-	\caption{}
-	\label{fig:t - e}
-\end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.1\textwidth]{T_T_C.png}
-	\caption{}
-	\label{fig:t=tc}
-\end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.1\textwidth]{T__T_C.png}
-	\caption{}
-	\label{fig: t < tc}
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=0.6\textwidth]{T_T_C.png}
+		\caption{$T >> T_C$}
+		\label{fig:t=tc}
+	\end{subfigure}
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=0.5\textwidth]{T=T_c - Epsilon.png}
+		\caption{$T = \lim_{\epsilon \to 0} (T_C - \epsilon)$}
+		\label{fig:t - e}
+	\end{subfigure}
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=0.5\textwidth]{T__T_C.png}
+		\caption{$T << T_C$}
+		\label{fig: t < tc}
+	\end{subfigure}
+	\caption{Magnetic domains formed in a ferromagnet at various temperatures.}
 \end{figure}
 Domains form at different temperatures. We will define the \textit{Curie temperature} $T_C$ at which domains no longer exist. Below we describe the effects on ferromagnets at different temperatures,
 \begin{enumerate}
@@ -1214,7 +1218,7 @@ which is a wave equation in 3D. We can follow a similar procedure for the magnet
 \end{equation}
 Eqs. \eqref{eq:88} and \eqref{eq:99} imply that the electric and magnetic fields are both plane waves moving at speed $c$. We can use the plane wave ansatz,
 \begin{align}
-	\vb{E}= \vb{E}_0 e^{i(\vb{k}\cdot\vb{r} - \omega t)} && \vb{B} = \vb{B}_0e^{i(\vb{k}\cdot\vb{r} - \omega t)}
+	\vb{E}= \vb{E}_0 e^{i(\vb{k}\cdot\vb{r} - \omega t)} && \vb{B} = \vb{B}_0e^{i(\vb{k}\cdot\vb{r} - \omega t)} \label{eq:plane wave ansatz}
 \end{align}
 where $\vb{E}_0$ and $\vb{B}_0$ are the polarisation vectors. 
 \subsection{Relationship between $\vb{E}$ and $\vb{B}$}
@@ -1234,16 +1238,231 @@ which, integrated, gives,
 \begin{equation}
 	\vb{B} = \vb{k}\cross \frac{\vb{E}_0}{\omega}e^{i(\vb{k}\cdot{\vb{r}} - \omega t)}
 \end{equation}
-$\implies$ $\vb{B}$ is orthogonal to $\vb{E}$.
+$\implies$ $\vb{B}$ and $\vb{E}$ are mutually orthogonal.
+\section{Energy of an Electric Field}
+The energy density of an electromagnetic field is given by,
+\begin{equation}
+	u_D = \frac{1}{2}\varepsilon_0 |\vb{E}|^2 + \frac{1}{2\mu_0}|\vb{B}|^2.
+\end{equation}
+We can write this as a wave,
+\begin{equation}
+	\begin{split}
+	u_D =& \frac{1}{2}\varepsilon_0 E_0^2 \left[\Re{e^{i(\vb{k}\cdot\vb{r} + \omega t + \theta)}}\right]^2 \\
+	& + \frac{1}{2\mu_0}\frac{E_0^2}{c^2}\left[\Re{e^{i(\vb{k}\cdot\vb{r}+\omega t + \theta)}}\right]^2
+	\end{split}
+\end{equation}
+The maimum and average enery densities are given by,
+\begin{align}
+	u_{\text{max}} = \varepsilon_0E_0^2 && \left<u_D\right> = \frac{1}{2} \varepsilon_0E_0^2.
+\end{align}
+\subsection{Poynting Vector}
+The Poynting vector ($\vb{N}$) describes the energy flow of electromagnetic waves. Let us consider the volume covered by a wave in a timie intervalt $\Delta t$ throuhg a surface $\Delta A$,
+\begin{equation}
+	\left<\substack{\text{Enclosed energy}\\\text{density}}\right> = \left<u_D\right> c\Delta t \Delta A = \frac{1}{2}\varepsilon_0E_0^2c\Delta t \Delta A = \Delta u_{\text{tot}}.
+\end{equation}
+Let us consider the average flux through the surface,
+\begin{equation}
+	\left<\text{Flux}\right> = \frac{\Delta u_{\text{tot}}}{\Delta t \Delta A} = \frac{E_0^2}{2Z_0^2}
+\end{equation}
+where $Z_0 = \sqrt{\mu_0/\varepsilon_0}$ is the impedance of free space. If we consider the rate of change of energy density,
+\begin{equation}
+	\begin{split}
+	\Dot{u}_D & = \frac{1}{2}\varepsilon_0\dv{t}\left(\vb{E}\cdot \vb{E}\right) + \frac{1}{2\mu_0}\left(\vb{B}\cdot\vb{B}\right) \\
+	& = \varepsilon_0 \vb{E}\cdot \Dot{\vb{E}} + \frac{1}{\mu_0}\vb{B}\cdot\Dot{\vb{B}}.
+	\end{split}
+\end{equation}
+If we consider Maxwell's equations in free space,
+\begin{align}
+	\Dot{\vb{B}} = - \curl{\vb{E}} && \Dot{\vb{E}} = c^2 \curl{\vb{B}}
+\end{align}
+we can write,
+\begin{equation}
+	\begin{split}
+		\Dot{u}_D & = \varepsilon_0 c^2\vb{E}\cdot(\curl{\vb{B}}) - \frac{1}{\mu_0}\vb{B}\cdot(\curl{\vb{E}}) = - \div{\vb{N}} \\
+		& = \frac{1}{\mu_0}(\vb{E}\cdot{\curl{\vb{B}}} - \vb{B}\cdot{\curl{\vb{E}}})
+	\end{split}
+\end{equation}
+we can then write the Poynting vector in free space,
+\begin{equation}
+	\boxed{\vb{N} = \frac{1}{\mu_0}\vb{E}\cross\vb{B}}
+\end{equation}
+which has units $\left[N\right] = \text{W m}^{-2}$.
+We can obtain the rate of change of energy by,
+\begin{equation}
+	\Dot{u} = - \int\vb{N}\cdot\dd{\vb{S}}.
+\end{equation}
+In dielectrics, the poynting vector becomes,
+\begin{equation}
+	\boxed{\vb{N} = \vb{E}\cross\vb{H}}.
+\end{equation}
+\subsubsection{Intensity and Radiation Pressure}
+If we insert the plane wave solution into the definiton of the Poynting vector, we obtain,
+\begin{equation}
+	\vb{N} = \frac{E_0^2}{Z_0^2}\hat{\vb{k}}\cos^2(\vb{k}\cdot{\vb{r}}).
+\end{equation}
+We read that the maximum Poynting vector is,
+\begin{equation}
+	N_{\text{max}} = \frac{E_0^2}{Z_0}.
+\end{equation}
+We define the \textit{iradiance} or \textit{intensity} as the average of the Poynting vector,
+\begin{equation}
+	\left<N\right> = \frac{E_0^2}{2Z_0}.
+\end{equation}
+The momentum of a photon is given by,
+\begin{equation}
+	p = \frac{u}{c}
+\end{equation}
+and the momentum flux is known as the \textit{radiation pressure},
+\begin{equation}
+	P_r = \frac{\left<N\right>}{c}.
+\end{equation}
+At a boundary, the radiation pressure produces a force $F_r$. For radiation absorbed,
+\begin{equation}
+	F_r = \frac{A\left<N\right>}{c}
+\end{equation}
+and for radiation reflected,
+\begin{equation}
+	F_r = \frac{2A\left<N\right>}{c}.
+\end{equation}
+\section{Electromagnetic Waves in the Presence of a Current}
+Electromagnetic waves in the pressence of a conductor producce currents. Let us assume $\rho = 0$ and $\vb{j} \neq 0$. Maxwell's equations become,
+\begin{align}
+	\div{\vb{E}} = 0 && \div{\vb{B}} = 0 \\
+	\Dot{\vb{B}} = -\div{\vb{E}} && \Dot{\vb{E}} = c^2\left(\curl{\vb{B}} - \mu_0\vb{j}\right)
+\end{align}
+We understand that,
+\begin{align}
+	\mu = \mu_r\mu_0 && \epsilon = \varepsilon_r \varepsilon_0 
+\end{align}
+however, for a conductor, $\mu_r \approx 1$, so $\mu \approx \mu_0$. If we take the time derivative of $\Dot{\vb{B}}$ and $\Dot{\vb{E}}$, we obtain,
+\begin{align}
+	\frac{1}{c^2}\Ddot{\vb{B}} - \laplacian{\vb{B}} = \mu_0\curl{\vb{j}} \label{eq:sourced E}\\
+	\frac{1}{c^2}\Ddot{\vb{E}} - \laplacian{\vb{E}} = -\mu_0 \pdv{\vb{j}}{t}
+\end{align}
+which are the \textit{sourced wave equations}.
+\subsection{Conductors}
+By Ohm's law,
+\begin{equation}
+	\vb{j} = \sigma \vb{E} \label{eq:ohms law}
+\end{equation}
+where $\sigma$ is the conductivity of a material. Inserting eq. \eqref{eq:ohms law} into \eqref{eq:sourced E}, 
+\begin{equation}
+	\frac{1}{c^2}\Dot{\vb{E}} + \mu_0\sigma \Dot{\vb{E}} = \laplacian{\vb{E}}
+\end{equation} 
+which is the damped wave equation. It is solved by the plane wave ansatz as in eq. \eqref{eq:plane wave ansatz}, from which we obtain the dispersion relation,
+\begin{equation}
+	-\frac{\omega^2}{c^2} - i\mu_0 \sigma \omega = - k^2. \label{eq:dispersion}
+\end{equation}
+In most cases,
+\begin{equation}
+	\frac{\omega^2}{c^2} << \mu_0 \sigma \omega
+\end{equation}
+thus, we can simplify our dispersion relation,
+\begin{equation}
+	k^2 = i \mu_0 \sigma \omega = e^{\frac{i\pi}{2}}\mu_0 \sigma \omega
+\end{equation}
+as a factor of $i$ corresponds to a phase shift of $\pi / 2$. Then,
+\begin{equation}
+	k = \pm e^{i\frac{\pi}{4}}\sqrt{\mu_0 \sigma \omega} 
+\end{equation}
+and placing this back into the ansatz,
+\begin{equation}
+	\vb{E} = \vb{E}_0 e^{-\frac{z}{\delta}}\exp{i\left(\sqrt{\dfrac{\mu_0\sigma\omega}{2}} z - \omega t\right)}
+\end{equation}
+where we have defined the \textit{skin depth},
+\begin{equation}
+	\delta = \sqrt{\frac{2}{\mu_0 \sigma \omega}}
+\end{equation}
+which is the distance in $z$ over which the amplitude of the wave will decay by $\frac{1}{e}$ in a conductor. This is visualised in figure \ref{fig:skin}.
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw[thick] plot[domain=0:2*pi, samples=100]  (\x/pi,{sin(5 * \x r)}); 
+		\draw[very thick] (2, 2) -- (2, -2);
+		\draw[xshift=2cm] plot[domain=0:2*pi, samples=100] (\x/pi,{pow(e, -0.2*\x) * sin(5*\x r)});
+		\draw[xshift=2cm] plot[domain=0:2*pi, samples = 100] (\x/pi, {pow(e,-0.2*\x)});
+		\node at (3, 1) {$e^{-\frac{z}{\delta}}$};
+		\draw[xshift=4cm, thick] plot[domain=0:1*pi, samples = 100] (\x/pi, {pow(e,-0.2*2*pi)*sin(5*\x r)});
+		\draw[very thick] (4,2) -- (4, -2);
+		\node at (3, -2) {\small Conductor};
+		\node at (0.8, 1.5) {\small Vacuum};
+		\node at (5, 1.5) {\small Vacuum};
+	\end{tikzpicture}
+	\caption{Representation of an electromagnetic wave passing through a conductor.}
+	\label{fig:skin}
+\end{figure}
+\subsection{Plasma}
+Plasma is a sate of matter which is partially ionised. The magnetic field is relatively weak, so electrons move in the plasma due to the very strong electric field. The force on the electorns is then,
+\begin{equation}
+	\vb{F}_e = m_e \Ddot{\vb{r}} = - e \vb{E}.
+\end{equation}
+By definition of current density,
+\begin{align}
+	\vb{j} & = en_e \Dot{\vb{r}} \\
+	\pdv{\vb{j}}{t} = \frac{e^2n_e}{m_e}\vb{E}
+\end{align}
+which we can substitute into the sourced wave equation, eq. \eqref{eq:sourced E}, 
+\begin{equation}
+	\frac{1}{c^2}\Ddot{\vb{E}} + \frac{\mu_0 e^2n_e}{m_e} \vb{E} = \laplacian\vb{E}.
+\end{equation}
+Applying plane wave ansatz produces the dispersion relation,
+\begin{equation}
+	-\frac{\omega^2}{c^2} + \frac{\mu_0e^2n_e}{m_e}\vb{E} = \laplacian{\vb{E}}.
+\end{equation}
+Let us define the plasma frequency,
+\begin{equation}
+	\omega_p^2 = \frac{en_e}{\varepsilon_0 m_e}
+\end{equation}
+so that we can write the dispersion relation,
+\begin{equation}
+	ck = \pm \sqrt{\omega^2 - \omega_p^2}.
+\end{equation}
+If $\omega^2 < \omega_p^2$, then the wavenumber is purely imaginary and the waves do not propogate. Thus, electromagnetic radiation inside plasma must have high frequencies, and allowed frequencies become shorter with increaseed density.
+\section{Electromagnetic Waves in Dielectric and Magnetic Media}
+Let us assume a linear, isotropic material in free space. We have,
+\begin{align}
+	\div{\vb{D}} = \rho_{\text{free}} && \div{\vb{B}} = 0 \\
+	\Dot{\vb{B}} = - \curl{\vb{E}} && \Dot{\vb{D}} = \curl{\vb{H}} - \vb{j}_{\text{free}}
+\end{align}
+and in free space $\rho_{\text{free}} = 0$ and $\vb{j}_{\text{free}} = 0$. In linear istropic materials,
+\begin{align}
+	\vb{D} = \varepsilon_r \varepsilon_0  \vb{E} && \vb{H}= \frac{1}{\mu_r\mu_0}\vb{B}.
+\end{align}
+By the ampere-maxwell law,
+\begin{equation}
+	\Dot{\vb{E}} = \frac{c^2}{\varepsilon_r\mu_r}\curl{\vb{B}} = v^2 \curl{\vb{B}}.
+\end{equation}
+If we consider eq. \eqref{eq:dispersion}, we can rewrite it as,
+\begin{equation}
+	k = k_0 \sqrt{\varepsilon_r\mu_r}\sqrt{1 + i\frac{\sigma}{\omega \varepsilon}}
+\end{equation}
+where $k_0$ is the wavenumber of free space, defined,
+\begin{equation}
+	c = \frac{\omega}{k_0}.
+\end{equation}
+In a dielectric $\sigma =0$, so,
+\begin{equation}
+	k = k_0 \sqrt{\varepsilon_r \mu_r}.
+\end{equation}
+The phase velocity of electromagnetic waves is,
+\begin{equation}
+	v_p = \frac{\omega}{k} = \frac{\omega}{k_0\sqrt{\varepsilon_r\mu_r}} = \frac{c}{\sqrt{\varepsilon_r\mu_r}}.
+\end{equation}
+We know in a material, light travels at a speec $v = c/n$, so we can conclude that the refractive index is given by,
+\begin{equation}
+	\boxed{n = \sqrt{\varepsilon_r\mu_r}}
+\end{equation}
+and follow the dispersion relation,
+\begin{equation}
+	\boxed{\omega = \pm vk = \pm \frac{ck}{n}}.
+\end{equation}
 \appendix 
-\chapter{Proofs}
+\chapter{Examples}
 \section{Loop integral over perfect differential}
-\begin{proof}
+
 	\begin{equation}
 		\oint_L \dd{\vb*{\ell}} \cdot \grad f \underbrace{=}_{\text{Stoke's theorem}} \int_S \dd{\vb{S}} \cdot\left(\underbrace{\curl{\grad f}}_0\right) = 0
 	\end{equation}
-\end{proof}
-\chapter{Examples}
 \section{Coloumb's law for two, straight, parallel wires}
 The force on an infinitesimal line element is,
 \begin{equation}

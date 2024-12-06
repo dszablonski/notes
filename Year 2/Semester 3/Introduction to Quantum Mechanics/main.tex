@@ -617,7 +617,7 @@ We divide a system into component subsystems, and assign each of these their own
 \begin{equation}
 	\ket{\Psi}=\ket{\psi}\otimes\ket{\phi}
 \end{equation}
-where $\otimes$ is the \textit{tensor product}, whose properties are stated in section \ref{sec:tensor product}. 
+where $\otimes$ is the \textit{tensor product}. 
 \\\\
 If $\ket{\psi}$ is in a basis $\left\{\ket{e_i}\right\}$ and $\ket{\phi}$ is in a basis $\left\{\ket{e_j}\right\}$, then the basis of the combined state is $\left\{\ket{e_i\otimes e_j}\right\}$ over all possible configurations of $i$ and $j$. This is easily extended for $n$ subsystems.
 \\\\
@@ -993,7 +993,7 @@ This Hamiltonian is very difficult to solve by itself. We can instead reformulat
 \end{align}
 Let us notice that $\hat{a}_+$ is the Hermitian conjuage of $\hat{a}_-$ and vice versa. Using these definitions, we can rewrite the position and momentum operators,
 \begin{align}
-	\hat{x} = \sqrt{\frac{\hbar}{2m\omega}\left(\hat{a}_+ + \hat{a}_-\right)} && \hat{y} = \sqrt{\frac{\hbar m\omega}{2}\left(\hat{a}_+ - \hat{a}_-\right)}
+	\hat{x} = \sqrt{\frac{\hbar}{2m\omega}\left(\hat{a}_+ + \hat{a}_-\right)} && \hat{p} = \sqrt{\frac{\hbar m\omega}{2}\left(\hat{a}_+ - \hat{a}_-\right)} \label{eq:momentum}
 \end{align}
 Let us analyse the behaviour of $\hat{a}_+\hat{a}_-$,
 \begin{equation}
@@ -1063,6 +1063,53 @@ by inspection. By normalising the wavefunction, we find that the ground energy e
 	\phi_0(x) = \left(\frac{m\omega}{\pi \hbar}\right)^{\frac{1}{4}} e^{-\frac{m\omega x^2}{2\hbar}}.
 \end{equation}
 Subsequent energy eigenfunctions can be found by using the raising operator.
+\subsection{Matrix Treatment of the Simple Harmonic Oscillator}
+We can find the matrix form of the raising and lowering operators by considering,
+\begin{equation}
+	\begin{split}
+		\bra{n}\hat{a}_-\ket{m} & = \bra{n}\sqrt{m}\ket{m-1}\\
+		& = \sqrt{m} \braket{n}{m-1} \\
+		& = \sqrt{m}\delta_{n(m-1)}
+	\end{split}
+\end{equation}
+which we can write in matrix form,
+\begin{equation}
+	a_- = \begin{pmatrix}
+		0 & \sqrt{1} & 0 & 0 & \cdots \\
+		0 & 0 & \sqrt{2} & 0 & \cdots \\
+		0 & 0 & 0 & \sqrt{3} & \cdots \\
+		0 & 0 & 0 & 0 & \cdots \\
+		\vdots & \vdots & \vdots & \vdots & \ddots & 
+	\end{pmatrix}
+\end{equation}
+Similarly for the raising operator,
+\begin{equation}
+	a_+ = \begin{pmatrix}
+		0 & 0 & 0 & 0 & \cdots \\
+		\sqrt{1} &0&0&0& \cdots \\
+		0 & \sqrt{2} & 0&0& \cdots \\
+		0 & 0 & \sqrt{3} & 0 & \cdots \\
+		0 & 0 & 0 & \ddots &  \\
+		\vdots & \vdots & \vdots & & \ddots
+		
+	\end{pmatrix}
+\end{equation}
+From this, we can find the matrix form of the momentum operator by eq. \eqref{eq:momentum},
+\begin{equation}
+	p = \sqrt{\frac{\hbar m \omega}{2}}\begin{pmatrix}
+		0 & -i\sqrt{1} & 0 & 0 & \cdots \\
+		i\sqrt{1} & 0 & -i\sqrt{2} & 0 & \cdots \\
+		0 & i\sqrt{2} & 0& -i\sqrt{3} & \cdots \\
+		0 & 0 & i\sqrt{3} & 0 & \cdots\\
+		\vdots & \vdots & \vdots & & \ddots & 
+	\end{pmatrix}
+\end{equation}
+\section{First Order Perturbation Theory}
+For non-trivial potentials, we can make a first order approximation if the potential can be described as a trivial potential summed with a perturbation. For a potential with energy levels $E_n$ which can be approximated some $0^{\text{th}}$ order potential with energy levels $E^{(0)}_n$ and energy eigenstates $\ket{n^{(0)}}$, plus some perturbation $\hat{H}$, the energy levels of the potential is given by,
+\begin{equation}
+	E_n = E^{(0)}_n + \bra{n^{(0)}}\hat{H}\ket{n^{(0)}}.
+\end{equation}
+
 \appendix
 \chapter {Matrix Mathematics}
 \section{Eigenvalues and Eigenvectors}
@@ -1134,7 +1181,6 @@ Property 2: \textit{The eigenvectors of a Hermitian matrix corresponding to diff
 	Given $\lambda_1 \neq \lambda_2$, we require $\vb{v}_2^{\dag}\vb{v}_1 = 0$ $\therefore$ $\vb{v}_1$ and $\vb{v}_2$ are orthogonal.
 \end{proof} \noindent
 A consequence of of property 2 is that a Hermitian matrix can always be diagonalised under a basis transformation.
-\section{Tensor Product Properties} \label{sec:tensor product}
 \chapter{Postulates of Quantum Mechanics}
 Below are all the postulates of quantum mechanics, stated in full.
 \begin{enumerate}

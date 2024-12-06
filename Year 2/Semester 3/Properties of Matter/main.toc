@@ -68,8 +68,16 @@
 \contentsline {subsection}{\numberline {2.5.2}Clausius-Clapeyron Relation}{25}{}%
 \contentsline {subsection}{\numberline {2.5.3}Liquid Gas-Transition}{25}{}%
 \contentsline {subsection}{\numberline {2.5.4}Real Gasses}{26}{}%
-\contentsline {chapter}{\numberline {3}Kinetic Theory and Transport Properties of Gasses}{27}{}%
+\contentsline {chapter}{\numberline {3}Kinetic Theory of Gasses}{27}{}%
 \contentsline {section}{\numberline {3.1}Probability Distributions}{27}{}%
+\contentsline {subsection}{\numberline {3.1.1}Gaussian Integrals}{27}{}%
 \contentsline {section}{\numberline {3.2}The Boltzmann Factor}{27}{}%
 \contentsline {subsection}{\numberline {3.2.1}Example: Isothermal Atmosphere}{28}{}%
-\contentsline {chapter}{\numberline {A}Definitions}{29}{}%
+\contentsline {subsection}{\numberline {3.2.2}Equation of State of an Ideal Gas}{28}{}%
+\contentsline {subsubsection}{Pressure in container}{29}{}%
+\contentsline {subsection}{\numberline {3.2.3}Internal Energy of an Ideal Gas}{30}{}%
+\contentsline {section}{\numberline {3.3}Maxwell-Boltzmann Speed Distribution}{30}{}%
+\contentsline {section}{\numberline {3.4}Equipartition Theorem}{31}{}%
+\contentsline {subsection}{\numberline {3.4.1}Diatomic Molecules}{31}{}%
+\contentsline {chapter}{\numberline {4}Transport Properties of Gasses}{32}{}%
+\contentsline {chapter}{\numberline {A}Definitions}{33}{}%

@@ -45,8 +45,9 @@
 \contentsline {subsection}{\numberline {4.6.1}Time evolution of expectation values}{22}{}%
 \contentsline {section}{\numberline {4.7}Simple Harmonic Oscillator}{23}{}%
 \contentsline {subsection}{\numberline {4.7.1}Energy Eigenstates of the Simple Harmonic Oscillator}{24}{}%
-\contentsline {chapter}{\numberline {A}Matrix Mathematics}{25}{}%
-\contentsline {section}{\numberline {A.1}Eigenvalues and Eigenvectors}{25}{}%
-\contentsline {section}{\numberline {A.2}Hermitian Matrices}{25}{}%
-\contentsline {section}{\numberline {A.3}Tensor Product Properties}{26}{}%
-\contentsline {chapter}{\numberline {B}Postulates of Quantum Mechanics}{27}{}%
+\contentsline {subsection}{\numberline {4.7.2}Matrix Treatment of the Simple Harmonic Oscillator}{24}{}%
+\contentsline {section}{\numberline {4.8}First Order Perturbation Theory}{25}{}%
+\contentsline {chapter}{\numberline {A}Matrix Mathematics}{26}{}%
+\contentsline {section}{\numberline {A.1}Eigenvalues and Eigenvectors}{26}{}%
+\contentsline {section}{\numberline {A.2}Hermitian Matrices}{26}{}%
+\contentsline {chapter}{\numberline {B}Postulates of Quantum Mechanics}{28}{}%
