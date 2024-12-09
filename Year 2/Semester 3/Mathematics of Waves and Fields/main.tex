@@ -150,30 +150,12 @@ We define constant,
 		\frac{1}{\sqrt{2\pi}} & \text{Maths}
 	\end{dcases}.
 \end{equation}
-\section{Fourier Transform Theorems}
-\subsection{Similarity Theorem}
-\begin{theorem}
-	\begin{equation}
-		\boxed{\mathscr{F}\left\{f(ax)\right\} = \frac{1}{a}F\left(\frac{k}{a}\right)}.
-	\end{equation}
-\end{theorem}
-\subsection{Reverse Fourier transform over all space}
-\begin{theorem}
-	\begin{equation}
-		\boxed{\int_{-\infty}^{\infty}f(x)\dd{x} = F(0)}
-	\end{equation}
-\end{theorem}
-\subsection{Translation of Fourier transform}
-\begin{theorem}
-	\begin{equation}
-		\boxed{\mathscr{F}\left\{f(x - a)\right\} = e^{-ika}F(k)}
-	\end{equation}
-\end{theorem}
-\subsection{General manipulation of the Fourier transform}
+\section{Manipulation of the Fourier transform}
 Most generally,
 \begin{equation}
-	\boxed{\mathscr{F}\left\{f(ax - b)\right\} = e^{-ikb}\frac{1}{a}F\left(\frac{k}{a}\right)}
+	\boxed{\mathscr{F}\left\{f(ax - b)\right\} = e^{-ikb}\frac{1}{a}F\left(\frac{k}{a}\right)}.
 \end{equation}
+
 \section{Dirac-Delta Function}
 Dirac's original approximation of the $\delta$ function used a function $\Pi(x)$ which was defined,
 \begin{equation}
@@ -192,7 +174,7 @@ It can also be defined using $\mathrm{sinc}$,
 \end{equation}
 However, the most commonly used, and most applicable form is,
 \begin{equation}
-	\boxed{\delta(x) = \frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}\dd{x}}
+	\boxed{\delta(x) = \frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}\dd{x} = \frac{1}{2\pi}\int_{-\infty}^{\infty}e^{-ikx}\dd{x}}
 \end{equation}
 We note 4 important properties of the Dirac-Delta,
 \begin{enumerate}
@@ -201,6 +183,24 @@ We note 4 important properties of the Dirac-Delta,
 	\item $\displaystyle \delta(ax + b) = \dfrac{1}{|a|}\delta\left(x + \dfrac{a}{b}\right)$
 	\item $\delta(x) = \delta(-x)$ i.e., Dirac-Delta is even.
 \end{enumerate}
+\subsection{Fourier Transform of the Dirac Delta}
+The Fourier transform of a constant is the Dirac-Delta, i.e.,
+\begin{align}
+	\mathscr{F}\left\{1\right\} = \int_{-\infty}^{\infty}e^{ikx}\dd{x} = 2\pi\delta(x),
+\end{align}
+and similarly for the inverse Fourier Transform,
+\begin{equation}
+	\mathscr{F}^{-1}\left\{1\right\} = \frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}\dd{x} = \delta(x).
+\end{equation}
+Taking the Fourier transform of the Dirac-Delta,
+\begin{equation}
+	\mathscr{F}\left\{\delta(x)\right\} = \int_{-\infty}^{\infty}\delta(x)e^{-ikx}\dd{x} = 1
+\end{equation}
+and thus clearly,
+\begin{equation}
+	\mathscr{F}\left\{\delta(x - x_0)\right\} = \int_{-\infty}^{\infty}\delta(x - x_0)e^{-ikx}\dd{x} = e^{-ikx_0}.
+\end{equation}
+
 \section{Parseval's Theorem}
 \begin{theorem}
 \begin{equation}
@@ -244,8 +244,6 @@ then the Fourier transform of the convolution is given by,
 	\end{equation}
 	which clearly corresponds to the product of the two transforms.
 \end{proof}
-\subsection{Example: Diffraction through 2 slits}
-
 \section{Wave Packets}
 In 1 dimension, a forward travelling wave is defined by,
 \begin{equation}
