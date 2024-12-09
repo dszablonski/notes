@@ -70,8 +70,10 @@
 \contentsline {section}{\numberline {4.5}Electromagnetic Waves in Dielectric and Magnetic Media}{31}{}%
 \contentsline {subsection}{\numberline {4.5.1}Reflection of electromagnetic waves from a perfect conductor}{31}{}%
 \contentsline {section}{\numberline {4.6}Waveguides}{32}{}%
-\contentsline {chapter}{\numberline {A}Examples}{33}{}%
-\contentsline {section}{\numberline {A.1}Loop integral over perfect differential}{33}{}%
-\contentsline {section}{\numberline {A.2}Coloumb's law for two, straight, parallel wires}{33}{}%
-\contentsline {section}{\numberline {A.3}Coloumb's law for two parallel current carrying wires}{33}{}%
-\contentsline {chapter}{\numberline {B}Interpretation of the Laplacian}{34}{}%
+\contentsline {subsection}{\numberline {4.6.1}Rectangular Waveguide}{32}{}%
+\contentsline {subsection}{\numberline {4.6.2}Generalisation to 3D Waveguide}{33}{}%
+\contentsline {chapter}{\numberline {A}Examples}{34}{}%
+\contentsline {section}{\numberline {A.1}Loop integral over perfect differential}{34}{}%
+\contentsline {section}{\numberline {A.2}Coulomb's law for two, straight, parallel wires}{34}{}%
+\contentsline {section}{\numberline {A.3}Coulomb's law for two parallel current carrying wires}{34}{}%
+\contentsline {chapter}{\numberline {B}Interpretation of the Laplacian}{35}{}%

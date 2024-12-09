@@ -46,6 +46,25 @@
 \usetikzlibrary{arrows.meta} % for arrow size
 \usepackage{xfp} % higher precision (16 digits?)
 
+\newcommand{\doublearrowlabel}[5]{
+	% accepts a start point, end point, spacing, gradient and label
+	\path let \p1=#1 in coordinate (start) at ({\x1 + #3* cos(#4)},{\y1-#3 * sin(#4)});
+	\path let \p2=#2 in coordinate (end) at ({\x2 + #3* cos(#4)},{\y2-#3 * sin(#4)});
+	
+	\draw[latex-latex]  (start) -- (end) node[midway,fill=white]{#5};
+}
+
+\newcommand{\dasheddoublearrowlabel}[5]{
+	% accepts a start point, end point, spacing, gradient and label
+	\path let \p1=#1 in coordinate (start) at ({\x1 + #3* cos(#4)},{\y1-#3 * sin(#4)});
+	\path let \p2=#2 in coordinate (end) at ({\x2 + #3* cos(#4)},{\y2-#3 * sin(#4)});
+	
+	\draw[latex-latex, dashed]  (start) -- (end) node[midway,fill=white]{#5};
+}
+
+\def\centerarc[#1](#2)(#3:#4:#5)% Syntax: [draw options] (center) (initial angle:final angle:radius)
+{ \draw[#1] ($(#2)+({#5*cos(#3)},{#5*sin(#3)})$) arc (#3:#4:#5); }
+
 \usepackage{tcolorbox}
 
 %https://osl.ugr.es/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf
@@ -1291,7 +1310,7 @@ We can obtain the rate of change of energy by,
 \begin{equation}
 	\Dot{u} = - \int\vb{N}\cdot\dd{\vb{S}}.
 \end{equation}
-In dielectrics, the poynting vector becomes,
+In dielectrics, the Poynting vector becomes,
 \begin{equation}
 	\boxed{\vb{N} = \vb{E}\cross\vb{H}}.
 \end{equation}
@@ -1304,7 +1323,7 @@ We read that the maximum Poynting vector is,
 \begin{equation}
 	N_{\text{max}} = \frac{E_0^2}{Z_0}.
 \end{equation}
-We define the \textit{iradiance} or \textit{intensity} as the average of the Poynting vector,
+We define the \textit{radiance} or \textit{intensity} as the average of the Poynting vector,
 \begin{equation}
 	\left<N\right> = \frac{E_0^2}{2Z_0}.
 \end{equation}
@@ -1325,7 +1344,7 @@ and for radiation reflected,
 	F_r = \frac{2A\left<N\right>}{c}.
 \end{equation}
 \section{Electromagnetic Waves in the Presence of a Current}
-Electromagnetic waves in the pressence of a conductor producce currents. Let us assume $\rho = 0$ and $\vb{j} \neq 0$. Maxwell's equations become,
+Electromagnetic waves in the presence of a conductor produce currents. Let us assume $\rho = 0$ and $\vb{j} \neq 0$. Maxwell's equations become,
 \begin{align}
 	\div{\vb{E}} = 0 && \div{\vb{B}} = 0 \\
 	\Dot{\vb{B}} = -\div{\vb{E}} && \Dot{\vb{E}} = c^2\left(\curl{\vb{B}} - \mu_0\vb{j}\right)
@@ -1392,7 +1411,7 @@ which is the distance in $z$ over which the amplitude of the wave will decay by 
 	\label{fig:skin}
 \end{figure}
 \subsection{Plasma}
-Plasma is a sate of matter which is partially ionised. The magnetic field is relatively weak, so electrons move in the plasma due to the very strong electric field. The force on the electorns is then,
+Plasma is a sate of matter which is partially ionised. The magnetic field is relatively weak, so electrons move in the plasma due to the very strong electric field. The force on the electrons is then,
 \begin{equation}
 	\vb{F}_e = m_e \Ddot{\vb{r}} = - e \vb{E}.
 \end{equation}
@@ -1417,14 +1436,14 @@ so that we can write the dispersion relation,
 \begin{equation}
 	ck = \pm \sqrt{\omega^2 - \omega_p^2}.
 \end{equation}
-If $\omega^2 < \omega_p^2$, then the wavenumber is purely imaginary and the waves do not propogate. Thus, electromagnetic radiation inside plasma must have high frequencies, and allowed frequencies become shorter with increaseed density.
+If $\omega^2 < \omega_p^2$, then the wavenumber is purely imaginary and the waves do not propagate. Thus, electromagnetic radiation inside plasma must have high frequencies, and allowed frequencies become shorter with increased density.
 \section{Electromagnetic Waves in Dielectric and Magnetic Media}
 Let us assume a linear, isotropic material in free space. We have,
 \begin{align}
 	\div{\vb{D}} = \rho_{\text{free}} && \div{\vb{B}} = 0 \\
 	\Dot{\vb{B}} = - \curl{\vb{E}} && \Dot{\vb{D}} = \curl{\vb{H}} - \vb{j}_{\text{free}}
 \end{align}
-and in free space $\rho_{\text{free}} = 0$ and $\vb{j}_{\text{free}} = 0$. In linear istropic materials,
+and in free space $\rho_{\text{free}} = 0$ and $\vb{j}_{\text{free}} = 0$. In linear isotropic materials,
 \begin{align}
 	\vb{D} = \varepsilon_r \varepsilon_0  \vb{E} && \vb{H}= \frac{1}{\mu_r\mu_0}\vb{B}.
 \end{align}
@@ -1448,7 +1467,7 @@ The phase velocity of electromagnetic waves is,
 \begin{equation}
 	v_p = \frac{\omega}{k} = \frac{\omega}{k_0\sqrt{\varepsilon_r\mu_r}} = \frac{c}{\sqrt{\varepsilon_r\mu_r}}.
 \end{equation}
-We know in a material, light travels at a speec $v = c/n$, so we can conclude that the refractive index is given by,
+We know in a material, light travels at a speed $v = c/n$, so we can conclude that the refractive index is given by,
 \begin{equation}
 	\boxed{n = \sqrt{\varepsilon_r\mu_r}}
 \end{equation}
@@ -1487,15 +1506,116 @@ There are 3 different types of waveguides,
 	\item TM $\to$ transverse magnetic.
 	\item TEM $\to$ transverse electric magnetic, support frequencies from DC to 3GHz.
 \end{enumerate}
-
+We will focus on TM and TE modes in a rectangular waveguide.
+\subsection{Rectangular Waveguide}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw (0,0) rectangle (7.1,0.5);
+		\draw (0,4) rectangle (7.1, 4.5);
+		\doublearrowlabel{(0,0.6)}{(0,3.9)}{0}{0}{$a$};
+		\begin{scope}[decoration={
+				markings,
+				mark=at position 0.5 with {\arrow{>}}}
+			] 
+		\draw[postaction={decorate}] (0.1,0.5) -- (2.1,4) node[midway, anchor=east] {$\vb{E}_{\text{out}}$};
+		\draw[postaction={decorate}] (2.1,4) -- (4.1,0.5) node[midway, anchor=east] {$\vb{E}_{\text{in}}$};
+		\draw[postaction={decorate}] (4.1,0.5) -- (6.1,4);
+		\draw[->] (6.1,4) -- (7.1, 2);
+		\end{scope}
+		\draw[->] (1.1,2.25) --(1.6,1.9) node[anchor=west] {$\vb{k}, c$};
+		\draw[->] (3.1,2.25) -- (3.6,2.55) node[anchor=north west] {$\vb{k}, c$};
+		\node[anchor=north west] at (2.2,4) {$\theta$};
+		\centerarc[black](2.1,4)(360:299:0.6);
+		\doublearrowlabel{(0.3,0.8)}{(3.9,0.8)}{0}{0}{$\lambda_g$};
+		%\draw[dashed] (3.1,2.25) -- (6.1,4) node[midway, above] {$\lambda_0$};
+		\dasheddoublearrowlabel{(3.1,2.25)}{(6.1,4)}{0}{0}{$\lambda_0$};
+		\draw[-Latex] (7, 2.25) -- (7.5,2.25) node[anchor=west] {$\vu{z}$};
+	\end{tikzpicture}
+	\caption{A rectangular waveguide consisting of a long rectangular tube of radius $a$.}
+	\label{fig:waveguide1}
+\end{figure}
+Consider figure \ref{fig:waveguide1}. Electromagnetic waves of wavelength $\lambda_0$ reflect between the conductor at angles $\theta$. The phase velocity of the wave in the waveguide is given by,
+\begin{equation}
+	v_p = \frac{c}{\sin\theta}.
+\end{equation}
+The distance between reflections $\lambda_g$ is given by,
+\begin{equation}
+	\lambda_g = \frac{\lambda_0}{\sin\theta}.
+\end{equation}
+We can relate the speed of light and phase velocity to the two wavelength of light and the waveguide wavelength,
+\begin{align}
+	c = \lambda_0 f && v_p = \lambda_g f.
+\end{align}
+By trigonometric considerations, we can write,
+\begin{equation}
+	\cos\theta = \frac{\lambda_0}{2a}
+\end{equation}
+from which we find the \textit{cutoff wavelength}, such that the wavelength of light passing through the waveguide must satisfy,
+\begin{equation}
+	\lambda_0 \leq 2a
+\end{equation}
+in order to propagate through the waveguide. 
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw (0,0,0) -- (4,0,0) -- (4,3,0) -- (0,3,0) -- (0,0,0);
+		\draw (0,3,0) -- (0,3,-4);
+		\draw (4,3,0) -- (4,3, -4);
+		\draw (4,0,0) -- (4,0,-4);
+		\draw (0.5,0.5,0) -- (3.5,0.5,0) -- (3.5,2.5,0) -- (0.5,2.5,0) -- (0.5,0.5,0);
+		\doublearrowlabel{(0.5,0.25,0)}{(3.5,0.25,0)}{0}{0}{$a$};
+		\doublearrowlabel{(0.3,0.5,0)}{(0.3,2.5,0)}{0}{0}{$b$};
+		\draw[->] (0,0,0.2) -- (0,0,2) node[anchor=north east] {$\vu{z}$};
+		\draw[->] (4.2,0,0) -- (6,0,0) node[anchor=west] {$\vu{x}$};
+		\draw[->] (0,3.2,0) -- (0,5.2,0) node[anchor=south] {$\vu{y}$};
+	\end{tikzpicture}
+	\caption{Rectangular waveguide of dimensions $a$ and $b$.}
+\end{figure}
+\subsection{Generalisation to 3D Waveguide}
+Let us generalise for a waveguide of dimensions $a \times b$. The waves are subject to the boundary conditions,
+\begin{align}
+	\vb{E} \cross \vu{n} = 0 && \implies E_z = 0
+	\vb{B} \cdot \vu{n} = 0 && \implies \pdv{B_z}{x} = 0 \text{ at } x = 0 \\
+	&& \implies \pdv{B_z}{y} = 0 \text{ at } y = 0
+\end{align}
+where $\vu{n}$ is the direction of the axis along the finite dimensions of the box. Let us assume free space ($\rho=0$, $\vb{j} = 0$), so we obtain the following equation by Ampere's law,
+\begin{equation}
+	\curl{\vb{B}} = \mu\varepsilon\pdv{E}{t}
+\end{equation}
+and evaluating the $y$ component,
+\begin{equation}
+	\pdv{B_x}{z} - \pdv{B_z}{x} = \mu\varepsilon\pdv{E}{t}.
+\end{equation}
+By considering the boundary conditions, we can obtain normal mode solutions to wave equations,
+\begin{align}
+	\laplacian{\vb{E}} - \mu\varepsilon\pdv[2]{E}{t} = 0 \\
+	\laplacian{\vb{B}} - \mu\varepsilon\pdv[2]{B}{t} = 0
+\end{align}
+from which we obtain the wave guide propagation constant for a TE mode,
+\begin{equation}
+	k_g = \sqrt{k_0^2 - k_c^2} = \frac{2\pi}{\lambda_g}
+\end{equation}
+where $k_0$ is the plane wavenumber and $k_c$ is the cutoff wavenumber. The plane wavenumber is,
+\begin{equation}
+	k_0 = \mu\varepsilon\omega^2
+\end{equation}
+while the cutoff wavenumber is given by,
+\begin{equation}
+	k_c = \sqrt{\left(\frac{m\pi}{a}\right)^2 + \left(\frac{n\pi}{b}\right)^2}
+\end{equation}
+which is the value of the plane wave number at the cutoff. We can then obtain the \textit{cutoff frequency for a TE$_{mn}$ mode},
+\begin{equation}
+	\boxed{f_{mn} = c\sqrt{\left(\frac{m}{2a}\right)^2 + \left(\frac{n}{2b}\right)^2}}
+\end{equation}
+where the lowest mode is TE$_{10}$. $00$ modes are only possible in TEM waveguides.
 \appendix 
 \chapter{Examples}
 \section{Loop integral over perfect differential}
-
 	\begin{equation}
-		\oint_L \dd{\vb*{\ell}} \cdot \grad f \underbrace{=}_{\text{Stoke's theorem}} \int_S \dd{\vb{S}} \cdot\left(\underbrace{\curl{\grad f}}_0\right) = 0
+		\oint_L \dd{\vb*{\ell}} \cdot \grad f \underbrace{=}_{\text{Stokes' theorem}} \int_S \dd{\vb{S}} \cdot\left(\underbrace{\curl{\grad f}}_0\right) = 0
 	\end{equation}
-\section{Coloumb's law for two, straight, parallel wires}
+\section{Coulomb's law for two, straight, parallel wires}
 The force on an infinitesimal line element is,
 \begin{equation}
 	\vb{F}_{12} = I_1\dd{\vb*{\ell}}\cross\vb{B}_2\left(\vb{r}_1\right).
@@ -1513,7 +1633,7 @@ where $\vu{z}\cross\vu*{\theta} = - \vu{r}$, thus,
 	\dv{F_{12}}{\ell} = \pm \frac{\mu_0 I_1I_2}{2\pi d}
 \end{equation}
 where we have an attractive force if both currents are travelling in the same direction.
-\section{Coloumb's law for two parallel current carrying wires}
+\section{Coulomb's law for two parallel current carrying wires}
 If we define current $I\dd{\vb*{\ell}} = q\vb{v}$, then the magnetic force is given by,
 \begin{equation}
 	 I \dd{\vb*{\ell}} = q\vb{v}.
@@ -1532,7 +1652,7 @@ We were able to rewrite the integral using the vector identity,
 \end{equation}
 and the second term in eq. \eqref{eq:id} in our case goes to 0 as we are performing a loop integral over a perfect differential.
 \chapter{Interpretation of the Laplacian}
-The laplacian of a scalar field $\phi$ is defined in cartesian coordinates,
+The Laplacian of a scalar field $\phi$ is defined in Cartesian coordinates,
 \begin{equation}
 	\laplacian{\phi} = \pdv{x_i}\pdv{x_i} \phi
 \end{equation}
@@ -1544,7 +1664,7 @@ If we consider the Taylor expansion about a point $\phi_0$ in the three coordina
 \begin{equation}
 	\phi(x_i) = \phi_0 + \left(\pdv{x_i}\phi\right)_0x_i + \frac{1}{2}\left(\pdv{x_i}\pdv{x_j}\phi\right)_0x_ix_j + \cdots
 \end{equation}
-which can be substitued into eq. \eqref{eq:avg} and readily integrated to obtain,
+which can be substituted into eq. \eqref{eq:avg} and readily integrated to obtain,
 \begin{equation}
 	\bar{\phi} \cong \phi_0 + \frac{a^2}{24}\left(\pdv{x_i}\pdv{x_i}\phi\right)_0
 \end{equation}
@@ -1552,5 +1672,5 @@ which rearranges to,
 \begin{equation}
 	\boxed{(\laplacian{\phi})_0 \cong \frac{24}{a^2}(\bar{\phi} - \phi_a)}.
 \end{equation}
-Thus, we can think of the laplacian at a point to be the measure of its difference with the average value of the field in the infinitesimal neighbourhood of that point. If we think about Poisson's equation ($\laplacian{\phi} = \rho$), from the intuition we developed, we see that Poisson's equation is saying that the difference from the average value about a point is proportional to the charge density. This makes sense, as at points of high charge density, the electric scalar field, and therefore the electric field lines, are going to be stronger, so the change of the scalar field at that point compared with the average field in the nieghbourhood will be higher as the field changes more.
+Thus, we can think of the Laplacian at a point to be the measure of its difference with the average value of the field in the infinitesimal neighbourhood of that point. If we think about Poisson's equation ($\laplacian{\phi} = \rho$), from the intuition we developed, we see that Poisson's equation is saying that the difference from the average value about a point is proportional to the charge density. This makes sense, as at points of high charge density, the electric scalar field, and therefore the electric field lines, are going to be stronger, so the change of the scalar field at that point compared with the average field in the nieghbourhood will be higher as the field changes more.
 \end{document}

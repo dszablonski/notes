@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  9 DEC 2024 14:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  9 DEC 2024 23:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1122,20 +1122,20 @@ Package: xfp 2024-02-18 L3 Floating point unit
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for U/DSSerif/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for U/DSSerif/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count359
@@ -1205,12 +1205,12 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 79.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 98.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 98.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1229,43 +1229,43 @@ Chapter 1.
 [4
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 147--151
+Underfull \hbox (badness 10000) in paragraph at lines 166--170
 
  []
 
 [5] [6] [7]
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 285--289
+Underfull \hbox (badness 10000) in paragraph at lines 304--308
 
  []
 
 [8
 
 ] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 368--372
+Underfull \hbox (badness 10000) in paragraph at lines 387--391
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--382
+Underfull \hbox (badness 10000) in paragraph at lines 397--401
 
  []
 
 [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 478--482
+Underfull \hbox (badness 10000) in paragraph at lines 497--501
 
  []
 
 [12]
 Chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 527--531
+Underfull \hbox (badness 10000) in paragraph at lines 546--550
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 548--551
+Underfull \hbox (badness 10000) in paragraph at lines 567--570
 
  []
 
@@ -1276,54 +1276,54 @@ Underfull \hbox (badness 10000) in paragraph at lines 548--551
 Package mdframed Warning: Unknown definedstyle 0
  You have to define a style 
  via \mdfdefinedstyle
-(mdframed)                 on input line 599.
+(mdframed)                 on input line 618.
 
-Package mdframed Info: mdframed works in twoside mode on input line 599.
+Package mdframed Info: mdframed works in twoside mode on input line 618.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 599.
+(mdframed)              on input line 618.
 [14]
-Package mdframed Info: Not enough space on this page on input line 605.
+Package mdframed Info: Not enough space on this page on input line 624.
  [15]
 <dielecetric capacitor.png, id=115, 611.28375pt x 132.495pt>
 File: dielecetric capacitor.png Graphic file (type png)
 <use dielecetric capacitor.png>
-Package pdftex.def Info: dielecetric capacitor.png  used on input line 707.
+Package pdftex.def Info: dielecetric capacitor.png  used on input line 726.
 (pdftex.def)             Requested size: 226.48395pt x 49.08908pt.
  [16]
 <interface.png, id=120, 588.1975pt x 321.2pt>
 File: interface.png Graphic file (type png)
 <use interface.png>
-Package pdftex.def Info: interface.png  used on input line 750.
+Package pdftex.def Info: interface.png  used on input line 769.
 (pdftex.def)             Requested size: 339.72592pt x 185.51685pt.
  [17 <./dielecetric capacitor.png>]
 <interface1.png, id=125, 453.695pt x 272.01625pt>
 File: interface1.png Graphic file (type png)
 <use interface1.png>
-Package pdftex.def Info: interface1.png  used on input line 773.
+Package pdftex.def Info: interface1.png  used on input line 792.
 (pdftex.def)             Requested size: 339.72592pt x 203.68793pt.
  [18 <./interface.png> <./interface1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 815--837
+Underfull \hbox (badness 10000) in paragraph at lines 834--856
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--837
+Underfull \hbox (badness 10000) in paragraph at lines 834--856
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 838--842
+Underfull \hbox (badness 10000) in paragraph at lines 857--861
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 860--864
+Underfull \hbox (badness 10000) in paragraph at lines 879--883
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 888--892
+Underfull \hbox (badness 10000) in paragraph at lines 907--911
 
  []
 
@@ -1331,36 +1331,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 888--892
 <T_T_C.png, id=145, 293.095pt x 418.56375pt>
 File: T_T_C.png Graphic file (type png)
 <use T_T_C.png>
-Package pdftex.def Info: T_T_C.png  used on input line 1037.
+Package pdftex.def Info: T_T_C.png  used on input line 1056.
 (pdftex.def)             Requested size: 81.53586pt x 116.43701pt.
 <T=T_c - Epsilon.png, id=146, 259.97125pt x 401.5pt>
 File: T=T_c - Epsilon.png Graphic file (type png)
 <use T=T_c - Epsilon.png>
-Package pdftex.def Info: T=T_c - Epsilon.png  used on input line 1043.
+Package pdftex.def Info: T=T_c - Epsilon.png  used on input line 1062.
 (pdftex.def)             Requested size: 67.94586pt x 104.93279pt.
 <T__T_C.png, id=147, 252.945pt x 396.48125pt>
 File: T__T_C.png Graphic file (type png)
 <use T__T_C.png>
-Package pdftex.def Info: T__T_C.png  used on input line 1049.
+Package pdftex.def Info: T__T_C.png  used on input line 1068.
 (pdftex.def)             Requested size: 67.94586pt x 106.50082pt.
  [23 <./T_T_C.png> <./T=T_c - Epsilon.png> <./T__T_C.png>]
 <B-H.png, id=156, 1079.03125pt x 516.93124pt>
 File: B-H.png Graphic file (type png)
 <use B-H.png>
-Package pdftex.def Info: B-H.png  used on input line 1102.
+Package pdftex.def Info: B-H.png  used on input line 1121.
 (pdftex.def)             Requested size: 317.07614pt x 151.90181pt.
 <B-H graph.png, id=157, 1113.15875pt x 489.83pt>
 File: B-H graph.png Graphic file (type png)
 <use B-H graph.png>
-Package pdftex.def Info: B-H graph.png  used on input line 1116.
+Package pdftex.def Info: B-H graph.png  used on input line 1135.
 (pdftex.def)             Requested size: 317.07614pt x 139.52824pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1120--1125
+Underfull \hbox (badness 10000) in paragraph at lines 1139--1144
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1120--1125
+Underfull \hbox (badness 10000) in paragraph at lines 1139--1144
 
  []
 
@@ -1369,13 +1369,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 1120--1125
 Chapter 4.
 [26
 
-] [27] [28] [29] [30] [31] [32]
+] [27] [28] [29] [30] [31]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[32] [33]
 Appendix A.
-[33
+[34
 
 ]
 Appendix B.
-[34
+[35
 
 ] (./main.aux)
  ***********
@@ -1384,13 +1391,13 @@ L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 41188 strings out of 476076
- 997593 string characters out of 5793774
- 1946187 words of memory out of 5000000
- 62552 multiletter control sequences out of 15000+600000
+ 41328 strings out of 476076
+ 1001255 string characters out of 5793774
+ 1947187 words of memory out of 5000000
+ 62692 multiletter control sequences out of 15000+600000
  577415 words of font info for 106 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 94i,29n,96p,733b,696s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,29n,96p,733b,1169s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/publ
@@ -1417,10 +1424,10 @@ fonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10
 sr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dis
 t/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (34 pages, 571274 bytes).
+Output written on main.pdf (35 pages, 578644 bytes).
 PDF statistics:
- 324 PDF objects out of 1000 (max. 8388607)
- 186 compressed objects within 2 object streams
+ 327 PDF objects out of 1000 (max. 8388607)
+ 188 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  197 words of extra memory for PDF output out of 10000 (max. 10000000)
 
