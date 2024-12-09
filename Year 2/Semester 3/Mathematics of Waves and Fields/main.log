@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  9 DEC 2024 12:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  9 DEC 2024 14:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1237,23 +1237,23 @@ Chapter 2.
 Chapter 3.
 [5
 
-] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 267--271
+] [6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 274--278
 
  []
 
-[7] [8{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+[8{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 Chapter 4.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 10.0pt on input line 310.
+(Font)              scaled to size 10.0pt on input line 317.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 7.0pt on input line 310.
+(Font)              scaled to size 7.0pt on input line 317.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 5.0pt on input line 310.
+(Font)              scaled to size 5.0pt on input line 317.
 [9
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 337--341
+Underfull \hbox (badness 10000) in paragraph at lines 344--348
 
  []
 
@@ -1265,61 +1265,61 @@ PGFPlots: reading {example-04.txt}
 PGFPlots: reading {example-04.txt}
 PGFPlots: reading {example-04.txt}
  [12]
-Underfull \hbox (badness 10000) in paragraph at lines 504--508
+Underfull \hbox (badness 10000) in paragraph at lines 511--515
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 541--545
+Underfull \hbox (badness 10000) in paragraph at lines 548--552
 
  []
 
 [13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 604--610
+Underfull \hbox (badness 10000) in paragraph at lines 611--617
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 604--610
+Underfull \hbox (badness 10000) in paragraph at lines 611--617
 
  []
 
 <normal modes.pdf, id=107, 401.5pt x 441.65pt>
 File: normal modes.pdf Graphic file (type pdf)
 <use normal modes.pdf>
-Package pdftex.def Info: normal modes.pdf  used on input line 615.
+Package pdftex.def Info: normal modes.pdf  used on input line 622.
 (pdftex.def)             Requested size: 226.48395pt x 249.1351pt.
 [15 <./normal modes.pdf>]
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 12.0pt on input line 679.
+(Font)              scaled to size 12.0pt on input line 686.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 8.0pt on input line 679.
+(Font)              scaled to size 8.0pt on input line 686.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 6.0pt on input line 679.
+(Font)              scaled to size 6.0pt on input line 686.
  [16]
 
 Package mdframed Warning: Unknown definedstyle 0
  You have to define a style 
  via \mdfdefinedstyle
-(mdframed)                 on input line 723.
+(mdframed)                 on input line 730.
 
-Package mdframed Info: mdframed works in twoside mode on input line 723.
+Package mdframed Info: mdframed works in twoside mode on input line 730.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 723.
+(mdframed)              on input line 730.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 9.0pt on input line 725.
+(Font)              scaled to size 9.0pt on input line 732.
 [17]
 Appendix A.
 [18
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 784--788
+Underfull \hbox (badness 10000) in paragraph at lines 791--795
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 819--823
+Underfull \hbox (badness 10000) in paragraph at lines 826--830
 
  []
 
@@ -1361,7 +1361,7 @@ ist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1
 ts/latxfont/line10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbo
 ls/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/s
 hare/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (19 pages, 516776 bytes).
+Output written on main.pdf (19 pages, 517288 bytes).
 PDF statistics:
  257 PDF objects out of 1000 (max. 8388607)
  150 compressed objects within 2 object streams

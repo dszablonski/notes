@@ -7,9 +7,9 @@
 \contentsline {section}{\numberline {2.1}Exponential Fourier Series}{4}{}%
 \contentsline {chapter}{\numberline {3}Fourier Transform}{5}{}%
 \contentsline {section}{\numberline {3.1}Manipulation of the Fourier transform}{5}{}%
-\contentsline {section}{\numberline {3.2}Dirac-Delta Function}{5}{}%
+\contentsline {section}{\numberline {3.2}Dirac-Delta Function}{6}{}%
 \contentsline {subsection}{\numberline {3.2.1}Fourier Transform of the Dirac Delta}{6}{}%
-\contentsline {section}{\numberline {3.3}Parseval's Theorem}{6}{}%
+\contentsline {section}{\numberline {3.3}Parseval's Theorem}{7}{}%
 \contentsline {section}{\numberline {3.4}Convolution}{7}{}%
 \contentsline {section}{\numberline {3.5}Wave Packets}{7}{}%
 \contentsline {subsection}{\numberline {3.5.1}Dispersion}{8}{}%
