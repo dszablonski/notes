@@ -1456,6 +1456,38 @@ and follow the dispersion relation,
 \begin{equation}
 	\boxed{\omega = \pm vk = \pm \frac{ck}{n}}.
 \end{equation}
+\subsection{Reflection of electromagnetic waves from a perfect conductor}
+Let us consider a wave incoming to a conductor at an angle $\theta_i$ to the normal. The wave then reflects at an angle $\theta_r$ to the normal. The waves are described by,
+\begin{align}
+	\vb{E}^{(i)}\left[E_1^{(i)} \begin{pmatrix}
+		-\cos\theta_i \\ \sin\theta_i \\ 0
+	\end{pmatrix} + E_2^{(i)}\begin{pmatrix}
+	0 \\ 0 \\ 1
+	\end{pmatrix}\right]\Re{e^{i(\vb{k}\cdot\vb{r} - \omega t)}} \\ \vb{E}^{(r)}\left[E_1^{(r)} \begin{pmatrix}
+	-\cos\theta_r \\ \sin\theta_r \\ 0
+	\end{pmatrix} + E_2^{(r)}\begin{pmatrix}
+	0 \\ 0 \\ 1
+	\end{pmatrix}\right]\Re{e^{i(\vb{k}'\cdot\vb{r} - \omega t)}}
+\end{align}
+where,
+\begin{align}
+	\vb{k} = k(\sin\theta_i, \cos\theta_i, 0) && \vb{k}' = k(\sin\theta_r, \cos\theta_r, 0).
+\end{align}
+Let us assume that phase is continuous at $y = 0$, so,
+\begin{equation}
+	\begin{split}
+		\vb{k}\cdot\vb{r} & = \vb{k}'\cdot\vb{r} \\
+		k\sin\theta_i & = k\sin\theta_r \implies \theta_i = \theta_r.
+	\end{split}
+\end{equation}
+\section{Waveguides}
+There are 3 different types of waveguides,
+\begin{enumerate}
+	\item TE $\to$ transverse electric.
+	\item TM $\to$ transverse magnetic.
+	\item TEM $\to$ transverse electric magnetic, support frequencies from DC to 3GHz.
+\end{enumerate}
+
 \appendix 
 \chapter{Examples}
 \section{Loop integral over perfect differential}
