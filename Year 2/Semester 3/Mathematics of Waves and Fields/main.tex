@@ -70,8 +70,8 @@
 \tableofcontents
 
 \chapter{Partial Differential Equations}
-\section{Seperation of Variables}
-Suppose we have a PDE whose solution is in the form, $u(r_1,r_2,\ldots,r_n)$ where there are $n$ co-ordinates $r_i$, then we can solve the PDE by seperation of variables by assuming a solution of the form,
+\section{Separation of Variables}
+Suppose we have a PDE whose solution is in the form, $u(r_1,r_2,\ldots,r_n)$ where there are $n$ co-ordinates $r_i$, then we can solve the PDE by separation of variables by assuming a solution of the form,
 \begin{equation}
 	u(r_1,r_2,\ldots,r_n) = R_1(r_1)R_2(r_2)\cdots R_n(r_n).
 \end{equation}
@@ -79,7 +79,7 @@ This will turn a compatible PDE into an ODE.
 \subsection{Specific solutions}
 We are often most interested in the specific solutions to a wave equation. In order to get a specific solution, constraints/boundary conditions must be provided. The general method is as follows,
 \begin{enumerate}
-	\item Use seperation of variables;
+	\item Use separation of variables;
 	\item Build superpositions of solutions;
 	\item Apply boundary conditions and find appropriate constants.
 \end{enumerate}
@@ -90,10 +90,10 @@ The general steps to solving an ODE using this method are,
 	\begin{equation}
 		y = \sum_{n=0}^{\infty}a_kx^k
 	\end{equation}
-	\item Obtain the recurrance relation.
+	\item Obtain the recurrence relation.
 \end{enumerate}
 \chapter{Fourier Series}
-Given a periodic function $f(x)$ with period $2L$ in the range $-L \leq x \leq L$, the fourier expansion is given by,
+Given a periodic function $f(x)$ with period $2L$ in the range $-L \leq x \leq L$, the Fourier expansion is given by,
 \begin{equation}
 	\boxed{
 	f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n \cos \frac{n\pi x}{L} + b_n \sin\frac{n\pi x}{L}\right)
@@ -141,7 +141,7 @@ Let us write $F(k) = 2Lac_n$,
 In the limit of $L \to \infty$, we obtain,
 \begin{align}
 	\boxed{F(k) = a\int_{-\infty}^{\infty}f(x)\exp(-ikx)\dd{x}} && \text{Fourier transform of $f(x)$.}\\
-	\boxed{f(x) = \frac{1}{2\pi a}\int_{-\infty}^{\infty}F(k)\exp(ikx)\dd{k}} && \text{Inverse fourier transform of $F(k)$.}
+	\boxed{f(x) = \frac{1}{2\pi a}\int_{-\infty}^{\infty}F(k)\exp(ikx)\dd{k}} && \text{Inverse Fourier transform of $F(k)$.}
 \end{align}
 We define constant,
 \begin{equation}
@@ -157,19 +157,19 @@ We define constant,
 		\boxed{\mathscr{F}\left\{f(ax)\right\} = \frac{1}{a}F\left(\frac{k}{a}\right)}.
 	\end{equation}
 \end{theorem}
-\subsection{Reverse fourier transform over all space}
+\subsection{Reverse Fourier transform over all space}
 \begin{theorem}
 	\begin{equation}
 		\boxed{\int_{-\infty}^{\infty}f(x)\dd{x} = F(0)}
 	\end{equation}
 \end{theorem}
-\subsection{Translation of fourier transform}
+\subsection{Translation of Fourier transform}
 \begin{theorem}
 	\begin{equation}
 		\boxed{\mathscr{F}\left\{f(x - a)\right\} = e^{-ika}F(k)}
 	\end{equation}
 \end{theorem}
-\subsection{General manipulation of the fourier transform}
+\subsection{General manipulation of the Fourier transform}
 Most generally,
 \begin{equation}
 	\boxed{\mathscr{F}\left\{f(ax - b)\right\} = e^{-ikb}\frac{1}{a}F\left(\frac{k}{a}\right)}
@@ -182,7 +182,7 @@ Dirac's original approximation of the $\delta$ function used a function $\Pi(x)$
 		0 & \text{Elsewhere}
 	\end{dcases}.
 \end{equation}
-Using this definiton we can write,
+Using this definition we can write,
 \begin{equation}
 	\delta(x) = \lim_{k \to \infty} \left\{k\Pi(kx)\right\}.
 \end{equation}
@@ -225,7 +225,7 @@ We define the convolution $h(x)$ of two functions $f(x)$ and $g(x)$ as,
 		& = \int_{-\infty}^{\infty}f(x')g(x - x')\dd{x'}.
 	\end{split}
 \end{equation}
-If we define the fourier transforms of $f(x)$ and $g(x)$,
+If we define the Fourier transforms of $f(x)$ and $g(x)$,
 \begin{align}
 	F(k) = \mathscr{F}\left\{f(x)\right\} && G(k) = \mathscr{F}\left\{g(x)\right\}
 \end{align}
@@ -284,7 +284,7 @@ The most general wave can be written as,
 \subsection{Dispersion}
 A dispersive wave packet will have the following properties,
 \begin{itemize}
-	\item The envelope wave of the wavepacket will move with group velocity,
+	\item The envelope wave of the wave packet will move with group velocity,
 	\begin{equation}
 		\boxed{v_g = \dv{\omega}{k} = v_p + k\dv{v_p}{k}}.
 	\end{equation}
@@ -292,14 +292,14 @@ A dispersive wave packet will have the following properties,
 \end{itemize}
 \chapter{Special Functions}
 \section{Taylor Expansion}
-The taylor expansion about $x_0$ is,
+The Taylor expansion about $x_0$ is,
 \begin{equation}
 	\begin{split}
 		f(x) & = f(x_0) + (x-x_0)f'(x) + \frac{(x-x_0)^2}{2!} + \cdots \\
 		& = \sum_{n=0}^{\infty}f^{(n)}(x_0)\frac{(x-x_0)^n}{n!}
 	\end{split}
 \end{equation}
-Let us then redfine this as a simple series,
+Let us then redefine this as a simple series,
 \begin{equation}
 	f(x) = \sum_{n=0}^{\infty}u_n
 \end{equation}
@@ -315,7 +315,7 @@ We can obtain solutions to Hermit's equation by assuming a series solution,
 \begin{equation}
 	y = \sum_{k=0}^{\infty}x^k.
 \end{equation}
-Substituing this into Hermit's equation,
+Substituting this into Hermit's equation,
 \begin{equation}
 	\sum_{k=0}^{\infty}k(k-1)a_kx^{k-2} - 2x\sum_{k=0}^{\infty}ka_kx^{k-1} + 2n\sum_{k=0}^{\infty}a_kx^k = 0
 \end{equation}
@@ -326,11 +326,11 @@ Let us shift $k$ such that, $k \to k + 2$,
 		\sum_{k=0}^{\infty}\left\{(k+2)(k+1)a_{k+2} - (2k-2n)a_{k}\right\}x^k = 0
 	\end{split}
 \end{equation}
-from which we obtain the recurrance relation,
+from which we obtain the recurrence relation,
 \begin{equation}
 	a_{k+2} = \frac{2(k-n)}{(k+2)(k+1)}a_n.
 \end{equation}
-Using this recurrance relation, we are able to form a solution for $y$, starting at $k=0$ and $k=1$ to obtain the even and odd solutions respectively,
+Using this recurrence relation, we are able to form a solution for $y$, starting at $k=0$ and $k=1$ to obtain the even and odd solutions respectively,
 \begin{equation}
 	\begin{split}
 		y = & a_0\left[1 - \frac{2n}{2!}x^2 - \frac{2n(4-2n)}{4!}x^4 + \cdots\right] + \\
@@ -339,7 +339,7 @@ Using this recurrance relation, we are able to form a solution for $y$, starting
 \end{equation}
 Let us note that at $k=n$ the series will terminate.
 \\\\
-Given the solution to Hermit's equation, by considering different values of $n$, we are able to obtain \textit{Hermit's Polynomials} which are discusssed in the section below.
+Given the solution to Hermit's equation, by considering different values of $n$, we are able to obtain \textit{Hermit's Polynomials} which are discussed in the section below.
 \subsection{Hermit's Polynomials}
 We denote Hermit's polynomials by $y \equiv H_n(x)$. By simply looking at eq. \eqref{eq:hermit solution}, we see that the first three even Hermit polynomials are,
 \begin{align}
@@ -375,7 +375,7 @@ Let us shift the sums so we only have terms in powers of $n$,
 \begin{equation}
 	\sum_{n=0} \left\{(n+2)(n+1)a_{n+2} - n(n-1)a_n - 2na_nx^n - 2na_nx^n + \ell(\ell + 1)a_n\right\}x^n = 0.
 \end{equation}
-From which we can easily obtain a general recurrance relation,
+From which we can easily obtain a general recurrence relation,
 \begin{equation}
 	\boxed{a_{n+2} = \frac{n(n+1) - \ell(\ell +1)}{(n+2)(n+1)}a_n}
 \end{equation}
@@ -387,7 +387,7 @@ thus the solution for Legendre's equation has even and odd parts given below,
 \end{split}
 \end{equation}
 which we can clearly see terminates at $\ell = n$, which allows the series to converge. 
-\subsection{Legendre Polynoials}
+\subsection{Legendre Polynomials}
 The steps to finding Legendre polynomials $P_n(x)$ are as follows,
 \begin{itemize}
 	\item Decide whether the polynomial is odd or even, and choose which part of $y$ you will use.
@@ -443,54 +443,7 @@ where the coefficients are given by,
 	c_l = \frac{1}{2}(2l + 1)\int_{-1}^{1}\int_{-1}^{1}f(x)P_l(x)\dd{x}.
 \end{equation}
 \section{Bessel Functions}
-We will anaylse the temperature distribution on a circular plate. In order to do this, we must solve the diffusion equation,
-\begin{equation}
-	\laplacian{T} = \frac{1}{\alpha^2}\pdv{T}{t}.
-\end{equation}
-Given we have a circular plate, we wish to use the polar form of the Laplacian. We have,
-\begin{equation}
-	\frac{1}{r}\pdv{r}\left(r\pdv{T}{r}\right) + \frac{1}{r^2} \pdv[r]{T}{\theta} = \frac{1}{\alpha^2}\pdv{T}{t}.
-\end{equation}
-The circular plate has an insulating boundary, and has a cyclic boundary condition,
-\begin{align}
-	\eval{\pdv{T}{r}}_{r=a} = 0 \\
-	T(r,\theta,t) = T(r, \theta + 2n\pi, t).
-\end{align}
-We then solve the diffusion equation by seperation of variables, $T = R(r)\Theta(\theta)\tau(t)$,
-\begin{equation}
-	\frac{1}{Rr}\dv{r}\left(r\dv{R}{r}\right) + \frac{1}{\Theta r^2}\dv[2]{\Theta}{\theta} = \frac{1}{\alpha^2\tau}\dv{\tau}{t} = -k^2. \label{eq:fhdj}
-\end{equation}
-The \textit{time equation} is,
-\begin{equation}
-	\frac{\dd{\tau}}{\tau} = -k^2\alpha^2\dd{t}
-\end{equation}
-which has an exponential solution,
-\begin{equation}
-	\tau = Ae^{-k^2\alpha^2t}.
-\end{equation}
-Let us anaylyse the $\theta$ and $r$ dependence in eq. \eqref{eq:fhdj},
-\begin{equation}
-	\frac{r}{R}\left(r\dv{R}{r}\right) + k^2r^2 = - \frac{1}{\Theta}\dv[2]{\Theta}{\theta} = m^2
-\end{equation} 
-The cyclic equation is given by, 
-\begin{equation}
-	\dv{\Theta}{\theta} = -m^2\Theta
-\end{equation}
-which has a trigonometric solution,
-\begin{equation}
-	\Theta = A\cos(m\theta) + B\sin(m\theta)
-\end{equation}
-where we require $m \in \mathbb{N}^+$ to satisfy the cyclic boundary condition.
-\\\\
-The \textit{radial equation} is given by,
-\begin{equation}
-	\boxed{r^2\dv[2]{R}{r} + r\dv{r}{R} + (k^2r^2 - m^2)R = 0}
-\end{equation}
-which is also known as \textit{Bessel's equation}. The solutions to this equation is given by,
-\begin{equation}
-	R = J_m(kr)
-\end{equation}
-where $J_m(kr)$ is an $m^{\text{th}}$ order Bessel function.
+
 
 \begin{figure}
 	\centering
@@ -511,8 +464,8 @@ where $J_m(kr)$ is an $m^{\text{th}}$ order Bessel function.
 \end{tikzpicture}
 \caption{The first six Bessel functions.} % requires \usepackage{caption
 \end{figure}
-\subsection{Solving Bessel Functions}
-The most general bessel equation is given by,
+
+The most general Bessel equation is given by,
 \begin{equation}
 	\boxed{x^2\dv[2]{y}{x} + x\dv{y}{x} + (x^2 - m^2)y = 0} \label{eq:bessel}
 \end{equation}
@@ -535,7 +488,7 @@ Putting all these terms together, we can get rid of the $x^{n+s}$ as we require 
 \begin{equation}
 	\sum_{n=0}^{\infty}a_n\left[(n+s)(n+s-1) + (n+s) - m^2\right] + \sum_{n=2}^{\infty}a_{n-2} = 0.
 \end{equation}
-We must first consider $n=0$ and $n=1$ before we can find the recurrance relation. For $n=0$,
+We must first consider $n=0$ and $n=1$ before we can find the recurrence relation. For $n=0$,
 \begin{equation}
 	\begin{split}
 		& a_0s(s-1) + a_0s - m^2a_0 = 0 \\
@@ -553,14 +506,14 @@ For $n=1$,
 \end{equation}
 for which we require $a_1 = 0$ unless $s = \pm m = -\frac{1}{2}$. Otherwise, there will be no odd terms in our solution.
 \\\\
-We may now move onto the general recurrance relation,
+We may now move onto the general recurrence relation,
 \begin{equation}
 	\begin{split}
 		\left[(n+s)(n+s - 1) + (n+s) - m^2\right]a_n - a_{n-2} & = 0 \\
 		\left[(n+s)^2 - m^2\right]a_n + a_{n-2} & = 0
 	\end{split}
 \end{equation}
-we then have the recurrance relation,
+we then have the recurrence relation,
 \begin{equation}
 	a_n = -\frac{a_{n-2}}{(n+m)^2 - m^2} = -\frac{a_{n-2}}{(2m+n)n}
 \end{equation}
@@ -578,7 +531,7 @@ We often rewrite $y(x)$ as,
 \end{equation}
 where we obtain \textit{Bessel's function of the first kind},
 \begin{equation}
-	\boxed{J_m(x) = \sum_{j=0}^{\infty}} \frac{(-1)^j}{j!(m+j)!}\left(\frac{x}{2}\right)^{m + 2j}
+	\boxed{J_m(x) = \sum_{j=0}^{\infty} \frac{(-1)^j}{j!(m+j)!}\left(\frac{x}{2}\right)^{m + 2j}}
 \end{equation}
 which obeys the orthogonality condition,
 \begin{equation}
@@ -610,7 +563,7 @@ By considering,
 \end{equation}
 which clearly converges, as in the limit $n \to 0$, $\left|r_n\right| \to 0$ $\forall x$
 \subsection{Modes in a Circular Membrane}
-Consider a circular membrane clamped at its edges. Using the typical 3D wave equation, we use seperation of variables,
+Consider a circular membrane clamped at its edges. Using the typical 3D wave equation, we use separation of variables,
 \begin{equation}
 	\phi = F(r,\theta)T(t)
 \end{equation}
@@ -618,7 +571,7 @@ where $F(r,\theta) = R(r)\Theta(\theta)$. We have,
 \begin{equation}
 	\frac{1}{F}\laplacian{F} = \frac{1}{c^2T}\pdv[2]{T}{t} = - k^2
 \end{equation}
-and applying the laplacian in polar coordinates,
+and applying the Laplacian in polar coordinates,
 \begin{equation}
 	\frac{1}{r}\pdv{r}\left(r\pdv{F}{r}\right) + \frac{1}{r^2} \pdv[2]{F}{\theta} + k^2F = 0. \label{eq:fjksdh}
 \end{equation}
@@ -653,7 +606,7 @@ where $\chi_{nm}$ is the $m$th root of the $n$th Bessel function of the first ki
 \end{equation}
 Some normal modes of the membrane are shown in figure \ref{fig:normal modes memb}.
 \\\\
-NOTE: Frequencies of virbation are not integer multiples of the fundamental mode, as it might be with a regular wave.
+NOTE: Frequencies of vibration are not integer multiples of the fundamental mode, as it might be with a regular wave.
 \\\\
 The final solution for the vibrations of the membrane is given by,
 \begin{equation}
@@ -666,11 +619,11 @@ The final solution for the vibrations of the membrane is given by,
 	\label{fig:normal modes memb}
 \end{figure}
 \section{Spherical Waves}
-The spherical wave equation is goverend by the laplacian in spherical polar coordinates. The spherical wave equation is given by,
+The spherical wave equation is governed by the Laplacian in spherical polar coordinates. The spherical wave equation is given by,
 \begin{equation}
 	\frac{1}{r^2}\pdv{r}\left(r^2\pdv{f}{r}\right) + \frac{1}{r^2\sin\theta}\pdv{\theta}\left(\sin\theta \pdv{f}{\theta}\right) + \frac{1}{r^2\sin^2\theta}\pdv[2]{f}{\phi} = \frac{1}{c^2} \pdv[2]{f}{t}.
 \end{equation}
-Let us for now consider the solution on the surface, $r = a$. Let us use a seperation of variables, 
+Let us for now consider the solution on the surface, $r = a$. Let us use a separation of variables, 
 \begin{equation}
 	F(\theta, \phi, t) = Y(\theta, \phi)T(t)
 \end{equation}
@@ -690,7 +643,7 @@ where
 \begin{equation}
 	\omega^2 = \frac{c^2}{a^2}l(l+1).
 \end{equation}
-For the angular solution, we use seperation of variables,
+For the angular solution, we use separation of variables,
 \begin{equation}
 	Y = \Theta(\theta)\Phi(\phi)
 \end{equation}
@@ -709,7 +662,7 @@ We can solve this by a substitution $x = \cos\theta$,
 \begin{align}
 	\dv{x}{\theta} =-\sin\theta && \implies && \dd{\theta} = - \frac{\dd{x}}{\sin\theta}
 \end{align}
-OUr equation then becomes,
+Our equation then becomes,
 \begin{equation}
 	-\frac{\cancelto{1}{\sin^2\theta}}{\Theta}\dv{x}\left(-\sin^2\theta \dv{\Theta}{x}\right) + l(l+1)\cancelto{1}{\sin^2\theta} = 0
 \end{equation}
@@ -765,14 +718,14 @@ Let us recall the boundary condition $R(a) = 0$, where $a$ is the surface of the
 \begin{equation}
 	\boxed{x^2\dv[2]{R}{x} + 2x\dv{R}{x} + \left[x^2 - l(l+1)\right]R = 0}
 \end{equation}
-which is the form of the \textit{spherical Bessel equation}. The solution to the spherical Bessel equation are the spherical bessel functions,
+which is the form of the \textit{spherical Bessel equation}. The solution to the spherical Bessel equation are the spherical Bessel functions,
 \begin{equation}
 	R = j_l(kr).
 \end{equation}
 \begin{aside}
 	It can be shown that,
 	\begin{equation}
-		j(x) = \sqrt{\frac{\pi}{2x}}J_{l+\frac{1}{2}}(x).
+		j_l(x) = \sqrt{\frac{\pi}{2x}}J_{l+\frac{1}{2}}(x).
 	\end{equation}
 \end{aside}
 Applying the boundary condition,
@@ -825,13 +778,60 @@ Laplace's equation is given by,
 \begin{equation}
 	\boxed{\grad^2\phi = 0}
 \end{equation}
-and can be readily solved using seperation of variables.
+and can be readily solved using separation of variables.
 \section{Diffusion Equation}
 The diffusion equation is given by,
 \begin{equation}
 	\boxed{\grad^2T = \frac{1}{\alpha}\pdv{T}{t}}
 \end{equation}
-which reduces to Laplace's equation for a steady-state system.
+which reduces to Laplace's equation for a steady-state system. We will use it to analyse the temperature distribution on a circular plate.
+\\\\
+Given we have a circular plate, we wish to use the polar form of the Laplacian. We have,
+\begin{equation}
+	\frac{1}{r}\pdv{r}\left(r\pdv{T}{r}\right) + \frac{1}{r^2} \pdv[r]{T}{\theta} = \frac{1}{\alpha^2}\pdv{T}{t}.
+\end{equation}
+The circular plate has an insulating boundary, and has a cyclic boundary condition,
+\begin{align}
+	\eval{\pdv{T}{r}}_{r=a} = 0 \\
+	T(r,\theta,t) = T(r, \theta + 2n\pi, t).
+\end{align}
+We then solve the diffusion equation by separation of variables, $T = R(r)\Theta(\theta)\tau(t)$,
+\begin{equation}
+	\frac{1}{Rr}\dv{r}\left(r\dv{R}{r}\right) + \frac{1}{\Theta r^2}\dv[2]{\Theta}{\theta} = \frac{1}{\alpha^2\tau}\dv{\tau}{t} = -k^2. \label{eq:fhdj}
+\end{equation}
+The \textit{time equation} is,
+\begin{equation}
+	\frac{\dd{\tau}}{\tau} = -k^2\alpha^2\dd{t}
+\end{equation}
+which has an exponential solution,
+\begin{equation}
+	\tau = Ae^{-k^2\alpha^2t}.
+\end{equation}
+Let us analyse the $\theta$ and $r$ dependence in eq. \eqref{eq:fhdj},
+\begin{equation}
+	\frac{r}{R}\left(r\dv{R}{r}\right) + k^2r^2 = - \frac{1}{\Theta}\dv[2]{\Theta}{\theta} = m^2
+\end{equation} 
+The cyclic equation is given by, 
+\begin{equation}
+	\dv{\Theta}{\theta} = -m^2\Theta
+\end{equation}
+which has a trigonometric solution,
+\begin{equation}
+	\Theta = A\cos(m\theta) + B\sin(m\theta)
+\end{equation}
+where we require $m \in \mathbb{N}^+$ to satisfy the cyclic boundary condition.
+\\\\
+The \textit{radial equation} is given by,
+\begin{equation}
+	\boxed{r^2\dv[2]{R}{r} + r\dv{r}{R} + (k^2r^2 - m^2)R = 0}
+\end{equation}
+which is Bessel's equation. The radial solution is then given by,
+\begin{equation}
+	R = J_m(kr)
+\end{equation}
+where $J_m(kr)$ is an $m^{\text{th}}$ order Bessel function.
+\end{document}
+
 \chapter{Misc. Notes}
 \section{Plane Wave Nature}
 We have that travelling waves in 3D are given by $e^{i(\vb{k}\cdot\vb{x})}$ and have a plane wave nature, such that,
@@ -845,5 +845,4 @@ where $\phi$ is constant. This corresponds to a plane wave with constant phase. 
 		\implies & |\vb{x}| = \frac{\omega t + \phi}{|\vb{k}|}
 	\end{split}
 \end{equation}
-which is the equation of a sphere with radius $\frac{\omega t + \phi}{|\vb{k}|}$. Thus, a travelling wave in 3D represents spherical waves propogating outwards with velocity $\frac{\omega}{|\vb{k}|}$.
-\end{document}
+which is the equation of a sphere with radius $\frac{\omega t + \phi}{|\vb{k}|}$. Thus, a travelling wave in 3D represents spherical waves propagating outwards with velocity $\frac{\omega}{|\vb{k}|}$.

@@ -1,6 +1,6 @@
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{\numberline {1}Partial Differential Equations}{3}{}%
-\contentsline {section}{\numberline {1.1}Seperation of Variables}{3}{}%
+\contentsline {section}{\numberline {1.1}Separation of Variables}{3}{}%
 \contentsline {subsection}{\numberline {1.1.1}Specific solutions}{3}{}%
 \contentsline {section}{\numberline {1.2}Series Solutions}{3}{}%
 \contentsline {chapter}{\numberline {2}Fourier Series}{4}{}%
@@ -8,9 +8,9 @@
 \contentsline {chapter}{\numberline {3}Fourier Transform}{5}{}%
 \contentsline {section}{\numberline {3.1}Fourier Transform Theorems}{5}{}%
 \contentsline {subsection}{\numberline {3.1.1}Similarity Theorem}{5}{}%
-\contentsline {subsection}{\numberline {3.1.2}Reverse fourier transform over all space}{5}{}%
-\contentsline {subsection}{\numberline {3.1.3}Translation of fourier transform}{6}{}%
-\contentsline {subsection}{\numberline {3.1.4}General manipulation of the fourier transform}{6}{}%
+\contentsline {subsection}{\numberline {3.1.2}Reverse Fourier transform over all space}{5}{}%
+\contentsline {subsection}{\numberline {3.1.3}Translation of Fourier transform}{6}{}%
+\contentsline {subsection}{\numberline {3.1.4}General manipulation of the Fourier transform}{6}{}%
 \contentsline {section}{\numberline {3.2}Dirac-Delta Function}{6}{}%
 \contentsline {section}{\numberline {3.3}Parseval's Theorem}{6}{}%
 \contentsline {section}{\numberline {3.4}Convolution}{7}{}%
@@ -23,20 +23,17 @@
 \contentsline {subsection}{\numberline {4.2.1}Hermit's Polynomials}{10}{}%
 \contentsline {subsubsection}{Orthogonality of Hermit Polynomials}{10}{}%
 \contentsline {section}{\numberline {4.3}Legendre's Equation}{10}{}%
-\contentsline {subsection}{\numberline {4.3.1}Legendre Polynoials}{11}{}%
+\contentsline {subsection}{\numberline {4.3.1}Legendre Polynomials}{11}{}%
 \contentsline {subsubsection}{Orthogonality of Legendre Polynomials}{11}{}%
 \contentsline {subsection}{\numberline {4.3.2}Legendre Polynomial Expansion}{12}{}%
 \contentsline {section}{\numberline {4.4}Bessel Functions}{12}{}%
-\contentsline {subsection}{\numberline {4.4.1}Solving Bessel Functions}{13}{}%
-\contentsline {subsubsection}{Convergence of the solution}{15}{}%
-\contentsline {subsection}{\numberline {4.4.2}Modes in a Circular Membrane}{15}{}%
-\contentsline {section}{\numberline {4.5}Spherical Waves}{16}{}%
-\contentsline {subsection}{\numberline {4.5.1}$\phi $ Dependent Solution}{17}{}%
-\contentsline {subsection}{\numberline {4.5.2}Waves Inside the Sphere ($r$ dependence)}{18}{}%
-\contentsline {chapter}{\numberline {A}Examples: Differential Equations}{19}{}%
-\contentsline {section}{\numberline {A.1}1D Wave Equation}{19}{}%
-\contentsline {subsection}{\numberline {A.1.1}Euler/d'Alembert solution}{19}{}%
-\contentsline {section}{\numberline {A.2}Laplace's Equation}{19}{}%
-\contentsline {section}{\numberline {A.3}Diffusion Equation}{20}{}%
-\contentsline {chapter}{\numberline {B}Misc. Notes}{21}{}%
-\contentsline {section}{\numberline {B.1}Plane Wave Nature}{21}{}%
+\contentsline {subsubsection}{Convergence of the solution}{14}{}%
+\contentsline {subsection}{\numberline {4.4.1}Modes in a Circular Membrane}{14}{}%
+\contentsline {section}{\numberline {4.5}Spherical Waves}{15}{}%
+\contentsline {subsection}{\numberline {4.5.1}$\phi $ Dependent Solution}{16}{}%
+\contentsline {subsection}{\numberline {4.5.2}Waves Inside the Sphere ($r$ dependence)}{17}{}%
+\contentsline {chapter}{\numberline {A}Examples: Differential Equations}{18}{}%
+\contentsline {section}{\numberline {A.1}1D Wave Equation}{18}{}%
+\contentsline {subsection}{\numberline {A.1.1}Euler/d'Alembert solution}{18}{}%
+\contentsline {section}{\numberline {A.2}Laplace's Equation}{18}{}%
+\contentsline {section}{\numberline {A.3}Diffusion Equation}{19}{}%

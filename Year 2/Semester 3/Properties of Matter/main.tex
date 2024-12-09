@@ -115,7 +115,7 @@ and gasses when,
 	k_BT >> \epsilon.
 \end{equation}
 \section{Elasticity of Solids}
-Solids exibit elastic behaviour, i.e., whenn stress is applied they deform (strain) and return to their original shape once removed. The way solids resist strain is defined by elastic moduli, which are general defined,
+Solids exhibit elastic behaviour, i.e., when stress is applied they deform (strain) and return to their original shape once removed. The way solids resist strain is defined by elastic moduli, which are general defined,
 \begin{equation}
 	\text{Elastic Modulus} = \frac{\text{Stress}}{\text{Strain}}.
 \end{equation}
@@ -123,7 +123,7 @@ Solids exibit elastic behaviour, i.e., whenn stress is applied they deform (stra
 \begin{figure}
 	\centering
 	\includegraphics[width=175px]{Young'sModulus.png}
-	\caption{Solid underegoing deformation due to a force along its axis.} \label{fig:young'smodulus}
+	\caption{Solid undergoing deformation due to a force along its axis.} \label{fig:young'smodulus}
 \end{figure}
 \begin{definition}
 	$E$ - The ability of a solid to resist forces along a given axis.
@@ -187,7 +187,7 @@ so the pressure at $d$ is,
 	\boxed{P(d) = P_0 + \rho g d}.
 \end{equation}
 $\implies$ as $d$ increases linearly, so does $P$.
-\subsection{Buoyency and Archimedes Principle}
+\subsection{Buoyancy and Archimedes Principle}
 \begin{figure}
 	\centering
 	\includegraphics[width=150px]{archimedes.png}
@@ -197,11 +197,11 @@ Consider an arbitrary hollow shape of volume $V$ filled with liquid of density $
 \begin{equation}
 	F_w = \rho_l V g.
 \end{equation}
-The pressure acting on the body must be equal and opposite to its weight. We call this the \textit{buoyency force},
+The pressure acting on the body must be equal and opposite to its weight. We call this the \textit{buoyancy force},
 \begin{equation}
 	\boxed{F_b = \rho_l V g}. \label{eq:buoyency}
 \end{equation}
-The buoyency force is \textit{equal and opposite to the weight of the liquid displaced}. I.e., in the case that the mass has a density $\rho_b$ such that $\rho_l > \rho_b$, the force it feels is still of the form eq. \eqref{eq:buoyency}, so will float above the surface of the water.
+The buoyancy force is \textit{equal and opposite to the weight of the liquid displaced}. I.e., in the case that the mass has a density $\rho_b$ such that $\rho_l > \rho_b$, the force it feels is still of the form eq. \eqref{eq:buoyency}, so will float above the surface of the water.
 \section{Flow of Incompressible Liquid}
 The molecules in a liquid or gas can easily flow, with the same time and position dependent velocity, $\vb{v}(\vb{r},t)$.
 \subsection{Conservation of mass and the continuity equation}
@@ -225,9 +225,9 @@ In the case of compressible liquids (i.e., where $\rho = \rho(\vb{r})$), conserv
 \begin{figure}
 	\centering
 	\includegraphics[width=200px]{bernouli.png}
-	\caption{Frictionless pipe of arbitrary shape, with each end at a diffferent height $h_1$ and $h_2$ such that $h_2 < h_1$.} \label{fig:bernoulli}
+	\caption{Frictionless pipe of arbitrary shape, with each end at a different height $h_1$ and $h_2$ such that $h_2 < h_1$.} \label{fig:bernoulli}
 \end{figure}
-We will investigate how pressure of a liquid depends on flow speed. We assume no surface or iscous forces, and we assume flow is time independent, i.e., $\vb{v} = \vb{v}(\vb{r})$.\\\\
+We will investigate how pressure of a liquid depends on flow speed. We assume no surface or viscous forces, and we assume flow is time independent, i.e., $\vb{v} = \vb{v}(\vb{r})$.\\\\
 Particles will flow in streamlines. Consider adjacent streamlines which form a tube of arbitrary shape, where each end is at a different vertical height, $h_1$ and $h_2$ such that $h_2 < h_1$, and there is no flow in or out of the tube, as in fig. \ref{fig:bernoulli}. The liquid enters at height $h_1$, with velocity $v_1$, pressure $P_1$, through an area $A_1$. The liquid leaves at height $h_1$, with velocity $h_2$, pressure $P_2$, through an area $A_2$.
 \\\\
 From the conservation of mass,
@@ -266,27 +266,27 @@ which leads to Bernoulli's equation,
 	\boxed{P(h,v) + \rho g h + \frac{1}{2}\rho v^2 = \text{constant}}
 \end{equation}
 $\implies$ \textit{faster moving liquids have lower pressure}.
-\subsection{Flow Properties and Viscocity}
+\subsection{Flow Properties and Viscosity}
 \subsubsection{Laminar Flow}
 \begin{definition}
 	Smooth, regular streamlines that are locally parallel to each other
 \end{definition}\noindent
-The drag force on a spherical object of radius $R$ insterted into a liquid under laminar flow is caused by the liquid's resistance to shearing, and is given by Stoke's law,
+The drag force on a spherical object of radius $R$ inserted into a liquid under laminar flow is caused by the liquid's resistance to shearing, and is given by Stoke's law,
 \begin{equation}
 	\boxed{\vb{F}_D = 6\pi \nu R\vb{v}}
 \end{equation}
-where $\nu$ is the viscocity of the liquid.
+where $\nu$ is the viscosity of the liquid.
 \subsubsection{Turbulent Flow}
 \begin{definition}
-	Streamlines are irregular and chaotic du to formation of eddies in the flow.
+	Streamlines are irregular and chaotic due to formation of eddies in the flow.
 \end{definition}\noindent
-The drag force on an object placed in the stream ocurs due to the inertial force required to push the liquid out of the way of the object. The drag force is given by,
+The drag force on an object placed in the stream occurs due to the inertial force required to push the liquid out of the way of the object. The drag force is given by,
 \begin{equation}
 	\boxed{\vb{F}_D = \frac{1}{2}\rho v^2 C_D A \vu{v}}
 \end{equation}
-where $A$ is the cross-sectional area of the object and $C_D$ is a dimensionaless drag coefficiant.
+where $A$ is the cross-sectional area of the object and $C_D$ is a dimensionless drag coefficient.
 \subsubsection{Laminar-Turbulent Transition and Reynold's Number}
-Whether a liquid expriences laminar or turbulent flow depends on the ratio of inertial force to viscous force. This ratio is given by Reynold's number,
+Whether a liquid experiences laminar or turbulent flow depends on the ratio of inertial force to viscous force. This ratio is given by Reynold's number,
 \begin{equation}
 	\boxed{Re = \frac{\rho L v}{\nu}}
 \end{equation}
@@ -302,7 +302,7 @@ where $L$ is the length of the object moving through the liquid.
 	\includegraphics[width=400px]{contactangle.png}
 	\caption{}\label{fig:contactangle}
 \end{figure}
-We are interested in the way a liquid-gas interface meets the solid wall of a container. The shape of the liquid near the wall is known as the meniscus, as in fig. \ref{fig:contactangle}. We can approximate the meniscus as linear, wehre the liquid meets the wall at the contact angle $\theta$, at a height $h$, and horizontal distance $l$ from the surface of the liquid.
+We are interested in the way a liquid-gas interface meets the solid wall of a container. The shape of the liquid near the wall is known as the meniscus, as in fig. \ref{fig:contactangle}. We can approximate the meniscus as linear, where the liquid meets the wall at the contact angle $\theta$, at a height $h$, and horizontal distance $l$ from the surface of the liquid.
 \\\\
 Let us consider the following surface-free energies,
 \begin{enumerate}
@@ -349,7 +349,7 @@ which can be rearranged to give a function for $h$,
 	\boxed{h = -\frac{2}{(\gamma_{sl} - \gamma_{sg})}{\rho g R} = \frac{2\gamma_{lg} \cos\theta}{\rho g R}}
 \end{equation}
 \subsection{Surface Tension and Surface Free Energy}
-Consider a wire frame, with one side of length $l$, free to move in the $x$ direction. A thing iglm of liquid covers the space within the frame and shifts teh wire a distacen $\dd{x}$ in order ot minimise the overall free energy.\\\\
+Consider a wire frame, with one side of length $l$, free to move in the $x$ direction. A thing film of liquid covers the space within the frame and shifts the wire a distance $\dd{x}$ in order to minimise the overall free energy.\\\\
 The work done on the wire to move a distance $\dd{x}$ due to a force $F$ applied by the thin film of liquid is,
 \begin{equation}
 	\dd{W} = F\dd{x}. \label{eq:workdone}
@@ -377,7 +377,7 @@ This allows us to write down the ideal gas equation in two forms,
 	\boxed{\underbrace{P}_{\text{Pressure}}\overbrace{V}^{\text{Volume}} = \underbrace{n}_{\text{Moles}}\overbrace{R}^{\substack{\text{Molar gas }\\{\text{constant}}}}\underbrace{T}_{\text{Temperature}}} \\
 	\boxed{PV = \underbrace{N}_{\substack{\text{Number of}\\\text{molecules}}} \overbrace{k_b}^{\substack{\text{Boltzmann}\\\text{constant}} } T}.
 \end{align}
-1 mole of substance contains $N_A$ (Avogadro's number) amount of molecules. We further have a relation between the molar gas constant and the Boltzman constant which states,
+1 mole of substance contains $N_A$ (Avogadro's number) amount of molecules. We further have a relation between the molar gas constant and the Boltzmann constant which states,
 \begin{equation}
 	R = N_Ak_b.
 \end{equation}
@@ -433,11 +433,11 @@ For a reversible process, we require,
 	\includegraphics[width=300px]{FreeExpansion.png}
 	\caption{} \label{fig:free expansion}
 \end{figure}
-Let us consider a gas confined in a volume which is seperated in half, with the gas initially in only one part of the volume as in fig. \ref{fig:free expansion}. If we remove the partition instantaneously, we have,
+Let us consider a gas confined in a volume which is separated in half, with the gas initially in only one part of the volume as in fig. \ref{fig:free expansion}. If we remove the partition instantaneously, we have,
 \begin{align}
 	W = 0 && Q = 0 && \implies && \Delta E = 0.
 \end{align}
-However, this process is \textit{non-reversible}, as we have caused a permament change to the system.
+However, this process is \textit{non-reversible}, as we have caused a permanent change to the system.
 \subsubsection{Isothermal expansion of an ideal gas}
 \begin{figure}
 	\centering
@@ -454,7 +454,7 @@ This process is \textit{reversible} given that,
 	\item The piston moves slowly.
 \end{itemize}
 \subsection{Work Done}
-Generally, the work done on a fluid is represented by an the area under the curve ono an \textit{indicator diagram}, which plots pressure against volume. If we consider a piston of cross-sectional area $A$ compressing a fluid, we can write the work done as,
+Generally, the work done on a fluid is represented by an the area under the curve on an \textit{indicator diagram}, which plots pressure against volume. If we consider a piston of cross-sectional area $A$ compressing a fluid, we can write the work done as,
 \begin{equation}
 	\boxed{\dbar W = \vb{F}\cdot\dd{\vb{x}} = \underbrace{\frac{|\vb{F}|}{A}}_P \underbrace{A\dd{x}}_{-\dd{V}} = -P\dd{V}}. \label{eq:work}
 \end{equation}
@@ -487,7 +487,7 @@ Rewriting the first law,
 \begin{equation}
 	\dbar Q = C_V\dd{T} = \dd{E} - \dbar W = \dd{E} + \underbrace{P\dd{V}}_0 \label{eq:9304}
 \end{equation}
-where the subscript $V$ indicates volume is being held constnat. We can take $P\dd{V}= 0$ since $V$ is constant, and $\Delta V \to 0, \dd{V} = 0$. Let us write $E = (V,T)$,
+where the subscript $V$ indicates volume is being held constant. We can take $P\dd{V}= 0$ since $V$ is constant, and $\Delta V \to 0, \dd{V} = 0$. Let us write $E = (V,T)$,
 \begin{equation}
 	\dd{E} = \pdv{E}{T}\dd{T} + \underbrace{\pdv{E}{T}\dd{V}}_0. \label{eq:2309}
 \end{equation}
@@ -526,7 +526,7 @@ From which we get the relation,
 	\boxed{C_P(T) = C_V(T) + nR}.
 \end{equation}
 \subsection{Adiabatic Processes}
-For an adiabtic procecss, there is \textit{no heat transfer}, i.e., $Q = 0$. From the first law and eq. \eqref{eq:20},
+For an adiabatic process, there is \textit{no heat transfer}, i.e., $Q = 0$. From the first law and eq. \eqref{eq:20},
 \begin{equation}
 	\dd{E} - \dbar{W} = C_V\dd{T} - \dbar{W} = 0. \label{eq:203}
 \end{equation}
@@ -572,7 +572,7 @@ and by using the ideal gas law, we can eliminate variables and find expressions 
 \end{align}
 \section{Second Law of Thermodynamics}
 \begin{law}
-	The direction of heat flow approaches equillibrium, such that,
+	The direction of heat flow approaches equilibrium, such that,
 	\begin{itemize}
 		\item Systems at an intermediate temperature reach equilibrium at an intermediate temperature.
 		\item Heat naturally flows from hot bodies to cold bodies,
@@ -632,17 +632,17 @@ The Sterling engine is a piston operating between two heat reservoirs, with a ho
 		\end{equation}
 	\end{itemize}
 \end{enumerate}
-This cycle can be visualised on an indicator diagram as in fig. \ref{fig:heat engine}. Furhthermore, this cycle can all be derived from the first law and $\dbar W = -P\dd{V}$. 
+This cycle can be visualised on an indicator diagram as in fig. \ref{fig:heat engine}. Furthermore, this cycle can all be derived from the first law and $\dbar W = -P\dd{V}$. 
 \\\\
 Let us look at the cycle in more detail. The net work done \textit{by} the gas is,
 \begin{equation}
 	W = W_1 - W_3 = nR(T_H - T_C)\ln\left(\frac{V_B}{V_A}\right).
 \end{equation}
-The heat absorbed from the resevoir is at $T_H$ is,
+The heat absorbed from the reservoir is at $T_H$ is,
 \begin{equation}
 	Q_H = Q_1 + Q_4.
 \end{equation}
-The heat ejected \textit{to} the hot resevoir is,
+The heat ejected \textit{to} the hot reservoir is,
 \begin{equation}
 	Q_C = Q_2 + Q_3.
 \end{equation}
@@ -664,15 +664,15 @@ A schematic of the heat flow of a Sterling engine is shown in fig. \ref{fig:ster
 	\includegraphics[width=150px]{sterlingengine.png}
 	\caption{}\label{fig:sterlingengine}
 \end{figure}
-\subsection{Heat pumps and refrigirators}
+\subsection{Heat pumps and refrigerators}
 These are the opposite of engines, they do work on a system to extract heat.
-\subsubsection{Refrigerrator}
+\subsubsection{Refrigerator}
 Work is done to extract heat $Q_C$ from a system to lower its temperature $T_C$. In this case, the efficiency of the system is given as,
 \begin{equation}
 	\eta_R = \frac{Q_C}{Q_H - Q_C}.
 \end{equation}
 \subsubsection{Heat Pump}
-In a heat pump, we extract heat from a cooler resevoir at $T_C$ to heat a system to $T_H$. The desired ouput is $Q_H$, so,
+In a heat pump, we extract heat from a cooler reservoir at $T_C$ to heat a system to $T_H$. The desired output is $Q_H$, so,
 \begin{equation}
 	\eta_P = \frac{Q_H}{Q_H - Q_W}.
 \end{equation}
@@ -720,7 +720,7 @@ holds. From this, we can write down the efficiency of this engine,
 \begin{equation}
 	\eta_C  = \frac{W}{Q_H} = \frac{nRT_H\ln\left(\frac{V_B}{V_A}\right) - nRT_C\ln\left(\frac{V_C}{V_D}\right)}{nRT_H\ln\left(\frac{V_B}{V_A}\right)} = \frac{nRT_H\ln\left(\frac{V_B}{V_A}\right) - nRT_C\ln\left(\frac{V_B}{V_A}\right)}{nRT_H\ln\left(\frac{V_B}{V_A}\right)}
 \end{equation}
-from which we can write donw the final expression for the \textit{Carnot efficiency},
+from which we can write down the final expression for the \textit{Carnot efficiency},
 \begin{equation}
 	\boxed{\eta_C = 1 - \frac{T_C}{T_H}}.
 \end{equation}
@@ -731,19 +731,19 @@ Let us note that we find that the Stirling cycle approaches Carnot efficiency fo
 	\caption{} \label{fig:carnot}
 \end{figure}
 \subsection{Statements of the Second Law}
-It is difficult to state the second law in a concise, general way through onyl understanding heat. However, below are two common formulations.
+It is difficult to state the second law in a concise, general way through only understanding heat. However, below are two common formulations.
 
 \subsubsection{Kelvin-Planck Statement}
 \begin{tcolorbox}
 	It is impossible to construct an engine which, operating in a cycle, produces no effect other than the extraction of heat from the reservoir and the performance of an equivalent amount of work.
 \end{tcolorbox}
 
-\subsubsection{Claussius Statement}
+\subsubsection{Clausius Statement}
 \begin{tcolorbox}
-	It is impossible to construct a refrigirator which, operating in a cycle, produces no effect other than the transfer of heat from a cooler body to a hotter one.
+	It is impossible to construct a refrigerator which, operating in a cycle, produces no effect other than the transfer of heat from a cooler body to a hotter one.
 \end{tcolorbox}
 \section{Entropy}
-Entropy is encoded into Calusiu's inequality, which states that if a system is taken over a cycle, absorbing infinitesimal amounts of heat $\dbar Q$, from various reservoirs at varing temperatures T, throughout, then
+Entropy is encoded into Clausius's inequality, which states that if a system is taken over a cycle, absorbing infinitesimal amounts of heat $\dbar Q$, from various reservoirs at raving temperatures T, throughout, then
 \begin{equation}
 	\oint \frac{\dbar Q}{T} \leq 0.
 \end{equation}
@@ -781,7 +781,7 @@ We define infinitesimal entropy of a system,
 	\caption{}
 	\label{fig:cycle}
 \end{figure}
-We only have constant entropy in equilibrium. Let us consider a process like in fig. \ref{fig:cycle}. The total entropy of this sytem is,
+We only have constant entropy in equilibrium. Let us consider a process like in fig. \ref{fig:cycle}. The total entropy of this system is,
 \begin{equation}
 	\begin{split}
 	&\oint\frac{\dbar Q}{T} = \int_A^B \frac{\dbar Q}{T} + \int_B^A \frac{\dbar Q}{T} = 0 \\
@@ -876,7 +876,7 @@ We can further relate available work to thermodynamic potentials (described in d
 \begin{itemize}
 	\item For a process at constant temperature and pressure, the availability is related to the Gibbs free energy,
 	\begin{equation}
-		\boxed{W_{\text{usefull}} \leq -\Delta G}
+		\boxed{W_{\text{useful}} \leq -\Delta G}
 	\end{equation}
 	\item For a process at constant volume and temperature, the availability is related to the Helmholtz free energy,
 	\begin{equation}
@@ -897,7 +897,7 @@ From this we can define the Helmholtz free energy,
 \begin{equation}
 	\boxed{F(T,V) = E - TS}.
 \end{equation}
-Which holds for constnat $T$ and $V$. We can further consider the expansion of $\dd{F}$,
+Which holds for constant $T$ and $V$. We can further consider the expansion of $\dd{F}$,
 \begin{equation}
 	\dd{F} = \left(\pdv{F}{T}\right)_V \dd{T} + \left(\pdv{F}{V}\right)_T \dd{V}
 \end{equation}
@@ -1086,7 +1086,7 @@ where $\mathcal{V}$ is the molar volume, and $\Delta H$ is the molar change in e
 	\caption{}
 	\label{fig:pv phase}
 \end{figure}
-We wish to anallyse the liquid-gas transition more carefully. With the liquid-gas coexistance line ending at the critical point, we can infer that it is possible we can reach the gas phase from the liquid phase without a phase transitition. Thus, we could describe both liquid and gas with the same equation of state. If we insepct the $P-V$ diagram in figure \ref{fig:pv phase}, we see that at there is a saddle point at the critical point,
+We wish to analyse the liquid-gas transition more carefully. With the liquid-gas coexistence line ending at the critical point, we can infer that it is possible we can reach the gas phase from the liquid phase without a phase transition. Thus, we could describe both liquid and gas with the same equation of state. If we inspect the $P-V$ diagram in figure \ref{fig:pv phase}, we see that at there is a saddle point at the critical point,
 \begin{align}
 	\left(\pdv{P}{V}\right)_{T_C} = 0 && \left(\pdv[2]{P}{V}\right)_{T_C} = 0 \label{eq:fkjhdsklaj}
 \end{align}
@@ -1113,7 +1113,7 @@ Given a probability distribution $p(\vb{v})$,
 \begin{equation}
 	P = \int p(\vb{v}) \dd^3v
 \end{equation}
-is the probablility of a particle having a velocity vector $\vb{v}$ between $\vb{v}$ and $\vb{v} + \dd^3v$, i.e., that the particle's velocity will be found in a box of dimensions $\dd{v}_x\dd{v}_y\dd{v}_z$. Below are listed some properties of probability distributions,
+is the probability of a particle having a velocity vector $\vb{v}$ between $\vb{v}$ and $\vb{v} + \dd^3v$, i.e., that the particle's velocity will be found in a box of dimensions $\dd{v}_x\dd{v}_y\dd{v}_z$. Below are listed some properties of probability distributions,
 \begin{itemize}
 	\item $p(\vb{v}) \geq 0$ $\forall \vb{v}$.
 	\item The distribution is normalised, $\int_{-\infty}^{\infty} p(\vb{v})\dd^3v = 1$.
@@ -1131,16 +1131,16 @@ is the probablility of a particle having a velocity vector $\vb{v}$ between $\vb
 	\end{equation}
 \end{itemize}
 \subsection{Gaussian Integrals}
-Guassian integrals of the $m^{\text{th}}$ order have the form,
+Gaussian integrals of the $m^{\text{th}}$ order have the form,
 \begin{equation}
 	I_m = \int_{-\infty}^{\infty}x^{m}e^{-ax^2}\dd{x}
 \end{equation}
-for $a > 0$. We can relate even gaussian integrals by,
+for $a > 0$. We can relate even Gaussian integrals by,
 \begin{equation}
 	I_{2n} = \dv[n]{a}I_0.
 \end{equation}
 \section{The Boltzmann Factor}
-For a fixed number of paticles in thermall equilibrium at temperature $T$,
+For a fixed number of particles in thermal equilibrium at temperature $T$,
 \begin{equation}
 	\boxed{p(\text{state}) \propto \exp\left(-\frac{E(\text{state})}{k_BT}\right)}
 \end{equation}
@@ -1157,7 +1157,7 @@ where the normalisation constant is,
 	Z = \int_{\text{all states}}\exp\left(-\frac{E(\text{s})}{k_BT}\right)\dd{s}
 \end{equation}
 \subsection{Example: Isothermal Atmosphere}
-If we consider a planet that has an atmosphere consisting of a gas of non-interacting molecules with mass $m$, temperature $T$, with an acceleration due to gravity $g$ at a height $y$ above the planet's surface, we can describe the probability of finding a particle at a height $y$ using teh Boltzmann factor. A single particle will be subject to a potential $mgy$, so its probability distribution will be,
+If we consider a planet that has an atmosphere consisting of a gas of non-interacting molecules with mass $m$, temperature $T$, with an acceleration due to gravity $g$ at a height $y$ above the planet's surface, we can describe the probability of finding a particle at a height $y$ using the Boltzmann factor. A single particle will be subject to a potential $mgy$, so its probability distribution will be,
 \begin{equation}
 	p(y) = \frac{1}{Z} \exp \left(-\frac{mgy}{k_BT}\right)
 \end{equation}
@@ -1169,7 +1169,7 @@ We understand that an atmosphere is made up of more than 1 molecule of gas. For 
 \begin{equation}
 	\rho(y) = \rho_0 \exp \left(-\frac{mgy}{k_BT}\right).
 \end{equation}
-If we consider pressure due to the weight of the particles, for an incremental increase in height $\dd{y}$, the chanve in pressure is given by $\dd{P} = - \rho g \dd{y}$. We can then write,
+If we consider pressure due to the weight of the particles, for an incremental increase in height $\dd{y}$, the change in pressure is given by $\dd{P} = - \rho g \dd{y}$. We can then write,
 \begin{equation}
 	\begin{split}
 		P(y) & = \int_{\infty}^{y}-\dd{P} = -g\rho_0 \int_{-\infty}^{y}\exp\left(-\frac{mgy}{k_BT}\right) \\
@@ -1180,9 +1180,9 @@ If we consider $\frac{\rho}{m} = \frac{N}{V}$ where $N$ is the number of molecul
 \begin{equation}
 	PV = Nk_BT
 \end{equation}
-whcih is the ideal gas law.
+which is the ideal gas law.
 \subsection{Equation of State of an Ideal Gas}
-Let us find the equation of an ideal gas more generally using the velocity distribution of an ideal, homogenous, isotropic gas in a cubic container. Particles in a gas have velocities,
+Let us find the equation of an ideal gas more generally using the velocity distribution of an ideal, homogeneous, isotropic gas in a cubic container. Particles in a gas have velocities,
 \begin{equation}
 	\vb{v} = \left(\Dot{x}, \Dot{y}, \Dot{z}\right) 
 \end{equation}
@@ -1231,11 +1231,11 @@ which is expected, as given that the gas is homogeneous and isotropic, we expect
 	\caption{Incoming particle undergoes an elastic collision with one surface of the box.}
 	\label{fig:col}
 \end{figure}
-Consider an elastic collision with one surface of area $A$ of the box in a small time $\dd{t}$ as in figure \ref{fig:col}. The volume from which the particles collide is $\Dot{x}A\dd{t}$. Given the number density $n = N/V$, thte total number of particles coliding with the surface in a time $\dd{t}$ is,
+Consider an elastic collision with one surface of area $A$ of the box in a small time $\dd{t}$ as in figure \ref{fig:col}. The volume from which the particles collide is $\Dot{x}A\dd{t}$. Given the number density $n = N/V$, the total number of particles colliding with the surface in a time $\dd{t}$ is,
 \begin{equation}
 	N_{\text{col}} = n\Dot{x}A \dd{t}.
 \end{equation}
-Each collision transfers $2m\Dot{x}$ of momentum to the sruface due to elastic collisions. The average momentum transfer in a time $\dd{t}$ is given by,
+Each collision transfers $2m\Dot{x}$ of momentum to the surface due to elastic collisions. The average momentum transfer in a time $\dd{t}$ is given by,
 \begin{equation}
 	\begin{split}
 	\dd{\bar{p}_m} & = nA\dd{t}2m\left<\Dot{x}^2\right> \\
@@ -1329,7 +1329,7 @@ The shape of the distribution changes with temperature, as in figure \ref{fig:ma
 \begin{theorem}
 	The average energy due to each degree of freedom that contributes quadratically to the total energy of a classical system in thermal equilibrium at some temperature T is $\frac{1}{2}k_BT$ per particle. 
 \end{theorem}
-For monatomic moleucles, there are only translational degrees of freedom, i.e., 3 translational degrees of freedom. If we go through with the equipartition theorem, 
+For monatomic molecules, there are only translational degrees of freedom, i.e., 3 translational degrees of freedom. If we go through with the equipartition theorem, 
 \begin{equation}
 	\frac{\left<E\right>}{N} = 3 \times \frac{1}{2}k_B T = \frac{3}{2}k_BT
 \end{equation}
@@ -1347,16 +1347,16 @@ which agrees with \eqref{eq:energy}.
 	\fill[atom] (\z,\z,\z) circle (4pt);
 	\fill[atom] (\o,\z,\z) circle (4pt);
 \end{tikzpicture}
-\caption{Diatomic molecule of two molecules seperated by a relative distance $\Delta$, connected by a bond of effective spring constant $k$.}
+\caption{Diatomic molecule of two molecules separated by a relative distance $\Delta$, connected by a bond of effective spring constant $k$.}
 \label{fig:diatomic}
 \end{figure}
-If we consider a diatomic molecule composed of identical atoms with some bond between them of an effective spring constant $k$ and relative distance $\Delta$ as in figure \ref{fig:diatomic}, we can seperate the degrees of freedom into three categories and 3 different energies,
+If we consider a diatomic molecule composed of identical atoms with some bond between them of an effective spring constant $k$ and relative distance $\Delta$ as in figure \ref{fig:diatomic}, we can separate the degrees of freedom into three categories and 3 different energies,
 \begin{enumerate}
 	\item 3 translational degrees of freedom, $E_T = \frac{1}{2}m\left(\Dot{x}^2 + \Dot{y}^2 + \Dot{z}^2\right)$.
 	\item 2 rotational degrees of freedom, $E_{\text{rot}} = \frac{1}{2} I_1\Dot{\theta}_1^2 + \frac{1}{2}I_2\Dot{\theta}_2^2$.
 	\item 2 vibrational degrees of freedom, $E_{\text{vib}} = \frac{1}{2}m\Dot{\Delta}^2 + \frac{1}{2}k\Delta^2$.
 \end{enumerate}
-Let us note that the equipartition theorem only applies to classical systems, i.e., when $k_B T >> \Delta E$ where $\Delta E$ is the seperation between discrete energy levels. Furthermore, at lower temperatures, certain degrees of freedom do not contribute to the internal energy. These are,
+Let us note that the equipartition theorem only applies to classical systems, i.e., when $k_B T >> \Delta E$ where $\Delta E$ is the separation between discrete energy levels. Furthermore, at lower temperatures, certain degrees of freedom do not contribute to the internal energy. These are,
 \begin{align}
 	\text{Vibrational} && \text{Rotational} && \text{Translational} \\
 	k_BT \sim \Delta E_{\text{vib}} \simeq \hbar \omega && k_BT \sim \Delta E_{\text{rot}} \simeq \frac{\hbar^2}{I} && k_BT \sim \Delta E_{\text{trans}} \simeq \frac{\hbar^2}{mV^{\frac{2}{3}}}
