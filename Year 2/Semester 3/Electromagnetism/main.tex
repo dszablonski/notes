@@ -101,7 +101,7 @@
 
 \chapter{Mathematical Preliminaries}
 \section{Vector and Scalar Fields}
-A field is a function of space. A scalar field $\phi(\vb{r})$ is a field with a magnitude at some vector $\vb{r}$. A vector field $\vb{v}(\vb{r})$ has a magnitude and direction at some vector $\vb{r}$. Vectorrs are defined in terms of a basis, such that,
+A field is a function of space. A scalar field $\phi(\vb{r})$ is a field with a magnitude at some vector $\vb{r}$. A vector field $\vb{v}(\vb{r})$ has a magnitude and direction at some vector $\vb{r}$. Vectors are defined in terms of a basis, such that,
 \begin{equation}
 	\vb{v} = \sum_i v_i \vb{e}_i
 \end{equation}
@@ -172,7 +172,7 @@ Stoke's Theorem states that,
 \end{equation}
 where the direction of $\dd{\vb{S}}$ is determined by the right hand rule.
 \subsection{Curvilinear coordinates}
-The volume element in cyllindrical polar coordinates is,
+The volume element in cylindrical polar coordinates is,
 \begin{equation}
 	\dd{V} = r\dd{r}\dd{\theta}\dd{z}.
 \end{equation}
@@ -223,7 +223,7 @@ Laplace's equation is of the form,
 	\laplacian{f} = 0. \label{eq:laplace's equation}
 \end{equation}
 \subsection{Laplace's solution for a spherically symmetric field}
-If we have a scalar field soley dependent on $r$ such that $f = f(r)$, eq. \eqref{eq:laplace's equation} becomes,
+If we have a scalar field solely dependent on $r$ such that $f = f(r)$, eq. \eqref{eq:laplace's equation} becomes,
 \begin{equation}
 	\frac{1}{r^2}\dv{r}\left(r^2\dv{f}{r}\right) = 0. \label{eq:9430}
 \end{equation}
@@ -283,7 +283,7 @@ We can solve the integral in eq. \eqref{eq:int} by considering an angle $\theta'
 \end{split}
 \end{equation}
 and thus the integral can be solved by evaluating it over all space, preferably using polar co-ordinates.
-\chapter{Maxwell's Equations in a Vaccuum}
+\chapter{Maxwell's Equations in a Vacuum}
 \section{Currents and the Continuity Equation}
 If we have a charge density $\rho(\vb{r},t)$, and a current density $\vb{j}(\vb{r},t)$, then the charge and current respectively are defined,
 \begin{align}
@@ -318,7 +318,7 @@ Let us begin with some elementary definitions. The Lorentz force is defined,
 \begin{equation}
 	\vb{F} = 	\vb{E} + \vb{v}\cross\vb{B}.
 \end{equation}
-The electromagnetic energy density in a vaccuum is defined,
+The electromagnetic energy density in a vacuum is defined,
 \begin{equation}
 	u = \frac{1}{2}\varepsilon_0 |\vb{E}|^2 + \frac{1}{2\mu_0}|\vb{B}|^2.
 \end{equation}
@@ -395,13 +395,13 @@ from which we can write,
 \begin{align}
 	\laplacian \phi = -\frac{\rho}{\varepsilon_0} && \laplacian \vb{A} = -\mu_0\vb{j}
 \end{align}
-which are Poisson's eqations which can be readily solved.
+which are Poisson's equations which can be readily solved.
 \\\\
-\textbf{NOTE:} $\vb{A}$ has a guage degree of freedom, meaning that the magnetic field is invariat under a translation,
+\textbf{NOTE:} $\vb{A}$ has a gauge degree of freedom, meaning that the magnetic field is invariant under a translation,
 \begin{equation}
 	\vb{A}' = \vb{A} + \grad \psi
 \end{equation}
-for any choice of $\psi$. This can be removed by choosing the Coloumb guage,
+for any choice of $\psi$. This can be removed by choosing the Coulomb gauge,
 \begin{equation}
 	\div{\vb{A}} = 0.
 \end{equation}
@@ -416,7 +416,7 @@ and the solution is,
 	\boxed{\vb{E} = -\grad\phi = -\frac{1}{4\pi\varepsilon_0} \int_V \dd{V'} \frac{\rho(\vb{r}')(\vb{r} - \vb{r}')}{|\vb{r} - \vb{r}'|^2}}.
 	\end{split}
 \end{equation}
-\subsubsection{Coloumb's Law}
+\subsubsection{Coulomb's Law}
 A distribution of point charges is given by,
 \begin{equation}
 	\rho(\vb{r}) = \sum_i q_i\delta^{(3)}\left(\vb{r}-\vb{r}_i\right).
@@ -459,7 +459,7 @@ We can define the electric dipole moment as,
 \begin{equation}
 	\vb{p}(\vb{r}) = \int\dd{V};\left(\vb{r}'-\vb{r}\right)\rho(\vb{r})
 \end{equation}
-where we define the charge density of two point charges, seperated by a distance $2a$ along some axis,
+where we define the charge density of two point charges, separated by a distance $2a$ along some axis,
 \begin{equation}
 	\rho(\vb{r}) = \int\dd{V}(\vb{r}'-\vb{r})q\left[\delta^{(3)(\vb{r}'-\vb{a}) - \delta(\vb{r}'+\vb{a})}\right]
 \end{equation}
@@ -478,7 +478,7 @@ The magnetic equivalent is given by,
 \end{align}
 \section{Structure of Maxwell's Equations}
 \subsection{Potential formulation of Maxwell's equations}
-We have previously redefined the electric and magnetic fields in terms of potentials in eq. \eqref{eq:potentials} for electro and magnetisostatics, and we will now apply it to electro and magnetodynamics. Using this formulation allows for the simplification of many problems in electromagnetism. We have that,
+We have previously redefined the electric and magnetic fields in terms of potentials in eq. \eqref{eq:potentials} for electro and magnetostatics, and we will now apply it to electro and magnetodynamics. Using this formulation allows for the simplification of many problems in electromagnetism. We have that,
 \begin{align}
 	\div{\vb{B}} = 0 \\
 	\curl{\vb{E}}+\Dot{\vb{B}} = 0
@@ -491,13 +491,13 @@ which we can satisfy by choosing,
 \begin{equation}
 	\vb{E}= - \Dot{\vb{A}} - \grad \phi.
 \end{equation}
-As in the satic case, the choice of $\phi$ and $\vb{A}$ is not unique, thus they both have a guage freedom. We can fix their values by choosing the Lorenz guage,
+As in the static case, the choice of $\phi$ and $\vb{A}$ is not unique, thus they both have a gauge freedom. We can fix their values by choosing the Lorenz gauge,
 \begin{equation}
 	\boxed{\frac{1}{c^2}\Dot{\phi} + \div{\vb{A}} = 0}. \label{eq:lorenz guage}
 \end{equation}
-The time independent version of eq. \eqref{eq:lorenz guage} is the Coloumb guage.
+The time independent version of eq. \eqref{eq:lorenz guage} is the Coulomb gauge.
 \\\\
-In the case that the Lorenz guage is not satisfied for some $\phi$ or $\vb{A}$, we can perform a guage transformation,
+In the case that the Lorenz gauge is not satisfied for some $\phi$ or $\vb{A}$, we can perform a gauge transformation,
 \begin{align}
 	\phi \longrightarrow \phi' = \phi - \Dot{\Psi} \\
 	\vb{A} \longrightarrow \vb{A}' = \vb{A} + \grad{\Psi}
@@ -510,7 +510,7 @@ and choose $\Psi$ to be a solution of,
 \begin{equation}
 	\frac{1}{c^2}\Ddot{\psi}-\laplacian\Psi = \frac{1}{c^2}\Dot{\phi} + \div{\vb{A}}.
 \end{equation}
-\subsubsection{Redifining Maxwell's Laws}
+\subsubsection{Redefining Maxwell's Laws}
 We can redefine Maxwell's laws in terms of potentials. These are listed below,
 \begin{align}
 	-\laplacian\phi + \frac{1}{c^2}\pdv[2]{\phi}{t} = \frac{1}{\varepsilon_0}\rho && \text{Gauss' Law} \label{eq:pot gauss} \\
@@ -520,7 +520,7 @@ Let us define the differential "wave" operator,
 \begin{equation}
 	\Box = \frac{1}{c^2}\pdv[2]{t} - \laplacian
 \end{equation}
-from whcih we can redefine eqs. \eqref{eq:pot ampere} and \eqref{eq:pot gauss},
+from which we can redefine eqs. \eqref{eq:pot ampere} and \eqref{eq:pot gauss},
 \begin{align}
 	\Box \phi = \frac{\rho}{\epsilon} \\
 	\Box \vb{A} = \mu_0\vb{j}.
@@ -558,13 +558,13 @@ where we define
 \begin{equation}
 	t_R = \frac{\varepsilon_0}{\sigma}
 \end{equation}
-which can be interpreted as the relaxation time scale for the movement of conduction electrons to smooth out non-uniformities in the charge density.
+which can be interpreted as the relaxation time scale for the movement of conduction electrons to smooth out non-uniformnesses in the charge density.
 \section{Method of Images}
 This exploits the uniqueness theorem which states,
 \begin{theorem}
 	The solution to a set of differential equations under a given set of boundary conditions is the solution.
 \end{theorem}
-We will use the result that at a perfect conducter, the electric field is 0, which is also the case half-way between a charge and an anti-charge.
+We will use the result that at a perfect conductor, the electric field is 0, which is also the case half-way between a charge and an anti-charge.
 \\\\
 Consider a point charge $q$ a distance $a$ above an infinite, perfectly conducting plane at $z = 0$. The plane is grounded such that $\phi(x,y,0) = 0$. We further have that $\vb{E} = 0$. We wish to solve Poisson's equation given these boundary conditions. Let us consider an "image charge" at $z = -a$, with charge $-q$. If we choose to ignore the plane, we thus have,
 \begin{equation}
@@ -574,22 +574,22 @@ Consider a point charge $q$ a distance $a$ above an infinite, perfectly conducti
 	\end{split}
 \end{equation} 
 Substituting in the boundary conditions, we find $\phi(x,y,0) = 0$. Thus, the solution satisfies the boundary condition, and by the uniqueness theorem is the only solution. We have thus reformulated the problem to be much simpler to understand and compute.
-\section{Capacitance and Relative Permitivity}
+\section{Capacitance and Relative Permittivity}
 We understand capacitance to be the ratio of charge and potential difference within a capacitor, $C = Q/V$. For a parallel plate capacitor, this is given by,
 \begin{equation}
 	C = \frac{\varepsilon_0 A}{d}
 \end{equation}
-and whose energy cnan be calculated as,
+and whose energy can be calculated as,
 \begin{equation}
 	U = \frac{1}{2}\varepsilon_0\int \left|\vb{E}\right|^2\dd{V} = \frac{1}{2}V\left(\Delta V\right)^2.
 \end{equation}
-If we were to add a material between the two plates of the capacitor, we would observe a voltage drop. We can define the relative permitivity to be,
+If we were to add a material between the two plates of the capacitor, we would observe a voltage drop. We can define the relative permittivity to be,
 \begin{equation}
 	\varepsilon_r = \frac{C}{C_{\text{vacuum}}}
 \end{equation}
 which is also known as the dielectric constant. Dielectrics are a type of electrical insulator which can undergo polarisation. An ideal dielectric has the following properties,
 \begin{enumerate}
-	\item \textit{Homogenous} - Properties are the same throughout
+	\item \textit{Homogeneous} - Properties are the same throughout
 	\item \textit{Isotropic} - Same in every direction
 	\item \textit{$\vb{P} \propto \vb{E}$} - Behaves linearly
 	\item \textit{Stationary} - No time dependence
@@ -603,7 +603,7 @@ Dipoles will attempt to rotate to align with the applied electric field in order
 	\item intrinsic dipoles will algin to minimise action,
 	\item atoms and molecules can be polarised, inducing a dipole moment.
 \end{enumerate}
-We can define a macroscopic vector field knonw as the polarisation,
+We can define a macroscopic vector field known as the polarisation,
 \begin{equation}
 	\vb{P} = n\vb{p}
 \end{equation}
@@ -611,19 +611,19 @@ where $n$ is the number density of atoms or molecules, and $\vb{p}$ is the avera
 \begin{equation}
 	\vb{P} = \chi_E\varepsilon_0\vb{E} \label{eq:constitutive relation}
 \end{equation}
-where $\chi_E$ is the electric susceptibility, which can be defined in terms of the realtive permitivity,
+where $\chi_E$ is the electric susceptibility, which can be defined in terms of the relative permittivity,
 \begin{equation}
 	\chi_E = 1 - \varepsilon_r.
 \end{equation}
 \begin{aside}
-	We can generalise eq. \eqref{eq:constitutive relation} to include anistropic direction dependancies and non-linear responses by,
+	We can generalise eq. \eqref{eq:constitutive relation} to include anisotropic direction dependencies and non-linear responses by,
 	\begin{equation}
 		P_i = \varepsilon_0 \sum_j \chi_{ij}^{(1)}E_j + \varepsilon_0 \sum_{j,k} \chi_{ijk}^{(2)}E_jE_k
 	\end{equation}
-	where the matrix $\chi_{ij}^{(1)}$ encodes anisotropic responses, and the tensor $\chi_{ijk}^{(2)}$ encoces quadratic responses of the polarisation vector.
+	where the matrix $\chi_{ij}^{(1)}$ encodes anisotropic responses, and the tensor $\chi_{ijk}^{(2)}$ encodes quadratic responses of the polarisation vector.
 \end{aside}
 \subsection{Mechanisms for Polarisation}
-\subsubsection{Alignment of instrinsic dipoles}
+\subsubsection{Alignment of intrinsic dipoles}
 Atoms of molecules with an intrinsic dipole moment $\vb{p}_{\text{int}}$ subject to an external magnetic field $\vb{E}_{\text{ext}}$ have a polarisation,
 \begin{equation}
 	\vb{P}_{\text{align}} = \frac{np_{\text{int}}^2}{3k_BT}\vb{E}_{\text{ext}}
@@ -671,7 +671,7 @@ We have electrons moving left out of the material at one end, and into at the ot
 \begin{equation}
 	\Delta Q = -\left(P(x + \delta x) - P_x(x)\right)\delta y \delta z \approx -\pdv{P_x}{x} \delta x \delta y \delta z.
 \end{equation}
-However, te shift in charge is given by the elemental volume, multiplied by the value of the bound charge dnesity,
+However, the shift in charge is given by the elemental volume, multiplied by the value of the bound charge density,
 \begin{equation}
 	\Delta Q = \rho_{\text{bound}} \delta x \delta y \delta z
 \end{equation}
@@ -691,7 +691,7 @@ Thus,
 \begin{equation}
 	\int_V \div{\vb{P}}\dd{V} = \int_S\vb{P}\dd{\vb{S}} = \int_{S} \sigma \dd{S}
 \end{equation}
-from which we can obtain the surface denstiy due to polarisation,
+from which we can obtain the surface density due to polarisation,
 \begin{equation}
 	\sigma_P = \vb{P} \cdot\vu{n}.
 \end{equation}
@@ -724,7 +724,7 @@ The benefit of this electric displacement field is that it is a field whose line
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\textwidth]{dielecetric capacitor.png}
-	\caption{The boundary between two dielectric materials. Each region has a distinct relative permitivity, denoted by $\varepsilon^{(1)}_r$ and $\varepsilon^{(2)}_r$.}
+	\caption{The boundary between two dielectric materials. Each region has a distinct relative permittivity, denoted by $\varepsilon^{(1)}_r$ and $\varepsilon^{(2)}_r$.}
 	\label{fig:dielectric capacitor}
 \end{figure}
 Consider a parallel plate capacitor with a dielectric, as in fig. \ref{fig:dielectric capacitor}. The surface charge of the plate is given by $\sigma_P \frac{Q}{A}$. By eq. \eqref{eq:d field}, we have,
@@ -750,7 +750,7 @@ so the capacitance is,
 		& = (1 + \chi_E)C_0
 	\end{split} \label{eq:fhj}
 \end{equation}
-where $C_0$ is the capacitance in vacuum. Eq. \eqref{eq:fhj} holds at constant $Q$ with out a battery connected. From this, we can conclude that the electric field is lowered by $(1 + \chi_E) = \varepsilon_r$ due to the dieelectric. So, we can rewrite the electric displacement vector as,
+where $C_0$ is the capacitance in vacuum. Eq. \eqref{eq:fhj} holds at constant $Q$ with out a battery connected. From this, we can conclude that the electric field is lowered by $(1 + \chi_E) = \varepsilon_r$ due to the dielectric. So, we can rewrite the electric displacement vector as,
 \begin{equation}
 	\boxed{\vb{D} = \varepsilon_r\varepsilon_0\vb{E}}. \label{eq:d form}
 \end{equation}
@@ -770,12 +770,12 @@ in the $z$ direction for a parallel plate capacitor. However, generally,
 	\caption{}
 	\label{fig:interface}
 \end{figure}
-\subsubsection{Electric diplacement between two materials}
-Consider fig. \ref{fig:interface} (a), where we have a gaussian surface $S$ enclosing the boundary between the two materials, with thickness $d$ and area $\delta S$. When we take $d \to 0$, let us assume no free charges at the boundary. We then have,
+\subsubsection{Electric displacement between two materials}
+Consider fig. \ref{fig:interface} (a), where we have a Gaussian surface $S$ enclosing the boundary between the two materials, with thickness $d$ and area $\delta S$. When we take $d \to 0$, let us assume no free charges at the boundary. We then have,
 \begin{equation}
 	\begin{split}
 	\oint\vb{D}\cdot\dd{\vb{S}} & = 0 = -D_{\perp}^{(1)}\delta S + D_{\perp}^{(2)}\delta S \\
-	& \implies D_{\perp}\text{ is continous at the boundary.}
+	& \implies D_{\perp}\text{ is continuous at the boundary.}
 	\end{split}
 \end{equation}
 \subsubsection{Electric field between two materials}
@@ -801,7 +801,7 @@ Let us consider fig. \ref{fig:interface2}. The electric field in the two regions
 	\sin\theta_2 \\ \cos\theta_2
 	\end{pmatrix}
 \end{align}
-If $E_{\parallel}$ is continous,
+If $E_{\parallel}$ is continuous,
 \begin{equation}
 	E_1\sin\theta_1 = E_2\sin\theta_2. \label{eq:239}
 \end{equation}
@@ -844,7 +844,7 @@ The flux through the solenoid is given by,
 	& = \mu_0 n^2 \pi r^2 l I.
 	\end{split}
 \end{equation}
-By Faraday's law the EMF throuhg the coil is,
+By Faraday's law the EMF through the coil is,
 \begin{equation}
 	\epsilon = -\pdv{\Phi_B}{t} = -\mu_0n^2\pi r^2 l \pdv{I}{t},
 \end{equation}
@@ -852,10 +852,10 @@ and we define the inductance,
 \begin{equation}
 	\mathcal{L} = -\frac{\epsilon}{I} = \mu_0 n^2 \pi r^2 l
 \end{equation}
-measured in Henrys $\left[\text{H}\right]$.
+measured in Henries $\left[\text{H}\right]$.
 \end{tcolorbox}
 \noindent
-The above is true in a vaccuum. Similarly as we did for electrostatics, we wish to formulate magnetostatics in materials. Let us begin by definiing some quantities.
+The above is true in a vacuum. Similarly as we did for electrostatics, we wish to formulate magnetostatics in materials. Let us begin by defining some quantities.
 \\\\
 The relative permeability is given by,
 \begin{equation}
@@ -893,7 +893,7 @@ where $J$ is the angular momentum such that $J = m_erv$. Current flows in the di
 \begin{equation}
 	\vb{m} = - \frac{e}{2m_e}\vb{J}.
 \end{equation}
-From quantum mechanics, we understand that orbital angular momentum of the electron is qunatised such that,
+From quantum mechanics, we understand that orbital angular momentum of the electron is quantised such that,
 \begin{equation}
 	\left|\vb{J}\right| = \sqrt{\ell(\ell + 1)}\hbar
 \end{equation}
@@ -901,11 +901,11 @@ so we have that the magnetic dipole moment is directly proportional to the \text
 \begin{align}
 	\mu_B \propto |\vb{m}| && \mu_B = \frac{e\hbar}{2m_e}.
 \end{align}
-For an ato with multiple electrons, we have 
+For an atom with multiple electrons, we have 
 \begin{equation}
 	\vb{m}_{\text{tot}} = \sum_i m_i = -\frac{e}{2m_e}\sum_i\vb{J}_i.
 \end{equation}
-For Diagmetism, there is no intrinsic dipole moment, so we have that $\sum_i \vb{L}_i = 0$.
+For Diamagnetism, there is no intrinsic dipole moment, so we have that $\sum_i \vb{L}_i = 0$.
 \\\\
 Let us consider the force on $Z$ electrons where there is no applied magnetic field, 
 \begin{equation}
@@ -933,7 +933,7 @@ For $Z$ electrons, averaging over all orientations of electron orbits, the induc
 \end{align}
 which describes diamagnetism.
 \subsection{Paramagnetism}
-Paramagnetism occurs when $\sum_i\vb{L}_i \neq 0$, which results in an intrinsic dipole moment $\vb{m}_\text{int}$. We then have that the extrenal magnetic field creates an alignment,
+Paramagnetism occurs when $\sum_i\vb{L}_i \neq 0$, which results in an intrinsic dipole moment $\vb{m}_\text{int}$. We then have that the external magnetic field creates an alignment,
 \begin{equation}
 	\vb{M} = \frac{nm_{\text{int}^2}}{3k_B T}\vb{B}_{\text{ext}}.
 \end{equation}
@@ -942,7 +942,7 @@ We are then able to write the overall magnetic susceptibility due to effects of 
 \begin{equation}
 	\boxed{\chi_B = \mu_0n\left(\frac{m_{\text{int}^2}}{3k_BT} - \frac{Ze^2\left<r^2\right>}{6m_e}\right)}
 \end{equation}
-In paramagnetism, it was assumed that intrinsic dipoles did not interact. HOwever, in certain materials, this is not the case.
+In paramagnetism, it was assumed that intrinsic dipoles did not interact. However, in certain materials, this is not the case.
 \section{Magnetostatics in a Magnets}
 As in the electrostatic case, we will attempt to distinguish between bound and free currents. In a magnet, there are bound currents such that,
 \begin{equation}
@@ -956,7 +956,7 @@ where $\vu{n}$ is the normal to the surface. Let us recall equations of magnetos
 \begin{align*}
 	\div{\vb{B}} = 0 && \curl{\vb{B}} = \mu_0 \vb{J}.
 \end{align*}
-Let us seperate the total current density $\vb{J}$ into bound and free components, beginning with Ampere's law,
+Let us separate the total current density $\vb{J}$ into bound and free components, beginning with Ampere's law,
 \begin{equation}
 	\begin{split}
 		\curl{\vb{B}} & = \mu_0\left(\vb{J}_{\text{bound}} + \vb{J}_{\text{free}}\right) \\
@@ -1008,7 +1008,7 @@ and thus, writing the magnetic field in terms of $\vb{H}$,
 	\boxed{\vb{B} = \mu_r\mu_0 \vb{H}}. \label{eq:H}
 \end{equation}
 \subsection{Interfaces between Magnetic Materials}
-By similar reasoning as the electrostatic case, we find that at the boundary between two different magnetic materials of relative permeabilities $\mu_r^{(1)}$ and $\mu_r^{(2)}$ we have,
+By similar reasoning as the electrostatic case, we find that at the boundary between two different magnetic materials of relative permeability $\mu_r^{(1)}$ and $\mu_r^{(2)}$ we have,
 \begin{align}
 	\oint \vb{H}\cdot\dd{\vb*{\ell}} = 0 \implies \vb{H}_{\parallel} \text{ is continuous at the boundary} \\
 	\oint \vb{B}\cdot\dd{\vb{A}} = 0 \implies \vb{B}_{\perp} \text{ is continuous at the boundary}
@@ -1026,7 +1026,7 @@ This allows us to formulate an equation for $\vb{H}$ in terms of a potential,
 \begin{equation}
 	\vb{H} = - \grad \psi.
 \end{equation}
-From this, we are able to write a poisson equation for the magnetic potential $\psi$,
+From this, we are able to write a Poisson equation for the magnetic potential $\psi$,
 \begin{equation}
 	\boxed{\laplacian\psi = -\psi_m = \div{\vb{M}}} 
 \end{equation}
@@ -1036,7 +1036,7 @@ which gives way to a solution,
 \end{equation}
 
 \section{Ferromagnetism}
-In paramagnetism, we assumed that intrinsic dipoles did not interact. However, in ferromagnetic magterials this is not the case. Within materials, there are ferromagnetic domains, which are areas of material which have the same dipole alignment. Furthermore, eq. \eqref{eq:magnetic sus} and eq. \eqref{eq:H} no longer hold. Instead we have relations,
+In paramagnetism, we assumed that intrinsic dipoles did not interact. However, in ferromagnetic materials this is not the case. Within materials, there are ferromagnetic domains, which are areas of material which have the same dipole alignment. Furthermore, eq. \eqref{eq:magnetic sus} and eq. \eqref{eq:H} no longer hold. Instead we have relations,
 \begin{align}
 	\vb{M} \equiv \vb{M}(\vb{B}) && \mu_r = \frac{1}{\mu_0}\pdv{B}{H}.
 \end{align} 
@@ -1071,7 +1071,7 @@ To reduce energy, we must align the moments such that,
 	\end{subfigure}
 	\caption{Magnetic domains formed in a ferromagnet at various temperatures.}
 \end{figure}
-Domains form at different temperatures. We will define the \textit{Curie temperature} $T_C$ at which domains no longer exist. Below we describe the effects on ferromagnets at different temperatures,
+Domains form at different temperatures. We will define the \textit{Curie temperature} $T_C$ at which domains no longer exist. Below we describe the effects on ferromagnet at different temperatures,
 \begin{enumerate}
 	\item $T >> T_C$, as in fig. \ref{fig:t=tc}. The interactions between magnetic dipoles are weak due to thermal fluctuations dominating. The material presents only paramagnetic effects.
 	\item $T = \lim_{\epsilon \to 0}(T_C - \epsilon)$, as in fig. \ref{fig:t - e}. Interactions between dipoles begin to have effects, and bubbles of magnetic dipoles form. This process is known as "bubble nucleation".
@@ -1136,11 +1136,11 @@ The key differences in the behaviour of the two fields is summarised below, and 
 	\caption{}
 	\label{fig:bhgraph}
 \end{figure}
-If we consider a wire wrapped around a ferromagnet, the wire carries a current $I$. Since $\vb{H} = \vb{H}(I)$, we can control th emagnetic intensity vector $\vb{H}$. AS currernt is applied, the domains begin to flip and $\vb{H}$ will increase alongside $\vb{B}$. We have that $\vb{M} \propto \vb{B}$. The magnetisation will eventually reach a maximum (point $A$ on figure \ref{fig:bhgraph}) $\vb{M} = \vb{M}_{\text{Max}}$. All domains are aligned, and can only slowly increase $\vb{H}$.
+If we consider a wire wrapped around a ferromagnet, the wire carries a current $I$. Since $\vb{H} = \vb{H}(I)$, we can control th magnetic intensity vector $\vb{H}$. AS current is applied, the domains begin to flip and $\vb{H}$ will increase alongside $\vb{B}$. We have that $\vb{M} \propto \vb{B}$. The magnetisation will eventually reach a maximum (point $A$ on figure \ref{fig:bhgraph}) $\vb{M} = \vb{M}_{\text{Max}}$. All domains are aligned, and can only slowly increase $\vb{H}$.
 \\\\
 If we decide to then lower the current, we find that the magnetisation is non-zero at $\vb{H} = 0$, i.e., some domains have been permanently aligned. If we then increase current but in the opposite direction, all the domains flip and cancel out the magnetic field. At point $C$ in figure \ref{fig:bhgraph}, we have $\vb{H} = \vb{H}_C$ which is known as the coercive field. 
 \\\\
-The work done is given by the area under the hysterisis curve in figure \ref{fig:bhgraph}, given by,
+The work done is given by the area under the hysteresis curve in figure \ref{fig:bhgraph}, given by,
 \begin{equation}
 	\int U = -V \oint \vb{H} \cdot{\dd{\vb{B}}}.
 \end{equation} 
@@ -1150,7 +1150,7 @@ The general wave equation is given by
 \begin{equation}
 	\frac{1}{v^2}\pdv[2]{\phi}{t} - \pdv[2]{\phi}{x} = 0. \label{eq:11}
 \end{equation}
-The most general solutoin is given by,
+The most general solution is given by,
 \begin{equation}
 	\phi(x,t) = f(x-vt) + g(x + vt).
 \end{equation}
@@ -1192,7 +1192,7 @@ Whose solution is given by,
 \begin{equation}
 	\phi = Ae^{i(\vb{k}\cdot\vb{r} - \omega t)} + B e^{i(\vb{k}\cdot\vb{r} + \omega t)}
 \end{equation}
-where $\vb{r}$ is an arbitrary position vector. The direction of propogation of the wave is given by $\vu{k}$, where,
+where $\vb{r}$ is an arbitrary position vector. The direction of propagation of the wave is given by $\vu{k}$, where,
 \begin{equation}
 	\vb{k} = \frac{2\pi}{\lambda}\vu{k}.
 \end{equation}
@@ -1249,7 +1249,7 @@ By Gauss's law,
 \begin{equation}
 	\vb{k}\cdot\vb{E} = 0
 \end{equation}
-$\implies$ $\vb{k}$ and $\vb{E}$ are orthogonal, i.e., the direction of propogation is orthogonal to the electric field. Now, considering the magnetic field,
+$\implies$ $\vb{k}$ and $\vb{E}$ are orthogonal, i.e., the direction of propagation is orthogonal to the electric field. Now, considering the magnetic field,
 \begin{equation}
 	-\Dot{\vb{B}} = \curl{\vb{E}} = i\vb{k}\cross\vb{E}_0e^{i(\vb{k}\cdot\vb{r} - \omega t)}
 \end{equation}
@@ -1270,12 +1270,12 @@ We can write this as a wave,
 	& + \frac{1}{2\mu_0}\frac{E_0^2}{c^2}\left[\Re{e^{i(\vb{k}\cdot\vb{r}+\omega t + \theta)}}\right]^2
 	\end{split}
 \end{equation}
-The maimum and average enery densities are given by,
+The maximum and average emery densities are given by,
 \begin{align}
 	u_{\text{max}} = \varepsilon_0E_0^2 && \left<u_D\right> = \frac{1}{2} \varepsilon_0E_0^2.
 \end{align}
 \subsection{Poynting Vector}
-The Poynting vector ($\vb{N}$) describes the energy flow of electromagnetic waves. Let us consider the volume covered by a wave in a timie intervalt $\Delta t$ throuhg a surface $\Delta A$,
+The Poynting vector ($\vb{N}$) describes the energy flow of electromagnetic waves. Let us consider the volume covered by a wave in a time interval $\Delta t$ through a surface $\Delta A$,
 \begin{equation}
 	\left<\substack{\text{Enclosed energy}\\\text{density}}\right> = \left<u_D\right> c\Delta t \Delta A = \frac{1}{2}\varepsilon_0E_0^2c\Delta t \Delta A = \Delta u_{\text{tot}}.
 \end{equation}
@@ -1315,7 +1315,7 @@ In dielectrics, the Poynting vector becomes,
 	\boxed{\vb{N} = \vb{E}\cross\vb{H}}.
 \end{equation}
 \subsubsection{Intensity and Radiation Pressure}
-If we insert the plane wave solution into the definiton of the Poynting vector, we obtain,
+If we insert the plane wave solution into the definition of the Poynting vector, we obtain,
 \begin{equation}
 	\vb{N} = \frac{E_0^2}{Z_0^2}\hat{\vb{k}}\cos^2(\vb{k}\cdot{\vb{r}}).
 \end{equation}
@@ -1672,5 +1672,5 @@ which rearranges to,
 \begin{equation}
 	\boxed{(\laplacian{\phi})_0 \cong \frac{24}{a^2}(\bar{\phi} - \phi_a)}.
 \end{equation}
-Thus, we can think of the Laplacian at a point to be the measure of its difference with the average value of the field in the infinitesimal neighbourhood of that point. If we think about Poisson's equation ($\laplacian{\phi} = \rho$), from the intuition we developed, we see that Poisson's equation is saying that the difference from the average value about a point is proportional to the charge density. This makes sense, as at points of high charge density, the electric scalar field, and therefore the electric field lines, are going to be stronger, so the change of the scalar field at that point compared with the average field in the nieghbourhood will be higher as the field changes more.
+Thus, we can think of the Laplacian at a point to be the measure of its difference with the average value of the field in the infinitesimal neighbourhood of that point. If we think about Poisson's equation ($\laplacian{\phi} = \rho$), from the intuition we developed, we see that Poisson's equation is saying that the difference from the average value about a point is proportional to the charge density. This makes sense, as at points of high charge density, the electric scalar field, and therefore the electric field lines, are going to be stronger, so the change of the scalar field at that point compared with the average field in the neighbourhood will be higher as the field changes more.
 \end{document}

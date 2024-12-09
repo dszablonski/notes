@@ -10,7 +10,7 @@
 \contentsline {subsection}{\numberline {1.4.1}Laplace's solution for a spherically symmetric field}{6}{}%
 \contentsline {subsection}{\numberline {1.4.2}Uniqueness of Poisson's Equation}{6}{}%
 \contentsline {subsection}{\numberline {1.4.3}General solution to Poisson's equation}{7}{}%
-\contentsline {chapter}{\numberline {2}Maxwell's Equations in a Vaccuum}{8}{}%
+\contentsline {chapter}{\numberline {2}Maxwell's Equations in a Vacuum}{8}{}%
 \contentsline {section}{\numberline {2.1}Currents and the Continuity Equation}{8}{}%
 \contentsline {section}{\numberline {2.2}Integral Forms of Maxwell's Equations}{8}{}%
 \contentsline {subsection}{\numberline {2.2.1}Gauss' Law}{9}{}%
@@ -19,27 +19,27 @@
 \contentsline {subsection}{\numberline {2.2.3}Ampere's Law and Displacement Current}{9}{}%
 \contentsline {section}{\numberline {2.3}The time independent forms of Maxwell's equations}{10}{}%
 \contentsline {subsection}{\numberline {2.3.1}Electrostatics}{10}{}%
-\contentsline {subsubsection}{Coloumb's Law}{10}{}%
+\contentsline {subsubsection}{Coulomb's Law}{10}{}%
 \contentsline {subsection}{\numberline {2.3.2}Magnetostatics}{11}{}%
 \contentsline {section}{\numberline {2.4}Electric and Magnetic Dipoles}{11}{}%
 \contentsline {section}{\numberline {2.5}Structure of Maxwell's Equations}{12}{}%
 \contentsline {subsection}{\numberline {2.5.1}Potential formulation of Maxwell's equations}{12}{}%
-\contentsline {subsubsection}{Redifining Maxwell's Laws}{12}{}%
+\contentsline {subsubsection}{Redefining Maxwell's Laws}{12}{}%
 \contentsline {subsection}{\numberline {2.5.2}Lorentz Transformations}{12}{}%
 \contentsline {chapter}{\numberline {3}Electromagnetic Effects in Simple Materials}{13}{}%
 \contentsline {section}{\numberline {3.1}Conductors}{13}{}%
 \contentsline {section}{\numberline {3.2}Method of Images}{13}{}%
-\contentsline {section}{\numberline {3.3}Capacitance and Relative Permitivity}{14}{}%
+\contentsline {section}{\numberline {3.3}Capacitance and Relative Permittivity}{14}{}%
 \contentsline {section}{\numberline {3.4}Polarisation}{14}{}%
 \contentsline {subsection}{\numberline {3.4.1}Mechanisms for Polarisation}{15}{}%
-\contentsline {subsubsection}{Alignment of instrinsic dipoles}{15}{}%
+\contentsline {subsubsection}{Alignment of intrinsic dipoles}{15}{}%
 \contentsline {subsubsection}{Induced}{15}{}%
 \contentsline {subsubsection}{Combined mechanism}{15}{}%
 \contentsline {section}{\numberline {3.5}Electrostatics in Dielectrics}{16}{}%
 \contentsline {subsection}{\numberline {3.5.1}Properties of the $\vb {D}$ field}{17}{}%
 \contentsline {subsubsection}{Energy in a capacitor}{17}{}%
 \contentsline {subsection}{\numberline {3.5.2}Interfaces between Dielectrics}{17}{}%
-\contentsline {subsubsection}{Electric diplacement between two materials}{17}{}%
+\contentsline {subsubsection}{Electric displacement between two materials}{17}{}%
 \contentsline {subsubsection}{Electric field between two materials}{18}{}%
 \contentsline {subsubsection}{The general case}{18}{}%
 \contentsline {section}{\numberline {3.6}Inductance and Relative Permeability}{19}{}%
