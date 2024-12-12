@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  9 DEC 2024 23:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  12 DEC 2024 14:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1564,34 +1564,34 @@ Package pdftex.def Info: maxwell-boltzmann-002.png  used on input line 1317.
 Chapter 4.
 [32
 
-]
+] [33] [34]
 Appendix A.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1368--1379
+Underfull \hbox (badness 10000) in paragraph at lines 1484--1495
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1368--1379
+Underfull \hbox (badness 10000) in paragraph at lines 1484--1495
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1368--1379
+Underfull \hbox (badness 10000) in paragraph at lines 1484--1495
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1368--1379
+Underfull \hbox (badness 10000) in paragraph at lines 1484--1495
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1368--1379
+Underfull \hbox (badness 10000) in paragraph at lines 1484--1495
 
  []
 
-[33
+[35
 
 ] (./main.aux)
  ***********
@@ -1600,10 +1600,10 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 47208 strings out of 476076
- 1174398 string characters out of 5793774
+ 47233 strings out of 476076
+ 1174974 string characters out of 5793774
  1950187 words of memory out of 5000000
- 68430 multiletter control sequences out of 15000+600000
+ 68455 multiletter control sequences out of 15000+600000
  574086 words of font info for 93 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  94i,25n,96p,1205b,801s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1625,10 +1625,10 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texmf-dist/fonts/type
 1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/
 cm-super/sfrm1000.pfb>
-Output written on main.pdf (33 pages, 1049038 bytes).
+Output written on main.pdf (35 pages, 1059642 bytes).
 PDF statistics:
- 297 PDF objects out of 1000 (max. 8388607)
- 155 compressed objects within 2 object streams
+ 303 PDF objects out of 1000 (max. 8388607)
+ 159 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  258 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1362,7 +1362,124 @@ Let us note that the equipartition theorem only applies to classical systems, i.
 	k_BT \sim \Delta E_{\text{vib}} \simeq \hbar \omega && k_BT \sim \Delta E_{\text{rot}} \simeq \frac{\hbar^2}{I} && k_BT \sim \Delta E_{\text{trans}} \simeq \frac{\hbar^2}{mV^{\frac{2}{3}}}
 \end{align}
 \chapter{Transport Properties of Gasses}
-
+It can be shown that the relative speed between particles in a gas is given by,
+\begin{equation}
+	\left<v_r\right> = \sqrt{2}\left<v\right>
+\end{equation}
+which underpins all topics on the discussion of transport properties.
+\section{Mean Collision Time and Mean Free Path}
+Consider molecule 1 moving at velocity $v_r$ in the rest frame of molecule 2. We can define their collision cross-section as,
+\begin{equation}
+	\sigma = \pi(2r_m)^2
+\end{equation}
+where $r_m$ is the radius of the molecule. Let us consider the area the molecule sweeps out in a time $\dd{t}$ as $\sigma v_r \dd{t}$. If molecule is present in a cylinder of this volume, a collision will occur. The probability of a collision occurring is then,
+\begin{equation}
+	P = \frac{N}{V}\sigma v_r \dd{t}.
+\end{equation}
+Let us define the survival probability distribution $p_s(t)$ as the probability of molecule 1 "surviving" for time $t$ with no collision. The probability of a collision between $t$ and $t + \dd{t}$ is,
+\begin{equation}
+	\dd{p_s} = p_s\cdot\frac{N}{V}\sigma v_r \dd{t}.
+\end{equation}
+This can be rearranged and solved trivially,
+\begin{equation}
+	\boxed{p_s = \exp\left(-\frac{N}{V}\sigma v_r \dd{t}\right) = \exp\left(\frac{t}{\tau}\right)}
+\end{equation}
+where $\tau$ is the \textit{mean collision time},
+\begin{equation}
+	\boxed{\tau = \frac{1}{\frac{N}{V}\sigma v_r} = \frac{1}{\frac{N}{V}\sigma\left<v\right>}}.
+\end{equation}
+We can then define the \textit{mean free path} as the mean distance between collisions,
+\begin{equation}
+	\lambda = \tau \left<v\right> = \frac{1}{\sqrt{2}\frac{N}{V}\sigma}.
+\end{equation}
+\section{Effusion}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw (0,0,0) -- (0,0.5,0) -- (0.5,0.5,0) -- (0.5,0,0) -- (0,0,0) -- (0,0,0.5) -- (0,0.5,0.5) -- (0,0.5,0);
+		\draw (0,0.5,0.5) -- (0.5,0.5,0.5) -- (0.5,0.5,0);
+		\draw (0.5,0.5,0.5) -- (0.5,0,0.5) -- (0,0,0.5);
+		\draw (0.5,0,0.5) -- (0.5,0,0);
+		\begin{scope}[canvas is xz plane at y = -3]
+			\draw (-3,-3) circle (0.5);
+		\end{scope}
+		\draw[-Latex] (-3,-3,-3) -- (0,0,0.5) node[anchor=west, midway] {$r$};
+		\draw[dashed] (-3,-3,-3) -- (-3,0.5, -3);
+		\node at (-2.75,-2.5,-3) {$\theta$};
+	\end{tikzpicture}
+	\caption{A small hole of area $\dd{S}$ a distance $r$ away from a small volume of gas $\dd{V}$.}
+	\label{fig:effusion}
+\end{figure}
+Effusion is the rate of change of escape of gas molecules through a small hole in a container. Assume the hole has an area $\dd{S}$ with radius $<< \lambda$ so that collisions at the vicinity of the hole do not have to be considered. The mean number of collisions per unit time is given by,
+\begin{equation}
+	\frac{1}{\tau} = \frac{\left<v\right>}{\lambda}.
+\end{equation}
+In a small, arbitrary volume, there are $\frac{N}{V}\dd{V}$ molecules. The number of molecules scattered randomly out of $\dd{V}$ per unit time is,
+\begin{equation}
+	\frac{N}{V}\left<v\right> \frac{\dd{V}}{\lambda}.
+\end{equation}
+If we consider that this volume is a distance $r$ away from the hole at an angle $\theta$ as in figure \ref{fig:effusion}, we find that the fraction of molecules scattered from $\dd{V}$ to $\dd{S}$ is,
+\begin{equation}
+	\frac{\dd{S}\cos\theta}{4\pi r^2}.
+\end{equation}
+The probability that a molecule will reach $\dd{S}$ without collision is $\exp\left(-\frac{r}{\lambda}\right)$. The number of molecules from $\dd{V}$ reaching $\dd{S}$ per unit time is then given by,
+\begin{equation}
+	\frac{N}{V}\left<v\right>\frac{\dd{V}}{\lambda}\frac{\dd{S}\cos\theta}{4\pi r^2}\exp\left(-\frac{r}{\lambda}\right).
+\end{equation}
+Integrating this expression over all space will allow us to obtain the number of molecules leaving through $\dd{S}$ per unit time,
+\begin{equation}
+	\begin{split}
+	& \frac{N}{V}\left<v\right> \dd{S}\int_0^{2\pi}\dd{\phi} \int_0^{\frac{\pi}{2}}\sin\theta\cos\theta \dd{\theta} \int_0^{\infty}\exp\left(-\frac{r}{\lambda}\right)\dd{r} \\
+	= & \frac{N}{V}\frac{\left<v\right>\dd{S}}{4\pi\lambda}\frac{2\pi\lambda}{2} = \frac{N}{V} \left<v\right>\frac{\dd{S}}{4}.
+	\end{split}
+\end{equation}
+We can then obtain a flux through the hole (molecules leaving per unit time),
+\begin{equation}
+	\boxed{\Phi = \frac{1}{4}\frac{N}{V}\left<v\right>}.
+\end{equation}
+The rate at which molecules pass through the area is $A\Phi$.
+\begin{figure}[b]
+	\centering
+	\begin{tikzpicture}[scale=1]
+		\draw[] (0,0) -- (5,0) node[anchor=west] {$u=0$};
+		\draw[->] (0,3) -- (5,3) node [anchor=west] {$u=u_0$};
+		\draw[-Latex] (2.5,0.5) -- (3,0.5);
+		\draw[-Latex] (2.5,1) -- (3.25,1);
+		\draw[-Latex] (2.5,1.5) -- (3.5,1.5);
+		\draw[-Latex] (2.5,2) -- (3.75,2);
+		\draw[-Latex] (2.5,2.5) -- (4,2.5);
+		\node at (4,1.5) {$u_x(z)$};
+		\draw[->] (-1,1.5) -- (-1,2) node[anchor=south] {$z$};
+		\draw[->] (-1,1.5) -- (-0.5,1.5) node[anchor=west] {$x$};
+		\draw[<->] (5.5,0.3) -- (5.5,2.7) node[midway,anchor=west] {$L$};
+	\end{tikzpicture}
+	\caption{Gas between two plates, the top plate moving at a velocity $u_0$ and the bottom plate stationary.}
+	\label{fig:viscocity}
+\end{figure}
+\newpage
+\section{Viscosity}
+Consider a gas between two plates as in figure \ref{fig:viscocity}. The gas exerts a stress on the top plate,
+\begin{equation}
+	F_{xz} = -\eta \pdv{u_x}{z}
+\end{equation}
+where $F_{zx}$ is the rate of change of momentum per unit area. Let us consider a thin slice of the gas of volume $A \lambda$. By simple averaging, we assume that $\frac{1}{6}$ of the molecules are moving in any given direction. Thus, the average number of molecules moving through a surface of area $A$ in the volume is given by,
+\begin{equation}
+	\frac{1}{6}\left(\frac{N}{V}\right)A\lambda.
+\end{equation} 
+The number of molecules passing through the volume per unit time per unit area is,
+\begin{equation}
+	\frac{1}{6}\left(\frac{N}{V}\right)A\lambda\frac{1}{A}\frac{\left<v\right>}{\lambda}=\frac{1}{6}\frac{N}{V}\left<v\right>.
+\end{equation}
+The additional momentum gained per molecule is given by,
+\begin{equation}
+	m\delta u_x = m\pdv{u_x}{z}\lambda,
+\end{equation}
+which also applies to molecules moving through the bottom area, so we multiply by a factor of 2. We can then write the stress on the top plate as,
+\begin{equation}
+	F_{xz} = -2\frac{1}{6}\left(\frac{N}{V}\right)\left<v\right>m\lambda\pdv{u_x}{z} \implies \boxed{\eta = \frac{1}{3}\frac{N}{V}m\left<v\right>}.
+\end{equation}
+\section{Thermal Conductivity}
+\section{Diffusion}
 \appendix
 \chapter{Definitions}
 \textbf{Isothermal Process}:  Happens at constant temperature, $\Delta E = 0$ for an ideal gas.

@@ -80,4 +80,7 @@
 \contentsline {section}{\numberline {3.4}Equipartition Theorem}{31}{}%
 \contentsline {subsection}{\numberline {3.4.1}Diatomic Molecules}{31}{}%
 \contentsline {chapter}{\numberline {4}Transport Properties of Gasses}{32}{}%
-\contentsline {chapter}{\numberline {A}Definitions}{33}{}%
+\contentsline {section}{\numberline {4.1}Mean Collision Time and Mean Free Path}{32}{}%
+\contentsline {section}{\numberline {4.2}Effusion}{32}{}%
+\contentsline {section}{\numberline {4.3}Viscosity}{34}{}%
+\contentsline {chapter}{\numberline {A}Definitions}{35}{}%
