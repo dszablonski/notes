@@ -326,6 +326,7 @@ which allows us to find Young's equation relating contact angle to surface free 
 \begin{equation}
 	\boxed{\gamma_{lg}\cos\theta = \gamma_{sg}-\gamma_{sl}}.
 \end{equation}
+When $\theta < \frac{\pi}{2}$, we say the liquid wets the solid.
 \subsubsection{Capillary Action}
 This occurs when a column of liquid is placed in a narrow tube. Consider a tube of radius $R$ at height $h$ relative to the surface of the bulk liquid. The surface free energy gain is,
 \begin{equation}
@@ -375,7 +376,7 @@ In this chapter we deal with analysing the macroscopic properties of objects com
 This allows us to write down the ideal gas equation in two forms,
 \begin{align}
 	\boxed{\underbrace{P}_{\text{Pressure}}\overbrace{V}^{\text{Volume}} = \underbrace{n}_{\text{Moles}}\overbrace{R}^{\substack{\text{Molar gas }\\{\text{constant}}}}\underbrace{T}_{\text{Temperature}}} \\
-	\boxed{PV = \underbrace{N}_{\substack{\text{Number of}\\\text{molecules}}} \overbrace{k_b}^{\substack{\text{Boltzmann}\\\text{constant}} } T}.
+	\boxed{PV = \underbrace{N}_{\substack{\text{Number of}\\\text{molecules}}} \overbrace{k_b}^{\substack{\text{Boltzmann}\\\text{constant}} } T}. \hspace{0.6cm}
 \end{align}
 1 mole of substance contains $N_A$ (Avogadro's number) amount of molecules. We further have a relation between the molar gas constant and the Boltzmann constant which states,
 \begin{equation}
@@ -392,7 +393,7 @@ In this course, we will often discuss 2 different variables,
 	\boxed{\underbrace{\Delta E}_{\substack{\text{Change in}\\\text{internal energy}} } = \underbrace{W}_{\substack{\text{Work done}\\\text{on the system}}} + \underbrace{Q}_{\substack{\text{Heat supplied}\\\text{to a system}}}}
 \end{equation}
 \end{law}
-We say that $E$ is a function of state, meaning that the value of $E$ is path independent. For an ideal gas, we have that $E = E(T)$ which is the energy due to the kinetic energy of the particles. If we take the limit as $\Delta E \to 0$,
+\noindent We say that $E$ is a function of state, meaning that the value of $E$ is path independent. For an ideal gas, we have that $E = E(T)$ which is the energy due to the kinetic energy of the particles. If we take the limit as $\Delta E \to 0$,
 \begin{equation}
 	\boxed{\dd{E} = \dbar Q + \dbar W}.
 \end{equation}
@@ -1301,7 +1302,7 @@ In order to find the speed distribution, we must consider a spherical shell of t
 \end{equation}
 By observation, we can conclude that the distribution of molecular speeds is given by,
 \begin{equation}
-	\boxed{p(v) = \sqrt{\frac{2}{\pi}}}\left(\frac{m}{k_BT}\right)^{\frac{3}{2}}v^2\exp\left(-\frac{mv^2}{2k_BT}\right)
+	\boxed{p(v) = \sqrt{\frac{2}{\pi}}\left(\frac{m}{k_BT}\right)^{\frac{3}{2}}v^2\exp\left(-\frac{mv^2}{2k_BT}\right)}
 \end{equation}
 which is the Maxwell-Boltzmann speed distribution.
 \begin{figure}[t]
@@ -1322,13 +1323,13 @@ which is the Maxwell-Boltzmann speed distribution.
 \end{figure}
 From this we can obtain several different values, which are visualised in figure \ref{fig:maxwell boltzmann},
 \begin{align}
-	v_p = \sqrt{\frac{2k_BT}{m}} && \left<V\right> = \int_0^{\infty} vp(v) \dd{v} = \sqrt{\frac{8k_BT}{\pi m}} && v_{\text{rms}} = \sqrt{\left<v^2\right>} = \sqrt{\frac{2k_BT}{m}} 
+	v_p = \sqrt{\frac{2k_BT}{m}} && \left<v\right> = \int_0^{\infty} vp(v) \dd{v} = \sqrt{\frac{8k_BT}{\pi m}} && v_{\text{rms}} = \sqrt{\left<v^2\right>} = \sqrt{\frac{3k_BT}{m}} \label{eq:velocities}
 \end{align}
 The shape of the distribution changes with temperature, as in figure \ref{fig:maxwell boltzmann 2}.
 \section{Equipartition Theorem}
 \begin{theorem}
 	The average energy due to each degree of freedom that contributes quadratically to the total energy of a classical system in thermal equilibrium at some temperature T is $\frac{1}{2}k_BT$ per particle. 
-\end{theorem}
+\end{theorem} \noindent
 For monatomic molecules, there are only translational degrees of freedom, i.e., 3 translational degrees of freedom. If we go through with the equipartition theorem, 
 \begin{equation}
 	\frac{\left<E\right>}{N} = 3 \times \frac{1}{2}k_B T = \frac{3}{2}k_BT
@@ -1390,7 +1391,7 @@ where $\tau$ is the \textit{mean collision time},
 \end{equation}
 We can then define the \textit{mean free path} as the mean distance between collisions,
 \begin{equation}
-	\lambda = \tau \left<v\right> = \frac{1}{\sqrt{2}\frac{N}{V}\sigma}.
+	\boxed{\lambda = \tau \left<v\right> = \frac{1}{\sqrt{2}\frac{N}{V}\sigma}}. \label{eq:mean free path}
 \end{equation}
 \section{Effusion}
 \begin{figure}
@@ -1458,11 +1459,29 @@ The rate at which molecules pass through the area is $A\Phi$.
 \end{figure}
 \newpage
 \section{Viscosity}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\begin{scope}[canvas is xz plane at y = 0.5]
+			\draw (0,0) rectangle (2,3);
+		\end{scope}
+		\begin{scope}[canvas is xz plane at y=0]
+			\draw (0,3) -- (2,3) -- (2,0);
+		\end{scope}
+		\draw (0,0.5,3) -- (0,0,3);
+		\draw (2,0.5,3) -- (2,0,3);
+		\draw (2,0.5,0) -- (2,0,0);
+		\node at (1,0.5,1.5) {$A$};
+		\draw[<->] (2.5,0.5,1.5) -- (2.5,0,1.5) node[midway, anchor=west] {$\lambda$};
+	\end{tikzpicture}
+	\caption{Slice of gas of thickness $\lambda << L$, with top and bottom surface area $A$.}
+	\label{fig:visc 2}
+\end{figure}
 Consider a gas between two plates as in figure \ref{fig:viscocity}. The gas exerts a stress on the top plate,
 \begin{equation}
 	F_{xz} = -\eta \pdv{u_x}{z}
 \end{equation}
-where $F_{zx}$ is the rate of change of momentum per unit area. Let us consider a thin slice of the gas of volume $A \lambda$. By simple averaging, we assume that $\frac{1}{6}$ of the molecules are moving in any given direction. Thus, the average number of molecules moving through a surface of area $A$ in the volume is given by,
+where $F_{zx}$ is the rate of change of momentum per unit area. Let us consider a thin slice of the gas of volume $A \lambda$ as in figure \ref{fig:visc 2}. By simple averaging, we assume that $\frac{1}{6}$ of the molecules are moving in any given direction. Thus, the average number of molecules moving through the top surface of area $A$ is given by,
 \begin{equation}
 	\frac{1}{6}\left(\frac{N}{V}\right)A\lambda.
 \end{equation} 
@@ -1478,8 +1497,91 @@ which also applies to molecules moving through the bottom area, so we multiply b
 \begin{equation}
 	F_{xz} = -2\frac{1}{6}\left(\frac{N}{V}\right)\left<v\right>m\lambda\pdv{u_x}{z} \implies \boxed{\eta = \frac{1}{3}\frac{N}{V}m\left<v\right>}.
 \end{equation}
-\section{Thermal Conductivity}
-\section{Diffusion}
+Some notes on viscosity,
+\begin{itemize}
+	\item We can rewrite viscosity as
+	\begin{equation}
+		\eta = \frac{1}{3\sqrt{2}}\frac{\left<v\right>m}{\sigma}
+	\end{equation}
+	by eq. \eqref{eq:mean free path}.
+	\item Thus, $\eta$ is independent of pressure, which holds under the conditions $\sqrt{\sigma} << \lambda << L$.
+	\item $\eta \propto \left<v\right> \propto \sqrt{T}$.
+\end{itemize}
+\section{Transport of Energy (Thermal Conductivity)}
+\begin{figure}[b]
+	\centering
+	\begin{tikzpicture}[scale=1.25]
+		\begin{scope}[canvas is xz plane at y = 0.5]
+			\draw (0,3) -- (2,3) -- (2,0);
+		\end{scope}
+		\begin{scope}[canvas is xz plane at y=0]
+			\draw (0,3) -- (2,3) -- (2,0);
+		\end{scope}
+		\draw (0,0.5,3) -- (0,0,3);
+		\draw (2,0.5,3) -- (2,0,3);
+		\draw (2,0.5,0) -- (2,0,0);
+		\draw[<->] (2.5,0.5,0) -- (2.5,0,0) node[midway, anchor=west] {$\lambda$};
+		\begin{scope}[canvas is xz plane at y = 1]
+			\draw (0,0) rectangle (2,3);
+		\end{scope}
+		\draw (0,0.5,3) -- (0,1,3);
+		\draw (2,0.5,3) -- (2,1,3);
+		\draw (2,0.5,0) -- (2,1,0);
+		\node at (1,1,1.5) {$A$};
+		\draw[<->] (2.5,0.5,0) -- (2.5,1,0) node[midway, anchor=west] {$\lambda$};
+		\node at (-0.5,0.5,3) {$z_0$};
+		\node at (-0.65,1,3) {$z_0 + \lambda$};
+		\node at (-0.65,0,3) {$z_0 - \lambda$};
+	\end{tikzpicture}
+	\caption{Thin slice of gas of volume $2\lambda A$ centered on the $z_0$ plane.}
+	\label{fig:conductivity}
+\end{figure}
+We will assume position dependent temperature, i.e., $T \equiv T(\vb{r})$. Heat flows along a temperature gradient, thus we can define the heat flux as,
+\begin{equation}
+	\vb{q} = -\kappa \grad \vb{T}.
+\end{equation}
+where $\kappa$ is the conductivity. If we approximate our heat flow as begin 1 dimensional, we can write,
+\begin{equation}
+	q = -\kappa \pdv{T}{z}.
+\end{equation}
+Let us consider a slice of gas at the $z_0$ plane, with thickness $A\lambda$ above and below as in figure \ref{fig:conductivity}. $\frac{1}{6}$ of the molecules move up through the $z_0$ plane from the bottom layer, and $\frac{1}{6}$ move down from the bottom layer. It takes the molecules $\frac{1}{\tau}$ time to move through the layer, and their mean energy is $\left<E(z)\right>$. Thus, the average energy flux across the $z_0$ plane is given by,
+\begin{equation}
+	q_z = \frac{1}{6}\left(\frac{N}{V}\right)A\lambda \cdot \frac{\left<v\right>}{\tau} \cdot \frac{1}{A} \left(\left<E(z_0 - \lambda)\right> - \left<E(z_0 + \lambda)\right>\right).
+\end{equation} 
+Recall that $\dd{E} = C_V \dd{T}$. If we consider the expansion,
+\begin{equation}
+	\dd{E} = \pdv{E}{z} \dd{z} \implies \Delta E = \pdv{E}{z} \Delta z
+\end{equation}
+and then consider,
+\begin{equation}
+	\Delta E = \left<E(z_0 + \lambda)\right> - \left<E(z_0 - \lambda)\right> = 2\lambda\pdv{E}{z} = 2\lambda c_v \pdv{T}{z}
+\end{equation}
+where we obtain the final expression by the heat capacity relation. We then obtain our final relation for heat flow,
+\begin{equation}
+	q_z = -\frac{1}{6}\left(\frac{N}{V}\right)\left<v\right>\cdot 2\lambda C_V\pdv{T}{z}
+\end{equation}
+and by observation, we obtain our final expression for thermal conductivity,
+\begin{equation}
+	\kappa = \frac{1}{3}\left(\frac{N}{V}\right)\left<v\right>\lambda C_V.
+\end{equation}
+By substituting eq. \eqref{eq:mean free path}, we find that $\kappa$ is independent of pressure and $\kappa \propto \sqrt{T}$ for $\sqrt{\sigma} << \lambda << L$.
+\section{Self-Diffusion}
+Consider a mass of "labelled" molecules of gas at constant pressure, (i.e., air freshener sprayed into air). At constant pressure, the molecules undergo random motion, so there is a net flux from high to low concentration. The flux of molecules is,
+\begin{equation}
+	\vb{J} = -D \grad n \label{eq:flux}
+\end{equation}
+where $n$ is the number density of the labelled molecules, and $D$ is the diffusion coefficient with units $\left[\text{m}^2 \text{ t}^{-1}\right]$. Let us consider the number density to be position dependent in 1 dimension $n \equiv n(z)$ to reduce eq. \eqref{eq:flux} to $J=-D\pdv{n}{z}$. Consider a slice of the gas as in figure \ref{fig:conductivity}. The mean flux of of molecules through the $z_0$ plane is,
+\begin{equation}
+	\begin{split}
+		J_z & = \frac{1}{6}\left<v\right>\left(n(z_0 - \lambda) - n(z_0 + \lambda)\right)\\
+		& = \frac{1}{6}\left<v\right>\left(-2\lambda\pdv{n}{z}\right).
+	\end{split}
+\end{equation}
+Therefore, we can write the diffusivity as,
+\begin{align}
+	\boxed{D = \frac{\left<v\right>\lambda}{3}} && \boxed{D = \frac{\left<v\right>}{3\sqrt{2}\left(\frac{N}{V}\right)\sigma}}
+\end{align}
+We find that $D$ has pressure dependence as $\frac{N}{V} \propto P \implies D \propto P^{-1}$, as well as temperature dependence $\left<v\right> \propto \sqrt{T}, \frac{N}{V}\propto T \implies D \propto T^{\frac{3}{2}}$.
 \appendix
 \chapter{Definitions}
 \textbf{Isothermal Process}:  Happens at constant temperature, $\Delta E = 0$ for an ideal gas.

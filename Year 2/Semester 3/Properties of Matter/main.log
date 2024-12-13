@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  12 DEC 2024 14:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  13 DEC 2024 11:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1470,12 +1470,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 305--308
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 337--340
+Underfull \hbox (badness 10000) in paragraph at lines 338--341
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 352--354
+Underfull \hbox (badness 10000) in paragraph at lines 353--355
 
  []
 
@@ -1487,63 +1487,63 @@ Chapter 2.
 <./images/FreeExpansion.png, id=108, 1828.8325pt x 585.18625pt>
 File: ./images/FreeExpansion.png Graphic file (type png)
 <use ./images/FreeExpansion.png>
-Package pdftex.def Info: ./images/FreeExpansion.png  used on input line 433.
+Package pdftex.def Info: ./images/FreeExpansion.png  used on input line 434.
 (pdftex.def)             Requested size: 301.1261pt x 96.34619pt.
 <./images/Isothermal.png, id=109, 1632.0975pt x 449.68pt>
 File: ./images/Isothermal.png Graphic file (type png)
 <use ./images/Isothermal.png>
-Package pdftex.def Info: ./images/Isothermal.png  used on input line 444.
+Package pdftex.def Info: ./images/Isothermal.png  used on input line 445.
 (pdftex.def)             Requested size: 301.1261pt x 82.96306pt.
  [12 <./images/FreeExpansion.png>] [13 <./images/Isothermal.png>] [14]
 <./images/heatengine.png, id=123, 643.40375pt x 588.1975pt>
 File: ./images/heatengine.png Graphic file (type png)
 <use ./images/heatengine.png>
-Package pdftex.def Info: ./images/heatengine.png  used on input line 591.
+Package pdftex.def Info: ./images/heatengine.png  used on input line 592.
 (pdftex.def)             Requested size: 200.75073pt x 183.52406pt.
  [15 <./images/heatengine.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 635--638
+Underfull \hbox (badness 10000) in paragraph at lines 636--639
 
  []
 
 <./images/sterlingengine.png, id=129, 492.84125pt x 356.33125pt>
 File: ./images/sterlingengine.png Graphic file (type png)
 <use ./images/sterlingengine.png>
-Package pdftex.def Info: ./images/sterlingengine.png  used on input line 664.
+Package pdftex.def Info: ./images/sterlingengine.png  used on input line 665.
 (pdftex.def)             Requested size: 150.56305pt x 108.85757pt.
 [16] [17 <./images/sterlingengine.png>]
 <./images/carnot.png, id=137, 349.305pt x 325.215pt>
 File: ./images/carnot.png Graphic file (type png)
 <use ./images/carnot.png>
-Package pdftex.def Info: ./images/carnot.png  used on input line 730.
+Package pdftex.def Info: ./images/carnot.png  used on input line 731.
 (pdftex.def)             Requested size: 150.56305pt x 140.18213pt.
 <./images/clausius.png, id=138, 925.4575pt x 394.47375pt>
 File: ./images/clausius.png Graphic file (type png)
 <use ./images/clausius.png>
-Package pdftex.def Info: ./images/clausius.png  used on input line 753.
+Package pdftex.def Info: ./images/clausius.png  used on input line 754.
 (pdftex.def)             Requested size: 317.07614pt x 135.15459pt.
  [18 <./images/carnot.png>]
 <./images/cycle.png, id=143, 536.0025pt x 447.6725pt>
 File: ./images/cycle.png Graphic file (type png)
 <use ./images/cycle.png>
-Package pdftex.def Info: ./images/cycle.png  used on input line 780.
+Package pdftex.def Info: ./images/cycle.png  used on input line 781.
 (pdftex.def)             Requested size: 226.48395pt x 189.15509pt.
  [19 <./images/clausius.png> <./images/cycle.png>] [20] [21] [22] [23]
 <P-T-diagram.png, id=163, 144.54pt x 99.4917pt>
 File: P-T-diagram.png Graphic file (type png)
 <use P-T-diagram.png>
-Package pdftex.def Info: P-T-diagram.png  used on input line 1053.
+Package pdftex.def Info: P-T-diagram.png  used on input line 1054.
 (pdftex.def)             Requested size: 226.48395pt x 155.90472pt.
  [24]
 <pv phase.png, id=167, 811.03pt x 586.19pt>
 File: pv phase.png Graphic file (type png)
 <use pv phase.png>
-Package pdftex.def Info: pv phase.png  used on input line 1085.
+Package pdftex.def Info: pv phase.png  used on input line 1086.
 (pdftex.def)             Requested size: 271.7835pt x 196.43971pt.
  [25 <./P-T-diagram.png> <./pv phase.png>]
 <pv van.png, id=174, 738.76pt x 534.99875pt>
 File: pv van.png Graphic file (type png)
 <use pv van.png>
-Package pdftex.def Info: pv van.png  used on input line 1106.
+Package pdftex.def Info: pv van.png  used on input line 1107.
 (pdftex.def)             Requested size: 226.48395pt x 164.01112pt.
  [26 <./pv van.png>]
 Chapter 3.
@@ -1553,45 +1553,45 @@ Chapter 3.
 <maxwell-boltzmann-001.png, id=188, 2243.38126pt x 1417.295pt>
 File: maxwell-boltzmann-001.png Graphic file (type png)
 <use maxwell-boltzmann-001.png>
-Package pdftex.def Info: maxwell-boltzmann-001.png  used on input line 1311.
+Package pdftex.def Info: maxwell-boltzmann-001.png  used on input line 1312.
 (pdftex.def)             Requested size: 163.06483pt x 103.00536pt.
 <maxwell-boltzmann-002.png, id=189, 2198.2125pt x 1417.295pt>
 File: maxwell-boltzmann-002.png Graphic file (type png)
 <use maxwell-boltzmann-002.png>
-Package pdftex.def Info: maxwell-boltzmann-002.png  used on input line 1317.
+Package pdftex.def Info: maxwell-boltzmann-002.png  used on input line 1318.
 (pdftex.def)             Requested size: 163.06483pt x 105.12473pt.
  [30] [31 <./maxwell-boltzmann-001.png> <./maxwell-boltzmann-002.png>]
 Chapter 4.
 [32
 
-] [33] [34]
+] [33] [34] [35]
 Appendix A.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1484--1495
+Underfull \hbox (badness 10000) in paragraph at lines 1587--1598
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1484--1495
+Underfull \hbox (badness 10000) in paragraph at lines 1587--1598
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1484--1495
+Underfull \hbox (badness 10000) in paragraph at lines 1587--1598
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1484--1495
+Underfull \hbox (badness 10000) in paragraph at lines 1587--1598
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1484--1495
+Underfull \hbox (badness 10000) in paragraph at lines 1587--1598
 
  []
 
-[35
+[36
 
 ] (./main.aux)
  ***********
@@ -1600,10 +1600,10 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 47233 strings out of 476076
- 1174974 string characters out of 5793774
- 1950187 words of memory out of 5000000
- 68455 multiletter control sequences out of 15000+600000
+ 47239 strings out of 476076
+ 1175065 string characters out of 5793774
+ 1951187 words of memory out of 5000000
+ 68461 multiletter control sequences out of 15000+600000
  574086 words of font info for 93 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  94i,25n,96p,1205b,801s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1625,10 +1625,10 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texmf-dist/fonts/type
 1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/
 cm-super/sfrm1000.pfb>
-Output written on main.pdf (35 pages, 1059642 bytes).
+Output written on main.pdf (36 pages, 1068540 bytes).
 PDF statistics:
- 303 PDF objects out of 1000 (max. 8388607)
- 159 compressed objects within 2 object streams
+ 306 PDF objects out of 1000 (max. 8388607)
+ 161 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  258 words of extra memory for PDF output out of 10000 (max. 10000000)
 

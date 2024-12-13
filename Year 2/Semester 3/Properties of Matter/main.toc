@@ -83,4 +83,6 @@
 \contentsline {section}{\numberline {4.1}Mean Collision Time and Mean Free Path}{32}{}%
 \contentsline {section}{\numberline {4.2}Effusion}{32}{}%
 \contentsline {section}{\numberline {4.3}Viscosity}{34}{}%
-\contentsline {chapter}{\numberline {A}Definitions}{35}{}%
+\contentsline {section}{\numberline {4.4}Transport of Energy (Thermal Conductivity)}{35}{}%
+\contentsline {section}{\numberline {4.5}Self-Diffusion}{35}{}%
+\contentsline {chapter}{\numberline {A}Definitions}{36}{}%
