@@ -1,0 +1,230 @@
+\documentclass{book}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mdframed}
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage[a4paper, margin=1in]{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{xcolor}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{angles,quotes}
+\graphicspath{ {./images/} }
+\usepackage{svg}
+\usepackage{subcaption}
+\usepackage{bm}
+\usepackage{empheq}
+\usepackage{cancel}
+\usetikzlibrary{decorations.text}
+\usepackage[most]{tcolorbox}
+\usepackage{tensor}
+%3D
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{C}{>{$}c<{$}}
+\usepackage{tikz-3dplot}
+\usepackage{appendix}
+\usepackage{pgfplots}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc,patterns,angles,quotes}
+%Tikz Library
+\usetikzlibrary{angles, quotes, intersections}
+\usepackage[bb=dsserif]{mathalpha}
+\usetikzlibrary{decorations.pathmorphing}
+
+\tikzset{snake it/.style={decorate, decoration=snake}}
+
+\usepackage{etoolbox} % ifthen
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{calc} % for adding up coordinates
+\usetikzlibrary{decorations.markings,decorations.pathmorphing}
+\usetikzlibrary{angles,quotes} % for pic (angle labels)
+\usetikzlibrary{arrows.meta} % for arrow size
+\usepackage{xfp} % higher precision (16 digits?)
+
+\usepackage{tcolorbox}
+
+%https://osl.ugr.es/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf
+\tcbuselibrary{breakable}
+\tcbset{%any default parameters
+	width=0.7\textwidth,
+	halign=justify,
+	center,
+	breakable,
+	colback=white    
+}
+
+\newenvironment{aside}
+{\begin{mdframed}[style=0,%
+		leftline=false,rightline=false,leftmargin=2em,rightmargin=2em,%
+		innerleftmargin=0pt,innerrightmargin=0pt,linewidth=0.75pt,%
+		skipabove=7pt,skipbelow=7pt]\small}
+	{\end{mdframed}}
+
+\renewcommand{\cleardoublepage}{\clearpage}
+
+\title{Statistical Mechanics}
+\author{Dominik Szablonski}
+\newtheorem{law}{Law}
+\newtheorem{klaw}{Law}
+
+\newtcbtheorem{Definitions}{Definition}%
+{colback=blue!5!white,colframe=blue!75!black,width=\textwidth,fonttitle=\bfseries}{}
+
+\newtcbtheorem{Theorems}{Theorem}%
+{colback=red!5!white,colframe=red!75!black,width=\textwidth,fonttitle=\bfseries}{}
+
+\newtcbtheorem{Postulates}{Postulate}%
+{colback=green!5!white,colframe=green!75!black,width=\textwidth,fonttitle=\bfseries}{}
+
+\newtheorem*{theorem}{Theorem}
+
+
+\setlength\parindent{0pt}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\chapter{Basic Thermodynamics}
+We will begin by discussing systems with variable particle number. In order to talk as system where the number of particles $N$ varies, we must consider its \textit{chemical potential}, which is defined in terms of the Gibbs free energy,
+\begin{equation}
+	\mu = \eval{\pdv{G}{N}}_{T,P}.
+\end{equation} 
+We can find a simpler expression for the chemical potential by considering,
+\begin{equation}
+	G = G(N,\underbrace{P,T}_{\text{intensive}}).
+\end{equation}
+We know that the Gibbs free energy is an extensive variable, and so is the number of particles $N$. Thus, we can write,
+\begin{equation}
+	G = Nf(P,T)
+\end{equation}
+where $f$ is some function. We actually ind that $f(P,T) = \mu$, so we can write,
+\begin{equation}
+	\mu = \frac{G}{N}
+\end{equation}
+from which we can also conclude that $\mu$ is a function of $P$ and $T$. Let us now attempt to generalise this to more than one species of gas. This means that there is more than one extensive variable. For now, let us state without proof,
+\begin{equation}
+	G = \sum_i \mu_i N_i
+\end{equation}
+where $N_i$ is the number of particles of a particularly species and $\mu_i$ is its chemical potential. We can then write,
+\begin{equation}
+	\mu_i = \mu_i\left(T, P, \left\{\frac{N_j}{N}, \forall j \in \mathbb{N}\right\}\right).
+\end{equation}
+However, if we consider an ideal gas, we can ignore interactions due to other species of gas so we can simply consider, $\mu_i = \mu_i(T, P, N_i/N)$. However,
+\begin{align}
+	P & = \frac{1}{V}Nk_BT  = \sum_i P_i  & N = \sum_i N_i \\
+	& &P_i = \frac{N_i}{V}k_BT \to \text{ Partial pressure} \\
+	\implies && \mu_i = \mu_i (T, P_i).
+\end{align}
+Let us return to considering a single species, and recall,
+\begin{align}
+	\dd{S} = \frac{1}{T}\dd{E} + \frac{P}{T}\dd{V} && \dd{E} = C_V\dd{T} && V = \frac{Nk_BT}{P}
+\end{align}
+from which we can show,
+\begin{equation}
+	- \Delta S = C_P\ln\frac{T}{T_0} - Nk_B\ln\frac{P}{P_0}
+\end{equation}
+\section{Constant Temperature}
+At constant temperature, the Gibbs free energy is,
+\begin{align}
+	&\Delta G = - T \Delta S = Nk_BT\ln\frac{P}{P_0} \\
+	\implies & \Delta \mu = k_BT_0 \ln\frac{P}{P_0}.
+\end{align}
+\subsection{Chemical Reactions}
+If we consider two gasses separated by a membrane, the chemical potential will govern the diffusion of the gasses, and the partial pressures will tend to equalise. Let us consider a reaction between two substances, $A \rightleftharpoons B$. The Gibbs free energy is,
+\begin{equation}
+	\dd{G} = \mu_A\dd{N}_A + \mu_B \dd{N_B}
+\end{equation}
+however $\dd{N}_B = \dd{N}_A$, so,
+\begin{equation}
+	\dd{G} = (\mu_A - \mu_B)\dd{N}_A.
+\end{equation}
+We have equilibrium when a small change in $N_A$ leaves $G$ unchanged, so $\mu_A = \mu_B$.
+\\\\
+Let us now consider a reaction with double the reactants and products, $aA + bB \rightleftharpoons xX + yY$, where $a,b,x,y \in \mathbb{Z}$. The number of molecules change by,
+\begin{align}
+	\dd{N}_B = \frac{b}{a}\dd{N}_A && \dd{N}_X = -\frac{x}{a}\dd{N}_A
+\end{align}
+Let us write the Gibbs free energy,
+\begin{equation}
+	\begin{split}
+		\dd{G} & = \mu_A\dd{N}_A + \mu_B\dd{N}_B - \mu_X\dd{N}_X - \mu_Y\dd{N}_Y \\ 
+		& = \underbrace{\left(\mu_A + \frac{b}{a}\mu_B - \frac{x}{a}\mu_X - \frac{y}{a}\mu_Y\right)}_{0\text{ at equilibrium}}\dd{N}_A \\
+		\implies & \mu_A+ b\mu_B = x\mu_X + y\mu_Y
+	\end{split}
+\end{equation}
+We wish to work in terms of moles, so let us write the molar Gibbs free energy,
+\begin{equation}
+	g^r = xg_X + yg_Y - ag_A - bg_B
+\end{equation}
+which will be 0 at equilibrium. If we know the $g^r_0 \equiv g_r(T_0, P_0)$ at some reference temperature and partial pressure for all reactants and products, then we can find the molar Gibbs free energy at other partial pressures but the same temperature. Applying our ideal gas assumptions,
+\begin{equation}
+	\begin{split}
+		g_r\left(\left\{P_i\right\},T_0\right) & = g_r(P_0,T_0) + N_Ak_BT_0\left(x\ln\frac{P_X}{P_0} + y\ln\frac{P_Y}{P_0} - a\ln\frac{P_A}{P_0} - b\ln\frac{P_B}{P_0}\right) \\ 
+		& = g_r(P_0, T_0) + \ln\left(\left(\frac{P_X}{P_0}\right)^x\left(\frac{P_Y}{P_0}\right)^y\left(\frac{P_0}{P_A}\right)^a\left(\frac{P_0}{P_B}\right)^b\right).
+	\end{split}
+\end{equation}
+At equilibrium $g_r$ = 0, so,
+\begin{equation}
+	\underbrace{\left(\frac{P_X}{P_0}\right)^x\left(\frac{P_Y}{P_0}\right)^y\left(\frac{P_0}{P_A}\right)^a\left(\frac{P_0}{P_B}\right)^b}_{Q} = \underbrace{\exp\left(-\frac{g_0^r}{RT_0}\right)}_{K_P(T_0)}.
+\end{equation}
+%and we find,
+%\begin{align}
+%	Q > K_P && A,B \to X,Y \\
+%	Q < K_P && X,Y \to A,B \\
+%	Q = 0 && \text{Equilibrium}.
+%\end{align}
+We can write more generally, an equation for $N$ reactants and $N'$ products,
+\begin{equation}
+	g_r = \sum_{i=1}^{N'}x_ig_{X_i} - \sum_{j=1}^Na_jg_{A_j}
+\end{equation}
+and at equilibrium,
+\begin{equation}
+	\prod_{i=1}^{N'}\left(\frac{P_{X_i}}{P_0}\right)^{x_i}\sum_{j=1}^{N}\left(\frac{P_0}{P_{A_j}}\right) = \exp\left(-\frac{g_0^r}{RT_0}\right)
+\end{equation}
+\chapter{Statistical Physics}
+Before jumping into statistical physics, we must define a few terms,
+\begin{Definitions}{Macrostate}{}
+	State of a sufficiently large system in equilibrium specified by a few measurable quantities, i.e., $P$, $T$, etc.
+\end{Definitions}
+\begin{Definitions}{Microstate}{}
+	A description of a system consisting of the position and momentum (or quantum states) of every molecule present in the system.
+\end{Definitions}
+We wish to relate the macrostate to the microstate and predict macroscopic properties from first principles. For each macrostate, there exist many microstates. In order to formulate statistical mechanics, we must assume that a system can access al available microstates, so we can average over al microstates to predict the macrostate.
+\section{Microcanonical Ensemble}
+\begin{Definitions}{Ensemble}{}
+	Collection of objects, which are copies of the system at each point in time. 
+\end{Definitions}
+We use the ensemble to avoid taking time averages. The ensemble average is given by,
+\begin{equation}
+	\left<x\right> = \sum_i P_iX_i
+\end{equation}
+where $P_i$ is the probability of the $i$th microstate, and $X_i$ is the value of $X$ in the $i$th microstate. Let us now say that we have $\nu$ objects in the ensemble, with $\nu_i$ objects in the $i$th microstate, and we denote each object in the ensemble with $\lambda$, we can write,
+\begin{equation}
+	\left<x\right>  = \frac{1}{\nu} \sum_{\lambda}X_{\lambda} = \frac{1}{\nu}\sum_i\nu_iX_i = \sum_i P_iX_i
+\end{equation}
+from which we find,
+\begin{equation}
+	P_i = \frac{\nu_i}{\nu}.
+\end{equation}
+However, for a system in isolation, we can postulate the following,
+\begin{Postulates}{Postulate of Equal a priori Probabilities}{}
+	All microstates are equally likely.
+\end{Postulates}
+Thus, if our total number of microstates is $\Omega$, the probability of the $i$th microstate is,
+\begin{equation}
+	P_i = \frac{1}{\Omega},\hspace{1em}\forall i.
+\end{equation}
+\begin{aside}
+	For a system with $N$ particles which each can be in one of two states, such that there are $n$ and $N-n$ states respectively, then the total number of microstates is given by,
+	\begin{equation}
+		\frac{N!}{n!(N-n)!} = {^nC_N}.
+	\end{equation}
+\end{aside}
+\end{document}

@@ -1,0 +1,268 @@
+\documentclass{book}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mdframed}
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage[a4paper, margin=1in]{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{xcolor}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{angles,quotes}
+\graphicspath{ {./images/} }
+\usepackage{svg}
+\usepackage{subcaption}
+\usepackage{bm}
+\usepackage{empheq}
+\usepackage{cancel}
+\usetikzlibrary{decorations.text}
+\usepackage[most]{tcolorbox}
+\usepackage{tensor}
+%3D
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{C}{>{$}c<{$}}
+\usepackage{tikz-3dplot}
+\usepackage{appendix}
+\usepackage{pgfplots}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc,patterns,angles,quotes}
+%Tikz Library
+\usetikzlibrary{angles, quotes, intersections}
+\usepackage[bb=dsserif]{mathalpha}
+\usetikzlibrary{decorations.pathmorphing}
+
+\tikzset{snake it/.style={decorate, decoration=snake}}
+
+\usepackage{etoolbox} % ifthen
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{calc} % for adding up coordinates
+\usetikzlibrary{decorations.markings,decorations.pathmorphing}
+\usetikzlibrary{angles,quotes} % for pic (angle labels)
+\usetikzlibrary{arrows.meta} % for arrow size
+\usepackage{xfp} % higher precision (16 digits?)
+
+\usepackage{tcolorbox}
+
+%https://osl.ugr.es/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf
+\tcbuselibrary{breakable}
+\tcbset{%any default parameters
+	width=0.7\textwidth,
+	halign=justify,
+	center,
+	breakable,
+	colback=white    
+}
+
+\newenvironment{aside}
+{\begin{mdframed}[style=0,%
+		leftline=false,rightline=false,leftmargin=2em,rightmargin=2em,%
+		innerleftmargin=0pt,innerrightmargin=0pt,linewidth=0.75pt,%
+		skipabove=7pt,skipbelow=7pt]\small}
+	{\end{mdframed}}
+
+\renewcommand{\cleardoublepage}{\clearpage}
+
+\title{Quantum Mechanics 2}
+\author{Dominik Szablonski}
+\newtheorem{law}{Law}
+\newtheorem{klaw}{Law}
+
+\newtcbtheorem{Definitions}{Definition}%
+{colback=blue!5!white,colframe=blue!75!black,width=\textwidth,fonttitle=\bfseries}{}
+
+\newtcbtheorem{Theorems}{Theorem}%
+{colback=red!5!white,colframe=red!75!black,width=\textwidth,fonttitle=\bfseries}{}
+
+\newtheorem*{theorem}{Theorem}
+
+
+\setlength\parindent{0pt}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\chapter{Orbital Angular Momentum}
+\section{Basics of QM}
+Let us recall some basic facts of quantum mechanics.
+\\\\
+The expectation value of an observable $\mathcal{A}$ with an associated operator $\hat{A}$ is given by,
+\begin{equation}
+	\left<\hat{A}\right> = \bra{\Psi}\hat{A}\ket{\Psi} = \int\Psi^*\hat{A}\Psi\dd{\vb{r}}.
+\end{equation}
+The fundamental position, momentum, and angular momentum operators are defined as follows,
+\begin{Definitions}{Fundamental Operators}{}
+	\begin{align}
+		\hat{\vb{r}} &= x\vu{x} + y\vu{y} + z\vu{z} \\
+		\hat{p} &= -i\hbar \grad \\
+		\hat{L}_i &= \varepsilon_{ijk}\hat{r}_j\hat{p}_k
+	\end{align}
+\end{Definitions}
+The Hamiltonian is defined,
+\begin{Definitions}{Hamiltonian}{}
+	\begin{equation}
+		\hat{H} = \hat{T} + \hat{V} = -\frac{\hbar^2}{2m}\laplacian + V(\vb{r}, t).
+	\end{equation}
+\end{Definitions}
+We obtain the wavefunction $\Psi$ by solving the TDSE,
+\begin{Definitions}{Time Dependent Schrodinger Equation}{}
+	\begin{equation}
+		i\hbar\pdv{\Psi(\vb{r},t)}{t} = \hat{H}\Psi(\vb{r},t).
+	\end{equation}
+\end{Definitions}
+For the static case, this reduces to the TISE,
+\begin{equation}
+	\hat{H}\Psi = E \Psi. \label{eq:TISE}
+\end{equation}
+If $\Psi(\vb{r},0)$ is written in the energy eigenbasis, i.e., $\Psi(\vb{r},0) = \sum_i c_i\ket{E_i}$, then the time-dependent solution is trivial,
+\begin{equation}
+	\Psi(\vb{r},t) = \sum_i c_i\ket{E_i} \exp\left(\frac{-iE_it}{\hbar}\right).
+\end{equation}
+\subsection{The Simple Harmonic Oscillator}
+The SHO has a Hamiltonian,
+\begin{equation}
+	\hat{H} = - \frac{\hbar^2}{2m}\dv[2]{x} + \frac{1}{2}m\omega^2x^2
+\end{equation}
+with energy eigenvalues,
+\begin{equation}
+	E_n = \left(n + \frac{1}{2}\right)\hbar \omega \label{eq:1D SHO E}
+\end{equation}
+and has normalised Eigenfunctions,
+\begin{equation}
+	\psi_n(x) = \left(\frac{1}{n!2^na\sqrt{\pi}}\right)H_n\left(\frac{x}{a}\right)\exp\left(-\frac{x^2}{2a^2}\right)
+\end{equation}
+where $a = \sqrt{\hbar/m\omega}$ and $H_n(x/a)$ is a Hermite polynomial.
+\subsection{Simple Perturbation Theory}
+In simple perturbation theory, we write the Hamiltonian as,
+\begin{equation}
+	\hat{H} = \hat{H}_0 + \hat{V}
+\end{equation}
+where the Hamiltonian $\hat{H}_0$ is trivial and for which we already have obtained its eigenfunction $\psi$ and eigenvalues $E_n^{(0)}$. We then use this to find the expectation value of the total Hamiltonian,
+\begin{equation}
+	\left<\hat{H}\right> = \bra{\psi}\hat{H}_0 + \hat{V}\ket{\psi} = E_n^{(0)} + \Delta E.
+\end{equation}
+Writing this more explicitly,
+\begin{Definitions}{First Order Perturbation Theory}{}
+	\begin{equation}
+		E_n = E_n^{(0)} + \bra{\psi}\hat{V}\ket{\psi}
+	\end{equation}
+\end{Definitions}
+\section{Particle in 2D SHO}
+The Hamiltonian of the 2D SHO is given by,
+\begin{equation}
+	\hat{H}\psi(x,y) = -\frac{\hbar^2}{2m}\left(\pdv[2]{x} + \pdv[2]{y}\right) + \frac{1}{2}m\omega (x^2 + y^2)\psi(x,y) = E\psi(x,y)
+\end{equation}
+We can separate this Hamiltonian into its $x$ and $y$ components,
+\begin{align}
+	\hat{H}_x = -\frac{\hbar^2}{2m}\pdv[2]{x} + \frac{1}{2}m\omega x^2 && \hat{H}_y -\frac{\hbar^2}{2m}\pdv[2]{y} + \frac{1}{2}m\omega y^2.
+\end{align}
+We know the solution to the 1D SHO, as by eq. \eqref{eq:1D SHO E}. We can intuit that the total solution of the 2D Hamiltonian will be a product of the two 1D wavefunctions. This comes from the fact that to add probabilities, we multiply the probability densities. So, we write,
+\begin{equation}
+	\begin{split}
+		\hat{H}\psi_{n_x}(x)\psi_{n_y}(y) & = \left(\hat{H}_x + \hat{H}_y\right)\psi_{n_x}(x)\psi_{n_y}(y) \\
+		& = \left(\hat{H}_x\psi_{n_x}(x)\right) \psi_{n_y}(y) + \psi_{n_x}(x)\left(\hat{H}_y\psi_{n_y}(y)\right) \\
+		& = \left(n_x + \frac{1}{2}\right)\hbar\omega \psi_{n_y}(y) + \left(n_y + \frac{1}{2}\right)\hbar \omega \psi_{n_x}(x) \\
+		& = \left(n_x + n_y + 1\right)\hbar \omega \psi_{n_x}(x)\psi_{n_y}(y) \\
+		\implies E_{n_x,n_y} &= (n_x + n_y + 1)\hbar \omega.
+	\end{split}
+\end{equation}
+\subsection{Degeneracy}
+This is when there is more than one state with the same energy. The degeneracy $D$ is the number of energy states that share the same energy. Non-degenerate states are those with $D = 1$. 
+\section{Orbital Angular Momentum}
+The angular momentum in given direction in a classical system is given by,
+\begin{equation}
+	L_i = \varepsilon_{ijk}r_jp_k.
+\end{equation}
+The angular momentum operator in quantum mechanics is thus,
+\begin{equation}
+	\hat{L}_i = \varepsilon_{ijk}\hat{r}_j\hat{p}_k.
+\end{equation}
+We are particularly interested in the case where $i=z$, in which case the operator becomes,
+\begin{equation}
+	\hat{L}_z = \hat{x}\hat{p}_y - \hat{y}\hat{p}_x = -i\hbar\left(x\pdv{y} - y\pdv{x}\right).
+\end{equation}
+Let us consider this operator in plane polar coordinates, $(r, \theta)$. We have,
+\begin{align}
+	x = r\cos\theta && y = r\sin\theta
+\end{align}
+Let us consider the following,
+\begin{equation}
+	\begin{split}
+	\pdv{\theta} & = \pdv{x}{\theta}\pdv{x} + \pdv{y}{\theta} \pdv{y} = -r\sin\theta \pdv{x} + r\cos\theta\pdv{y}\\
+	& = -y\pdv{x} + x\pdv{y}.
+\end{split}
+\end{equation}
+So, in plane polars,
+\begin{Definitions}{Angular Momentum Operator in Z}{}
+	\begin{equation}
+	\hat{L}_z = -i\hbar \pdv{\theta}.
+\end{equation}
+\end{Definitions}
+\subsection{Eigenfunctions and Eigenvalues of $\hat{L}_z$}
+We wish to consider the following,
+\begin{equation}
+	\hat{L}_z \Theta(\theta) = L_z\Theta(\theta).
+\end{equation}
+So,
+\begin{equation}
+	-i\hbar\dv{\Theta}{\theta} = L_z \Theta \label{eq:24}
+\end{equation}
+which we can solve trivially,
+\begin{equation}
+	\Theta(\theta) = Ae^{\frac{L_z\theta}{\hbar}} \label{eq:khf}
+\end{equation}
+where $A = \frac{1}{\sqrt{2\pi}}$ is a normalisation constant. We require a cyclic boundary condition, such that $\Theta(\theta) = \Theta(\theta + 2\pi)$. So,
+\begin{equation}
+	\begin{split}
+	Ae^{\frac{iL_z(\theta + 2\pi)}{\hbar}} & = A e^{\frac{iL_z\theta}{\hbar}} \\
+	e^{\frac{iL_z2\pi}{\hbar}} & = 1.
+\end{split} \label{eq:hehe}
+\end{equation}
+Not all values of $L_z$ satisfy the eq. \eqref{eq:hehe}, so we have to impose the following restriction,
+\begin{equation}
+	L_z = \hbar m, \hspace{1em} m \in \mathbb{Z}
+\end{equation}
+and thus, we can write the angular momentum eigenfunction as,
+\begin{Definitions}{Angular Momentum Eigenfunction}{}
+	\begin{equation}
+		\Theta_m(\theta) = \frac{1}{\sqrt{2\pi}} e^{im\theta}
+	\end{equation}
+\end{Definitions}
+
+\subsection{Angular Momentum of the 2D SHO}
+We wish to express eigenfunctions of the 2D SHO as eigenfunctions of angular momentum. we will find that we require a combination of all degenerate eigenfunctions for a givevn $D$ in order to represent angular momentum eigenfunction. Observing the ground state,
+\begin{equation}
+	\Psi_{00}(x,y) = e^{-\frac{x^2}{2a^2}}\cdot e^{-\frac{y^2}{2a^2}} = e^{-\frac{r^2}{2a^2}}, \hspace{2em} a^2 = \frac{\hbar}{2m}.
+\end{equation}
+Applying the angular momentum operator we find,
+\begin{equation}
+	\hat{L}_z\Psi_{00} = 0 \cdot \Psi_{00}
+\end{equation}
+which holds, as $0$ is an allowed value of $m$. The first excited states of $D=2$ are given by,
+\begin{align}
+	\Psi_{10} = x e^{-\frac{x^2}{2a^2}} \cdot e^{-\frac{y^2}{2a^2}} && \Psi_{01} = e^{-\frac{x^2}{2a^2}} \cdot ye^{-\frac{y^2}{2a^2}}
+\end{align}
+which we combine to form,
+\begin{equation}
+	\begin{split}
+	\Psi_{\pm} &= \Psi_{10} \pm i\Psi_{01} \\
+	& = \left[r\cos\theta \pm ir\sin\theta\right]e^{-\frac{r^2}{2a^2}} = re^{\pm i\theta}e^{-\frac{r^2}{2a^2}}. \label{eq:eigenfunction}
+	\end{split}
+\end{equation}
+Applying $\hat{L}_z$ to eq. \eqref{eq:eigenfunction},
+\begin{equation}
+	\hat{L}_z\Psi_{\pm} = \pm \hbar \Psi_{\pm}
+\end{equation}
+$\implies$ $\Psi_{\pm}$ is an eigenfunction of $\hat{L}_z$ with eigenvalues $\pm \hbar$. Furthermore, $\Psi_{\pm}$ is an eigenfunction of $\hat{H}$, so $\hat{H}$ and $\hat{L}_z$ commute. This allows for the 2D SHO to be described by \textit{good quantum numbers}. These satisfy the following,
+\begin{enumerate}
+	\item Can be known simultaneously,
+	\item Fully and uniquely specify the state of a system.
+\end{enumerate}
+For the 2D SHO, its good quantum numbers are $(n,m)$, where $n = n_x + n_y$. $n$ specifies the energy of the system (as by $E_n = (n + 1)\hbar \omega$), and $m$ specifies the angular momentum of the system (as by $L_z = m\hbar$). 
+\end{document}
