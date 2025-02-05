@@ -12,3 +12,7 @@
 \contentsline {subsubsection}{Cauchy sequences of functions}{7}{}%
 \contentsline {subsection}{\numberline {1.5.2}Cauchy Sequences and Convergence}{7}{}%
 \contentsline {section}{\numberline {1.6}Open and Closed Sets}{7}{}%
+\contentsline {chapter}{\numberline {2}Inner Product Space}{10}{}%
+\contentsline {section}{\numberline {2.1}Orthogonality}{10}{}%
+\contentsline {section}{\numberline {2.2}Gram-Schmidt Orthonormalisation}{11}{}%
+\contentsline {section}{\numberline {2.3}Inequalities of Inner Product Space}{12}{}%

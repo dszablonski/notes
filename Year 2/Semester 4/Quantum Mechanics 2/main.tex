@@ -207,20 +207,20 @@ So, in plane polars,
 \subsection{Eigenfunctions and Eigenvalues of $\hat{L}_z$}
 We wish to consider the following,
 \begin{equation}
-	\hat{L}_z \Theta(\theta) = L_z\Theta(\theta).
+	\hat{L}_z \Phi(\phi) = L_z\Phi(\phi).
 \end{equation}
 So,
 \begin{equation}
-	-i\hbar\dv{\Theta}{\theta} = L_z \Theta \label{eq:24}
+	-i\hbar\dv{\Phi}{\phi} = L_z \Phi\label{eq:24}
 \end{equation}
 which we can solve trivially,
 \begin{equation}
-	\Theta(\theta) = Ae^{\frac{L_z\theta}{\hbar}} \label{eq:khf}
+	\Phi(\phi) = Ae^{\frac{L_z\phi}{\hbar}} \label{eq:khf}
 \end{equation}
-where $A = \frac{1}{\sqrt{2\pi}}$ is a normalisation constant. We require a cyclic boundary condition, such that $\Theta(\theta) = \Theta(\theta + 2\pi)$. So,
+where $A = \frac{1}{\sqrt{2\pi}}$ is a normalisation constant. We require a cyclic boundary condition, such that $\Phi(\phi) = \Phi(\phi + 2\pi)$. So,
 \begin{equation}
 	\begin{split}
-	Ae^{\frac{iL_z(\theta + 2\pi)}{\hbar}} & = A e^{\frac{iL_z\theta}{\hbar}} \\
+	Ae^{\frac{iL_z(\phi + 2\pi)}{\hbar}} & = A e^{\frac{iL_z\phi}{\hbar}} \\
 	e^{\frac{iL_z2\pi}{\hbar}} & = 1.
 \end{split} \label{eq:hehe}
 \end{equation}
@@ -231,7 +231,7 @@ Not all values of $L_z$ satisfy the eq. \eqref{eq:hehe}, so we have to impose th
 and thus, we can write the angular momentum eigenfunction as,
 \begin{Definitions}{Angular Momentum Eigenfunction}{}
 	\begin{equation}
-		\Theta_m(\theta) = \frac{1}{\sqrt{2\pi}} e^{im\theta}
+		\Phi_m(\phi) = \frac{1}{\sqrt{2\pi}} e^{im\phi}
 	\end{equation}
 \end{Definitions}
 
@@ -252,7 +252,7 @@ which we combine to form,
 \begin{equation}
 	\begin{split}
 	\Psi_{\pm} &= \Psi_{10} \pm i\Psi_{01} \\
-	& = \left[r\cos\theta \pm ir\sin\theta\right]e^{-\frac{r^2}{2a^2}} = re^{\pm i\theta}e^{-\frac{r^2}{2a^2}}. \label{eq:eigenfunction}
+	& = \left[r\cos\phi \pm ir\sin\phi\right]e^{-\frac{r^2}{2a^2}} = re^{\pm i\phi}e^{-\frac{r^2}{2a^2}}. \label{eq:eigenfunction}
 	\end{split}
 \end{equation}
 Applying $\hat{L}_z$ to eq. \eqref{eq:eigenfunction},
@@ -264,5 +264,56 @@ $\implies$ $\Psi_{\pm}$ is an eigenfunction of $\hat{L}_z$ with eigenvalues $\pm
 	\item Can be known simultaneously,
 	\item Fully and uniquely specify the state of a system.
 \end{enumerate}
-For the 2D SHO, its good quantum numbers are $(n,m)$, where $n = n_x + n_y$. $n$ specifies the energy of the system (as by $E_n = (n + 1)\hbar \omega$), and $m$ specifies the angular momentum of the system (as by $L_z = m\hbar$). 
+For the 2D SHO, its good quantum numbers are $(n,m)$, where $n = n_x + n_y$. $n$ specifies the energy of the system (as by $E_n = (n + 1)\hbar \omega$), and $m$ specifies the angular momentum of the system (as by $L_z = m\hbar$).
+\subsection{3D Angular Momentum}
+\begin{Definitions}{Angular Momentum Commutation Relation}{}
+	\begin{equation}
+		\left[\hat{L}_i, \hat{L}_j\right] = \epsilon_{ijk}i\hbar\hat{L}_k
+	\end{equation}
+	where $i,j,k$ indicate orthogonal directions.
+\end{Definitions}
+The above definition indicates that components of $\hat{L}_i$ do not commute in different directions, however it can be shown that,
+\begin{equation}
+	\left[\hat{L}^2,\hat{L}_i\right] = 0.
+\end{equation}
+\begin{proof}
+	\begin{equation}
+		\begin{split}
+			\hat{L}^2 &= \sum_j \hat{L}^2 \\
+			\left[\hat{L}^2,\hat{L}_i\right] & =\sum_j\left[\hat{L}_j^2, \hat{L}_i^2\right] \\
+			& = \sum_j \left(\hat{L}_j\left[\hat{L}_j,\hat{L}_i\right] + \left[\hat{L}_j,\hat{L}_i\right]\hat{L}_j \right)\\
+			& = i\hbar \sum_{j,l}\left(\hat{L}_j\varepsilon_{ijk}\hat{L}_k + \underbrace{\hat{L}_k \varepsilon_{ijk}\hat{L}_j}_{-\varepsilon_{ijk}\hat{L}_j\hat{L}_k}\right) \\
+			& = \sum_{j,l} \left(\hat{L}_j\hat{L}_k - \hat{L}_j\hat{L}_k\right) = 0
+		\end{split}
+	\end{equation}	
+\end{proof}
+\subsubsection{Eigenvalues and eigenfunctions of Angular Momentum}
+It can be shown that the angular momentum operators in the 3 cardinal directions expressed in polar coordinates are given by,
+\begin{align}
+	\hat{L}_z & = -i\hbar \pdv{\phi} \\
+	\hat{L}_y & = -i\hbar \left(\cos\phi \pdv{\theta} -\cot\theta \sin\phi \pdv{\phi}\right) \\
+	\hat{L}_x & = -i\hbar \left(-\sin\phi \pdv{\theta} - \cot\theta \cos\phi \pdv{\phi}\right) \\
+	\hat{L}^2 & = -\hbar^2\left(\pdv[2]{\theta} + \cot\theta\pdv{\theta} + \frac{1}{\sin^2\theta}\pdv[2]{\phi}\right)
+\end{align}
+We now wish to solve for the eigenfunctions of $\hat{L}^2$, $\hat{L}^2\psi(r,\theta,\phi) = L^2\psi(r,\theta,\phi)$. We can consider a separable solution, $\psi(r,\theta,\phi) = R(r)Y(\theta,\phi)$, and neglect the $r$ dependent term as $\hat{L}^2$ does not depend on $r$. Furthmore, we wish for $Y(\theta,\phi)$ to be an eigenfunction of $\hat{L}_z$ too, so we can assume that $Y \propto e^{im\phi}$ since we know the eigenfunctons of $\hat{L}_z$. Thus, we can write $Y(\theta,\phi) = P(\theta)e^{im\phi}$. Now,
+\begin{equation}
+	-\hbar^2\left(\dv[2]{\theta} + \cot\theta\dv{\theta} -\frac{m^2}{\sin^2\theta})P(\theta) = L^P(\theta).
+\end{equation}
+Let us define $\lambda = L^2/\hbar^2$, and write,
+\begin{equation}
+	\dv[2]{P}{\theta} + \frac{\cos\theta}{\sin\theta}\dv{P}{\theta} + \left(\lambda - \frac{m^2}{\sin^2\theta}\right)P = 0
+\end{equation}
+which we recognise as the associated Legendre equation, whose solutions are associated Legendre polynomials $P_l^m(\theta)$. Let us consider the possible eigenfunctions by substituting some known associated Legendre polynomials,
+\begin{enumerate}
+	\item $P(\theta) = 1$,
+	\begin{equation}
+		\lambda - \frac{m^2}{\sin^2\theta} = 0
+	\end{equation}
+	which is only true for $\lambda = m^2 = 0$.
+	\item $P(\theta) = \cos\theta$,
+	\begin{equation}
+		(\lambda - 2)\cos\theta - m^2\frac{\cos\theta}{\sin^2\theta} = 0
+	\end{equation}
+	which is only true for $\lambda = 2$, $m^2=0$.
+\end{enumerate}
 \end{document}

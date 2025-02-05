@@ -48,6 +48,8 @@
 
 \usepackage{tcolorbox}
 
+\def\innerproduct#1#2{\langle#1,#2\rangle}
+
 %https://osl.ugr.es/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf
 \tcbuselibrary{breakable}
 \tcbset{%any default parameters
@@ -356,4 +358,110 @@ and since $|z|^m$ is decreasing as a function of $m$, the series is Cauchy. For 
 	|a_n - a_m| = \frac{|z|^n}{|1-z|}\abs{1 - z^{-n+m+1}}\geq \frac{2}{|1-\frac{1}{z}|}|z|^n = z^{n+1}
 \end{equation}
 and since $|z|^{n}$ is an increasing function of $n$, the series is not Cauchy. Thus the series is Cauchy in the open set $|z| < 1$.
+\chapter{Inner Product Space}
+An inner product space is a vector space with an inner product, which is a generalisation of the scalar product.
+\begin{Definitions}{Inner product, $\innerproduct{\vb{a}}{\vb{b}}$}{}
+	Given a vector space $V_N$ over $\mathbb{F}$, the inner product between two vectors $\vb{a},\vb{b} \in V_N$ is a function such that $V \times V \to \mathbb{F}$. If $\mathbb{F} \subset \mathbb{C}$, the following properties hold,
+	\begin{enumerate}
+		\item \textbf{Linearity}. If $\vb{w} = \lambda\vb{u} + \mu\vb{v}$ then $\innerproduct{\vb{a}}{\vb{w}} = \lambda\innerproduct{\vb{a}}{\vb{u}} + \mu \innerproduct{\vb{a}}{\vb{u}}$.
+		\item \textbf{Conjugation Symmetry.} $\overline{\innerproduct{\vb{w}}{\vb{a}}} = \innerproduct{\vb{a}}{\vb{w}}$
+		\item \textbf{Positive Definiteness.} $\forall \vb{x}\neq0, \innerproduct{\vb{x}}{\vb{x}} > 0$.
+	\end{enumerate}
+\end{Definitions}
+From our definition of the inner product, we can define the 2-norm,
+\begin{equation}
+	\norm{\vb{a}}^2 = \innerproduct{\vb{a}}{\vb{a}} \geq 0.
+\end{equation}
+\section{Orthogonality}
+\begin{Definitions}{Orthogonality}{}
+	$\forall \vb{a},\vb{b} \neq 0 \in V_N$ if $\innerproduct{\vb{a}}{\vb{b}} = 0$ then $\vb{a}$ and $\vb{b}$ are orthogonal.
+\end{Definitions}
+This allows us to then define an orthonormal basis.
+\begin{Definitions}{Orthonormal basis}{}
+	The set basis vectors $\left\{\vb{e}_i\right\}_{i=1}^N \in V_N$ is orthogonal if,
+	\begin{equation}
+		\innerproduct{\vb{e}_i}{\vb{e}_j} = A_i\delta_{ij}.
+	\end{equation}
+	and $A_i \neq 0$. The set of basis vectors is orthonormal for $A_i = 1, \forall i \in \left[1,N\right]$.
+\end{Definitions}
+Given we can decompose any vector $\vb{a} \in V_N$ if given a complete set of basis vectors, we can define a general inner product for $V_N$ over $\mathbb{F} \subset \mathbb{C}$. Let us begin by writing the decomposition of two vectors $\vb{a},\vb{b}\in V_N$ into a set of basis vectors $\left\{\vb{e}_j\right\}_{j=1}^N$,
+\begin{align}
+	\vb{a} = \sum_{j=1}^Na_j\vb{e}_j && \vb{b} = \sum_{j=1}^Nb_j\vb{e}_j.
+\end{align}
+Then, using linearity,
+\begin{equation}
+	\begin{split}
+		\innerproduct{\vb{a}}{\vb{b}} & = \sum_{j,k=1}^N\overline{a}_j \innerproduct{\vb{e}_j}{\vb{e}_k}b_k \\
+		& = \sum_{i,j=1}^N\overline{a}_j\delta_{jk}b_k \\
+		& = \sum_{j=1}^N\overline{a}_jb_j.
+	\end{split}
+\end{equation}
+NOTE: This only holds when using an orthonormal basis.
+\\\\
+We can obtain further insight into the decomposition of a vector by considering the inner product,
+\begin{equation}
+	\begin{split}
+		\vb{a} = \sum_{j=1}^Na_j\vb{e}_j \implies \innerproduct{\vb{e}_k}{\vb{a}} & = \sum_{j=1}^Na_j\underbrace{\innerproduct{\vb{e}_j}{\vb{e}_k}}_{\delta_{jk}} = a_k.
+	\end{split}
+\end{equation}
+We often refer to $a_k = \innerproduct{\vb{e}_k}{\vb{a}}$ as the \textit{projection} of $\vb{a}$ onto $\vb{e}_k$ as it gives the component of $\vb{a}$ in the $\vb{e}_k$ direction.
+\section{Gram-Schmidt Orthonormalisation}
+\begin{Definitions}{Gram-Schmidt Algorithm}{}
+	Given a basis $\left\{\vb{v}_j\right\}_{j=1}^N \in V_N$,
+	\begin{itemize}
+		\item[1.] Define
+		\begin{equation}
+			\vb{e}_1 = \frac{\vb{v}_1}{\norm{\vb{v}_1}}
+		\end{equation}
+		\item[2.] Define 
+		\begin{align}
+			\vb{u}_2 = \vb{v}_2 - \innerproduct{\vb{e}_1}{\vb{e}_2}\vb{e_1}
+	&&
+			\vb{e}_2 = \frac{\vb{u}_2}{\norm{\vb{u}_2}}
+		\end{align}
+		\item[\vdots]
+		\item[m.] Define,
+		\begin{equation}
+			\vb{u}_m = \vb{v}_m - \sum_{j=1}^{m-1}\innerproduct{\vb{e}_j}{\vb{v}_m}\vb{e}_j
+		\end{equation}
+		thus,
+		\begin{equation}
+			\vb{e}_m = \frac{\vb{u}_m}{\norm{\vb{u}_m}}
+		\end{equation}
+	\end{itemize}
+	up to $N$.
+\end{Definitions}
+The Gram-Schmidt process is able to take any set of basis vectors and turn it into a set of orthonormal basis vectors. The idea behind it is that given 2 vectors $\vb{v},\vb{u}$ such that $\norm{\vb{u}} = 1$, then we wish to define a vector $\vb{v}' = \vb{v} - \innerproduct{\vb{u}}{\vb{v}}\vb{u}$. The inner product with $\vb{u}$ and this new vector is then,
+\begin{equation}
+	\innerproduct{\vb{u}}{\vb{v}'} = \innerproduct{\vb{u}}{\vb{v}} - \innerproduct{\vb{u}}{\vb{v}}\cancelto{1}{\innerproduct{\vb{u}}{\vb{u}}} = 0.
+\end{equation}
+So, we essentially are removing the non-orthonormal components from each subsequent basis vector, based on the first basis vector in the set.
+\section{Inequalities of Inner Product Space}
+\begin{Theorems}{Cauchy-Schwartz Inequality}{}
+	$\forall \vb{a},\vb{b} \in V_N, \abs{\innerproduct{\vb{a}}{\vb{b}}} \leq \norm{\vb{a}}\norm{\vb{b}}$.
+\end{Theorems}
+\begin{proof}
+	Consider $\vb{u} = \vb{a} - \lambda\vb{b}$,
+	\begin{equation}
+		\norm{\vb{a}}^2 = \norm{\vb{a}}^2 + |\lambda|^2\norm{\vb{b}}^2 - \overline{\lambda}\innerproduct{\vb{b}}{\vb{a}} - \lambda\innerproduct{\vb{a}}{\vb{b}} \geq 0.
+	\end{equation}
+Choose, 
+\begin{equation}
+	\lambda = \frac{\innerproduct{\vb{b}}{\vb{a}}}{\norm{\vb{b}}^2}.
+\end{equation}
+Thus,
+\begin{equation}
+	\begin{split}
+		\norm{\vb{u}}^2 = \norm{\vb{a}}^2 \norm{\vb{b}}^2 - \frac{\abs{\innerproduct{\vb{a}}{\vb{b}}}}{\norm{\vb{b}}^2} \geq 0
+	\end{split}
+\end{equation}
+$\implies \abs{\innerproduct{\vb{a}}{\vb{b}}} \leq \norm{\vb{a}}\norm{\vb{b}}$.
+\end{proof}
+\begin{Theorems}{Triangle Inequality}{}
+	$\forall \vb{a},\vb{b} \in V_N, \norm{\vb{a} + \vb{b}}  \leq \norm{\vb{a}}\norm{\vb{b}}$
+\end{Theorems}
+\begin{proof}
+	
+\end{proof}
+
 \end{document}

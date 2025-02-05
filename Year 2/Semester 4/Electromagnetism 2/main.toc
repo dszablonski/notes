@@ -3,10 +3,14 @@
 \contentsline {section}{\numberline {1.1}Charges}{3}{}%
 \contentsline {subsection}{\numberline {1.1.1}Stationary Charges}{3}{}%
 \contentsline {subsection}{\numberline {1.1.2}Charges with Uniform Velocity}{3}{}%
-\contentsline {section}{\numberline {1.2}Retarded Potentials}{3}{}%
+\contentsline {section}{\numberline {1.2}Retarded Potentials}{4}{}%
 \contentsline {subsection}{\numberline {1.2.1}Statics}{4}{}%
 \contentsline {subsection}{\numberline {1.2.2}Time-Dependent case}{4}{}%
-\contentsline {chapter}{\numberline {A}Revision Equations}{5}{}%
-\contentsline {section}{\numberline {A.1}Potentials}{5}{}%
-\contentsline {section}{\numberline {A.2}Gauges}{5}{}%
-\contentsline {section}{\numberline {A.3}Vector Identities}{6}{}%
+\contentsline {section}{\numberline {1.3}Radiation from an accelerated charge}{4}{}%
+\contentsline {subsection}{\numberline {1.3.1}Displaced point charge}{4}{}%
+\contentsline {subsection}{\numberline {1.3.2}Radiation pattern from a displaced point charge}{6}{}%
+\contentsline {chapter}{\numberline {A}Revision Equations}{7}{}%
+\contentsline {section}{\numberline {A.1}Potentials}{7}{}%
+\contentsline {section}{\numberline {A.2}Gauges}{7}{}%
+\contentsline {section}{\numberline {A.3}Vector Identities}{8}{}%
+\contentsline {section}{\numberline {A.4}EM Waves}{8}{}%
