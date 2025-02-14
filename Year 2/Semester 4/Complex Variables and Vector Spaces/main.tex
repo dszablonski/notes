@@ -82,7 +82,7 @@
 
 \newtcbtheorem{Examples}{Example}%
 {colback=yellow!5!white,colframe=yellow!75!black,width=\textwidth,fonttitle=\bfseries}{}
-
+\def\doubleunderline#1{\underline{\underline{#1}}}
 
 \newtheorem*{theorem}{Theorem}
 
@@ -241,13 +241,13 @@ Let us consider some sequences and show if they are Cauchy.
 			\node at (0.8, 2.5) {$\displaystyle\frac{1}{x^2}$};
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Graphical proof used in example \ref{ex:1}.}
+	\caption{Graphical proof used in example 1.}
 	\label{fig:proof1}
 \end{figure}
 \begin{Examples}{$a_n = \sum_{i=1} \frac{1}{i^2}$}{}
 	A sequence in $\mathbb{R}$ with $\norm{a} = \abs{a}$ is
 	\begin{equation}
-		a_n =  \sum_{i=1}\frac{1}{i^2}.
+		a_n =  \sum_{i=1}^{n}\frac{1}{i^2}.
 	\end{equation}
 	Is this sequence Cauchy?
 \end{Examples}
@@ -295,7 +295,6 @@ Every convergent sequence is Cauchy, because if $a_n \to x \implies \norm{a_m - 
 \begin{Definitions}{Completeness}{}
 	A field is complete if every Cauchy sequence in the field converges to an element of the field.
 \end{Definitions}
-Let us take the rational numbers $\mathbb{Q}$ as an example.
 \begin{Examples}{Completeness of $\mathbb{Q}$}{}
 	Consider $a_n = \frac{a_{n-1}}{2} + \frac{1}{a_{n-1}}$. Let us assume $a_{\infty}$ exists.
 	\begin{equation}
@@ -334,7 +333,7 @@ We must furthmore define,
 	Sets for which any two points can be joined by a continuous path. 
 \end{Definitions}
 If a set is connected and open, we call it a \textit{region}.
-\begin{Examples}{}
+\begin{Examples}{}{}
 	The function $f(z) = \frac{1}{(1-z)}$ has a defined Taylor series for $z \neq 1$,
 	\begin{equation}
 		f(z) = \sum_{i=0}^{\infty}z^i.
@@ -458,10 +457,314 @@ Thus,
 $\implies \abs{\innerproduct{\vb{a}}{\vb{b}}} \leq \norm{\vb{a}}\norm{\vb{b}}$.
 \end{proof}
 \begin{Theorems}{Triangle Inequality}{}
-	$\forall \vb{a},\vb{b} \in V_N, \norm{\vb{a} + \vb{b}}  \leq \norm{\vb{a}}\norm{\vb{b}}$
+	$\forall \vb{a},\vb{b} \in V_N, \norm{\vb{a} + \vb{b}}  \leq \norm{\vb{a}} + \norm{\vb{b}}$
 \end{Theorems}
 \begin{proof}
-	
+	\begin{equation}
+		\begin{split}
+		\norm{\vb{a} + \vb{b}}^2 & = \innerproduct{\vb{a} + \vb{b}}{\vb{a} + \vb{b}} \\
+		& \leq \norm{\vb{a}}^2 + \norm{\vb{b}}^2 + 2\abs{\innerproduct{\vb{a}}{\vb{b}}} \\
+		& \leq \norm{\vb{a}}^2 + \norm{\vb{b}}^2 + 2\norm{\vb{a}}\norm{\vb{b}} = (\norm{\vb{a}} + \norm{\vb{b}})^2
+		\end{split}
+	\end{equation}
+	$\implies \norm{\vb{a} + \vb{b}} \leq \norm{\vb{a}} + \norm{\vb{b}}$
 \end{proof}
+\chapter{Linear Operators}
+\begin{Definitions}{Map}{}
+	A map $M$ is a function which takes $V \to W$ where $V,W$ are vector spaces. This is such that $M$ acting on $\vb{c} \in V$ produces a different vector $\vb{c}' \in W$.
+\end{Definitions}
+We are often interested in linear maps, or linear operators as they are often called in physics.
+\begin{Definitions}{Linear Operator}{}
+	An operator $\hat{A}$ is linear if, for a vector $\vb{c} = \lambda \vb{a} + \mu\vb{b}$ where $\forall \lambda, \mu \in \mathbb{F}$ and $\forall \vb{a},\vb{b} \in V$ over $\mathbb{F}$, 
+	\begin{equation}
+		\vb{c}' = \hat{A}\vb{c} = \mu(\hat{A}\vb{a})+ \lambda (\hat{A}\vb{b})
+	\end{equation}
+\end{Definitions}
+In physics, but not generally, linear operators always map $V \to V$.
+\section{Algebra of operators}
+We can define the following properties of linear operators,
+\begin{enumerate}
+	\item $(\hat{A} + \hat{B}) \equiv \hat{A}\vb{v} + \hat{B} \vb{v}$.
+	\item $()\lambda\hat{A})\vb{v} = \lambda(\hat{A}\vb{v})$.
+	\item $\exists\hat{\mathbb{1}} : \hat{\mathbb{1}}\vb{v} = \vb{v}, \forall \vb{v} \in V$.
+	\item $\exists \hat{0} : \hat{0}\vb{v} = \vb{0}, \forall \vb{v} \in V$.
+	\item $\forall \vb{v} \in V, (\hat{B}\hat{A})\vb{v} = \hat{B}(\hat{A}\vb{v})$, generally $\hat{A} \hat{B} \neq \hat{B}\hat{A}$
+\end{enumerate}
+\section{Matrix Representation of Linear Operators}
+Consider $V_N$ over $\mathbb{F}$. Assume $\left\{\vb{e}_j\right\}_{j=1}^N$ is an orthonormal basis. $\forall \vb{v} \in V_N$,
+\begin{equation}
+	\vb{v} = \sum_{j=1}^Nv_j \vb{e}_j
+\end{equation}
+where $\innerproduct{\vb{e}_k}{\vb{v}} = v_k$. Given a linear operator $\hat{A}$,
+\begin{equation}
+	\hat{A} \vb{v} = \hat{A} \left(\sum_{j=1}^N v_j\vb{e}_j\right) = \sum_{j=1}^Nv_j\hat{A}\vb{e}_j
+\end{equation}
+by linearity. We have $\hat{A}\vb{e}_j \in V_N$, thus,
+\begin{equation}
+	\hat{A} \vb{e}_j = \sum_{i=1}^N\vb{e}_i\underbrace{(\hat{A}\vb{e}_j)}_{A_{ij}}
+\end{equation}
+so,
+\begin{equation}
+	\begin{split}
+		& \hat{A}\vb{e}_j = \sum_{i=1}^N\vb{e}A_{ij} \\
+		\implies & A_{ij} = \innerproduct{\vb{e}_i}{\hat{A}\vb{e}_j}.
+	\end{split}
+\end{equation}
+So,
+\begin{equation}
+	\begin{split}
+		\hat{A}\vb{v} & = \sum_{j=1}^Nv_j\sum_{i=1}^N(A_ij\vb{e}_i) \\
+		& =\sum_{i=1}^{N}\left(\sum_{j=1}^NA_{ij}v_j\right)\vb{e}_i
+	\end{split}
+\end{equation}
+thus,
+\begin{equation}
+	(\hat{A}\vb{v})_i = \sum_{j=1}^N A_{ij}v_j.
+\end{equation}
+Interestingly, we have obtained matrix multiplication from linearity and orthonormality, rather than having to define it.
+\section{Inverse Operator}
+\begin{Definitions}{Inverse operator}{}
+	Given an operator $\hat{A}$ from $V \to V$, $\forall \vb{v} \in V$, $\exists \hat{B}$ such that, $\hat{B}(\hat{A}\vb{v}) = \vb{v}$, $(\hat{B}\hat{A})\vb{v} = \vb{v} \implies \hat{B}\hat{A} = \hat{\mathbb{1}}$. We call $\hat{B} = \hat{A}^{-1}$.
+\end{Definitions}
+NOTE: Not all operators have an inverse.
+\section{Dyadic (Outer) Product}
+Recall $\bra{u}\hat{A}\ket{v} \to$ $\vb{u}^{\dag}\hat{A}\vb{v}$, or $\innerproduct{\vb{u}}{\hat{A}\vb{v}}$. We can clearly see that $\vb{c}\innerproduct{\vb{a}}{\vb{b}}$ is a vector. Let us define,
+\begin{equation}
+	\vb{c}' = \vb{c}(\vb{a}^{\dag}\vb{b}) = \underbrace{(\vb{c}\vb{a}^{\dag})}_{\substack{\text{Linear}\\\text{Operator}}}\vb{b}
+\end{equation}
+this linear operator is known as a \textit{dyad} or the \textit{outer product} of $\vb{a}$ and $\vb{c}$. Let us define it more formall,y
 
+\begin{Definitions}{Dyad/Outer product}{}
+	For $V_N \subset \mathbb{C}^N$, and vectors $\vb{a},\vb{b} \in V_N$, their outer product is defined $\vb{a}\vb{b}^{\dag}$. It has the following properties,
+	\begin{enumerate}
+		\item \textbf{Linearity in the first argument}. If $\vb{c} = \lambda \vb{a} + \mu \vb{b}$, then $\vb{c}\vb{d}^{\dag} = \lambda\vb{a}\vb{d}^{\dag} + \mu\vb{b}\vb{d}^{\dag}$.
+		\item \textbf{Antilinearity in the second argument}. If $\vb{d} = \lambda \vb{a} + \mu \vb{b}$, then $\vb{c}\vb{d}^{\dag} = \bar{\lambda}\vb{c}\vb{a}^{\dag} + \bar{\mu}\vb{c}\vb{b}^{\dag}$.
+	\end{enumerate}
+\end{Definitions}
+\section{Projection Operator and the Completeness Relation}
+If $\hat{P}^2\vb{v} = \hat{P}\vb{v}$, $\forall \vb{v} \in V_N$, then $\hat{P}$ is a projection operator. For a given orthonormal basis $\left\{\vb{e}_j\right\}_{j=1}^N \in V_N$, $\hat{P}_j = \vb{e}_j\vb{e}_j^{\dag}$. A consequence of this is the completeness relation, 
+\begin{equation}
+	\sum_{j=1}^N\hat{P}_j = \sum_{j=1}^N \vb{e}_j\vb{e}_j^{\dag} = \hat{\mathbb{1}}.
+\end{equation}
+\section{The Adjoint or Hermitian Conjugate}
+\begin{Definitions}{Adjoint}{}
+	\begin{equation}
+	\forall \hat{A}, \forall \vb{u},\vb{v} \in V_N : \innerproduct{\vb{u}}{\hat{A}^{\dag}\vb{v}} = \overline{\innerproduct{\vb{v}}{\hat{A}\vb{u}}}
+\end{equation}
+In matrix notation,
+\begin{equation}
+	(\hat{A}^{\dag})_{ij} = \overline{A_{ji}}.
+\end{equation}
+An operator is self adjoint if $\hat{A} = \hat{A}^{\dag}$.
+\end{Definitions}
+\begin{Definitions}{Unitary Operator}{}
+	\begin{equation}
+		\exists \hat{U} : \hat{U}^{\dag}\hat{U} = \hat{U}\hat{U}^{\dag} = \hat{\mathbb{1}}
+	\end{equation}
+	i.e.,
+	\begin{equation}
+		\hat{U}^{-1} = \hat{U}^{\dag}.
+	\end{equation}
+\end{Definitions}
+
+\section{Representations}
+\subsection{Representation of a Vector}
+We know that a vector can be decomposed into orthonormal basis vectors. A vector space can have more than one set of orthonormal basis vectors which can represent a given vector. From the completeness relation, we find,
+\begin{equation}
+	\begin{split}
+		\vb{v} = \hat{\mathbb{1}}\vb{v} &= \sum_{j=1}^N \innerproduct{\vb{e}_j}{\vb{v}}\vb{e}_j \\ 
+		& = \sum_{j=1}^N\innerproduct{\vb{f}_j}{\vb{v}}\vb{f}_j
+	\end{split}
+\end{equation}
+i.e., changing basis does not change the abstract concept of a vector.
+\subsubsection{Invariance of the Inner Product}
+We can emphasise the idea above by considering the inner product of a vector. We can write some vector $\vb{v}\in V_N$ as,
+\begin{equation}
+	\vb{v} = \sum_{j=1}^Na_i\vb{e}_i = \sum_{j=1}^N b_i\vb{f}_i.
+\end{equation}
+Computing the inner product,
+\begin{equation}
+	\begin{split}
+	\innerproduct{\vb{v}}{\vb{v}} & = \sum_{j=1}^N\left(a_j\vb{e}_j\right)^{\dag}\sum_{k=1}^Na_k\vb{e}_k \\
+	& = \sum_{j=1}^N\sum_{k=1}^N\overline{a_j}a_k\underbrace{\vb{e}_j^{\dag}\vb{e}_k}_{\delta_{jk}} \\
+	& = \sum_{j=1}^N\abs{a_j}^2
+	\end{split}
+\end{equation}
+and repeating this using the $\left\{\vb{f}_j\right\}_{j=1}^N$ representation,
+\begin{equation}
+	\begin{split}
+		\innerproduct{\vb{v}}{\vb{v}} & = \sum_{j=1}^N\left(b_j\vb{f}_j\right)^{\dag}\sum_{k=1}^Nb_k\vb{f}_k \\
+		& = \sum_{j=1}^N\abs{b_j}^2
+	\end{split}
+\end{equation}
+and we find $\sum_{j=1}^N\abs{a_j}^2 = \sum_{j=1}^N\abs{b_j}^2$, so the inner product is invariant under a basis change.
+\subsection{Representation of Linear Operators}
+Consider a vector space $V_N$ with basis $\left\{\vb{e}_j\right\}_{j=1}^N$. Consider $\vb{b},\vb{c} \in V_N$ and an operator $\hat{A}$, such that $\vb{c} = \hat{A}\vb{b}$. We can find its representation by considering,
+\begin{equation}
+	\begin{split}
+		\mathbb{1} \vb{c} = \mathbb{1} \hat{A}\mathbb{1}\vb{b} & \\
+		\sum{j=1}^N \innerproduct{\vb{e}_j}{\vb{c}} \vb{e}_j & = \sum_{j,k=1}^N\left(\vb{e}_j\vb{e}_j^{\dag}\right)\hat{A}\left(\vb{e}_k\vb{e}_k^{\dag}\right)\vb{b} \\
+		& = \sum_{j,k=1}^N \vb{e}_j\underbrace{\left(\vb{e}_j^{\dag}\hat{A}\vb{e}_k\right)}_{A_{ij}}\underbrace{\left(\vb{e}_k^{\dag}\vb{b}\right)}_{b_k}
+	\end{split}
+\end{equation}
+Thus, we find that we can denote the entries of a matrix $\doubleunderline{A}$ representing a linear operator $\hat{A}$ are $\left(\doubleunderline{A}\right)_{ij}$. We can denote this representation by,
+\begin{align}
+	\hat{A} \xrightarrow{\left\{\vb{e}\right\}_{j=1}^N} \doubleunderline{A}.
+\end{align}
+\subsection{Changing Representation of a Vector}
+Consider a vector $\vb{v} \in V_N$, and orthonormal bases $\left\{\vb{e}_j\right\}_{j=1}^N$ and $\left\{\vb{f}_j\right\}_{j=1}^N$. $\vb{v}$ can be decomposed as,
+\begin{equation}
+		\vb{v} = \sum_{j=1}^Na_i\vb{e}_i = \sum_{j=1}^N b_i\vb{f}_i.
+\end{equation}
+The $l^{\text{th}}$ element of the vector is given by,
+\begin{equation}
+	a_l = \innerproduct{\vb{e}_l}{\vb{v}} = \sum_{k=1}^Nb_k\innerproduct{\vb{e}_l}{\vb{f}_k} = \sum_{k=1}^N\left(\doubleunderline{U}_{lk}\right)b_k
+\end{equation}
+where we have found the matrix $(\doubleunderline{U})_{lk}$ which represents a unitary operator that takes a vector representation from one basis and transforms it into another. We can denote this,
+\begin{equation}
+	\begin{pmatrix}
+		a_1 \\ a_2 \\ \vdots \\ a_N
+	\end{pmatrix} = \begin{pmatrix}
+	\innerproduct{\vb{e}_1}{\vb{f}_1} & \cdots & \innerproduct{\vb{e}_1}{\vb{f}_N} \\
+	\innerproduct{\vb{e}_2}{\vb{f}_1} & \cdots & \innerproduct{\vb{e}_2}{\vb{f}_N} \\
+	\vdots & \ddots & \vdots \\
+	\innerproduct{\vb{e}_N}{\vb{f}_1} & \cdots & \innerproduct{\vb{e}_N}{\vb{f}_N}
+	\end{pmatrix}\begin{pmatrix}
+	b_1 \\ b_2 \\ \vdots \\ b_N
+	\end{pmatrix}
+\end{equation} 
+\subsection{Changing Representation of a Matrix}
+We can write a linear operator as,
+\begin{equation}
+	\hat{A} = \mathbb{1}\hat{A} \mathbb{1} = \sum_{j,k=1}^NA_{jk}\vb{e}_j\vb{e}_k^{\dag} = \sum_{l,m=1} \tilde{A}_{lm}\vb{f}_l\vb{f}_m^{\dag}
+\end{equation}
+we then find that,
+\begin{equation}
+	A_{jk} = \sum_{l,m=1}^N \innerproduct{\vb{e}_j}{\vb{f}_l}\tilde{A}_{lm}\innerproduct{\vb{f}_m}{\vb{e}_k}.
+\end{equation}
+Thus, we find that we can change the matrix representation of a linear operator by,
+\begin{equation}
+	\doubleunderline{A} = \doubleunderline{U}\doubleunderline{\tilde{A}}\doubleunderline{U}^{\dag}.
+\end{equation}
+\section{Eigenvalue Problems}
+\begin{Definitions}{Eigen Equation}{}
+	For a linear operator $\hat{A}$, the eigenequation is,
+	\begin{equation}
+		\hat{A}\vb{u}= \lambda \vb{u}
+	\end{equation}
+	where $\lambda$ and $\vb{u}$ are the eigenvalue and right eigenvector of $\hat{A}$ respectively, such that $\vb{u} \neq \vb{0}$.
+\end{Definitions}
+A left eigenvector will satisfy,
+\begin{equation}
+	\vb{v}^{\dag}\hat{A} = \lambda\vb{v}^{\dag}.
+\end{equation}
+In order to obtain the eigenvalues, we rearrange to get,
+\begin{equation}
+	\left(\hat{A} - \lambda \hat{\mathbb{1}}\right)\vb{u} = 0
+\end{equation}
+and solve,
+\begin{equation}
+	\det\left(\hat{A} - \lambda \hat{\mathbb{1}}\right)
+\end{equation}
+which generates a polynomial of degree $N$, with $N$ solutions for $\lambda in \mathbb{C}$. Each distinct eigenvalue will correspond to a distinct eigenvector. However, if we have a repeated root, we get repeated eigenvectors. For $m > 1$ repeated eigenvectors, there may be up to, but at least 1, $m$ linearly independent eigenvectors corresponding to the degenerate eigenvalue. 
+\subsection{Eigenvalues and eigenvectors of Hermitian operators}
+\begin{Theorems}{Eigenvalues of Hermitian Operators}{}
+	Consider the eigenvalues $\left\{\lambda_i\right\}_{i=1}^N$ and eigenvectors $\left\{\vb{u}\right\}_{i=1}^N$ of $\hat{A}$. $\forall \hat{A} : \hat{A}^{\dag} = \hat{A} \implies \forall i: \lambda_i \in \mathbb{R}$, $\forall i\neq j: \vb{u}_i^{\dag}\vb{u}_j = 0$.
+\end{Theorems}
+\begin{proof}
+	The eigenvalue equation is given by,
+	\begin{equation}
+		\hat{A}\vb{u}_i = \lambda_i \vb{u}_i.
+	\end{equation}
+	Without loss of generality, consider the matrix elements of $\hat{A}$ with respect to two eigenvectors,
+	\begin{equation}
+		\vb{u}_j^{\dag}\hat{A}\vb{u}_k = \lambda_k\innerproduct{\vb{u}_j}{\vb{u}_k}. \label{eq:1}
+	\end{equation}
+	Using the Hermitian property,
+	\begin{equation}
+		\vb{u}_j^{\dag}\hat{A}\vb{u}_k = \vb{u}_j^{\dag}\hat{A}^{\dag}\vb{u}_k = \overline{\vb{u}_k^{\dag}\hat{A}\vb{u}_j} = \overline{\lambda_j}\left<\vb{u}_j, \vb{u}_k\right>. \label{eq:2}
+	\end{equation}
+	Equating equations \eqref{eq:1} and \eqref{eq:2},
+	\begin{equation}
+		(\lambda_k - \overline{\lambda}_k)\innerproduct{\vb{u}_j}{\vb{u}_k} = 0.
+	\end{equation}
+	Let us consider two cases,
+	\begin{enumerate}
+		\item $k = j$, since $\innerproduct{\vb{u}_j}{\vb{u}_j} > 0$, we require $\lambda_j = \overline{\lambda}_j$. 
+		\item $k\neq j$, since $\lambda_j, \lambda_k$ are distinct, we require $\innerproduct{\vb{u}_j}{\vb{u}_k} = 0$. 
+	\end{enumerate}
+\end{proof}
+\subsection{Diagonalisation}
+Let $\doubleunderline{U}$ be the matrix with orthonormal eigenvectors $\vb{u}_j$ as columns, such that $U_{ij} = (u_j)_i$, and $\hat{U}$ be the corresponding linear operator. By orthogonality, $\hat{U}$ is unitary. For a linear operator $\hat{A}$, we can diagonalise it (construct a matrix with $\hat{A}$'s eigenvalues on the diagonal) by,
+\begin{equation}
+	\left[\hat{U}^{\dag}\hat{A}\hat{U}\right]_{ij} = \lambda_i\delta_{ij}.
+\end{equation}
+To obtain the original operator form its diagonalised form $\Lambda_{ij}$, we perform,
+\begin{equation}
+	A_{ij} = U_{ik}\Lambda_{kl}\overline{U}_{jl}.
+\end{equation}
+\subsubsection{Eigenvalues and eigenvectors of unitary operators}
+We use unitary operators in physics to describe time evolution in quantum mechanics. We can do this because they preserve the norm, and thus the inner product, of a vector. i.e., $\innerproduct{\hat{U}\vb{u}}{\hat{U}\vb{v}} = \innerproduct{\vb{u}}{\vb{v}}$.
+\begin{Theorems}{Eigenvalues of unitary operators}{}
+	Consider a unitary operator $\hat{U} : V \to V$ with eigenvalue equation,
+	\begin{equation}
+		\hat{U}\vb{u}_j = \lambda_j\vb{u}_j.
+	\end{equation}
+	The eigenvalues satisfy the following condition:
+	\begin{enumerate}
+		\item $\abs{\lambda_j} = 1 \implies \lambda_j = e^{i\theta_j}, \theta \in \mathbb{R}$.
+		\item $\lambda_j \neq \lambda_k \implies \innerproduct{\vb{u}_j}{\vb{u}_k} = 0$.
+		\item The eigenvectors of $\hat{U}$ form an orthonormal basis for $V$.
+	\end{enumerate}
+\end{Theorems}
+\begin{proof}
+	\begin{enumerate}
+		\item 
+	\end{enumerate}
+\end{proof}
+\subsubsection{Spectral Representation}
+We can diagonalise a general operator $\hat{A}$ which is not necessarily Hermitian, under the assumption that it has a complete set of eigenvectors. The left and right eigenvector equations are,
+\begin{align}
+	\vb{v}_j^{\dag}\hat{A} = \lambda_j\vb{v}_j^{\dag} && \hat{A}\vb{u}_j = \lambda_j\vb{u}_j.
+\end{align}
+We then have,
+\begin{equation}
+	\vb{v}_j^{\dag}\hat{A}\vb{u}_k = \lambda_k\innerproduct{\vb{v}_j}{\vb{u}_k} = \lambda_j\innerproduct{\vb{v}_j}{\vb{u}_k}
+\end{equation}
+thus for $\lambda_j \neq \lambda_k$, we require $\innerproduct{\vb{v}_j}{\vb{u}_k} = 0$.
+\\\\
+We choose a normalisation $\innerproduct{\vb{v}_j}{\vb{u}_k}$, the completeness relation is given by,
+\begin{equation}
+	\sum_{j=1}^N \vb{u}_j\vb{v}_j^{\dag} = \hat{\mathbb{1}}
+\end{equation}
+and we call $\vb{v}_j$ the dual basis to $\vb{u}_j$. We can thus write the operator $\hat{A}$,
+\begin{equation}
+	\boxed{\hat{A} = \hat{A}\hat{\mathbb{1}} = \sum_{j=1}^N\hat{A}\vb{u}_j\vb{v}_j^{\dag} = \sum_{j=1}^N\lambda_j\vb{u}_j\vb{u}_j^{\dag}}
+\end{equation}
+which is known as the \textit{spectral representation} of $\hat{A}$. Given an orthonormal basis $\left\{\vb{e}_j\right\}_{j=1}^N$ in which we can write the matrix representation of $\hat{A}$ which we denote $\doubleunderline{A}$, we can diagonalise it by applying,
+\begin{equation}
+	\doubleunderline{A}^{\text{diag}} = \doubleunderline{S} \doubleunderline{A} \doubleunderline{T}^{\dag}
+\end{equation}
+where we define,
+\begin{align}
+	\left(\doubleunderline{S}\right)_{jk} = \innerproduct{\vb{v}_j}{ \vb{e}_k} && \left(\doubleunderline{T}\right)_{jk} = \innerproduct{\vb{u}_j}{\vb{e}_k}
+\end{align}
+which are unitary only if $\hat{A}$ is Hermitian.
+\subsubsection{Diagonalisation of commuting operators}
+For two commuting operators $\hat{A}$ and $\hat{B}$, when,
+\begin{equation}
+	\hat{B} \vb{u} = \lambda \vb{u}
+\end{equation}
+we have,
+\begin{equation}
+	\begin{split}
+		& \hat{A}\hat{B}\vb{u} = \lambda\hat{A}\vb{u} \\
+		\implies & \hat{B}\hat{A} = \lambda \left(\hat{A}\vb{u}\right)
+	\end{split}
+\end{equation}
+and thus $\hat{A}\vb{u}$ is also an eigenvector of $\hat{B}$ with eigenvalue $\lambda$. Below the implications of this statement are stated,
+\begin{itemize}
+	\item \textbf{Non-degenerate:} If $\lambda$ is non-degenerate, $\forall\lambda, \exists\vb{u} : \hat{A}\vb{u} = \mu\vb{u} \implies$ $\vb{u}$ is a simultaneous eigenvector of $\hat{B}$ and $\hat{A}$.
+	\item \textbf{Degenerate:} If $\lambda$ has degeneracy $m > 1$, with eigenvectors $\left\{\vb{u}_j\right\}_{j=1}^m$, then a linear combination of these eigenvectors is an eigenvector of $\hat{A}$. $\hat{B}$ will act in this subspace, and it is possible to find a basis which simultaneously diagonalises $\hat{A}$ and $\hat{B}$.
+\end{itemize}
 \end{document}

@@ -179,10 +179,177 @@ We wish to now consider the electric field and the power flux (Poynting vector) 
 \end{equation}
 Then, we can write the Poynting vector as,
 \begin{equation}
-	\abs{\vb{S}(\vb{r},t)} = \frac{1}{16\pi^2\varepsilon_0}\frac{q^2\abs{\vb{a}^2\left(t - \frac{r}{c}\right)}\sin^2\theta}{c^3r^2}.
+	\abs{\vb{S}(\vb{r},t)} = \frac{1}{16\pi^2\varepsilon_0}\frac{q^2\abs{\vb{a}^2\left(t - \frac{r}{c}\right)}\sin^2\theta}{c^3r^2}. \label{eq:poynt}
 \end{equation}
+\subsection{Total Power Radiated}
+The Poynting vector is the directional energy flux per unit area, per unit time. Thus, to find the power radiated, we simply compute the integral,
+\begin{equation}
+	P(t) = \oint \vb{S}\cdot\dd{\vb{A}} = \int_0^{2\pi}\int_0^{\pi} S r^2\sin\theta \dd{\theta} \dd{\phi}.
+\end{equation}
+Substituting expression \eqref{eq:poynt}, we obtain Larmor's formula,
+\begin{equation}
+	\boxed{P(t) = \frac{q^2\left[a\left(t-\frac{r}{c}\right)\right]^2}{6\pi \varepsilon_0c^3}}.
+\end{equation}
+\section{Radiation from an Oscillating Electric Dipole}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw[<->] (0,0) -- (0,4);
+		\node at (0,1) {\textbullet};
+		\node at (0,3) {\textbullet};
+		\node[anchor=west] at(0,1) {$q$};
+		\node[anchor=west] at(0,3){$q$};
+		\draw [->] (0,2) -- (2,2);
+		\draw [latex-latex] (-0.5,1) -- (-0.5,3) node[midway, anchor=east] {$l$};
+	\end{tikzpicture}
+	\caption{}
+	\label{fig:dipole}
+\end{figure}
+Consider an oscillating dipole, with charges separated by a length $l$ and oscillating along the $z$ axis. From Larmor's formula, $P(t) \propto \left(qa(\tau)\right)^2$. We can approximate the oscillating charges as a charge distribution with charge per unit length $\mu$ and length $l$. We can write,
+\begin{equation}
+	\begin{split}
+		qa(\tau) & = \mu la(\tau) \\
+		& = \mu \dv{v}{\tau}l \\
+		& = l \dv{(\mu v(\tau))}{\tau}
+	\end{split}
+\end{equation}
+where we find $\mu v(\tau)$ to have units of current, i.e., $\left[\mu v(\tau)\right] = [A]$. We can represent this as a current,
+\begin{equation}
+	\mu v (\tau) =  I(\tau) = I_0\cos\omega t
+\end{equation}
+where $I_0$ and $\omega$ are the corresponding amplitude and angular frequency of oscillation. Thus, we can write $qa(\tau)$ as,
+\begin{equation}
+	qa(\tau) = - \omega L I_0 \sin(\omega t - kr).
+\end{equation}
+By substitution, we can find the corresponding electric and magnetic fields,
+\begin{align}
+	E_{\perp} = \frac{I_0 l \sin\theta}{4\pi \varepsilon_0 rc^2}\omega \sin(\omega t - kr) && B_{\perp} = \frac{I_0 l \sin\theta}{4\pi \varepsilon_0 rc^3}\omega \sin(\omega t - kr) \label{eq:hertzian}
+\end{align}
+and the corresponding power emitted is,
+\begin{equation}
+	P = \left[\frac{l^2 \omega ^2}{6\pi \varepsilon c^3}\right]I_0 \sin^2(\omega t - kr). \label{eq:powerrad}
+\end{equation}
+\subsection{Radiation Resistance}
+If we recall the formula $P = I^2 R$, we find that we can extract a resistance from equation \eqref{eq:powerrad}. This is known as the \textit{radiation resistance}, given by,
+\begin{equation}
+	R_{\text{rad}} = \frac{l^2 \omega ^2}{6\pi \varepsilon c^3}
+\end{equation}
+\section{Half-Wave Antenna}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{2.6.png}
+	\caption{}
+	\label{fig:2.6}
+\end{figure}
+Let us consider a more realistic antenna, as in figure \ref{fig:2.6}. This is a centre fed, thin, straight antenna of length $l$. The solution for the current distribution of this antenna can be obtained from Maxwell's equations, whose solution is,
+\begin{equation}
+	I(z) = I_0 \sin\left(m\pi \left(\frac{\abs{z}}{l} + \frac{1}{2}\right)\right)
+\end{equation}
+where $m$ is an integer. We can integrate the Hertzian dipole over the length of the antenna in order to obtain an expression for the electric field, we have
+\begin{equation}
+	\dd E = \frac{I(z) \dd{z}\sin\theta}{4\pi \epsilon_0 r c^2}\omega \sin(\omega t - kr).
+\end{equation}
+Before we integrate this, we must consider the phase $\omega t - kr$. We find that there will be a time-lag of $\Delta t \frac{z\cos\theta}{c}$, with a resultant lag in phase of $kz\cos\theta$. Furthermore, we can approximate $r \approx R - z\cos\theta$, thus our integral becomes,
+\begin{equation}
+	E = \frac{\omega \sin\theta}{4\pi \varepsilon_0Rc^2}\int_{-l/2}^{l/2}I(z) \sin\left(\omega t - kR + kz\cos\theta\right)\dd{z}
+\end{equation}
+and computing this,
+\begin{equation}
+	E = \frac{I_0 l}{4\pi \varepsilon_0Rc^2}\left[\frac{2}{\pi}\frac{\cos\left(\frac{\pi}{2}\cos\theta\right)}{\sin\theta}\right]\omega \sin\left(\omega t - kR\right).
+\end{equation}
+We wish to then find the time-averaged poynting vector, computed by $\langle S \rangle = \frac{1}{\mu_0}\langle \vb{E}\cross\vb{B}\rangle$, which we find to be,
+\begin{equation}
+	\langle S \rangle = \frac{I_0^2}{8\pi^2 \mu_0\varepsilon_0^2R^2c^3}\frac{\cos^2\left(\frac{\pi}{2}\cos\theta\right)}{\sin^2\theta}.
+\end{equation}
+We can then compute the time average of the power radiated by $\langle P \rangle = \oint \langle S \rangle\dd{A}$, which requires us to compute,
+\begin{equation}
+	\langle P \rangle = \frac{I_0^2}{4\pi \mu_0\varepsilon_0^2 R^2c^3}\int_0^{\pi}\frac{\cos^2\left(\frac{\pi}{2}\cos\theta\right)}{\sin\theta}\dd{\theta}
+\end{equation}
+We then find,
+\begin{equation}
+	\langle P \rangle \simeq 1.22\frac{I_0^2}{r\pi \varepsilon_0 c} \simeq 0.194Z_0I_{\text{rms}}^2
+\end{equation}
+where we define $Z_0 = \frac{1}{\varepsilon_0 c} = \sqrt{\frac{\mu_0}{\varepsilon}}$ and $I_{\text{rms}} = \frac{I_0^2}{2}$.
+
+\chapter{Radiation in Matter}
+\section{Maxwell's Equations in a Medium}
+Let us recall electromagnetic fields in materials. 
+\subsection{Electrics}
+The $\vb{P}$ field is the dipole moment per unit volume, and describes bound charges, such that,
+\begin{align}
+	\div{\vb{P}} = \rho_b && \vb{P}\cdot\vu{n} = \sigma_b
+\end{align}
+where $_b$ indicates a bound charge, and $\sigma_b$ is the bound surface charge. The total charge is composed of bound charge and free charge, such that $\rho = \rho_b + \rho_f$. We can then define the $\vb{D}$ field, such that,
+\begin{equation}
+	\div{\vb{D}} = \rho_f
+\end{equation} 
+for linear dielectrics, and,
+\begin{equation}
+	\vb{D} = \epsilon_0\vb{E} + \vb{P} = \epsilon_0\epsilon_r\vb{E}
+\end{equation}
+where $\epsilon_r = 1 + \chi_E$.
+\subsection{Magnetics}
+In magnetics, materials can have different types of magnetism:
+\begin{itemize}
+	\item \textit{Paramagnetism:} Magnetisation parallel to $\vb{B}$, dipoles align with $\vb{H}$.
+	\item \textit{Diamagnetism:} Magnetisation is antiparallel with $\vb{B}$, dipoles anti-align with $\vb{H}$.
+	\item \textit{Ferromagnetism:} Magnetisation is retained even after $\vb{B}$ is removed, regions of dipoles align together with $\vb{H}$.
+\end{itemize}
+We can define the magnetisation $\vb{M}$ as the magnetic dipole moment per unit volume, from which we can obtain the bound and surface currents,
+\begin{align}
+	\vb{j}_b = \curl{\vb{M}} && \vb{K}_b = \vb{M} \times \vu{n}.
+\end{align}
+We can then define a $\vb{H}$ field for free currents such that,
+\begin{equation}
+	\curl{\vb{H}} = \vb{J}_f
+\end{equation}
+where,
+\begin{equation}
+	\vb{H} = \frac{1}{\mu_0}\vb{B} - \vb{M} = \frac{1}{\chi_M}\vb{M} = \frac{1}{\mu_0\mu_r}\vb{B}.
+\end{equation}
+\subsection{Time dependent case}
+\begin{align}
+	\div{\vb{D}} = \rho_f && \div{\vb{B}} = 0\\
+	\curl{\vb{H}} = \pdv{\vb{D}}{t} + \vb{j}_f && \curl{\vb{E}} = -\pdv{\vb{B}}{t}
+\end{align}
+\section{Plane Waves in Lossy Media}
+Consider electromagnetic waves travelling in the $z$ direction such that,
+\begin{align}
+	\vb{E} = \left(E_x, 0, 0\right) && E_x = E_0e^{i(\omega t - kz)} \\
+	\vb{B} = \left(0, B_y, 0\right) && B_y = B_0e^{i(\omega t - kz)}
+\end{align}
+Considering Faraday's law, we get,
+\begin{equation}
+	-ikE_0e^{i(\omega t - kz)} = -i\omega B_0 e^{i(\omega t - kz)}
+\end{equation}
+and thus,
+\begin{equation}
+	\frac{B_0}{E_0} = \frac{k}{\omega}.
+\end{equation}
+Recalling Ohm's law $\vb{J} = \sigma \vb{E}$ where $\sigma$ is the conductivity, and Ampere's law, we obtain,
+\begin{equation}
+	k^2 = \frac{\omega^2}{c^2} \epsilon_r\mu_r - i\omega \mu_r\mu_0 \sigma 
+\end{equation}
+which is the dispersion relation for a linear, isotropic, dielectric medium. We see that this expression is complex, and reduces to the vacuum condition under vacuum. 
+\subsection{Conducting Media}
+Let us consider a conducting media with dielectric properties and free current $\vb{J}_f$. Using Ampere's law,
+\begin{equation}
+	\begin{split}
+		\curl{\vb{H}} & = \pdv{\vb{D}}{t} + \vb{J}_f \\
+		& = i \omega \epsilon_0\epsilon_r \vb{E} + \sigma \vb{E} \\
+		& = (i\omega \epsilon_0\epsilon_r + \sigma)\vb{E} \\
+		& = i\omega(\epsilon_0\epsilon_r + \frac{\sigma}{i\omega})\vb{E}.
+	\end{split}
+\end{equation}
+We can then define the \textit{complex permittivity},
+\begin{equation}
+	\epsilon_c = \epsilon_0\epsilon_r - \frac{i\sigma}{\omega}
+\end{equation}
+which we apply to conducting media. In the case of complex media, Ampere's law becomes $\curl{\vb{H}} = i\omega\epsilon_c\vb{E}$, but otherwise, we simply replace $\epsilon_0\epsilon_r$ with $\epsilon_c$ to retrieve Maxwell's equations for conducting media.
 \appendix
+
 \chapter{Revision Equations}
+
 \section{Potentials}
 \begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Static Electric Potential]
 	\begin{align}
@@ -229,4 +396,5 @@ Then, we can write the Poynting vector as,
 		\vb{B} = \frac{1}{c}\hat{\vb{k}}\cross \vb{E}. \label{eq:A4}
 	\end{equation}
 \end{tcolorbox}
+
 \end{document}

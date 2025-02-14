@@ -174,7 +174,7 @@ We know the solution to the 1D SHO, as by eq. \eqref{eq:1D SHO E}. We can intuit
 \end{equation}
 \subsection{Degeneracy}
 This is when there is more than one state with the same energy. The degeneracy $D$ is the number of energy states that share the same energy. Non-degenerate states are those with $D = 1$. 
-\section{Orbital Angular Momentum}
+\section{3D Orbital Angular Momentum}
 The angular momentum in given direction in a classical system is given by,
 \begin{equation}
 	L_i = \varepsilon_{ijk}r_jp_k.
@@ -265,7 +265,7 @@ $\implies$ $\Psi_{\pm}$ is an eigenfunction of $\hat{L}_z$ with eigenvalues $\pm
 	\item Fully and uniquely specify the state of a system.
 \end{enumerate}
 For the 2D SHO, its good quantum numbers are $(n,m)$, where $n = n_x + n_y$. $n$ specifies the energy of the system (as by $E_n = (n + 1)\hbar \omega$), and $m$ specifies the angular momentum of the system (as by $L_z = m\hbar$).
-\subsection{3D Angular Momentum}
+\subsection{Angular Momentum Operators}
 \begin{Definitions}{Angular Momentum Commutation Relation}{}
 	\begin{equation}
 		\left[\hat{L}_i, \hat{L}_j\right] = \epsilon_{ijk}i\hbar\hat{L}_k
@@ -297,7 +297,7 @@ It can be shown that the angular momentum operators in the 3 cardinal directions
 \end{align}
 We now wish to solve for the eigenfunctions of $\hat{L}^2$, $\hat{L}^2\psi(r,\theta,\phi) = L^2\psi(r,\theta,\phi)$. We can consider a separable solution, $\psi(r,\theta,\phi) = R(r)Y(\theta,\phi)$, and neglect the $r$ dependent term as $\hat{L}^2$ does not depend on $r$. Furthmore, we wish for $Y(\theta,\phi)$ to be an eigenfunction of $\hat{L}_z$ too, so we can assume that $Y \propto e^{im\phi}$ since we know the eigenfunctons of $\hat{L}_z$. Thus, we can write $Y(\theta,\phi) = P(\theta)e^{im\phi}$. Now,
 \begin{equation}
-	-\hbar^2\left(\dv[2]{\theta} + \cot\theta\dv{\theta} -\frac{m^2}{\sin^2\theta})P(\theta) = L^P(\theta).
+	-\hbar^2\left(\dv[2]{\theta} + \cot\theta\dv{\theta} -\frac{m^2}{\sin^2\theta}\right)P(\theta) = L^P(\theta).
 \end{equation}
 Let us define $\lambda = L^2/\hbar^2$, and write,
 \begin{equation}
@@ -316,4 +316,215 @@ which we recognise as the associated Legendre equation, whose solutions are asso
 	\end{equation}
 	which is only true for $\lambda = 2$, $m^2=0$.
 \end{enumerate}
+Generally,
+\begin{align}
+	\lambda = l(l+1) && m = -l, -l+1, -l + 2 \ldots, 2 + l, 1 + l, l
+\end{align}
+for $l \in \mathbb{Z}$. Thus, for a 3D simple harmonic oscillator, $l$ is the second quantum number. It follows that,
+\begin{equation}
+	\hat{L}_z^2 \leq \hat{L}^2 \implies m^2 \leq l(l+1) \implies |m| \leq l
+\end{equation}
+and for a given $l$, there are $2l + 1$ values for the quantum number $m$.
+\subsubsection{Spherical Harmonic Functions}
+We have that the eigenfunctions of $\hat{L}^2$ and $\hat{L}_z^2$ is the function, 
+\begin{equation}
+	Y_{lm}(\theta\phi) = P_{lm}(\cos\theta) e^{im\phi}
+\end{equation}
+where $P_{lm}(\cos\theta)$ is an associated Legendre polynomial. Its eigenvalues are,
+\begin{align}
+	\hat{L}^2Y_{lm} & = l(l+1)\hbar^2 Y_{lm}, \\
+	\hat{L}_z Y_{lm} & = m\hbar Y_{lm},
+\end{align}
+and it is normalised by,
+\begin{equation}
+	2\pi \int_{-1}^{1}\abs{P_{lm}(x)}^2 \dd{x} = 1.
+\end{equation}
+\subsubsection{Raising and Lowering Operators}
+\begin{Definitions}{Raising and Lowering Operator}{}
+	\begin{equation}
+		\hat{L}^{\pm} = \hat{L}_x \pm i \hat{L}_y
+	\end{equation}
+\end{Definitions}
+The raising and lowering operator commutes by,
+\begin{equation}
+	\left[\hat{L}_z, \hat{L}^{\pm}\right] = \pm \hbar \hat{L}^{\pm}.
+\end{equation}
+Given a function, $Y = \hat{L}^+Y_{lm}$, it has eigenvalues,
+\begin{equation}
+	\hat{L}_zY = \hbar(m+1)Y.
+\end{equation}
+\section{Rotation of a Diatomic Molecule}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\node at (0,0) {\textbullet};
+		\node at (1,0) {\small\textbullet};
+		\node at (4,0) {\small\textbullet};
+		\node at (5,0) {\textbullet};
+		\draw (0,0.05) -- (5,0.05);
+		\node[anchor=north] at (0,0) {$m_1$};
+		\node[anchor=north] at (5,0) {$m_2$};
+		\node at (2.5, -0.5) {$r_0$};
+		\node[anchor= south] at (1,0) {$\frac{m_1}{m_1 + m_2}r_0$};
+		\node[anchor= south] at (4,0) {$\frac{m_2}{m_1 + m_2}r_0$};
+	\end{tikzpicture}
+	\caption{}
+	\label{}
+\end{figure}
+We can model the rotation of a diatomic molecule as two masses connected by a massless, rigid rod of length $l$. In order to find the quantum mechanical solution to this problem, we following the following steps:
+\begin{enumerate}
+	\item Consider the classical energy, and express it in terms of conserved quantities (i.e., find the classical Hamiltonian). In our case,
+	\begin{equation}
+		E = \frac{1}{2}I\omega^2 = \frac{1}{2I}L^2 \label{eq:E}
+	\end{equation}
+	where $I$ is the moment of inertia and $L$ is the angular momentum.
+	\item The quantum Hamiltonian will take on the operator form of the classical Hamiltonian. I.e., in equation \eqref{eq:E}, we see that we can turn $L^2$ into the operator $\hat{L}^2$, so,
+	\begin{equation}
+		\hat{H} = \frac{\hat{L}^2}{2I}.
+	\end{equation}
+\end{enumerate}
+The moment of inertia is given by,
+\begin{equation}
+	I = \sum_i m_ir_i
+\end{equation}
+where $m_i$ is the $i$th mass of the system, and $r_i$ is the distance of the mass from the centre of mass. In our case, this is,
+\begin{equation}
+	I = m_1\left(\frac{m_2}{m_1 + m_2}r_0\right)^2 + m_2\left(\frac{m_1}{m_1 + m_2}r_0\right)^2 = \mu r_0^2
+\end{equation}
+where $\mu = \frac{m_1m_2}{m_1 + m_2}$ which is the reduced mass. We know the eigenfunctions of $\hat{L}$, and its corresponding eigenvalues. We find that,
+\begin{equation}
+	E_l = \frac{l(l+1)\hbar^2}{2I}.
+\end{equation}
+$E_l$ is independent of $l$, which implies a degeneracy of $2m+1$ fold, as for every given $l$, there are $2m+1$ values for the quantum number $l$.
+\subsection{Population of Excited States}
+For a diatomic molecule, we say that the energy of a molecule is of the order $E \sim \frac{\hbar^2}{2I}$, and the thermodynamic energy is $E \sim k_BT$. By equating these, we find that the temperature to which rotational energy corresponds is $T \sim 90k$, thus rotational excited states are populated at room temperature. However, vibrational states are not populated ($\hbar \omega$).
+\\\\
+The energy of a molecule corresponds to a certain wavelength, which corresponds to the photon energy the molecule can absorb or emit. This photon energy corresponds to a wavenumber $k$, which is quantised, 
+\begin{equation}
+	k = \frac{1}{\lambda} = \frac{\nu}{c} = \frac{E}{hc} = \frac{h}{8\pi^2cI}l(l+1) = Bl(l+1).
+\end{equation} 
+These energy level transitions are visualised in figure \ref{fig:energy tans}. We have that the only allowed transitions due to the absorption or emission of a single photon is $\Delta l = \pm 1$. So, we would observe the emission spectra separated by $2B, 4B, 6B$, etc.
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw[->] (0,0) -- (0,6.5) node[anchor=east] {$\frac{E}{hc}$};
+		\draw (1,0) -- (3,0);
+		\draw (1,1) -- (3,1);
+		\draw (1,3) -- (3,3);
+		\draw (1,6) -- (3,6);
+		\draw[latex-latex] (1.5,0) -- (1.5,1) node[midway, anchor=west] {$2B$};
+		\draw[latex-latex] (2,1) -- (2,3) node[midway, anchor=west] {$4B$};
+		\draw[latex-latex] (2.5,3) -- (2.5,6) node[midway, anchor=west] {$6B$};
+		\node[anchor=east] at (0,0) {$0$};
+		\node[anchor=east] at (0,1) {$2B$};
+		\node[anchor=east] at (0,3) {$6B$};
+		\node[anchor=east] at (0,6) {$12B$};
+	\end{tikzpicture}
+	\caption{}
+	\label{fig:energy tans}
+\end{figure}
+\chapter{The Hydrogen Atom}
+In order to solve the quantum mechanics of the hydrogen atom, we must solve the time independent Schrodinger equation under a central potential, i.e,
+\begin{equation}
+	\left(-\frac{\hbar^2}{2m}\laplacian + V(r)\right)\psi(r, \theta, \phi) = E \psi(r, \theta, \phi).
+\end{equation} 
+It is most useful for us to work in polar coordinates. When writing the TISE in this way, we find we can write it as,
+\begin{equation}
+	\underbrace{\left(-\frac{\hbar^2}{2m}\left[\pdv[2]{r} + \frac{2}{r}\pdv{r}\right] + \frac{\hat{L}^2}{2mr^2}+V(r)\right)}_{\hat{H}}\psi(r,\theta,\phi) = E\psi(r,\theta,\phi). \label{eq:hyd}
+\end{equation}
+Before we begin attempting to solve this, let us use some intuition,
+\begin{enumerate}
+	\item We will expect $\psi$ to have 3 quantum numbers, as there are 3 degrees of freedom.
+	\item By inspection, $\left[\hat{H},\hat{L}\right] = \left[\hat{H},\hat{L}_z\right] = 0 \implies$ $(l,m)$ are good quantum numbers of hydrogen, since $\hat{L}$ appears in its Hamiltonian. This means that we expect to find a quantum number from solving the $r$ dependence in the TISE.
+\end{enumerate}
+\section{Central (Coulomb) Potential}
+The Coulomb potential between a positively charges nucleus and an electron is given by,
+\begin{equation}
+	V(r) = -\frac{e^2}{4\pi\epsilon_0r}
+\end{equation}
+which we will use to solve the radial part of equation \eqref{eq:hyd}. By attempting a separable solution of the form $\psi(r, \theta,\phi) = R(r)Y_{lm}(\theta,\phi)$ and noting $\pdv[2]{r} + \frac{2}{r}\pdv{r} = \frac{1}{r^2}\pdv{r}r^2\pdv{r}$, we can write,
+\begin{equation}
+	\left(-\frac{\hbar^2}{2m}\frac{1}{r^2}\pdv{r}r^2\pdv{r} + \frac{l(l+1)\hbar^2}{2mr^2} -\frac{e^2}{4\pi\epsilon_0r}\right)R(r)Y_{lm}(\theta,\phi) = ER(r)Y_{lm}(\theta,\phi).
+\end{equation}
+Let us use the substitution $R(r) = \frac{U(r)}{r}$ and cancel $Y_{lm}(\theta,\phi)$ to obtain,
+\begin{equation}
+	-\frac{\hbar^2}{2m}\dv[2]{U}{r} + \frac{l(l+1)\hbar^2}{2mr^2}U - \frac{e^2}{4\pi\epsilon_0r}U = EU. \label{eq:29}
+\end{equation}
+Let us recall that in the Bohr model of the atom, energy levels depended on the Rydberg energy $E_R$, and atomic radii depended on $a_0$, defined,
+\begin{align}
+	E_R = \frac{m_ee^4}{2(4\pi\epsilon_0)^2\hbar^2} && a_0 = \frac{4\pi\epsilon_0\hbar^2}{m_ee^2}.
+\end{align}
+Let us now define two dimensionless constants,
+\begin{align}
+	\rho \equiv \frac{r}{a_0} && \tilde{E} \equiv \frac{E}{E_R}
+\end{align}
+and substitute these in equation \eqref{eq:29},
+\begin{equation}
+	-\dv[2]{U}{\rho} + \frac{l(l+1)}{\rho^2}U - \frac{2}{\rho}U = \tilde{E}U. \label{eq:p}
+\end{equation}
+\subsection{Radial Solutions of the Wavefunction}
+Before attempting a general solution of equation \eqref{eq:p}, let us consider the solutions in the limits $\rho >>1$ and $\rho << 1$. 
+\subsubsection{Large $\rho$}
+In the limit of large $\rho$, we find equation \eqref{eq:p} reduces to,
+\begin{equation}
+	\dv[2]{U}{\rho} = - \tilde{E}U
+\end{equation}
+which implies a solution,
+\begin{equation}
+	U(\rho) \propto e^{-b\rho}
+\end{equation}
+where $\tilde{E} = -b^2$. We require the minus sign as we need the wavefunction to go to 0 at large $\rho$.
+\subsubsection{Small $\rho$}
+For small $\rho$, we find equation \eqref{eq:p} reduces to,
+\begin{equation}
+	-\dv[2]{U}{\rho} + \frac{l(l+1)}{\rho^2}U \approx 0
+\end{equation}
+for which we require,
+\begin{equation}
+	U \propto \rho^{l+1}
+\end{equation}
+as $U(0) = 0$.
+\subsubsection{General Solution}
+We can attempt a general solution if we consider a combination of the solutions for small and large $\rho$,
+\begin{equation}
+	U(\rho) = \rho^{l+1}e^{-b\rho}f(\rho)
+\end{equation}
+where $f_p(\rho)$ is some smooth function. Equation \eqref{eq:p} then becomes,
+\begin{equation}
+	\rho\dv[2]{f_p}{\rho} + 2(l + 1 - b\rho)\dv{f_p}{\rho}  + 2(1 - b(l+1))f = 0. \label{eq:f}
+\end{equation} 
+We can solve equation \eqref{eq:f} by series solution, i.e.,
+\begin{equation}
+	f(\rho) = \sum_{k=0}^{\infty}c_k\rho^k
+\end{equation}
+by the series expansion of $f$. Substituting this into equation \eqref{eq:f}, we find,
+\begin{equation}
+	\sum_{k=0}^{\infty}\left[c_{k+1} \left(k^2 + 3k + 2 + 2l(k+1)\right) -2c_k\left(bk + bl + 2b - 2\right)\right]\rho^{k} = 0
+\end{equation}
+from which we obtain the recursion relation,
+\begin{equation}
+	c_{k+1} = \frac{2bk + 2bl + 2b - 2}{k^2 + 3k + 2 + 2l(k+1)}c_k. \label{eq:c}
+\end{equation}
+We will state without proof that the recursion relation \eqref{eq:c} diverges unless the series expansion of $f$ terminates, i.e., unless $f$ is a polynomial of some degree, let's call it $p$. By the condition $c_{p+1} = 0$, we find,
+\begin{align}
+	b = \frac{1}{1 + l + p} && \implies && \tilde{E} = -\frac{1}{(1 + l + p)^2}
+\end{align}
+\section{Energy Eigenvalues of the Hydrogen Atom}
+From our findings in the previous section, we can define a new quantum number $n$, such that the energy eigenvalues of the hydrogen atom are,
+\begin{equation}
+	E_n = -\frac{E_R}{n^2} \hspace{1em} n \geq 1
+\end{equation}
+where $n$ is bounded by,
+\begin{equation}
+	 0 \leq n \leq n - 1.
+\end{equation}
+We then have that $n,m,l$ fully parametrise $\psi(r,\theta,\phi) = R_{nl}(r)Y_{lm}(\theta,\phi)$ and are \textit{good quantum numbers}.
+\appendix
+\chapter{Misc. Formulae}
+\section{Commutation Relation}
+\begin{align}
+	\left[\hat{A}\hat{B}, \hat{C}\right] = \left[\hat{A}, \hat{C}\right]\hat{B} + \hat{A}\left[\hat{B},\hat{C}\right] \\
+	\left[\hat{A} + \hat{B}, \hat{C}\right] = \left[\hat{A}, \hat{C}\right] + \left[\hat{B},\hat{C}\right]
+\end{align}
 \end{document}

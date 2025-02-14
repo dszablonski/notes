@@ -5,8 +5,21 @@
 \contentsline {subsection}{\numberline {1.1.2}Simple Perturbation Theory}{4}{}%
 \contentsline {section}{\numberline {1.2}Particle in 2D SHO}{4}{}%
 \contentsline {subsection}{\numberline {1.2.1}Degeneracy}{4}{}%
-\contentsline {section}{\numberline {1.3}Orbital Angular Momentum}{5}{}%
+\contentsline {section}{\numberline {1.3}3D Orbital Angular Momentum}{5}{}%
 \contentsline {subsection}{\numberline {1.3.1}Eigenfunctions and Eigenvalues of $\hat {L}_z$}{5}{}%
 \contentsline {subsection}{\numberline {1.3.2}Angular Momentum of the 2D SHO}{6}{}%
-\contentsline {subsection}{\numberline {1.3.3}3D Angular Momentum}{6}{}%
+\contentsline {subsection}{\numberline {1.3.3}Angular Momentum Operators}{6}{}%
 \contentsline {subsubsection}{Eigenvalues and eigenfunctions of Angular Momentum}{7}{}%
+\contentsline {subsubsection}{Spherical Harmonic Functions}{7}{}%
+\contentsline {subsubsection}{Raising and Lowering Operators}{8}{}%
+\contentsline {section}{\numberline {1.4}Rotation of a Diatomic Molecule}{8}{}%
+\contentsline {subsection}{\numberline {1.4.1}Population of Excited States}{9}{}%
+\contentsline {chapter}{\numberline {2}The Hydrogen Atom}{10}{}%
+\contentsline {section}{\numberline {2.1}Central (Coulomb) Potential}{10}{}%
+\contentsline {subsection}{\numberline {2.1.1}Radial Solutions of the Wavefunction}{11}{}%
+\contentsline {subsubsection}{Large $\rho $}{11}{}%
+\contentsline {subsubsection}{Small $\rho $}{11}{}%
+\contentsline {subsubsection}{General Solution}{11}{}%
+\contentsline {section}{\numberline {2.2}Energy Eigenvalues of the Hydrogen Atom}{12}{}%
+\contentsline {chapter}{\numberline {A}Misc. Formulae}{13}{}%
+\contentsline {section}{\numberline {A.1}Commutation Relation}{13}{}%

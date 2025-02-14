@@ -9,8 +9,19 @@
 \contentsline {section}{\numberline {1.3}Radiation from an accelerated charge}{4}{}%
 \contentsline {subsection}{\numberline {1.3.1}Displaced point charge}{4}{}%
 \contentsline {subsection}{\numberline {1.3.2}Radiation pattern from a displaced point charge}{6}{}%
-\contentsline {chapter}{\numberline {A}Revision Equations}{7}{}%
-\contentsline {section}{\numberline {A.1}Potentials}{7}{}%
-\contentsline {section}{\numberline {A.2}Gauges}{7}{}%
-\contentsline {section}{\numberline {A.3}Vector Identities}{8}{}%
-\contentsline {section}{\numberline {A.4}EM Waves}{8}{}%
+\contentsline {subsection}{\numberline {1.3.3}Total Power Radiated}{6}{}%
+\contentsline {section}{\numberline {1.4}Radiation from an Oscillating Electric Dipole}{6}{}%
+\contentsline {subsection}{\numberline {1.4.1}Radiation Resistance}{7}{}%
+\contentsline {section}{\numberline {1.5}Half-Wave Antenna}{7}{}%
+\contentsline {chapter}{\numberline {2}Radiation in Matter}{9}{}%
+\contentsline {section}{\numberline {2.1}Maxwell's Equations in a Medium}{9}{}%
+\contentsline {subsection}{\numberline {2.1.1}Electrics}{9}{}%
+\contentsline {subsection}{\numberline {2.1.2}Magnetics}{9}{}%
+\contentsline {subsection}{\numberline {2.1.3}Time dependent case}{9}{}%
+\contentsline {section}{\numberline {2.2}Plane Waves in Lossy Media}{10}{}%
+\contentsline {subsection}{\numberline {2.2.1}Conducting Media}{10}{}%
+\contentsline {chapter}{\numberline {A}Revision Equations}{11}{}%
+\contentsline {section}{\numberline {A.1}Potentials}{11}{}%
+\contentsline {section}{\numberline {A.2}Gauges}{11}{}%
+\contentsline {section}{\numberline {A.3}Vector Identities}{12}{}%
+\contentsline {section}{\numberline {A.4}EM Waves}{12}{}%

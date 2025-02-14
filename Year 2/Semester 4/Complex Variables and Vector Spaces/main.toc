@@ -11,8 +11,27 @@
 \contentsline {subsubsection}{Sequences over $\mathbb {R}$}{6}{}%
 \contentsline {subsubsection}{Cauchy sequences of functions}{7}{}%
 \contentsline {subsection}{\numberline {1.5.2}Cauchy Sequences and Convergence}{7}{}%
-\contentsline {section}{\numberline {1.6}Open and Closed Sets}{7}{}%
+\contentsline {section}{\numberline {1.6}Open and Closed Sets}{8}{}%
 \contentsline {chapter}{\numberline {2}Inner Product Space}{10}{}%
 \contentsline {section}{\numberline {2.1}Orthogonality}{10}{}%
 \contentsline {section}{\numberline {2.2}Gram-Schmidt Orthonormalisation}{11}{}%
 \contentsline {section}{\numberline {2.3}Inequalities of Inner Product Space}{12}{}%
+\contentsline {chapter}{\numberline {3}Linear Operators}{13}{}%
+\contentsline {section}{\numberline {3.1}Algebra of operators}{13}{}%
+\contentsline {section}{\numberline {3.2}Matrix Representation of Linear Operators}{13}{}%
+\contentsline {section}{\numberline {3.3}Inverse Operator}{14}{}%
+\contentsline {section}{\numberline {3.4}Dyadic (Outer) Product}{14}{}%
+\contentsline {section}{\numberline {3.5}Projection Operator and the Completeness Relation}{15}{}%
+\contentsline {section}{\numberline {3.6}The Adjoint or Hermitian Conjugate}{15}{}%
+\contentsline {section}{\numberline {3.7}Representations}{15}{}%
+\contentsline {subsection}{\numberline {3.7.1}Representation of a Vector}{15}{}%
+\contentsline {subsubsection}{Invariance of the Inner Product}{15}{}%
+\contentsline {subsection}{\numberline {3.7.2}Representation of Linear Operators}{16}{}%
+\contentsline {subsection}{\numberline {3.7.3}Changing Representation of a Vector}{16}{}%
+\contentsline {subsection}{\numberline {3.7.4}Changing Representation of a Matrix}{17}{}%
+\contentsline {section}{\numberline {3.8}Eigenvalue Problems}{17}{}%
+\contentsline {subsection}{\numberline {3.8.1}Eigenvalues and eigenvectors of Hermitian operators}{17}{}%
+\contentsline {subsection}{\numberline {3.8.2}Diagonalisation}{18}{}%
+\contentsline {subsubsection}{Eigenvalues and eigenvectors of unitary operators}{18}{}%
+\contentsline {subsubsection}{Spectral Representation}{18}{}%
+\contentsline {subsubsection}{Diagonalisation of commuting operators}{19}{}%
