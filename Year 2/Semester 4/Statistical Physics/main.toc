@@ -15,3 +15,16 @@
 \contentsline {section}{\numberline {3.2}Partition Function}{11}{}%
 \contentsline {section}{\numberline {3.3}Helmholtz Free Energy and Entropy}{11}{}%
 \contentsline {subsection}{\numberline {3.3.1}The paramagnet at fixed temperature}{12}{}%
+\contentsline {section}{\numberline {3.4}Adiabatic Demagnetisation}{13}{}%
+\contentsline {section}{\numberline {3.5}Energies of Diatomic Molecules}{14}{}%
+\contentsline {subsection}{\numberline {3.5.1}Vibrational Energies}{14}{}%
+\contentsline {section}{\numberline {3.6}Translational Energies of a Molecule in an Ideal Gas}{15}{}%
+\contentsline {subsection}{\numberline {3.6.1}The density of states}{15}{}%
+\contentsline {subsection}{\numberline {3.6.2}Maxwell Boltzmann Distribution}{16}{}%
+\contentsline {section}{\numberline {3.7}Factorisation of the partition function}{16}{}%
+\contentsline {section}{\numberline {3.8}Equipartition Theorem}{16}{}%
+\contentsline {subsection}{\numberline {3.8.1}Heat Capacity of a Crystal}{17}{}%
+\contentsline {section}{\numberline {3.9}$N$-Particle Partition Function for Indistinguishable Particles}{17}{}%
+\contentsline {subsection}{\numberline {3.9.1}Diatomic Molecules}{17}{}%
+\contentsline {section}{\numberline {3.10}Ideal Gas in the Classical Limit}{17}{}%
+\contentsline {subsection}{\numberline {3.10.1}Chemical potential of an ideal gas}{18}{}%

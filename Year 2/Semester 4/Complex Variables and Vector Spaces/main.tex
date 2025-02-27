@@ -48,7 +48,8 @@
 
 \usepackage{tcolorbox}
 
-\def\innerproduct#1#2{\langle#1,#2\rangle}
+\def\innerproduct#1#2{{\langle #1},{#2 \rangle}}
+\renewcommand{\braket}[2]{\langle#1|#2\rangle}
 
 %https://osl.ugr.es/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf
 \tcbuselibrary{breakable}
@@ -153,7 +154,7 @@ We often denote $N$ dimensional vector spaces over a field $\mathbb{F}$ as $\mat
 	The span of a set of vectors $\left\{\vb{u}_i, for i=1,2,\ldots,n\right\}$ is the set of all vectors which can be written as a linear combination of $\vb{u}_i$.
 \end{Definitions}
 The above definition naturally leads to the below theorem,
-\begin{Theorems}
+\begin{Theorems}{}{}
 	In an $N$-dimensional vector space $V_N$, any vector $\vb{u}$ can be written as a linear combination of $N$ linearly independent basis vectors $\vb{e}_j$.
 \end{Theorems}
 \begin{proof}
@@ -223,7 +224,7 @@ $\forall \vb{x} \in V_N$ where $x_i$ are the components of $\vb{x}$, we define t
 \subsection{Cauchy Sequences}
 \begin{Definitions}{Cauchy Sequence}{}
 	A sequence $\left\{a_n\right\}_{n=0}^{\infty}$, $a_n \in V$ and $V$ is a normed vector space is Cauchy if $\forall \epsilon > 0, \exists N > 0$ such that $\forall n,m > N, \norm{a_n - a_m} < \epsilon$.
-\end{Definitions}
+\end{Definitions}{}{}
 Let us consider some sequences and show if they are Cauchy.
 \subsubsection{Sequences over $\mathbb{R}$}
 	\begin{figure}
@@ -357,7 +358,7 @@ and since $|z|^m$ is decreasing as a function of $m$, the series is Cauchy. For 
 	|a_n - a_m| = \frac{|z|^n}{|1-z|}\abs{1 - z^{-n+m+1}}\geq \frac{2}{|1-\frac{1}{z}|}|z|^n = z^{n+1}
 \end{equation}
 and since $|z|^{n}$ is an increasing function of $n$, the series is not Cauchy. Thus the series is Cauchy in the open set $|z| < 1$.
-\chapter{Inner Product Space}
+\section{Inner Product Space}
 An inner product space is a vector space with an inner product, which is a generalisation of the scalar product.
 \begin{Definitions}{Inner product, $\innerproduct{\vb{a}}{\vb{b}}$}{}
 	Given a vector space $V_N$ over $\mathbb{F}$, the inner product between two vectors $\vb{a},\vb{b} \in V_N$ is a function such that $V \times V \to \mathbb{F}$. If $\mathbb{F} \subset \mathbb{C}$, the following properties hold,
@@ -371,7 +372,7 @@ From our definition of the inner product, we can define the 2-norm,
 \begin{equation}
 	\norm{\vb{a}}^2 = \innerproduct{\vb{a}}{\vb{a}} \geq 0.
 \end{equation}
-\section{Orthogonality}
+\subsection{Orthogonality}
 \begin{Definitions}{Orthogonality}{}
 	$\forall \vb{a},\vb{b} \neq 0 \in V_N$ if $\innerproduct{\vb{a}}{\vb{b}} = 0$ then $\vb{a}$ and $\vb{b}$ are orthogonal.
 \end{Definitions}
@@ -404,7 +405,7 @@ We can obtain further insight into the decomposition of a vector by considering 
 	\end{split}
 \end{equation}
 We often refer to $a_k = \innerproduct{\vb{e}_k}{\vb{a}}$ as the \textit{projection} of $\vb{a}$ onto $\vb{e}_k$ as it gives the component of $\vb{a}$ in the $\vb{e}_k$ direction.
-\section{Gram-Schmidt Orthonormalisation}
+\subsection{Gram-Schmidt Orthonormalisation}
 \begin{Definitions}{Gram-Schmidt Algorithm}{}
 	Given a basis $\left\{\vb{v}_j\right\}_{j=1}^N \in V_N$,
 	\begin{itemize}
@@ -435,7 +436,7 @@ The Gram-Schmidt process is able to take any set of basis vectors and turn it in
 	\innerproduct{\vb{u}}{\vb{v}'} = \innerproduct{\vb{u}}{\vb{v}} - \innerproduct{\vb{u}}{\vb{v}}\cancelto{1}{\innerproduct{\vb{u}}{\vb{u}}} = 0.
 \end{equation}
 So, we essentially are removing the non-orthonormal components from each subsequent basis vector, based on the first basis vector in the set.
-\section{Inequalities of Inner Product Space}
+\subsection{Inequalities of Inner Product Space}
 \begin{Theorems}{Cauchy-Schwartz Inequality}{}
 	$\forall \vb{a},\vb{b} \in V_N, \abs{\innerproduct{\vb{a}}{\vb{b}}} \leq \norm{\vb{a}}\norm{\vb{b}}$.
 \end{Theorems}
@@ -469,6 +470,54 @@ $\implies \abs{\innerproduct{\vb{a}}{\vb{b}}} \leq \norm{\vb{a}}\norm{\vb{b}}$.
 	\end{equation}
 	$\implies \norm{\vb{a} + \vb{b}} \leq \norm{\vb{a}} + \norm{\vb{b}}$
 \end{proof}
+\section{Function Space}
+We denote function spaces by $\mathcal{F}$. Let us define the function space inner product.
+\begin{Definitions}{Function Space Inner Product}{}
+	For $x \in \left[a,b\right]$, and functions $f,g : \left[a,b\right] \to \mathbb{C}$, the inner product is given by
+	\begin{equation}
+		\braket{f}{g} = \int_a^b\overline{f(x)}g(x)\dd\mu(x)
+	\end{equation}
+	where $\dd\mu(x)$ is the integration measure of a function space.
+\end{Definitions}
+The inner product must satisfy,
+\begin{equation}
+	\norm{f}^2 = \braket{f}{f} = \int_a^b |f(x)|^2\dd\mu(x) \geq 0
+\end{equation}
+which is only 0 if $f(x) = 0 \forall x$. If $\norm{f}^2$ is finite, then $f$ is square-integrable and can be normalised. Function spaces where all functions are square-integrable are known as Hilbert spaces.
+\begin{Definitions}{L2 Functions}{}
+	A function $f$ is said to be in the space $L^2(\left[a,b\right])$ if $\norm{f}^2 = \int_a^b|f(x)|^2\dd\mu(x) < \infty$.
+\end{Definitions}
+Let us note that we will use $\dd\mu(x) = \dd{x}$ throughout the course, however most concepts can be generalised to an arbitrary measure.
+\subsection{Basis functions and completeness}
+A function $f \in \mathcal{F}$ over the domain $x \in \left[a,b\right]$ can be represented by a set of basis vectors $\left\{u_n\right\}_{n=1}^{\infty} \in \mathcal{F}$ as,
+\begin{equation}
+	f(x) = \sum_{n=1}^{\infty}f_nu_n(x)
+\end{equation}
+where the coefficients $f_n$ are defined,
+\begin{equation}
+	f_n = \braket{u_n}{f} = \int_a^b\overline{u_n(x)}f(x)\dd{x}.
+\end{equation}
+We can define the completeness relation for an infinite function space by,
+\begin{equation}
+	\sum_{n=1}^{\infty}u_n(x) \overline{u_n(y)} = \delta(x-y).
+\end{equation}
+\subsection{Coordinate Representation}
+When we write $f(x)$, we are referring to a function $f \in \mathcal{F}$ in a basis defined by the coordinate $x$. Let us write this more explicitly, calling $\ket{x}$ the \textit{position vector}, and writing $f \in \mathcal{F}$,
+\begin{equation}
+	\ket{f} = \int_a^b\dd{x}f(x)\ket{x}
+\end{equation}
+where we integrate rather than sum since position is continuous. We can then clearly see,
+\begin{equation}
+	f(x) = \braket{x}{f} = \int_a^b\delta(y-x)f(y)\dd{y}
+\end{equation}
+from which we find that the Dirac-delta acts as a basis vector for position vectors. We define the overlap of two position vectors,
+\begin{equation}
+	\braket{x}{x'} = \int_a^b\delta(y-x)\delta(y-x')\dd{y} = \delta(x-x') \iff x,x'\in\left[a,b\right].
+\end{equation}
+The completeness relation is then,
+\begin{equation}
+	\int_a^b\ket{x}\bra{x}\dd{x} = \hat{\mathbb{1}}.
+\end{equation}
 \chapter{Linear Operators}
 \begin{Definitions}{Map}{}
 	A map $M$ is a function which takes $V \to W$ where $V,W$ are vector spaces. This is such that $M$ acting on $\vb{c} \in V$ produces a different vector $\vb{c}' \in W$.
@@ -485,7 +534,7 @@ In physics, but not generally, linear operators always map $V \to V$.
 We can define the following properties of linear operators,
 \begin{enumerate}
 	\item $(\hat{A} + \hat{B}) \equiv \hat{A}\vb{v} + \hat{B} \vb{v}$.
-	\item $()\lambda\hat{A})\vb{v} = \lambda(\hat{A}\vb{v})$.
+	\item $(\lambda\hat{A})\vb{v} = \lambda(\hat{A}\vb{v})$.
 	\item $\exists\hat{\mathbb{1}} : \hat{\mathbb{1}}\vb{v} = \vb{v}, \forall \vb{v} \in V$.
 	\item $\exists \hat{0} : \hat{0}\vb{v} = \vb{0}, \forall \vb{v} \in V$.
 	\item $\forall \vb{v} \in V, (\hat{B}\hat{A})\vb{v} = \hat{B}(\hat{A}\vb{v})$, generally $\hat{A} \hat{B} \neq \hat{B}\hat{A}$
@@ -719,7 +768,32 @@ We use unitary operators in physics to describe time evolution in quantum mechan
 \end{Theorems}
 \begin{proof}
 	\begin{enumerate}
-		\item 
+		\item We need to prove that $\abs{\lambda_j}^2 = 1$. Consider the left anr right eigenequations of $\hat{U}$,
+		\begin{align}
+			\hat{U}\vb{u}_j &= \lambda\vb{u}_j\\
+			\vb{u}_j^{\dag}\hat{U}^{\dag} & = \overline{\lambda_j} \vb{u}_j^{\dag}
+		\end{align}
+		from which we find,
+		\begin{equation}
+			\begin{split}
+			\vb{u}_j^{\dag}\hat{U}^{\dag}\hat{U}\vb{u}_j & = \vb{u}^{\dag}\hat{\mathbb{1}}\vb{u} = \overline{\lambda}\lambda\vb{u}^{\dag}_j\vb{u}_j \\
+			& = \vb{u}^{\dag}\vb{u} = |\lambda|^2\vb{u}_j^{\dag}\vb{u} \\
+			& \implies \left(1 - |\lambda|^2\right)\vb{u}^{\dag}_j\vb{u}_j
+			\end{split}
+		\end{equation}
+		we have $\vb{u} \neq \vb{0}$, so we require $|\lambda|^2 = 1$, and thus $\lambda = e^{i\theta}, \theta \in \mathbb{R}$.
+		\item Let us consider the left and right eigenequations again. We have,
+		\begin{equation}
+			\begin{split}
+				\vb{u}_j^{\dag}\vb{u}_k & = \overline{\lambda_j}\lambda_k\vb{u}_j^{\dag}\vb{u}_k \\
+				\implies \innerproduct{\vb{u}_j}{\vb{u}_k}(1 - \overline{\lambda_j}\lambda_k) & = 0
+			\end{split}
+		\end{equation}
+		we require $\overline{\lambda_j}\lambda_k \neq 1, \forall j \neq k, \therefore \innerproduct{\vb{u}_j}{\vb{u}_k}$.
+		\item For completeness, we must write $\vb{v} = \sum_{j=1}^Nc_j\vb{u}_j$. We have shown $\left\{\vb{u}_j\right\}_{i=1}^N$ to be orthonormal, so we can write,
+		%\begin{equation}
+			$c_j = \innerproduct{\vb{u}_j}{\vb{v}}$.
+		%\end{equation}
 	\end{enumerate}
 \end{proof}
 \subsubsection{Spectral Representation}
@@ -739,7 +813,7 @@ We choose a normalisation $\innerproduct{\vb{v}_j}{\vb{u}_k}$, the completeness 
 \end{equation}
 and we call $\vb{v}_j$ the dual basis to $\vb{u}_j$. We can thus write the operator $\hat{A}$,
 \begin{equation}
-	\boxed{\hat{A} = \hat{A}\hat{\mathbb{1}} = \sum_{j=1}^N\hat{A}\vb{u}_j\vb{v}_j^{\dag} = \sum_{j=1}^N\lambda_j\vb{u}_j\vb{u}_j^{\dag}}
+	\boxed{\hat{A} = \hat{A}\hat{\mathbb{1}} = \sum_{j=1}^N\hat{A}\vb{u}_j\vb{v}_j^{\dag} = \sum_{j=1}^N\lambda_j\vb{u}_j\vb{v}_j^{\dag}}
 \end{equation}
 which is known as the \textit{spectral representation} of $\hat{A}$. Given an orthonormal basis $\left\{\vb{e}_j\right\}_{j=1}^N$ in which we can write the matrix representation of $\hat{A}$ which we denote $\doubleunderline{A}$, we can diagonalise it by applying,
 \begin{equation}
@@ -767,4 +841,249 @@ and thus $\hat{A}\vb{u}$ is also an eigenvector of $\hat{B}$ with eigenvalue $\l
 	\item \textbf{Non-degenerate:} If $\lambda$ is non-degenerate, $\forall\lambda, \exists\vb{u} : \hat{A}\vb{u} = \mu\vb{u} \implies$ $\vb{u}$ is a simultaneous eigenvector of $\hat{B}$ and $\hat{A}$.
 	\item \textbf{Degenerate:} If $\lambda$ has degeneracy $m > 1$, with eigenvectors $\left\{\vb{u}_j\right\}_{j=1}^m$, then a linear combination of these eigenvectors is an eigenvector of $\hat{A}$. $\hat{B}$ will act in this subspace, and it is possible to find a basis which simultaneously diagonalises $\hat{A}$ and $\hat{B}$.
 \end{itemize}
+\section{Functions of Operators}
+We wish to apply functions such as $\exp(\hat{A})$ to linear operators, and more generally functions such as $f$. 
+\subsection{Taylor Expansion about 0}
+We have well defined multiplication and addition on operators, so we can construct a Taylor series to define a function of an operator in most cases.
+\begin{Definitions}{$f(\hat{A})$}{}
+	For $f : \mathbb{C} \to \mathbb{C}$, with a Taylor series about $0$,
+	\begin{equation}
+		f(z) = \sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}z^n
+	\end{equation}
+	we define the composition of the function and an operator $\hat{A}$ by the same series,
+	\begin{equation}
+		f(\hat{A}) = \sum_{n=0}^{\infty}\frac{f^{(0)}}{n!}\hat{A}^n.
+	\end{equation}
+\end{Definitions}
+where,
+\begin{align}
+	f^{(n)}(0) = \eval{\dv[n]{f(0)}{x}}_{0} && \hat{A}^n = \underbrace{\hat{A}\hat{A}\ldots\hat{A}}_{n\text{ times}}
+\end{align}
+\subsection{Spectral Decomposition}
+Given $\hat{A}$ is diagonalisable, let us apply $f(\hat{A})$ to an eigenvector $\vb{u}$ of $\hat{A}$ with eigenvalue $\lambda$, assuming $f$ has a Taylor series,
+\begin{equation}
+	\begin{split}
+		f(\hat{A})\vb{u} & = \sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}\hat{A}^n\vb{u} \\
+		& = f(0) \vb{u} + \sum_{n=1}^{\infty}\frac{f^{(n)}(0)}{n!}\hat{A}^{n-1}\lambda^n\vb{u} \\
+		& = \sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}\lambda^n\vb{u} = f(\lambda)\vb{u}.
+	\end{split}
+\end{equation}
+If the eigenbasis of $\hat{A}$ is complete, we are able to work in it to represent $f(\hat{A})$ as,
+\begin{equation}
+	f(\doubleunderline{A}) = \text{diag}\left(\left\{f(\lambda_j)\right\}_{j=1}^N\right)
+\end{equation}
+where $\text{diag}$ is a function which constructs a matrix with the values in its arguments on the diagonal, and 0s in all other elements. We can then construct the final operator,
+\begin{equation}
+	f(\hat{A}) = \sum_{i=1}^Nf(\lambda_i) f(\lambda_i)\vb{u}_i\vb{v}_i^{\dag}
+\end{equation}
+where $\vb{v}_i^{\dag} = \vb{u}_i^{\dag}$ for a Hermitian operator.
+\subsection{Time Evolution Operator}
+\begin{Theorems}{Unitary operators as exponentials}{}
+	For a Hermitian operator $\hat{A}$, then,
+	\begin{equation}
+		\hat{U}(\theta) = \exp(-i\hat{A}\theta) \label{eq:timeev}
+	\end{equation}
+	where $\theta \in \mathbb{R}$, is also unitary.
+\end{Theorems} 
+\begin{proof}
+	Considering the spectral representation of $\hat{A}$, with eigenvalues $\lambda_j$ and eigenvectors $\vb{u}_j$, such that $\hat{A} = \sum_{j=1}^N\lambda_j\vb{u}_j\vb{u}_j^{\dag}$ then,
+	\begin{equation}
+		\hat{U}(\theta) = \sum_{j=1}^N\exp(-i\lambda_j\theta) \vb{u}_j\vb{u}_j^{\dag}.
+	\end{equation}
+	The adjoint $\hat{U}^\dag(\theta)$ is,
+	\begin{equation}
+		\hat{U}^{\dag}(\theta) = \sum_{j=1}^N\exp(i\lambda_j\theta) \vb{u}_j\vb{u}_j^{\dag}
+	\end{equation}
+	we then find,
+	\begin{equation}
+		\begin{split}
+			\hat{U}^\dag(\theta)\hat{U}(\theta) & = \sum_{j,k}e^{-i(\lambda_j - \lambda_k)\theta}\vb{u}_k\vb{u}_k^{\dag}\vb{u}_j\vb{u}_j^{\dag} = \sum_{jk}e^{-i(\lambda_j - \lambda_k)\theta}\vb{u}_k^{\dag}\innerproduct{\vb{u}_k}{\vb{u}_j}\vb{u}_j \\
+			& = \sum_{jk}e^{-i(\lambda_j - \lambda_k)\theta}\vb{u}_k^{\dag}\delta_{kj}\vb{u}_j = \sum_j \vb{u}_j\vb{u}_j^{\dag} = \hat{\mathbb{1}}.
+		\end{split}
+	\end{equation}
+	thus the operator is unitary.
+\end{proof}
+Furthermore, the operator in equation \eqref{eq:timeev} is the time-evolution operator in quantum mechanics, where we would replace $\hat{A}$ with $\hat{H}$ and $\theta$ with $t$.
+\subsection{Overlap Matrix}
+We wish to develop an alternative method to the Gram-Schmidt process, and will allow us to generalise some things. Let us suppose we have a set of vectors $\left\{\vb{v}_j\right\}_{j=1}^M$ in a vector space $V_N$. We will \textbf{not} assume that $M \leq N$. The matrix overlap is given by,
+\begin{equation}
+	\hat{N} = \sum_{i=1}^M\vb{v}_i\vb{v}_i^{\dag}
+\end{equation}
+which is Hermitian, and whose matrix representation can be written,
+\begin{equation}
+	N_{kl} = \sum_{i=1}^Mv_{ik}\overline{v}_{il}.
+\end{equation}
+If we are given normalised eigenvectors $\vb{u}$ and eigenvalues of $\hat{N}$, we find,
+\begin{equation}
+	\vb{u}_k^{\dag}\hat{N}\vb{u}_k = \lambda_k = \sum_{i=1}^N\abs{\innerproduct{\vb{v}_i}{\vb{u}_k}}^2 \geq 0
+\end{equation}
+so, all of its eigenvalues must be either positive or 0. If all eigenvalues are positive, we find the inverse of the overlap matrix by writing it in the orthonormal basis $\left\{\vb{u}_j\right\}_{j=1}^M$,
+\begin{equation}
+	\hat{N}^{-1} = \sum_{i=1}^M\lambda_i^{-1}\vb{u}_i\vb{u}_i^{\dag}.
+\end{equation}
+For the case that we have a zero eigenvalue, we can define a \textit{pseudo-inverse}.
+\begin{Definitions}{Pseudo-inverse}{}
+	For a Hermitian operator $\hat{N}$ with a set of eigenvalues $\left\{\lambda_i\right\}_{i=1}^{M}$ and a set of normalised eigenvectors $\left\{\vb{u}\right\}_{i=1}^M$, the pseudo-inverse is defined,
+	\begin{equation}
+		\hat{N}_{+}^{-1} = \sum_{i=1}^{M'}\frac{1}{\lambda_{i}^+}\vb{u}_i\vb{u}_i^{\dag}
+	\end{equation}
+	where $\left\{\lambda_{i,+}\right\}_{i=1}^{M'} \subset \left\{\lambda_i\right\}_{i=1}^{M}$ containing only the positive eigenvalues of $\hat{N}$, with size $M' < M$.
+\end{Definitions}
+We can now extract an orthonormal basis from $\vb{v}$. We define the inverse square root operator of the overlap matrix as,
+\begin{Definitions}{Inverse square root operator}{}
+	\begin{equation}
+		\hat{N}_{+}^{-1/2} = \sum_{i=1}^{M'}\frac{1}{\sqrt{\lambda^+}}\vb{u}_i\vb{u}_i^{\dag}.
+	\end{equation}
+\end{Definitions}
+If there is a basis, we must have $N$ non-zero eigenvalues, so $M' = N$. We clearly see,
+\begin{equation}
+	\vb{e}_i = \hat{N}_+^{-1/2}\vb{v}_i
+\end{equation}
+are orthonormal vectors, and can be used as an $N$-dimensional basis. We can then find the matrix representation of any operator in this basis, where it is given in a representation $\hat{A} \xrightarrow{\left\{\vb{v}_i\right\}_{i}^M} \doubleunderline{A}$ and $\left\{\vb{v}_i\right\}_{i}^M$ is a non-basis, as,
+\begin{equation}
+	\tilde{\doubleunderline{A}} = \doubleunderline{N_{+}^{-1/2}}\doubleunderline{A}\doubleunderline{N_{+}^{-1/2}}
+\end{equation}
+\section{The Trace}
+\begin{Definitions}{The Trace}{}
+	Consider an operator $\hat{A}$ which acts on a vector space $V_N$. For a given orthonormal basis $\left\{\vb{e}_j\right\}_{j=1}^N$, the trace of $\hat{A}$ is the sum of its diagonal elements,
+	\begin{equation}
+		\Tr(\hat{A}) = \sum_{j=1}^N\vb{e}_j^{\dag}\hat{A}\vb{e}_j.
+	\end{equation}
+\end{Definitions}
+The trace is independent of basis. We define several properties of the trace below,
+\begin{enumerate}
+	\item \textit{Linearity}: $\Tr(\alpha \hat{A} + \beta \hat{B}) = \alpha\Tr(\hat{A}) + \beta\Tr(\hat{B})$.
+	\item \textit{Commutation}: $\Tr(\hat{A}\hat{B}) = \Tr(\hat{B}\hat{A})$.
+	\item \textit{Trace of a dyad}: $\Tr(\vb{v}\vb{u}^{\dag}) = \Tr(\vb{u}^{\dag}\vb{v}) = \innerproduct{\vb{u}}{\vb{v}}.$
+	\item \textit{Invariance under cyclic permutations}: $\Tr(\hat{A}\hat{B}\hat{C}) = \Tr(\hat{B}\hat{C}\hat{A}) = \Tr(\hat{C}\hat{A}\hat{B})$.
+	\item \textit{Conjugate of Trace}: $\overline{\Tr(\hat{A})} = \Tr(\hat{A}^{\dag})$, $\overline{\Tr(\hat{A}\hat{B}\hat{C})} = \Tr(\hat{C}^{\dag}\hat{B}^{\dag}\hat{A}^{\dag})$.
+	\item \textit{Spectral trace}: If $\hat{A}$ has a spectral representation with eigenvalues $\left\{\lambda_i\right\}_{i=1}^N$, then $\Tr(\hat{A}) = \sum_{i=1}^N\lambda_i$.
+\end{enumerate}
+\section{Operators in Function Space}
+An operator $\hat{A}$ maps a function $\ket{f} \in \mathcal{F}$ to another function $\ket{g} = \hat{A}\ket{f} \in \mathcal{F}'$, or $\hat{A} \mathcal{F} \to \mathcal{F}'$. An example of an operator in function space is the position operator $\hat{x}$. The eigenvectors of the position operator are,
+\begin{equation}
+	\hat{x} \ket{x} = x \ket{x}.
+\end{equation}
+For a function $f$, the following equivalence follows
+\begin{equation}
+	\ket{g} = \hat{x}\ket{f} \xrightarrow{\ket{x}} g(x) = xf(x).
+\end{equation}
+We can write the spectral decomposition of $\hat{x}$ as,
+\begin{equation}
+	\hat{x} = \int_a^bx\ket{x}\bra{x}.
+\end{equation}
+\subsection{Differential operators}
+Differential operators are denotes,
+\begin{equation}
+	\ket{g} = \hat{K}\ket{f} \xrightarrow{\ket{x}} g(x) = \sum_nh_n(x)\dv[n]{x}f(x)
+\end{equation}
+where $h_n(x)$ is an arbitrary function of $x$. It can be shown that differential operators are linear.
+\subsection{Changing representation in continuous vector spaces}
+Given two orthonormal bases $\left\{\vb{u}_n\right\}_{n=1}^{\infty}$ and $\left\{\vb{v}_n\right\}_{m=1}^{\infty}$, a function $f : \left[a,b\right] \to \mathbb{R}$ can be represented,
+\begin{equation}
+	\ket{f} = \sum_{n=1}^{\infty}f_n\ket{u_n} = \sum_{m=1}^{\infty}c_m\ket{v_m}
+\end{equation}
+where,
+\begin{align}
+	f_N = \braket{u_n}{f} = \int_a^b\overline{u_n(x)}f(x)\dd{x} && c_m & = \braket{v_m}{f} = \int_a^b\overline{v_n(x)}{x}f(x)\dd{x}\\
+	&& & = \bra{v_m}\sum_{n=1}^{\infty}f_n\ket{u_m} \\
+	&& & = \sum_{n=1}^{\infty}f_n\braket{v_m}{u_n}
+\end{align}
+\subsubsection{Continuous Bases}
+Let us consider a basis $\ket{k}$, $k \in \left[c,d\right]$, $\braket{k}{k'} = \delta(k - k')$, so is orthonormal. We have that,
+\begin{equation}
+	\mathbb{1} = \int_c^d \dd{k}\ket{k}\bra{k}
+\end{equation}
+so,
+\begin{equation}
+	\begin{split}
+		\ket{f} &= \int_a^b\dd{x}\ket{x}\bra{x}\ket{f} \\
+		& = \int_c^d \dd{x}f(x)\ket{x} \\
+		& = \int_c^d\dd{k} \int_a^b \dd{x}f(x)\ket{k}\braket{k}{x} \\
+		& = \int_c^d \dd{k} \underbrace{\left(\int_a^bf(x)\braket{k}{x}\right)}_{\tilde{f}(k)}\ket{k}
+	\end{split}
+\end{equation}
+\subsection{Momentum Representation}
+Let us consider a $a = c = -\infty$ and $b = d = +\infty$ and choose $f \in \mathcal{L}^2(\mathbb{R})$. $\ket{k}$ are the eigenstates of $\hat{k} = -i\hat{D}$ such that,
+\begin{equation}
+	\hat{D} \xrightarrow{\ket{x}}\dv{x},
+\end{equation}
+$k$ is orthonormal $\braket{k}{k'} = \delta(k - k')$, and the eigenequation is,
+\begin{equation}
+	\hat{k}\ket{k} = k\ket{k}. \label{eq:k}
+\end{equation}
+Consider an overlap with $\ket{x}$ on equation \eqref{eq:k},
+\begin{equation}
+	\bra{x}\hat{k}\ket{k} = k \braket{x}{k}
+\end{equation}
+and by Hermitivity,
+\begin{equation}
+	\begin{split}
+	\bra{k}\hat{k}\ket{x} &= +i\dv{x}\overline{\braket{k}{x}}\\
+	& = i\dv{x}\underbrace{\braket{x}{k}}_{\phi_k(x)}.
+	\end{split}
+\end{equation}
+We then have that,
+\begin{equation}
+	\dv{x}\phi_k(x) = -ik\phi_k(x)
+\end{equation}
+which we can solve trivially,
+\begin{equation}
+	\phi_k(x) = \frac{1}{\sqrt{2\pi}} e^{-ikx}.
+\end{equation}
+We then find,
+\begin{equation}
+	\begin{split}
+		\tilde{f}(x) & = \int_{-\infty}^{\infty}\dd{k}f(x) \braket{k}{x} \\
+		& = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\dd{k}f(x)e^{ikx}
+	\end{split}
+\end{equation}
+which we recognise as the Fourier transform!
+\subsubsection{Multiplication Theorem and Parseval's Lemma}
+\begin{Theorems}{Multiplication Theorem}{}
+	$\forall f, g : \mathbb{R} \to \mathbb{C}$ where $\exists \tilde{f},\tilde{g}$ which are Fourier transforms, then
+	\begin{equation}
+		\int_{-\infty}^{\infty}\overline{f(x)}g(x)\dd{x} = \int_{-\infty}^{\infty}\overline{\tilde{f}(k)}\tilde{g}(k)\dd{k}.
+	\end{equation}
+\end{Theorems}
+This theorem is a consequence of the fact that the inner product is invariant between $k$ and $x$, as long as the Fourier transform is normalised.
+\subsection{Operators in Momentum Space}
+\subsubsection{Position Operator}
+Let us change the representation of the position operator in $k$-space,
+\begin{equation}
+	\begin{split}
+	\bra{k}\hat{x}\ket{f} & = \int_{-\infty}^{\infty}\bra{k}\hat{x}\ket{x}\braket{x}{f}\dd{x} \\
+	& = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}xf(x)e^{ikx}\dd{x} \\
+	& = -i\dv{k}\underbrace{\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{ikx}\dd{x}\right)}_{\tilde{f}(x)}
+	\end{split}
+\end{equation}
+thus, we find,
+\begin{equation}
+	\hat{x} \xrightarrow{\ket{k}} - i\dv{k}
+\end{equation}
+so the position and momentum operators switch forms when changing between forms.
+\subsection{Coherent States}
+The annihilation and creation operators (or ladder operators) are,
+\begin{align}
+	\hat{a} = \frac{1}{\sqrt{2}}\left(\frac{\hat{x}}{b} + ib\hat{k}\right) && \hat{a}^{\dag} = \frac{1}{\sqrt{2}}\left(\frac{\hat{x}}{b} - ib\hat{k}\right)
+\end{align}
+and have the property that $\left[\hat{a},\hat{a}^{\dag}\right] = \mathbb{1}$, $\hat{a}\ket{0} = 0$, and $n(a^{\dag})^{n-1}\ket{0} = \hat{a}(\hat{a}^{\dag})^n\ket{0}$. From the annihilation and creation operators we can form a \textit{coherent state basis}, which is defined,
+\begin{equation}
+	\begin{split}
+	\ket{z} & = N(z)\exp(za^{\dag})\ket{0} \hspace{2em} z \in \mathbb{Z} \\
+	& = N(z) \sum_{n=0}^{\infty}\frac{z^n}{n!}\left(a^{\dag}\right)^n\ket{0}.
+	\end{split}
+\end{equation}
+Taking the overlap of $\ket{z}$ with another arbitrary $\ket{z'}$, we find,
+\begin{equation}
+	\begin{split}
+		\braket{z}{z'} & = \overline{N}(z)N(z')\sum_{n,m=0}^{\infty}\frac{\overline{z}^n}{n!}\frac{z'^m}{m!}\underbrace{\ket{0}\hat{a}^n\hat{a}^m\ket{0}}_{\delta_{mn}n!} \\
+		 & = \sum_{n=0}^{\infty}\frac{\left(\overline{z}z'\right)^n}{n!} = \exp(\overline{z}z').
+	\end{split}
+\end{equation}
+so we find that the coherent state basis can be normalised, but is not orthogonal. However, we can still use it to represent vectors and operators. The completeness relation follows,
+\begin{equation}
+	\mathbb{1} = \frac{1}{\pi}\int_{-\infty}^{\infty}\ket{z}\bra{z}\dd^2z
+\end{equation}
 \end{document}
+ 

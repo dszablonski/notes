@@ -21,5 +21,13 @@
 \contentsline {subsubsection}{Small $\rho $}{11}{}%
 \contentsline {subsubsection}{General Solution}{11}{}%
 \contentsline {section}{\numberline {2.2}Energy Eigenvalues of the Hydrogen Atom}{12}{}%
-\contentsline {chapter}{\numberline {A}Misc. Formulae}{13}{}%
-\contentsline {section}{\numberline {A.1}Commutation Relation}{13}{}%
+\contentsline {section}{\numberline {2.3}Transition Spectra of Hydrogen}{12}{}%
+\contentsline {section}{\numberline {2.4}Other Single Electron Atoms}{13}{}%
+\contentsline {section}{\numberline {2.5}Parity, spherical harmonics, and atomic orbitals}{13}{}%
+\contentsline {chapter}{\numberline {3}Angular Momentum and Magnetic Effects in Hydrogen}{14}{}%
+\contentsline {section}{\numberline {3.1}Magnetic Moment and Spin}{14}{}%
+\contentsline {subsection}{\numberline {3.1.1}Stern-Gerlach Experiment}{14}{}%
+\contentsline {subsubsection}{Hydrogen Atom with Spin}{15}{}%
+\contentsline {chapter}{\numberline {A}Misc. Formulae}{16}{}%
+\contentsline {section}{\numberline {A.1}Commutation Relation}{16}{}%
+\contentsline {section}{\numberline {A.2}Legendre Polynomials}{16}{}%

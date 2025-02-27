@@ -226,12 +226,12 @@ where $A = \frac{1}{\sqrt{2\pi}}$ is a normalisation constant. We require a cycl
 \end{equation}
 Not all values of $L_z$ satisfy the eq. \eqref{eq:hehe}, so we have to impose the following restriction,
 \begin{equation}
-	L_z = \hbar m, \hspace{1em} m \in \mathbb{Z}
+	L_z = \hbar m_l, \hspace{1em} m_l \in \mathbb{Z}
 \end{equation}
 and thus, we can write the angular momentum eigenfunction as,
 \begin{Definitions}{Angular Momentum Eigenfunction}{}
 	\begin{equation}
-		\Phi_m(\phi) = \frac{1}{\sqrt{2\pi}} e^{im\phi}
+		\Phi_{m_l}(\phi) = \frac{1}{\sqrt{2\pi}} e^{im_l\phi}
 	\end{equation}
 \end{Definitions}
 
@@ -297,47 +297,50 @@ It can be shown that the angular momentum operators in the 3 cardinal directions
 \end{align}
 We now wish to solve for the eigenfunctions of $\hat{L}^2$, $\hat{L}^2\psi(r,\theta,\phi) = L^2\psi(r,\theta,\phi)$. We can consider a separable solution, $\psi(r,\theta,\phi) = R(r)Y(\theta,\phi)$, and neglect the $r$ dependent term as $\hat{L}^2$ does not depend on $r$. Furthmore, we wish for $Y(\theta,\phi)$ to be an eigenfunction of $\hat{L}_z$ too, so we can assume that $Y \propto e^{im\phi}$ since we know the eigenfunctons of $\hat{L}_z$. Thus, we can write $Y(\theta,\phi) = P(\theta)e^{im\phi}$. Now,
 \begin{equation}
-	-\hbar^2\left(\dv[2]{\theta} + \cot\theta\dv{\theta} -\frac{m^2}{\sin^2\theta}\right)P(\theta) = L^P(\theta).
+	-\hbar^2\left(\dv[2]{\theta} + \cot\theta\dv{\theta} -\frac{m_l^2}{\sin^2\theta}\right)P(\theta) = L^2P(\theta).
 \end{equation}
 Let us define $\lambda = L^2/\hbar^2$, and write,
 \begin{equation}
-	\dv[2]{P}{\theta} + \frac{\cos\theta}{\sin\theta}\dv{P}{\theta} + \left(\lambda - \frac{m^2}{\sin^2\theta}\right)P = 0
+	\dv[2]{P}{\theta} + \frac{\cos\theta}{\sin\theta}\dv{P}{\theta} + \left(\lambda - \frac{m_l^2}{\sin^2\theta}\right)P = 0
 \end{equation}
-which we recognise as the associated Legendre equation, whose solutions are associated Legendre polynomials $P_l^m(\theta)$. Let us consider the possible eigenfunctions by substituting some known associated Legendre polynomials,
+which we recognise as the associated Legendre equation, whose solutions are associated Legendre polynomials $P_l^{m_l}(\theta)$. Let us consider the possible eigenfunctions by substituting some known associated Legendre polynomials,
 \begin{enumerate}
 	\item $P(\theta) = 1$,
 	\begin{equation}
-		\lambda - \frac{m^2}{\sin^2\theta} = 0
+		\lambda - \frac{m_l^2}{\sin^2\theta} = 0
 	\end{equation}
-	which is only true for $\lambda = m^2 = 0$.
+	which is only true for $\lambda = m_l^2 = 0$.
 	\item $P(\theta) = \cos\theta$,
 	\begin{equation}
-		(\lambda - 2)\cos\theta - m^2\frac{\cos\theta}{\sin^2\theta} = 0
+		(\lambda - 2)\cos\theta - m_l^2\frac{\cos\theta}{\sin^2\theta} = 0
 	\end{equation}
-	which is only true for $\lambda = 2$, $m^2=0$.
+	which is only true for $\lambda = 2$, $m_l^2=0$.
 \end{enumerate}
 Generally,
 \begin{align}
-	\lambda = l(l+1) && m = -l, -l+1, -l + 2 \ldots, 2 + l, 1 + l, l
+	\lambda = l(l+1) && m_l = -l, -l+1, -l + 2 \ldots, 2 + l, 1 + l, l
 \end{align}
 for $l \in \mathbb{Z}$. Thus, for a 3D simple harmonic oscillator, $l$ is the second quantum number. It follows that,
 \begin{equation}
-	\hat{L}_z^2 \leq \hat{L}^2 \implies m^2 \leq l(l+1) \implies |m| \leq l
+	\hat{L}_z^2 \leq \hat{L}^2 \implies m_l^2 \leq l(l+1) \implies |m_l| \leq l
 \end{equation}
 and for a given $l$, there are $2l + 1$ values for the quantum number $m$.
 \subsubsection{Spherical Harmonic Functions}
-We have that the eigenfunctions of $\hat{L}^2$ and $\hat{L}_z^2$ is the function, 
-\begin{equation}
-	Y_{lm}(\theta\phi) = P_{lm}(\cos\theta) e^{im\phi}
-\end{equation}
-where $P_{lm}(\cos\theta)$ is an associated Legendre polynomial. Its eigenvalues are,
+We have that the eigenfunctions of $\hat{L}^2$ and $\hat{L}_z^2$ are defined by the \textit{spherical harmonics}.
+\begin{Definitions}{Spherical Harmonics}{}
+	\begin{equation}
+		Y_{lm_l}(\theta\phi) = P_{lm_l}(\cos\theta) e^{im_l\phi}
+	\end{equation}
+	where $P_{lm_l}(\cos\theta)$ is the associated Legendre polynomial.
+\end{Definitions}
+ Its eigenvalues are,
 \begin{align}
-	\hat{L}^2Y_{lm} & = l(l+1)\hbar^2 Y_{lm}, \\
-	\hat{L}_z Y_{lm} & = m\hbar Y_{lm},
+	\hat{L}^2Y_{lm_l} & = l(l+1)\hbar^2 Y_{lm_l}, \\
+	\hat{L}_z Y_{lm_l} & = m_l\hbar Y_{lm_l},
 \end{align}
 and it is normalised by,
 \begin{equation}
-	2\pi \int_{-1}^{1}\abs{P_{lm}(x)}^2 \dd{x} = 1.
+	\int_0^{\pi}\int_{0}^{2\pi}\abs{P_{lm_l}(x)}^2 \sin\theta\dd{\theta}\dd{\phi} = 1.
 \end{equation}
 \subsubsection{Raising and Lowering Operators}
 \begin{Definitions}{Raising and Lowering Operator}{}
@@ -349,9 +352,9 @@ The raising and lowering operator commutes by,
 \begin{equation}
 	\left[\hat{L}_z, \hat{L}^{\pm}\right] = \pm \hbar \hat{L}^{\pm}.
 \end{equation}
-Given a function, $Y = \hat{L}^+Y_{lm}$, it has eigenvalues,
+Given a function, $Y = \hat{L}^+Y_{lm_l}$, it has eigenvalues,
 \begin{equation}
-	\hat{L}_zY = \hbar(m+1)Y.
+	\hat{L}_zY = \hbar(m_l+1)Y.
 \end{equation}
 \section{Rotation of a Diatomic Molecule}
 \begin{figure}
@@ -436,18 +439,18 @@ It is most useful for us to work in polar coordinates. When writing the TISE in 
 Before we begin attempting to solve this, let us use some intuition,
 \begin{enumerate}
 	\item We will expect $\psi$ to have 3 quantum numbers, as there are 3 degrees of freedom.
-	\item By inspection, $\left[\hat{H},\hat{L}\right] = \left[\hat{H},\hat{L}_z\right] = 0 \implies$ $(l,m)$ are good quantum numbers of hydrogen, since $\hat{L}$ appears in its Hamiltonian. This means that we expect to find a quantum number from solving the $r$ dependence in the TISE.
+	\item By inspection, $\left[\hat{H},\hat{L}\right] = \left[\hat{H},\hat{L}_z\right] = 0 \implies$ $(l,m_l)$ are good quantum numbers of hydrogen, since $\hat{L}$ appears in its Hamiltonian. This means that we expect to find a quantum number from solving the $r$ dependence in the TISE.
 \end{enumerate}
 \section{Central (Coulomb) Potential}
 The Coulomb potential between a positively charges nucleus and an electron is given by,
 \begin{equation}
 	V(r) = -\frac{e^2}{4\pi\epsilon_0r}
 \end{equation}
-which we will use to solve the radial part of equation \eqref{eq:hyd}. By attempting a separable solution of the form $\psi(r, \theta,\phi) = R(r)Y_{lm}(\theta,\phi)$ and noting $\pdv[2]{r} + \frac{2}{r}\pdv{r} = \frac{1}{r^2}\pdv{r}r^2\pdv{r}$, we can write,
+which we will use to solve the radial part of equation \eqref{eq:hyd}. By attempting a separable solution of the form $\psi(r, \theta,\phi) = R(r)Y_{lm_l}(\theta,\phi)$ and noting $\pdv[2]{r} + \frac{2}{r}\pdv{r} = \frac{1}{r^2}\pdv{r}r^2\pdv{r}$, we can write,
 \begin{equation}
-	\left(-\frac{\hbar^2}{2m}\frac{1}{r^2}\pdv{r}r^2\pdv{r} + \frac{l(l+1)\hbar^2}{2mr^2} -\frac{e^2}{4\pi\epsilon_0r}\right)R(r)Y_{lm}(\theta,\phi) = ER(r)Y_{lm}(\theta,\phi).
+	\left(-\frac{\hbar^2}{2m}\frac{1}{r^2}\pdv{r}r^2\pdv{r} + \frac{l(l+1)\hbar^2}{2mr^2} -\frac{e^2}{4\pi\epsilon_0r}\right)R(r)Y_{lm_l}(\theta,\phi) = ER(r)Y_{lm_l}(\theta,\phi).
 \end{equation}
-Let us use the substitution $R(r) = \frac{U(r)}{r}$ and cancel $Y_{lm}(\theta,\phi)$ to obtain,
+Let us use the substitution $R(r) = \frac{U(r)}{r}$ and cancel $Y_{lm_l}(\theta,\phi)$ to obtain,
 \begin{equation}
 	-\frac{\hbar^2}{2m}\dv[2]{U}{r} + \frac{l(l+1)\hbar^2}{2mr^2}U - \frac{e^2}{4\pi\epsilon_0r}U = EU. \label{eq:29}
 \end{equation}
@@ -511,7 +514,11 @@ We will state without proof that the recursion relation \eqref{eq:c} diverges un
 	b = \frac{1}{1 + l + p} && \implies && \tilde{E} = -\frac{1}{(1 + l + p)^2}
 \end{align}
 \section{Energy Eigenvalues of the Hydrogen Atom}
-From our findings in the previous section, we can define a new quantum number $n$, such that the energy eigenvalues of the hydrogen atom are,
+From our findings in the previous section, we can define a new quantum number
+\begin{equation}
+	n = l + p + 1
+\end{equation}
+such that the energy eigenvalues of the hydrogen atom are,
 \begin{equation}
 	E_n = -\frac{E_R}{n^2} \hspace{1em} n \geq 1
 \end{equation}
@@ -519,7 +526,142 @@ where $n$ is bounded by,
 \begin{equation}
 	 0 \leq n \leq n - 1.
 \end{equation}
-We then have that $n,m,l$ fully parametrise $\psi(r,\theta,\phi) = R_{nl}(r)Y_{lm}(\theta,\phi)$ and are \textit{good quantum numbers}.
+We then have that $n,m,l$ fully parametrise $\psi(r,\theta,\phi) = R_{nl}(r)Y_{lm_l}(\theta,\phi)$ and are \textit{good quantum numbers}. Let us further note that there is a degeneracy $D_n = n^2$.
+\\\\
+The radial part of the hydrogen wavefunction are known as \textit{Laguerre polynomials}, and they encode the \textit{shells} of the hydrogen atom. Below, we see the first few radial wave functions,
+\begin{align*}
+	n && l = 0 && l = 1 && l = 2 \\
+	1 && e^{-r/a_0} && && \\
+	2 && \left(1 - \frac{r}{2a_0}\right)e^{-r/2a_0} && \frac{r}{a_0}e^{-r/2a_0} && \\
+	3 && \left(1 - \frac{2r}{3a_0} + \frac{2r^2}{27a_0^2}\right)e^{-r/3a_0} && \frac{r}{a_0}\left(1 - \frac{r}{6a_0}\right)e^{-r/3a_0} && \left(\frac{r}{a_0}\right) ^2e^{-r/3a_0}
+\end{align*}
+we refer to wavefunctions of different $l$ as \textit{orbitals} which have labels as described in the table below,
+\begin{center}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		$l$ & Name & Orbital \\
+		\hline
+		0 & Sharp & $s$ \\
+		1 & Principal & $p$ \\
+		2 & Diffuse & $d$ \\
+		3 & Fundamental & $f$ \\
+		4 & & $g$ \\ 
+		5 & & $h$ \\
+		\vdots & & \vdots \\
+		\hline
+	\end{tabular}
+\end{center}
+We can specify atomic configurations using just orbitals and the principal quantum number. We see that each shell of a hydrogen-like atom can be denotes as $1s,2s,2p,3s,\ldots$ 
+\\\\
+Furthermore, we must be able to identify the algebraic forms of the different shells. We can do this by knowing,
+\begin{itemize}
+	\item The exponential terms goes by $e^{-r/na_0}$.
+	\item For small $r$, $r \to \left(\frac{r}{a_0}\right)^l$.
+	\item The polynomial is of degree $n - l -1$.
+\end{itemize}
+\section{Transition Spectra of Hydrogen}
+The transitions between energy levels involves emission or absorption of a single photon. If a hydrogen atom is in an excited state with principal quantum number $n$, it can fall down to a lower level $n' < n$ by the emission of a photon with energy,
+\begin{equation}
+	h\nu  = E_R\left(\frac{1}{n'^2} - \frac{1}{n^2}\right).
+\end{equation}
+\section{Other Single Electron Atoms}
+We can model other single electron atoms/ions such as He$^+$ and Li$^{+2}$ with our hydrogen model as they have the same structure of a single electron orbiting a positively charged nucleus. But to treat these, we must scale our potential by $Z$,
+\begin{equation}
+	V(r) = -\frac{Ze^2}{4\pi\varepsilon_0r}
+\end{equation}
+from which we obtain a Bohr radius $a_Z = a_0/Z$, with energy levels,
+\begin{equation}
+	E_n = -\frac{Z^2E_R}{n^2}.
+\end{equation}
+Classically, the electron and the nucleus orbit their centre of mass with separation $r$. We can take this into account by using the reduced mass,
+\begin{equation}
+	\mu = \frac{m_eM_N}{m_e + M_N} = \frac{m_e}{1 + \frac{m_e}{M_N}}
+\end{equation}
+such that the $n$th energy level becomes,
+\begin{equation}
+	E_n = -\frac{Z^2E_R}{n^2}\frac{\mu}{m_e}.
+\end{equation}
+\section{Parity, spherical harmonics, and atomic orbitals}
+The Hamiltonian of the hydrogen atom is invariant under parity transformations, i.e., $\vb{r} \to - \vb{r}$. This is easy to see for the Hamiltonian, as the Coulomb potential only depends on the magnitude $r$. Thus, the wavefunction must be \textit{either} odd or even.
+\begin{proof}
+	Let us define an operator $\hat{P}$ such that,
+	\begin{equation}
+		\hat{P}\psi(\vb{r}) = \hat{P}\psi(-\vb{r}),
+	\end{equation}
+	Given the Hamiltonian is parity symmetric
+	\begin{equation}
+		\left[\hat{P},\hat{H}\right] = 0.
+	\end{equation}
+	Let us consider the eigenvalue of $\hat{P}^2$, i.e.,
+	\begin{equation}
+		\hat{P}^2\psi(\vb{r}) = \lambda^2 \psi(\vb{r})
+	\end{equation}
+	by,
+	\begin{equation}
+		\hat{P}\hat{P}\psi(\vb{r}) = \hat{P}\psi(-\vb{r}) = \psi(\vb{r})
+	\end{equation}
+	thus, $\lambda = \pm 1$, and $\psi(-\vb{r}) = \pm \psi(\vb{r})$ under a parity symmetric Hamiltonian.
+\end{proof}
+The eigenfunctions of the Hamiltonian are given by,
+\begin{equation}
+	\psi_{lmn}(\vb{r}) = R_{nl}(r)Y_{lm_l}(\theta,\phi).
+\end{equation}
+Parity transformations require symmetry under $\theta \to \pi - \theta$ and $\phi \to \phi + \pi$. Thus,
+\begin{equation}
+	Y_{lm_l}(\pi - \theta, \phi + \pi) = (-1)^lY_{lm_l}(\theta,\phi)
+\end{equation}
+thus, a hydrogen atom with angular momentum $l$ has parity $(-1)^l$.
+\chapter{Angular Momentum and Magnetic Effects in Hydrogen}
+\section{Magnetic Moment and Spin}
+Consider an electron moving in a circle of radius $r$, with a period of $T$. This will result in a current $I$. We can consider the magnetic moment of the electron to be,
+\begin{equation}
+	\vb*{\mu} = I \vb{A}
+\end{equation}
+where the direction of $\vb{A}$ is decided by the right hand rule. Furthermore, for a single electron $I = -e/T$. We an define the area in terms of the electron's angular momentum,
+\begin{equation}
+	\begin{split}
+		A = \int_0^{2\pi}\frac{1}{2}r^2\dd{\theta} & = \int_0^{T}\frac{1}{2}\underbrace{r^2\overbrace{\dv{\theta}{t}}^{\omega}}_{L}\dd{t} \\
+		& = \int_0^T\frac{L}{2m_e}\dd{t} = \frac{LT}{2m_e}.
+	\end{split}
+\end{equation}
+So, we can write,
+\begin{align}
+	& \vb{A} = \frac{T}{2m_e}\vb{L} \\
+	\implies & \vb*{\mu} = - \frac{e}{2m_e}\vb{L} \implies \hat{\mu} = -\frac{e}{2m_e}\hat{L}.
+\end{align}
+We must consider the $z$ component of angular momentum, where we find that the eigenvalues of the magnetic moment are,
+\begin{equation}
+	\mu_z = -\frac{e\hbar}{2m_e}m_l \label{eq:muz}
+\end{equation}
+from which we can define the \textit{Bohr magneton},
+\begin{equation}
+	\mu_b = \frac{e\hbar}{2m_e}.
+\end{equation}
+\subsection{Stern-Gerlach Experiment}
+In the Ster-Gerlach experiment, a beam of electrons is subject to a magnetic force,
+\begin{equation}
+	F_z = \mu_z\pdv{B_z}{z} \propto m_e\hbar.
+\end{equation}
+We would expect the electrons to then follow a distribution suggested by equation \eqref{eq:muz}, however this was not the case. For electrons in $s$ orbitals, we would expect there to be no magnetic moment for the electron, as electrons are point particles and have no shape, thus it wouldn't make sense for them to have any orbital angular momentum. Instead, it was found that the electrons fell into two spots. Motivated by this, let us define a \textit{spin} operator to encode this inherent magnetic moment, $\hat{S} = \left(\hat{S}_x, \hat{S}_y, \hat{S}_z\right)$, with eigenvalues,
+\begin{align}
+	\hat{S}^2\ket{S} = s(s+1)\hbar^2\ket{s} \\
+	\hat{S}_z\ket{S} = m_s\hbar
+\end{align}
+where $s=\frac{1}{2}$ for \textit{all} electrons, and,
+\begin{equation}
+	m_s = -s, -s+1,\ldots,-1,0,1,\ldots,s-1,s
+\end{equation}
+with degeneracy $D = 2s+1$. This is similar to orbital angular momentum, but we allow odd $\frac{1}{2}$ integer values. Furthermore, $m_s = \pm \frac{1}{2}$ for all electrons, which we can also denote $\uparrow$ and $\downarrow$. We can then suggest a new form for the electron magnetic moment,
+\begin{equation}
+	\mu_z = -g\mu_bm_s
+\end{equation}
+where $g$ is a constant of proportionality, which is only known experimentally and is $\sim2.002319$. Although this is close to $2$, it cannot be $2$ due to effects which can be derived from quantum electrodynamics.
+\subsubsection{Hydrogen Atom with Spin}
+We can now add the spin wavefunction to our hydrogen wave function,
+\begin{equation}
+	\Psi_{nlm_lm_s} = R_{nl}(r)Y_{lm_l}(\theta,\phi)\chi_{m_s}
+\end{equation}
+which has the same eigenvalues as before but additional degeneracy $D = 2n^2$.
 \appendix
 \chapter{Misc. Formulae}
 \section{Commutation Relation}
@@ -527,4 +669,13 @@ We then have that $n,m,l$ fully parametrise $\psi(r,\theta,\phi) = R_{nl}(r)Y_{l
 	\left[\hat{A}\hat{B}, \hat{C}\right] = \left[\hat{A}, \hat{C}\right]\hat{B} + \hat{A}\left[\hat{B},\hat{C}\right] \\
 	\left[\hat{A} + \hat{B}, \hat{C}\right] = \left[\hat{A}, \hat{C}\right] + \left[\hat{B},\hat{C}\right]
 \end{align}
+\section{Legendre Polynomials}
+Legendre polynomials follow the orthogonality relation,
+\begin{equation}
+	\int_{-1}^1 P_l(x)P_m(x) = \frac{2}{2l+1}\delta_{lm}
+\end{equation}
+and associated Legendre polynomials follow,
+\begin{equation}
+	\int_{-1}^1 P_k^mP_l^m = \frac{2(l+m)!}{(2l+1)(l-m)!}\delta_{kl}.
+\end{equation}
 \end{document}

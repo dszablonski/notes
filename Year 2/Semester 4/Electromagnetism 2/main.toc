@@ -19,9 +19,23 @@
 \contentsline {subsection}{\numberline {2.1.2}Magnetics}{9}{}%
 \contentsline {subsection}{\numberline {2.1.3}Time dependent case}{9}{}%
 \contentsline {section}{\numberline {2.2}Plane Waves in Lossy Media}{10}{}%
-\contentsline {subsection}{\numberline {2.2.1}Conducting Media}{10}{}%
-\contentsline {chapter}{\numberline {A}Revision Equations}{11}{}%
-\contentsline {section}{\numberline {A.1}Potentials}{11}{}%
-\contentsline {section}{\numberline {A.2}Gauges}{11}{}%
-\contentsline {section}{\numberline {A.3}Vector Identities}{12}{}%
-\contentsline {section}{\numberline {A.4}EM Waves}{12}{}%
+\contentsline {subsection}{\numberline {2.2.1}Source-Free Lossy Media}{10}{}%
+\contentsline {subsubsection}{Transmission line theory}{10}{}%
+\contentsline {section}{\numberline {2.3}Waves in Dielectrics}{11}{}%
+\contentsline {subsection}{\numberline {2.3.1}Refractive Index of Gasses}{11}{}%
+\contentsline {section}{\numberline {2.4}Waves in Conductors}{12}{}%
+\contentsline {subsection}{\numberline {2.4.1}Poor Conductors}{12}{}%
+\contentsline {subsection}{\numberline {2.4.2}Good Conductors}{12}{}%
+\contentsline {section}{\numberline {2.5}Waves in Plasmas}{13}{}%
+\contentsline {subsection}{\numberline {2.5.1}The Drude Model}{13}{}%
+\contentsline {subsection}{\numberline {2.5.2}Drude Model with Collisions}{14}{}%
+\contentsline {subsubsection}{Low frequency waves in plasma}{14}{}%
+\contentsline {subsubsection}{High frequency waves in plasma}{14}{}%
+\contentsline {chapter}{\numberline {3}Reflection and Refraction}{16}{}%
+\contentsline {section}{\numberline {3.1}Maxwell's Equations and Boundary Conditions}{16}{}%
+\contentsline {subsection}{\numberline {3.1.1}Transverse Component of Electric Field}{16}{}%
+\contentsline {chapter}{\numberline {A}Revision Equations}{17}{}%
+\contentsline {section}{\numberline {A.1}Potentials}{17}{}%
+\contentsline {section}{\numberline {A.2}Gauges}{17}{}%
+\contentsline {section}{\numberline {A.3}Vector Identities}{18}{}%
+\contentsline {section}{\numberline {A.4}EM Waves}{18}{}%

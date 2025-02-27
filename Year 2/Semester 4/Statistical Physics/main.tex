@@ -518,11 +518,11 @@ which is what we expect. Furthermore, the Gibbs expression is more general and c
 \end{equation}
 so we can find $\langle S \rangle$ from $Z$. However, we can rewrite this as,
 \begin{equation}
-	-k_BT \ln Z = \langle E \rangle + T \langle S \rangle = \langle F \rangle 
+	-k_BT \ln Z = \langle E \rangle + T \langle S \rangle = \langle F \rangle \label{eq:F}
 \end{equation}
 so we find that $Z$ directly gives us $F(T,V)$ or $F(T,B)$, or the Helmholtz free energy. The Helmholtz free energy is the natural potential for a system at fixed energy. Let us then recall the Maxwell relations,
 \begin{align}
-	S = -\left(\pdv{F}{T}\right)_{V (\text{or } B), N} && P = -\left(\pdv{F}{V}\right)_{T, N} && \mu = \left(\pdv{F}{N}\right)_{V, T}
+	S = -\left(\pdv{F}{T}\right)_{V (\text{or } B), N} && P = -\left(\pdv{F}{V}\right)_{T, N} && \mu = \left(\pdv{F}{N}\right)_{V, T} \label{eq:maxwell}
 \end{align}
 \subsection{The paramagnet at fixed temperature}
 \begin{figure}
@@ -574,7 +574,7 @@ and average energy,
 \end{equation}
 We can see how this energy varies in figure \ref{fig:B}. We can also look at the heat capacity of the paramagnet,
 \begin{equation}
-	C_V = \left(pdv{E}{T}\right)_{N,B} = Nk_b(\mu B \beta)^2\sech[2](\mu B \beta)
+	C_V = \left(\pdv{E}{T}\right)_{N,B} = Nk_b(\mu B \beta)^2\sech[2](\mu B \beta)
 \end{equation}
 which we visualise in figure \ref{fig:cv}.
 \begin{figure}
@@ -603,5 +603,246 @@ the entropy is,
 and the average magnetic dipole is,
 \begin{equation}
 	\left<m \right> = -\left<E\right>B.
+\end{equation}
+\section{Adiabatic Demagnetisation}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\node at (-6,3) {$\downarrow$};
+		\draw (0,0) -- (3,0) node[midway, anchor=north] {$10$};
+		\draw (0,2) -- (3,2) node[midway, anchor = south] {$4$};
+		\draw (-2,0.5) -- (-5,0.5) node[midway, anchor = north] {$10$};
+		\draw (-2,1.5) -- (-5,1.5) node[midway, anchor = south] {$4$}; 
+		\draw (5,0) -- (8,0) node[midway, anchor = north] {$8$};
+		\draw (5,2) -- (8,2) node[midway, anchor = south] {$6$};
+		\draw[-latex] (0,1) -- (-2,1) node[midway, anchor=north] {adiabatic};
+		\node[anchor=south] at (-1,1) {work only};
+		\draw[-latex] (3,1) -- (5,1) node[midway, anchor=south] {heat only};
+		\node at (9,-1) {$\uparrow$};
+	\end{tikzpicture}
+	\caption{}
+	\label{fig:magnetisation}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.3\textwidth]{magnet.png}
+	\caption{}
+	\label{fig:mag}
+\end{figure}
+Let us consider a system initially at a particular energy, we want to know its behaviour as we change temperature, energy, and/or heat. The energy is given by,
+\begin{equation}
+	\dd{E} = - m\dd{B} - B\dd{m}.
+\end{equation}
+where $m\dd{B}$ indicates work and $B\dd{m}$ indicates heat. Consider figure \ref{fig:magnetisation}. If we perform work on the magnet, we find that we do not change the spin ratio, so we decrease the magnetic field within the paramagnet, increase its energy, and decrease its temperature. This process is known as \textit{adiabatic demagnetisation}. If we look at figure \ref{fig:mag}, we find that we can change the temperature of a paramagnet by magnetising and demagnetising it. We lower the temperature in two steps,
+\begin{enumerate}
+	\item Have a sample in contact with a heat bath at $T_1$, and increase the magnetic field to $B_1$, known as \textit{isothermal magnetisation}.
+	\item Reduce the field to $B_1$ slowly, to perform adiabatic demagnetisation. The temperature of the sample has now been decreased without changing the entropy or magnetisation.
+\end{enumerate}
+Let us note that we can perform this process for subsystems, however it will take infinite steps to reach 0K. There is always a minimum energy ground state $\varepsilon$, and for $k_BT << \varepsilon$, the probability of being in the ground state tends to 1 and the entropy tends to 0. 
+\\\\
+For $T \to \infty$, we find that $S \to \text{const}$, however this is only the case for systems with a finite number of microstates. In this case, the probability of each state is equal.
+\section{Energies of Diatomic Molecules}
+\subsection{Vibrational Energies}
+The energy levels for a simple harmonic oscillator are,
+\begin{equation}
+	\varepsilon_n = \left(n + \frac{1}{2}\right)\hbar \omega, n \in \mathbb{Z}
+\end{equation}
+For a single oscillator, the partition function is,
+\begin{equation}
+	\begin{split}
+		Z_1 & = e^{-\varepsilon_0\beta} + e^{-\varepsilon_1\beta} + e^{-\varepsilon_2 \beta} + \cdots  \\
+		&  = e^{-\frac{1}{2}\hbar\omega\beta}\sum_{n=0}^{\infty}e^{-n\hbar\omega\beta}
+	\end{split}
+\end{equation}
+which is a geometric series, so can be evaluated,
+\begin{equation}
+	Z_1 = \frac{e^{-\frac{1}{2}\hbar\omega\beta}}{1-e^{-\hbar\omega\beta}} = \frac{1}{2\sinh(\frac{\hbar\omega\beta}{2})}.
+\end{equation}
+From this we can evaluate the average energy,
+\begin{equation}
+	\begin{split}
+	\left<E_1\right> &= \pdv{\beta}\left[\ln2 +\ln\left(\frac{\hbar\omega\beta}{2}\right) \right]\\
+	& = \frac{\hbar\omega}{2}\frac{\cosh\left(\frac{\hbar\omega\beta}{2}\right)}{\sinh\left(\frac{\hbar\omega\beta}{2}\right)} = \frac{\hbar\omega}{2}\text{cotanh}\left(\frac{\hbar\omega\beta}{2}\right).
+	\end{split}
+\end{equation}
+Analysing the limits as $T \to 0$, we find that $\text{cotanh}\left(\frac{\hbar\omega\beta}{2}\right) \to 1$, and $E \to \frac{\hbar \omega}{2}$, which is the ground state, and what we expect at low temperatures. In the limit $T \to \infty$, $\text{cotanh}\left(\frac{\hbar\omega\beta}{2}\right) \to \frac{1}{x}$, thus $E \to k_BT$, which is what we expect as this is a result of the equipartition theorem.
+\section{Translational Energies of a Molecule in an Ideal Gas}
+Consider a particle confined in a 3D box, i.e., in a potential,
+\begin{equation}
+	V(x,y,z) = \begin{cases}
+		\infty &x > L_x \\
+		\infty &y > L_y \\
+		\infty &z > L_z \\
+		0  & \text{Otherwise}
+	\end{cases}
+\end{equation}
+for which the Schrodinger equation is,
+\begin{equation}
+	-\frac{\hbar^2}{2m}\laplacian{\psi} = E\psi
+\end{equation}
+with boundary conditions, $\psi(L_x,L_y,L_z) = \psi(0,0,0) = \psi(L_x,0,0) = \cdots = 0$. Thus, the solution will have a form,
+\begin{equation}
+	\psi = A\sin\left(\frac{n_x\pi}{L_x}x\right)\sin\left(\frac{n_y\pi}{L_y}y\right)\sin\left(\frac{n_z\pi}{L_z}z\right).
+\end{equation}
+And our energy levels are given by,
+\begin{equation}
+	E = \frac{\hbar^2 \pi^2}{2m}\underbrace{\left(\frac{n_x^2}{L_x} + \frac{n_x^2}{L_y^2} + \frac{n_z^2}{L_z^2}\right)}_{k^2}
+\end{equation}
+where $k = \abs{\vb{k}}$. The partition function is then given by,
+\begin{equation}
+	Z_1 = \sum_{n_x,n_y,n_z}^{\infty} e^{-E(n_x,n_y,n_z)\beta}
+\end{equation}
+which we can separate into 3 sums,
+\begin{equation}
+	\begin{split}
+	Z_1 & = \left(\sum_{n_x=1}^{\infty} e^{-\frac{\hbar^2\pi^2}{2m}n_x^2\beta}\right)\left(\sum_{n_y=1}^{\infty} e^{-\frac{\hbar^2\pi^2}{2m}n_y^2\beta}\right)\left(\sum_{n_z=1}^{\infty} e^{-\frac{\hbar^2\pi^2}{2m}n_z^2\beta}\right)\\
+	& = \left(\int_0^{\infty}e^{-\frac{\hbar^2}{2m}\beta k_x^2}\frac{L_x}{\pi}\dd{k_x}\right)\left(\int_0^{\infty}e^{-\frac{\hbar^2}{2m}\beta k_y^2}\frac{L_y}{\pi}\dd{k_y}\right)\left(\int_0^{\infty}e^{-\frac{\hbar^2}{2m}\beta k_z^2}\frac{L_z}{\pi}\dd{k_z}\right)
+	\end{split}
+\end{equation}
+which are Gaussian integrals,
+\begin{equation}
+	\begin{split}
+	Z_1 &= \frac{L_xL_yL_z}{2^3\pi^3}\left(\frac{2m\pi}{\hbar^2\beta}\right)^{\frac{3}{2}} \\
+	& = V\underbrace{\left(\frac{mk_BT}{2\pi\hbar^3}\right)^{\frac{3}{2}}}_{n_Q}
+\end{split}
+\end{equation}
+where $n_Q = n_Q(T)$ known as the \textit{quantum concentration}, with dimensions of number density. We were able to convert the sums to integrals as even for every low temperatures, the energy spacing is much higher than the spacing between the energy levels, so we can use the continuum limit. We can then proceed to find the average energy,
+\begin{equation}
+	\left<E_1\right> = \frac{3}{2}k_BT
+\end{equation}
+as expected.
+\subsection{The density of states}
+Let us return to the particle in a box, and lets assume we cannot factorise the integral. We can then evaluate the integral over $k$-space in spherical polars,
+\begin{equation}
+	\begin{split}
+	Z_1 &= \frac{V}{\pi^3}\int_0^{\infty}\int_0^{\frac{\pi}{2}}\dd{\theta}_k\int_0^{\frac{\pi}{2}}\dd{\phi}_kk^2e^{-\varepsilon(k)\beta}\sin\theta_k\dd{k} \\
+	& = \frac{V}{\pi^3}4\pi\int_0^{\infty}k^2e^{-\frac{\hbar^2\beta}{2m}k^2}\dd{k} \\
+	& = Vg_sn_Q
+	\end{split}
+\end{equation}
+as before. It is useful to write this integral as,
+\begin{equation}
+	Z_1 = \int_0^{\infty}g(k) e^{-\varepsilon(k)\beta}\dd{k}
+\end{equation}
+where $g(k)$ is a degenerate factor, representing many states with the same energy, but different direction in $k$-space. We can find $g(k)$ by considering how many states lie in a thin strip $k \to k + \dd{k}$, i.e., the volume of a spherical shell in $k$ space and the volume per state,
+\begin{equation}
+	g(k) = \frac{1}{8}4\pi^2k^2\dd{k}\cdot \frac{1}{\frac{\pi}{L_x}\frac{\pi}{L_y}\frac{\pi}{L_z}} = \frac{V}{2\pi^2}k^2\dd{k}.
+\end{equation}
+If we have spin in our particles, we require $k_x,k_y,k_z$ and $m_s$ to full specify the state. The degenerate factor is then,
+\begin{equation}
+	g(k) = \frac{Vg_s}{2\pi^2}k^2	
+\end{equation}
+where $g_s = 2s+1$.
+\subsection{Maxwell Boltzmann Distribution}
+The probability of finding a particle in $k$ space,
+\begin{equation}
+	P(k \to k + \dd{k}) = g(k)\frac{e^{-\varepsilon\beta}}{Z_1}\dd{k}
+\end{equation}
+and similarly, the probability of finding a particle with a given velocity is,
+\begin{equation}
+	P(v \to v + \dd{v}) \propto v^2e^{-\frac{1}{2}mv^2\beta}
+\end{equation}
+which is the Maxwell-Boltzmann distribution.
+\section{Factorisation of the partition function}
+The total partition function for a single particle is the product over each degree of freedom which contributes, i.e.,
+\begin{equation}
+	Z_1^{\text{tot}} = \prod_{f} Z^f = Z_1^{\text{trans}}Z_2^{\text{vib}}Z_3^{\text{rot}}
+\end{equation}
+and thus the total energies are the sum of the contribution from each degree of freedom,
+\begin{equation}
+	\varepsilon_1 = \varepsilon_{\text{trans}} + \varepsilon_{\text{vib}} + \varepsilon_{\text{rot}}.
+\end{equation}
+\section{Equipartition Theorem}
+For $T >> E_{\text{spacing}}/k_B$,
+\begin{equation}
+	E \to n_f \cdot \frac{1}{2}k_BT.
+\end{equation}
+where $n_f$ are the number of degrees of freedom which contribute quadratically in coordinate or momentum. These are summarised below,
+\begin{center}
+\begin{tabular}{|c|c|c|}
+	\hline 
+	Type & Contribution / $\varepsilon \propto$ & $n_f$ \\
+	\hline
+	Translational & $p_x^2 + p_y^2 + p_z^2$ & $3$ \\
+	Rotational & $\frac{1}{2}\omega_1^2I_1 + \frac{1}{2}\omega_2^2I_2$ & $2$ \\
+	Vibrational & $\frac{1}{2}kx^2 + \frac{1}{2}mv^2$ & $2$ \\
+	\hline
+\end{tabular}
+\end{center}
+For linear degrees of freedom, e.g., relativistic kinetic energy where $\varepsilon \propto pc$, $E \to n_f \cdot k_BT$.\\\\
+For $T << E_{\text{spacing}}/k_B$, the degrees of freedom are "frozen out", and thus their contributions to the heat capacity $C_V \to 0$.
+\subsection{Heat Capacity of a Crystal}
+Let us consider a crystal as $3N$ independent oscillators. We have,
+\begin{align}
+	Z = \left(Z_1^{\text{vib}}\right)^{3N} && \left<E\right> = \frac{3}{2}N\hbar\omega\cosh\left(\frac{1}{2}\hbar\omega\beta\right) && C_V = \frac{3}{4}Nk_B\left(\hbar\omega\beta\right)^2\sinh\left(\frac{1}{2}\hbar\omega\beta\right)
+\end{align}
+At $T \to \infty$, we find $C_V \to 3Nk_B\left(\hbar\omega\beta\right)^2e^{-\hbar\omega\beta}$. However, this does not agree with experiment, and where $C_V \propto T^3$. In order to get a complete picture we would need to consider modelling the crystal as a chain of vibrating molecules with multiple nodes.
+\section{$N$-Particle Partition Function for Indistinguishable Particles}
+Let us recall the partition function for a single molecule under translational degrees of freedom,
+\begin{equation}
+	Z_1 = Vg_s\left(\frac{mk_BT}{2\pi \hbar^2}\right)^{3/2} = Vg_sn_{\phi}.
+\end{equation}
+We may expect that $Z_N = (Z_1)^N$, however this is not correct. If we do this, we find that $F$, which is an extensive variable, depends on $\ln(V)$, so does not behave extensively. This is because there are less microstates, as some of them become indistinguishable. We can fix this by supposing that, \textit{if} the number of single particle states available is much greater than the number of particles, then almost all $N$-particle microstates have the particles all in different levels. We then have that $(Z_1)^N$ overcounts the number of microstates by $N!$, so we have,
+\begin{equation}
+	Z_N \simeq \frac{(Z_1)^N}{N!}. \label{eq:Z_N}
+\end{equation}
+\subsection{Diatomic Molecules}
+We can extend the $N$-particle partition function for indistinguishable particles to diatomic molecules, by,
+\begin{equation}
+	\begin{split}
+		Z_N & = \frac{\left(Z_1^{\text{Trans}}\right)^N\left(Z_1^{\text{Rot}}\right)^N\left(Z_1^{\text{Vib}}\right)^N}{N!} \\
+		& = Z_N^{\text{Trans}}\left(Z_1^{\text{Rot}}\right)^N\left(Z_1^{\text{Vib}}\right)^N
+	\end{split}
+\end{equation}
+\section{Ideal Gas in the Classical Limit}
+We will be considering a monatomic gas. We can conclude whether or not the equation \eqref{eq:Z_N} is a good approximation if we consider how likely it is for two atoms to be in the same energy level. For an ideal gas, we can calculate the number of energy levels below $2k_BT$ from,
+\begin{equation}
+	\int_0^{k_max} g(k)\dd{k}
+\end{equation}
+where,
+\begin{equation}
+	\frac{\hbar^2k_max^2}{2m} = 2k_BT
+\end{equation}
+and we find, that it equals $2.1n_QV$. We see then that the quantum concentration $n_Q$ is a measure of the states available, and we can use the approximation \eqref{eq:Z_N} if $\frac{N}{V} = n << n_Q$. We can then proceed to find the Helmholtz free energy by equation \eqref{eq:F},
+\begin{equation}
+	\begin{split}
+		F = -k_BT\ln Z_n & = - k_BT(\ln Z_N - \ln N!) \\
+		& = -k_BT\left(N \ln Vg_s n_Q - N\ln N + N\right) \\
+		& = -Nk_BT \left(\ln\left(\frac{Vg_Sn_Q}{N}\right)+1\right) \\
+		& = -Nk_BT\left(\ln\left(\frac{g_sn_Q}{n}\right) + 1\right).
+	\end{split}
+\end{equation}
+Let us now consider the pressure by a Maxwell relation as in equation \eqref{eq:maxwell},
+\begin{equation}
+	\begin{split}
+	P &= -\left(\pdv{F}{V}\right)_{T,N} \\
+	& = \frac{Nk_BT}{V} \implies PV = Nk_BT
+	\end{split}
+\end{equation}
+thus we have derived the ideal gas law. We can further consider the entropy by $S = -\pdv{F}{T}$, where we find,
+\begin{equation}
+	\boxed{S = Nk_B\left(\ln\frac{g_sn_Q}{n} + \frac{5}{2}\right)}\label{eq:ST}
+\end{equation}
+which is known as the Sackar-Tetrode equation. Let us note that we can re-write equation \eqref{eq:ST} to be,
+\begin{equation}
+	S = Nk_B\left(\ln V + \frac{3}{2}hT + \text{Const.}\right)
+\end{equation}
+which is exactly as in classical thermodynamics. We may say that this expression is invalid as we can only measure the difference in entropy, however, if we consider the entropy from a starting point of of a very low energy, we can consider the absolute entropy, i.e.,
+\begin{equation}
+	\int_{T_0}^T\frac{\dbar Q}{T} = S(T) - S(T_0) \simeq S(T)
+\end{equation}
+as for $T_0 \to 0$, $S(T_0) \to 0$. However, let us note that the Sackur-Tetrode equation is only valid in the classical limit, i.e., $n << n_Q(T)$. 
+\subsection{Chemical potential of an ideal gas}
+Let us recall the formulation for chemical potential,
+\begin{align}
+	\mu = \left(\pdv{F}{N}\right)_{V,T} && \mu = \frac{G}{N}
+\end{align}
+where $G = E - TS + PV$ is the Gibbs free energy. We can calculate the Gibbs energy by
+\begin{equation}
+	G = \frac{3}{2}Nk_BT - Nk_BT\left(\ln\frac{g_sn_Q}{n} + \frac{5}{2}\right) + Nk_BT 
+\end{equation}
+where we then obtain,
+\begin{equation}
+	\boxed{\mu = - k_BT\ln\frac{g_sn_Q}{n}}
 \end{equation}
 \end{document}

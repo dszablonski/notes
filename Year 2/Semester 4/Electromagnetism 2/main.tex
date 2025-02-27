@@ -35,7 +35,7 @@
 \usetikzlibrary{angles, quotes, intersections}
 \usepackage[bb=dsserif]{mathalpha}
 \usetikzlibrary{decorations.pathmorphing}
-
+\usetikzlibrary {patterns,patterns.meta} 
 \tikzset{snake it/.style={decorate, decoration=snake}}
 
 \usepackage{etoolbox} % ifthen
@@ -328,10 +328,10 @@ and thus,
 \end{equation}
 Recalling Ohm's law $\vb{J} = \sigma \vb{E}$ where $\sigma$ is the conductivity, and Ampere's law, we obtain,
 \begin{equation}
-	k^2 = \frac{\omega^2}{c^2} \epsilon_r\mu_r - i\omega \mu_r\mu_0 \sigma 
+	k^2 = \frac{\omega^2}{c^2} \epsilon_r\mu_r - i\omega \mu_r\mu_0 \sigma \label{eq:dispersion} 
 \end{equation}
 which is the dispersion relation for a linear, isotropic, dielectric medium. We see that this expression is complex, and reduces to the vacuum condition under vacuum. 
-\subsection{Conducting Media}
+\subsection{Source-Free Lossy Media}
 Let us consider a conducting media with dielectric properties and free current $\vb{J}_f$. Using Ampere's law,
 \begin{equation}
 	\begin{split}
@@ -345,9 +345,284 @@ We can then define the \textit{complex permittivity},
 \begin{equation}
 	\epsilon_c = \epsilon_0\epsilon_r - \frac{i\sigma}{\omega}
 \end{equation}
-which we apply to conducting media. In the case of complex media, Ampere's law becomes $\curl{\vb{H}} = i\omega\epsilon_c\vb{E}$, but otherwise, we simply replace $\epsilon_0\epsilon_r$ with $\epsilon_c$ to retrieve Maxwell's equations for conducting media.
+which we apply to conducting media. In the case of complex media, Ampere's law becomes $\curl{\vb{H}} = i\omega\epsilon_c\vb{E}$, but otherwise, we simply replace $\epsilon_0\epsilon_r$ with $\epsilon_c$ to retrieve Maxwell's equations for conducting media. We can then write down the source free Maxwell's equations,
+\begin{align}
+	\curl{\vb{E}} = -i\omega \mu \vb{H} && \curl{\vb{H}} = i\omega \epsilon\vb{E} \\
+	\div{\vb{E}} = 0  && \div{\vb{H}} = 0.
+\end{align}
+By considering $\curl{\curl{\vb{E}}}$ we can derive the Helmholtz equation of electromagnetism.
+\begin{equation}
+	\laplacian{\vb{E}} + \omega^2\mu \epsilon \vb{E} = 0
+\end{equation}
+where we often parametrise $k_c^2 = \omega^2\mu\epsilon$.
+\subsubsection{Transmission line theory}
+We define the transmission line constant as,
+\begin{equation}
+	\gamma = ik_c = i\omega\sqrt{\mu\epsilon_c}
+\end{equation}
+which can be written in a general form,
+\begin{equation}
+	\gamma = \alpha + i \beta
+\end{equation}
+since its a complex number. We can then rewrite the Helmholtz equation as,
+\begin{equation}
+	\laplacian \vb{E} - \gamma^2 \vb{E} = 0
+\end{equation}
+from which we find that the electric field has a form,
+\begin{equation}
+	\vb{E} = E_0e^{i\omega t}e^{-\alpha z} e^{-i\beta z}
+\end{equation}
+where $e^{i\omega t}$ represents the oscillatory time dependence, $e^{-\alpha z}$ represents exponential attenuation, and $e^{-i\beta z}$ is a phase factor.
+\section{Waves in Dielectrics}
+In a dielectric $\mu_R \approx 1$ and $\sigma \approx 0$. Furthermore, the electrons will have bound electrons which will have spring-like forces holding them together in the dielectric. We can then model their motion as a forced-damped oscillator,
+\begin{equation}
+	\Ddot{\vb{x}} + \beta \Dot{\vb{x}} + \omega \vb{x} = \frac{q}{m}\vb{E}
+\end{equation}
+where $\beta$ is a damping constant. The solution to this equation is then,
+\begin{equation}
+	\vb{x} = \frac{\frac{q}{m}}{(\omega_0^2 - \omega^2)+i\beta\omega}\vb{E}
+\end{equation}
+where $\omega_0$ is the natural frequency of the electron. We know that the dipole moment of a single particle is given by $\vb{p} = q\vb{x}$, thus,
+\begin{equation}
+	\vb{p} = \frac{\frac{q^2}{m}}{(\omega_0^2 -\omega^2) + i \beta \omega}\vb{E}.
+\end{equation}
+The total magnetic moment will be given by a weighted sum of individual magnetic moments of each electron $\vb{P} = \sum_n^Nf_i\vb{p}_i$, so,
+\begin{equation}
+	\vb{P} = \sum_j \frac{Nf_j\left(\frac{q^2}{m}\right)}{(\omega_j^2 -\omega^2) +i\beta\omega} = \chi_E \epsilon_0 \vb{E}. 
+\end{equation}
+We can then write out the electric susceptibility, as well as rationalising the expression,
+\begin{equation}
+	\chi_E = \frac{q^2}{m\epsilon_0}\sum_j \frac{Nf_j(\omega_j^2 - \omega^2) - iNf_j\omega\beta}{(\omega_j^2 + \omega^2) + \omega^2 \beta^2}
+\end{equation}
+from which we see we are able to extract the real and imaginary part of the electric susceptibility, $\chi_E = \chi_R + i\chi_I$.
+\subsection{Refractive Index of Gasses}
+In a gas, we can write the refractive index as,
+\begin{equation}
+	n \simeq \sqrt{\epsilon_r}
+\end{equation}
+and given that $\epsilon_r = 1 + \chi_E$ and $n = \sqrt{1 + \chi_E} \approx 1 + \frac{\chi_E}{2}$ by binomial expansion, given $\chi_E$ is small, the refractive index is given by,
+\begin{equation}
+	n = 1 + \frac{\chi_{R}}{2} - i \frac{\chi_{I}}{2}
+\end{equation}
+from which we can define the real and imaginary refractive indexes,
+\begin{align}
+	n_R = 1 + \frac{\chi_{R}}{2} && n_I = \frac{\chi_{I}}{2}.
+\end{align}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{realimg.png}
+	\caption{The real and complex parts of permittivity for a a single resonant frequency $\omega_0$. In a dielectric there may be many such frequencies, which we label $\omega_j$.}
+	\label{fig:gasses}
+\end{figure}
+In figure \ref{fig:gasses}, we visualise the real and imaginary parts of the refractive index for a given $\omega_0$. We describe observations below,
+\begin{enumerate}
+	\item $\omega = \omega_0$, refractive index is purely real, so we get maximum power transfer.
+	\item $n_r > 1$, $\dv{n}{\omega} > 1$;
+	\item $|\Gamma| < n_r$, $\dv{n}{\omega} < 1$;
+	\item $n_r < 1$, $\dv{n}{\omega} > 0$;
+	\begin{itemize}
+		\item 1 and 3 are known as the \textit{normal dispersion regions} and 2 is known as the \textit{anomalous dispersion region}. 
+	\end{itemize}
+	
+	\item In the limit $\omega \to 0$, we find,
+	\begin{align}
+		n_R \to 1 + \frac{q^2Nf_i}{2m\epsilon_0\omega_j^2} && n_I \to 0;
+	\end{align}
+	\item $n = c/v_p$, $v_p = \omega/k$, $n = ck/\omega$, and for some frequencies $n < 1$, in which case $\omega/k > c$
+	\begin{itemize}
+		\item However, $\dv{\omega}{k} < c$ always. 
+	\end{itemize}
+\end{enumerate}
+\section{Waves in Conductors}
+Metals and semiconductors have a lattice of fixed ions and electron gas, which are almost freely moving. Therefore, an external $\vb{E}$ field creates a current. We can the use Ohm's law $\vb{J} = \sigma \vb{E}$. We can rewrite the dispersion relation in equation \eqref{eq:dispersion} as,
+\begin{equation}
+	k_c = k_0\sqrt{\mu_r\epsilon_r}\sqrt{1 - i\frac{\sigma}{\epsilon_r \epsilon_0 \omega}} \label{eq:com}
+\end{equation}
+\subsection{Poor Conductors}
+In poor conductors, we have that $\frac{\sigma}{\epsilon_r \epsilon_0\omega} <<1$, so we can perform a Taylor expansion on equation \eqref{eq:com},
+\begin{equation}
+	k_c \approx k_0 \sqrt{\mu_r\epsilon_r}(1 - \frac{i}{2}\frac{\sigma}{\epsilon_r \epsilon_0\omega}).
+\end{equation}
+Let us consider the modulus of the imaginary part of $k_c$,
+\begin{equation}
+	\abs{k_I} = \frac{\omega}{c}\sqrt{\mu_r\epsilon_r}\frac{\sigma}{2\epsilon_r \epsilon_0} = \frac{\sigma}{2}\sqrt{\frac{\mu_r\mu_0}{\epsilon_r\epsilon_0}}
+\end{equation}
+from which we can define the skin depth,
+\begin{equation}
+	\delta = \frac{1}{|k_I|} = 	\frac{2}{\sigma}\sqrt{\frac{\epsilon_r\epsilon_0}{\mu_r\mu_0}}.
+\end{equation}
+Let us recall the wavelength of light is given by,
+\begin{equation}
+	\lambda = \frac{2\pi}{\lambda} = \frac{2\pi c}{\omega}\frac{1}{\sqrt{\epsilon_r\mu_r}}.
+\end{equation}
+We are then interested in the ratio of the wavelength and skin depth, i.e., what fraction of the wavelength the wave can penetrate,
+\begin{equation}
+	\frac{\delta}{\lambda} = \frac{\omega}{\pi\sigma}\epsilon_r\epsilon_0
+\end{equation}
+and for a poor conductor, we find $\delta/\lambda << 1$. Therefore, an EM field can penetrate many wavelengths through a poor conductor before it decays.
+\subsection{Good Conductors}
+We now expect, $\frac{\sigma}{\omega\epsilon_o\epsilon_r} >> 1$. The dispersion relation \eqref{eq:dispersion} now reduces to,
+\begin{equation}
+	\begin{split}
+	k_c & = \sqrt{\mu_r\epsilon_r}\sqrt{\frac{\omega\sigma}{\epsilon_r\epsilon_0}}\sqrt{\epsilon_0\mu_0}\underbrace{(-i)^{1/2}}_{\frac{1}{\sqrt{2}}(1-i)} \\
+	& = \sqrt{\frac{\mu_r\mu_0\sigma\omega}{2}}(1-i)
+\end{split}
+\end{equation}
+and thus,
+\begin{align}
+	\delta = \sqrt{\frac{2}{\mu_r\mu_0\sigma\omega}} &&\lambda = \frac{2\pi}{k_R} = 2\pi\delta
+\end{align}
+so,
+\begin{equation}
+	\frac{\sigma}{\lambda} = \frac{1}{2\pi} \sim 0.16
+\end{equation}
+so most of the wave is absorbed by a good conductor. Furthermore, if we calculate,
+\begin{equation}
+	\frac{B}{E} \sim \frac{k}{\omega} = \sqrt{\frac{\mu_r\mu_0\sigma}{\omega}}\underbrace{\frac{1}{\sqrt{2}}(1-i)}_{e^{-i\frac{\pi}{4}}}
+\end{equation}
+so the magnetic and electric field have a phase difference of $45^{\text{o}}$ in a conductor.
+\section{Waves in Plasmas}
+In a plasma, we have free electrons moving in the presence of stationary positive and neutral ions. We will consider the motion of the electrons in a plasma.
+\subsection{The Drude Model}
+We will consider the collisions in the plasma to be elastic. Since the electrons are also unbound, our equation of motion becomes,
+\begin{equation}
+	-e\vb{E} = m\dv[2]{\vb{x}}{t} = -k\vb{x}.
+\end{equation}
+We have that $\omega = \sqrt{k/m} \implies k = \omega^2m$, so,
+\begin{equation}
+	-e\vb{E} = -\omega^2m\vb{x} \implies \vb{x} = \frac{e}{m\omega^2}\vb{E}
+\end{equation}
+which is the electron displacement. Such a displacement causes a dipole moment,
+\begin{equation}
+	\vb{p} = - e\vb{x}
+\end{equation}
+and polarisation,
+\begin{equation}
+	\vb{P} = n\vb{p} = -\frac{Ne^2}{m\omega^2}\vb{E}
+\end{equation}
+from which we ca obtain our $\vb{D}$ field,
+\begin{equation}
+	\vb{D} = \epsilon_0\vb{E} + \vb{P} = \epsilon_0\left(1 - \frac{Ne^2}{m\omega^2\epsilon_0}\right)\vb{E}
+\end{equation}
+and thus we have found an equivalent $\epsilon_r$ for plasma. We can further define a \textit{plasma frequency},
+\begin{equation}
+	\omega_p^2 = \frac{Ne^2}{m\epsilon_0}
+\end{equation}
+so that,
+\begin{equation}
+	\vb{D} = \epsilon_0\left(1-\frac{\omega_p^2}{\omega^2}\right)\vb{E}.
+\end{equation}
+Collisions give rise to an average velocity of electrons, and this mechanism will cause a damping term in the equation of motion. If we consider $\gamma_c$ to be the collision frequency and $\tau_c = 1/\gamma_c$ to be the collision time, we can obtain a current by,
+\begin{equation}
+	\vb{J} = \omega_0 \vb{E} = -Ne\vb{v}_{\text{drift}}
+\end{equation}
+where we can define,
+\begin{align}
+	\vb{v}_{\text{drift}} = -\frac{e\vb{E}}{m}\frac{1}{\gamma_c} && \sigma_0 = \frac{Ne^2}{m}\frac{1}{\gamma_c} = \frac{\epsilon_0\omega_p^2}{\gamma_c}.
+\end{align}
+\subsection{Drude Model with Collisions}
+Let us now consider inelastic collisions in a plasma. We add a damping term $\beta$ to our equation of motion,
+\begin{equation}
+	m\Ddot{\vb{x}} + m\beta\Dot{\vb{x}} = -e\vb{E}_0e^{i\omega t}
+\end{equation}
+from which we obtain a displacement,
+\begin{equation}
+	\vb{x} = \frac{-\frac{e}{m}}{-\omega^2 + i\omega\beta}\vb{E}_0e^{i\omega t}
+\end{equation}
+and velocity,
+\begin{equation}
+	\Dot{x} = \frac{-ie\frac{\omega}{m}}{-\omega^2 + i\omega\beta}\vb{E}_0e^{i\omega t}
+\end{equation}
+We will then have a current,
+\begin{equation}
+	\vb{J} = \sigma(\omega)\vb{E} = -Ne\Dot{x}
+\end{equation}
+such that,
+\begin{equation}
+	\sigma(\omega) = \frac{\sigma_0}{1 + i\frac{\omega}{\gamma_c}}
+\end{equation}
+where we define the DC conductivity,
+\begin{equation}
+	\sigma_0 = \frac{Ne^2}{m}\frac{1}{\gamma_c}.
+\end{equation}
+Let us investigate the permittivity. Using $\vb{P}  = N(-e)\vb{x}$ from the Drude model, we find,
+\begin{equation}
+	\chi_E = \frac{Ne^2}{\epsilon_0m}\frac{1}{-\omega^2 + i\gamma_c\omega}
+\end{equation}
+and $\epsilon_r = 1 + \chi_E$ so,
+\begin{equation}
+	\epsilon_r = 1+ \frac{\omega_p^2}{-\omega^2 + i\gamma_c\omega}. \label{eq:perm}
+\end{equation}
+\subsubsection{Low frequency waves in plasma}
+If we consider $\omega << \gamma_c$, we reduce equation \eqref{eq:perm} to,
+\begin{equation}
+	\epsilon_r = 1+ \frac{\sigma_0}{i\omega\epsilon_0} \simeq -i\frac{\sigma_0}{\omega\epsilon_0}.
+\end{equation}
+The refractive index is then,
+\begin{equation}
+	n = \sqrt{\epsilon_r} = \sqrt{\frac{\sigma_0}{\omega\epsilon_0}}\sqrt{-i} = \sqrt{\frac{\sigma_0}{2\omega\epsilon_0}}(1-i)
+\end{equation}
+so we find $n_R = n_I$. We then find the skin depth to be,
+\begin{equation}
+	\sigma = \sqrt{\frac{2}{\mu_0\sigma_0\omega}}.
+\end{equation}
+\subsubsection{High frequency waves in plasma}
+For a high frequency wave, $\omega >> \gamma_c$, we find,
+\begin{equation}
+	\epsilon_r \simeq 1 - \frac{\omega_p^2}{\omega^2}.
+\end{equation}
+We can then extract the dispersion relation for a plasma,
+\begin{align}
+	\omega^2 = k^2c^2 + \omega_p^2\\
+	k = \pm\frac{1}{c}\left(\omega^2 + \omega_p^2\right)^{\frac{1}{2}}
+\end{align}
+we then find that $\epsilon_r$ is real no matter the value of $\omega$, EM waves travel through plasmas as if through vacuum. Let us consider some limiting situations with frequency,
+\begin{enumerate}
+	\item $\omega = \omega_p \implies k = 0$, and we find, $k \to 0 \implies v_p \to \infty$ and $v_g \to 0$, so the wave ceases to propagate.
+	\item $\omega >> \omega_p$
+	\item $\omega << \omega_p$, we find that $k$ is purely imaginary and described by,
+	\begin{equation}
+		kc = -i\sqrt{\omega_p^2 -\omega^2}
+	\end{equation}
+	and the electromagnetic wave undergoes an exponential decay.
+\end{enumerate}
+\chapter{Reflection and Refraction}
+\section{Maxwell's Equations and Boundary Conditions}
+We will consider the boundary conditions for $\vb{H}, \vb{B}, \vb{E},$ and $\vb{D}$  by Maxwell's equations.
+\subsection{Transverse Component of Electric Field}
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=1.5]
+		\draw (0,0) -- (5,0);
+		\fill[pattern={Lines[angle = 45, distance=0.1cm]}] (0,0) rectangle (5, -0.1);
+		\draw[-latex] (1,2) -- (2.5,0) node[anchor=south west] {$\vb{E}_1$};
+		\draw[-latex, dashed] (1, 2) -- (1,0) node[anchor=south west] {$\vb{E}_{1\parallel}$};
+		\draw[-latex, dashed] (1,2) -- (2.5,2) node[anchor=west] {$\vb{E}_{1\perp}$};
+		\draw[-latex, color=blue] (2.5,0) -- (3, -1.5) node[anchor = north west] {$\vb{E}_2$};
+		\draw[-latex, color=blue, dashed] (2.75,-0.75) -- (2.75, -1.5) node[anchor = north] {$\vb{E}_{2\parallel}$};
+		\draw[-latex, color=blue, dashed] (2.75,-0.75) -- (3,-0.75) node[anchor = west] {$\vb{E}_{2\perp}$};
+		\begin{scope}[thick, dashed, color = red, decoration={
+				markings,
+				mark=at position 0.5 with {\arrow{>}}}
+			] 
+		\draw[postaction={decorate}] (0.75,-1) -- (4.25,-1);
+		\draw[postaction={decorate}]  (4.25,-1) -- (4.25,1) node[anchor=south west] {$C$};
+		\draw[postaction={decorate}]	 (4.25,1) -- (0.75, 1);
+		\draw[postaction={decorate}]	 (0.75, 1)-- (0.75, -1);
+		\end{scope}
+		\node[anchor=south west] at (0,0) {$\epsilon_1,\mu_1$};
+		\node[anchor=north west] at (0,-0.1) {$\epsilon_2,\mu_2$};
+		\draw[thick, decoration={brace,mirror,raise=5pt},decorate] (4.25,-1) -- (4.25,1) node[midway, right=6pt, anchor = south west] {$\Delta H$};
+		\draw[thick, decoration={brace,mirror,raise=5pt},decorate] (4.25,1)--(0.75,1) node[midway, above=6pt] {$\Delta W$};
+	\end{tikzpicture}
+	\caption{}
+	\label{fig:trans E}
+\end{figure}
+Let us consider a setup as in figure \ref{fig:trans E}, where an electric field is travelling through a material with $\epsilon = \epsilon_1$ and $\mu = \mu_1$ incident on the surface of a material with $\epsilon = \epsilon_2$ and $\mu = \mu_2$. Let us consider Ampere's law over a loop $C$ with width $\Delta W$ and height $\Delta H$,
+\begin{equation}
+	\oint_C \vb{E}\cdot\dd\vb{l} = -\pdv{t}\oint\vb{B}\cdot\dd\vb{S}
+\end{equation}
 \appendix
-
 \chapter{Revision Equations}
 
 \section{Potentials}
