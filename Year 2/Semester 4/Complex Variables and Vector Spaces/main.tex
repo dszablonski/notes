@@ -37,7 +37,7 @@
 \usetikzlibrary{decorations.pathmorphing}
 
 \tikzset{snake it/.style={decorate, decoration=snake}}
-
+\usetikzlibrary {patterns,patterns.meta} 
 \usepackage{etoolbox} % ifthen
 \usepackage[outline]{contour} % glow around text
 \usetikzlibrary{calc} % for adding up coordinates
@@ -60,7 +60,8 @@
 	breakable,
 	colback=white    
 }
-
+\DeclareMathOperator{\mRe}{Re}
+\DeclareMathOperator{\mIm}{Im}
 \newenvironment{aside}
 {\begin{mdframed}[style=0,%
 		leftline=false,rightline=false,leftmargin=2em,rightmargin=2em,%
@@ -86,7 +87,9 @@
 \def\doubleunderline#1{\underline{\underline{#1}}}
 
 \newtheorem*{theorem}{Theorem}
-
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,minimum size=4mm, inner sep=0pt] (char)
+		{\rule[-3pt]{0pt}{\dimexpr2ex+2pt}#1};}}
 
 \setlength\parindent{0pt}
 \pgfplotsset{compat=1.18}
@@ -1034,8 +1037,8 @@ which we can solve trivially,
 We then find,
 \begin{equation}
 	\begin{split}
-		\tilde{f}(x) & = \int_{-\infty}^{\infty}\dd{k}f(x) \braket{k}{x} \\
-		& = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\dd{k}f(x)e^{ikx}
+		\tilde{f}(k) & = \int_{-\infty}^{\infty}\dd{k}f(x) \braket{k}{x} \\
+		& = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\dd{k}f(x)e^{-ikx}
 	\end{split}
 \end{equation}
 which we recognise as the Fourier transform!
@@ -1047,6 +1050,15 @@ which we recognise as the Fourier transform!
 	\end{equation}
 \end{Theorems}
 This theorem is a consequence of the fact that the inner product is invariant between $k$ and $x$, as long as the Fourier transform is normalised.
+\begin{proof}
+	\begin{equation}
+		\begin{split}
+			\int_{-\infty}^{\infty}\overline{\tilde{f}(k)}\tilde{g}(k) & = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}\overline{\tilde{f}(k)}g(x)e^{-ikx}\dd{x}\dd{k} \\
+			& = \int_{-\infty}^{\infty}\underbrace{\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\overline{\tilde{f(x)}e^{ikx}}}_{\overline{f(x)}}g(x)\dd{x} \\
+			& = \int_{-\infty}^{\infty}\overline{f(x)}g(x)\dd{x}
+		\end{split}
+	\end{equation}
+\end{proof}
 \subsection{Operators in Momentum Space}
 \subsubsection{Position Operator}
 Let us change the representation of the position operator in $k$-space,
@@ -1054,7 +1066,7 @@ Let us change the representation of the position operator in $k$-space,
 	\begin{split}
 	\bra{k}\hat{x}\ket{f} & = \int_{-\infty}^{\infty}\bra{k}\hat{x}\ket{x}\braket{x}{f}\dd{x} \\
 	& = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}xf(x)e^{ikx}\dd{x} \\
-	& = -i\dv{k}\underbrace{\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{ikx}\dd{x}\right)}_{\tilde{f}(x)}
+	& = -i\dv{k}\underbrace{\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{ikx}\dd{x}\right)}_{\tilde{f}(k)}
 	\end{split}
 \end{equation}
 thus, we find,
@@ -1085,5 +1097,214 @@ so we find that the coherent state basis can be normalised, but is not orthogona
 \begin{equation}
 	\mathbb{1} = \frac{1}{\pi}\int_{-\infty}^{\infty}\ket{z}\bra{z}\dd^2z
 \end{equation}
+\chapter{Complex Variables}
+A complex number can be written as,
+\begin{equation}
+	z = x + iy
+\end{equation}
+where $x,y \in \mathbb{R}$, and $i^2 = -1$. Complex numbers have a polar representation,
+\begin{equation}
+	z = re^{i\theta}
+\end{equation} 
+where $r = \sqrt{x^2 + y^2}$ and $\theta = \arg(z) = "\arctan(x/y)"$, such that $\theta \in \left[-\pi, \pi\right]$ which is known as the principal domain.
+\section{Statement of the Fundamental Theorem of Algebra}
+\begin{Theorems}{}{}
+	Given $n \in \mathbb{N}$, $n > 0$, and $n+1$ complex numbersr $a_0, a_1, \ldots, a_n$ with $a_n \neq 0$, the polynomial equation,
+	\begin{equation}
+		P(z) = a_nz^n + a_{n-1}z^{n-1} + \cdots + a_0 = 0
+	\end{equation}
+	has at least 1 solution.
+\end{Theorems}
+It can be shown that if $P(z)$ has at least 1 solution, then it must have $n$ solutions. The proof loosely follows supposing $z_1$ is 1 solution. We have,
+\begin{equation}
+	P_n(z) = (z-z_1)(b_{n-1}z^{n-1} + \cdots + b_0) = 0
+\end{equation}
+and we must have $b_{n-1} = a_n \implies b_{n-1} \neq 0$. Then, by induction, it can be shown that every polynomial can take a form,
+\begin{equation}
+	P_n(z) = a_n(z - z_1)(z-z_2)\cdots(z - z_n).
+\end{equation}
+\section{Branch Cuts and Branch Points}
+\subsection{Domain and Range}
+If we consider a function $f : \mathbb{C} \to \mathbb{C}$, the domain are all possible input values $\subset \mathbb{C}$ and the range are all output values $\subset \mathbb{C}$. When studying complex numbers, we are often interested in domains that can give rise to a range with complete coverage of the complex plane. As we will see, not all complex functions do this naturally.
+\subsection{Tricky Functions}
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\begin{tikzpicture}[>=Latex]
+			\fill[pattern={Lines[angle=45, distance=10pt]}, pattern color=blue!50] (-2.5,-2.5) rectangle (2.5,2.5);
+			\path[->, at end] % axes
+			(left:2.5) edge
+			node[right] {$\mRe\{z\}$} (right:2.5)
+			(down:2.5) edge
+			node[above] {$\mIm\{z\}$} (  up:2.5);
+			\node at (-2, 0.1) {\small\textbullet};
+			\node[anchor=south] at (-2,0.1) {$A$};
+			\node at (-2, -0.1) {\small\textbullet};
+			\node[anchor=north] at (-2,-0.1) {$B$};
+			
+		\end{tikzpicture}
+		\caption{}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\begin{tikzpicture}[>=Latex]
+			\fill[pattern={Lines[angle=45, distance=10pt]}, pattern color=blue!50] (0,-2.5) rectangle (2.5,2.5);
+			\path[->, at end] % axes
+			(left:2.5) edge
+			node[right] {$\mRe\{w\}$} (right:2.5)
+			(down:2.5) edge
+			node[above] {$\mIm\{w\}$} (  up:2.5);
+			\node at (0.1, -2) {\small\textbullet};
+			\node[anchor=west] at (0.1, -2) {$B'$};
+			\node at (0.1, 2) {\small\textbullet};
+			\node[anchor=west] at (0.1, 2) {$A'$};
+		\end{tikzpicture}
+		\caption{}
+	\end{subfigure}
+	\caption{Domain (a) of the square root, and range of the square root (b) represented on the complex plane.}
+	\label{fig:domain range}
+\end{figure}
+Consider $w = f(z) = z^{\frac{1}{2}}$. We can write $z = re^{i\theta} \implies w = r^{\frac{1}{2}}e^{i\frac{\theta}{2}}$. The domain of the square root is shown in figure \ref{fig:domain range} (a), and the range that it maps to is shown in figure \ref{fig:domain range} (b). The hatched area in the domain represents the points which the function can take in, and the hatched area on the range shows all the points which the function takes any points to. We then see that, assuming the principal domain, the new complex number is only defined for $\Re{w}  > 0$. We have thus lost the negative solution! 
+\\\\
+In order to retrieve back the negative solutions, we must extend the definition of $z$, and we must be able to cover/sweep through/rotate through the complex plane multiple times. We can do this explicitly using the polar form, 
+\begin{equation}
+	z = re^{i\theta+2n\pi i } \text{ where } n \in \mathbb{Z}.
+\end{equation}
+Now analysing the effects of $w$ on $z$,
+\begin{equation}
+	w(z) = r^{\frac{1}{2}}e^{i\frac{\theta}{2}+n\pi i }.
+\end{equation}
+We have that,
+\begin{equation}
+	e^{n\pi i} = \begin{cases}
+		-1 & \text{Odd }n \\
+		+1 & \text{Even }n
+	\end{cases}.
+\end{equation}
+We find that we have two different square root functions for the odd and even $n$, allowing us to retrieve the positive and negative solutions, i.e.,
+\begin{align}
+	w_{\text{even}}(z) = r^{\frac{1}{2}}e^{i\frac{\theta}{2}}, && w_{\text{odd}}(z) = r^{\frac{1}{2}}e^{i\frac{\theta}{2}+i\pi}.
+\end{align} We can then combine these by having two copies of the complex plane, called \textit{Riemann sheets}, that our function maps to. We can say that the function is \textit{multivalued}.
+\begin{Definitions}{Multivalued Function}{}
+	A function $f(z)$ is multivalued if it has more than one value for a given $z$.
+\end{Definitions}
+There are points in the complex plane where a function is discontinuous when walking around a domain, which corresponds to the function crossing into a new Riemann sheet in the image plane. The interconnection where there is a discontinuity is called a \textit{branch cut}. If there is a single point on the line which is well defined, we call it a a \textit{branch point}.
+\begin{Definitions}{Branch Point}{}
+	A point $z_0$ is a branch point of a multivalued function $f(z)$ if the value of $f(z)$ does not return to its original value along any closed path around $z_0$. 
+\end{Definitions}
+Although this seems abstract, we must be able to consider these when we begin talking about differentiability. We must be careful in particular to not cross branch cuts when integrating. In order to make practical use of this later, let us formally define a branch cut,
+\begin{Definitions}{Branch Cut}{}
+	A branch cut of a function $f$ is a line in the complex plane either,
+	\begin{enumerate}
+		\item Between a branch point of $f$ and infinity,
+		\item Between two branch points.
+	\end{enumerate}
+	The function is discontinuous across the branch cut.
+\end{Definitions}
+\section{Differentiability of Complex Functions}
+Any complex function can be written,
+\begin{equation}
+	f(z) = f(x + iy) = u(x,y) + iv(x,y)
+\end{equation}
+where $u,v \in \mathbb{R}$.
+\\\\
+Complex functions are continuous at a point $z_0$ if $\lim_{z \to z_0}f(z)$ exists and is equal to $f(z_0)$. We can then define the complex derivative with reference to a point $z_0$.
+\begin{Definitions}{Complex Derivative}{}
+	\begin{equation}
+		\dv{f}{z}(z_0) = \lim_{z \to z_0}\left(\frac{f(z) - f(z_0)}{z - z_0}\right). \label{eq:derivative}
+	\end{equation}
+\end{Definitions}
+The limit \eqref{eq:derivative} may not exist if, for example, the limit has many values which depend on the direction from which the limit is taken. For the limit to exist, it must be the same from every direction. If the limit \eqref{eq:derivative} does not exist \textit{anywhere} on the complex plane, we say that the function is \textit{not analytic}. A \textit{single point} where the limit doesn't exist is called \textit{singular}.
+\subsection{Cauchy-Riemann Equations}
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		\path[->, at end] % axes
+		(left:0) edge
+		node[right] {$\mRe\{z\}$} (right:3)
+		(down:0) edge
+		node[above] {$\mIm\{z\}$} (  up:3);
+		\node at (1.5,1.5) {\textbullet};
+		\node[anchor = south west] at (1.5,1.5) {$z_0$};
+		\draw[-latex, dashed] (1.5,3) -- (1.5,1.55); 
+		\draw[-latex,dotted] (3,1.5) -- (1.55,1.5);
+		\node[anchor=west] at (1.5,3) {\circled{2}};
+		\node[anchor=south] at (3,1.5) {\circled{1}};
+	\end{tikzpicture}
+	\caption{A figure showing the approach to a point $z_0$ from two different directions.}
+	\label{fig:complex}
+\end{figure}
+Let us assume a function $f(z) = u(x,y) + iv(x,y)$ is analytic in the complex plane, so the derivative exists,
+\begin{equation}
+	\dv{f}{z}(z_0)= \lim_{\substack{x \to x_0 \\ y \to y_0}}\frac{u(x,y) - u(x_0,y_0) + i(v(x,y) - v(x_0,y_0))}{(x-x_0) + i(y - y_0)}
+\end{equation}
+where $z_0 = x_0 + iy_0$. Let us consider the approach to $z_0$ along the real and imaginary line separately, like in figure \ref{fig:complex}. Let us define $\delta x = x - x_0$. Along $\circled{1}$,
+\begin{equation}
+	\begin{split}
+	\dv{f}{z}(z_0) &= \lim_{\delta \to 0}\frac{u(x_0 + \delta x, y_0) - u(x_0,y_0) + i(v(x_0 + \delta x, y_0) - v(x_0,y_0))}{\delta x} \\
+	& = \eval{\left(\pdv{u(x,y)}{x} + i\pdv{v(x,y)}{x}\right)}_{z = z_0}.
+	\end{split}
+\end{equation}
+It can be shown that along $\circled{2}$,
+\begin{equation}
+	\dv{f}{z}(z_0) = \eval{\left(-i\pdv{u(x,y)}{y} + \pdv{v(x,y)}{y}\right)}_{z = z_0}.
+\end{equation}
+Analytic functions must be path indifferent, so for a function to be analytic it must satisfy both of the Cauchy-Riemann equations.
+\begin{Theorems}{Cauchy-Riemann Equations}{}
+	A function $f(z) = u(x,y) + iv(x,y)$ is said to be analytic at a point $z_0 \iff$ it satisfies the Cauchy-Riemann equations,
+	\begin{align}
+		\pdv{u(x,y)}{x} = \pdv{v(x,y)}{y} && \text{and} && \pdv{v(x,y)}{x} = -\pdv{u(x,y)}{y}.
+	\end{align}
+\end{Theorems}
+\subsubsection{Harmonic Functions}
+If $f(z) = u(x,y) + iv(x,y)$ is analytic, then $u(x,y)$ and $v(x,y)$ are necessarily Harmonic, i.e.,
+\begin{equation}
+	\laplacian{u(x,y)} = \laplacian{v(x,y)} = 0.
+\end{equation}
+\subsection{Taking derivatives in the complex plane}
+The Cauchy-Riemann equations imply that a complex derivative, where one exists, is given by,
+\begin{equation}
+	\dv{f(z)}{z} = \pdv{u(x,y)}{x} + i\pdv{u(x,y)}{x} = \pdv{u(x,y)}{y} + i\pdv{v(x,y)}{y}.
+\end{equation}
+We note that, as long as $f(z)$ and $g(z)$ are analytic, the following are still valid,
+\begin{itemize}
+	\item L'Hopital's rule,
+	\begin{equation}
+		\lim_{z \to z_0} \frac{f(z)}{g(z)} = \lim_{z \to z_0}\frac{f'(z)}{g'(z)}.
+	\end{equation}
+	\item Chain rule,
+	\begin{equation}
+		\dv{g}{z} = \dv{g}{f}\dv{f}{z}.
+	\end{equation}
+	\item Product rule,
+	\begin{equation}
+		\dv{(fg)}{z} = f\dv{g}{z} + g\dv{f}{z}.
+	\end{equation}
+\end{itemize}
+\section{Conformal Map}
+Consider a map $w = u + iv = f(z)$, $z\equiv x + iy$, and $f(z)$ is analytic which defines a map from the $xy$ plane to the $uv$ plane. 
+\begin{Definitions}{Conformality}{}
+	A mapping is conformal if it preserves shapes and angles locally.
+\end{Definitions}
+\begin{Theorems}{Analytic-Conformal Maps}{}
+	If a mapping is analytic, it is necessarily conformal.
+\end{Theorems}
+\begin{proof}
+	Let $f(z)$ be analytic at $z_0$. Let $w_0$ be the point that $z_0$ maps to, i.e., $f(z_0) = w_0$. We have,
+	\begin{align}
+		w_0 + & \Delta w = f(z_0 + \Delta z) \\
+		& \Delta w = f(z_0 + \Delta z) - f(z_0) \simeq \Delta z f'(z_0) + \mathcal{O}(\Delta z^2)
+	\end{align}
+	for $\Delta z << 1$. In polar form, $\Delta z = \varepsilon^{i\theta}$, $f'(z_0)Me^{i\alpha}, M \neq 0$.
+\end{proof}
+\subsection{Applications in Physics Problems}
+Conformal maps are useful in problems which satisfy Laplace's equations $\laplacian{\phi} = 0$, from which we can determine the real and imaginary potentials $u(x,y)$ and $v(x,y)$. The general approach is,
+\begin{enumerate}
+	\item Define problem in $xy$ plane.
+	\item Find a conformal mapping which takes the equipotentials to a simpler geometry in the $Z = X(x,y) + iY(x,y)$ plane.
+	\item Solve the problem in the $XY$ plane. 
+	\item $u(x,y) + i v(x,y) = \Phi(X,Y) + i\Psi(X,Y)$.
+\end{enumerate}
 \end{document}
  

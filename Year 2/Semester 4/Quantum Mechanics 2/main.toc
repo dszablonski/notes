@@ -2,7 +2,7 @@
 \contentsline {chapter}{\numberline {1}Orbital Angular Momentum}{3}{}%
 \contentsline {section}{\numberline {1.1}Basics of QM}{3}{}%
 \contentsline {subsection}{\numberline {1.1.1}The Simple Harmonic Oscillator}{3}{}%
-\contentsline {subsection}{\numberline {1.1.2}Simple Perturbation Theory}{4}{}%
+\contentsline {subsection}{\numberline {1.1.2}First Order Perturbation Theory}{4}{}%
 \contentsline {section}{\numberline {1.2}Particle in 2D SHO}{4}{}%
 \contentsline {subsection}{\numberline {1.2.1}Degeneracy}{4}{}%
 \contentsline {section}{\numberline {1.3}3D Orbital Angular Momentum}{5}{}%
@@ -28,6 +28,18 @@
 \contentsline {section}{\numberline {3.1}Magnetic Moment and Spin}{14}{}%
 \contentsline {subsection}{\numberline {3.1.1}Stern-Gerlach Experiment}{14}{}%
 \contentsline {subsubsection}{Hydrogen Atom with Spin}{15}{}%
-\contentsline {chapter}{\numberline {A}Misc. Formulae}{16}{}%
-\contentsline {section}{\numberline {A.1}Commutation Relation}{16}{}%
-\contentsline {section}{\numberline {A.2}Legendre Polynomials}{16}{}%
+\contentsline {section}{\numberline {3.2}Angular Momentum Addition Theorem}{15}{}%
+\contentsline {section}{\numberline {3.3}Spin-orbit coupling}{15}{}%
+\contentsline {subsection}{\numberline {3.3.1}Re-evaluation of quantum numbers}{16}{}%
+\contentsline {subsection}{\numberline {3.3.2}Energy Level Splitting}{16}{}%
+\contentsline {section}{\numberline {3.4}Zeeman Effects}{16}{}%
+\contentsline {subsection}{\numberline {3.4.1}Strong Zeeman Effect}{16}{}%
+\contentsline {subsection}{\numberline {3.4.2}Weak Zeeman Effect}{17}{}%
+\contentsline {chapter}{\numberline {4}Mutlielectron Atoms}{18}{}%
+\contentsline {section}{\numberline {4.1}Identical Particles - Bosons and Fermions}{18}{}%
+\contentsline {section}{\numberline {4.2}Pauli Exclusion Principle}{18}{}%
+\contentsline {section}{\numberline {4.3}Helium Atom}{18}{}%
+\contentsline {subsection}{\numberline {4.3.1}Parahelium}{19}{}%
+\contentsline {chapter}{\numberline {A}Misc. Formulae}{20}{}%
+\contentsline {section}{\numberline {A.1}Commutation Relation}{20}{}%
+\contentsline {section}{\numberline {A.2}Legendre Polynomials}{20}{}%

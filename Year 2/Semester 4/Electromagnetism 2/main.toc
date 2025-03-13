@@ -1,41 +1,62 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {1}Sources of Radiation}{3}{}%
-\contentsline {section}{\numberline {1.1}Charges}{3}{}%
-\contentsline {subsection}{\numberline {1.1.1}Stationary Charges}{3}{}%
-\contentsline {subsection}{\numberline {1.1.2}Charges with Uniform Velocity}{3}{}%
-\contentsline {section}{\numberline {1.2}Retarded Potentials}{4}{}%
-\contentsline {subsection}{\numberline {1.2.1}Statics}{4}{}%
-\contentsline {subsection}{\numberline {1.2.2}Time-Dependent case}{4}{}%
-\contentsline {section}{\numberline {1.3}Radiation from an accelerated charge}{4}{}%
-\contentsline {subsection}{\numberline {1.3.1}Displaced point charge}{4}{}%
-\contentsline {subsection}{\numberline {1.3.2}Radiation pattern from a displaced point charge}{6}{}%
-\contentsline {subsection}{\numberline {1.3.3}Total Power Radiated}{6}{}%
-\contentsline {section}{\numberline {1.4}Radiation from an Oscillating Electric Dipole}{6}{}%
-\contentsline {subsection}{\numberline {1.4.1}Radiation Resistance}{7}{}%
-\contentsline {section}{\numberline {1.5}Half-Wave Antenna}{7}{}%
-\contentsline {chapter}{\numberline {2}Radiation in Matter}{9}{}%
-\contentsline {section}{\numberline {2.1}Maxwell's Equations in a Medium}{9}{}%
-\contentsline {subsection}{\numberline {2.1.1}Electrics}{9}{}%
-\contentsline {subsection}{\numberline {2.1.2}Magnetics}{9}{}%
-\contentsline {subsection}{\numberline {2.1.3}Time dependent case}{9}{}%
-\contentsline {section}{\numberline {2.2}Plane Waves in Lossy Media}{10}{}%
-\contentsline {subsection}{\numberline {2.2.1}Source-Free Lossy Media}{10}{}%
-\contentsline {subsubsection}{Transmission line theory}{10}{}%
-\contentsline {section}{\numberline {2.3}Waves in Dielectrics}{11}{}%
-\contentsline {subsection}{\numberline {2.3.1}Refractive Index of Gasses}{11}{}%
-\contentsline {section}{\numberline {2.4}Waves in Conductors}{12}{}%
-\contentsline {subsection}{\numberline {2.4.1}Poor Conductors}{12}{}%
-\contentsline {subsection}{\numberline {2.4.2}Good Conductors}{12}{}%
-\contentsline {section}{\numberline {2.5}Waves in Plasmas}{13}{}%
-\contentsline {subsection}{\numberline {2.5.1}The Drude Model}{13}{}%
-\contentsline {subsection}{\numberline {2.5.2}Drude Model with Collisions}{14}{}%
-\contentsline {subsubsection}{Low frequency waves in plasma}{14}{}%
-\contentsline {subsubsection}{High frequency waves in plasma}{14}{}%
-\contentsline {chapter}{\numberline {3}Reflection and Refraction}{16}{}%
-\contentsline {section}{\numberline {3.1}Maxwell's Equations and Boundary Conditions}{16}{}%
-\contentsline {subsection}{\numberline {3.1.1}Transverse Component of Electric Field}{16}{}%
-\contentsline {chapter}{\numberline {A}Revision Equations}{17}{}%
-\contentsline {section}{\numberline {A.1}Potentials}{17}{}%
-\contentsline {section}{\numberline {A.2}Gauges}{17}{}%
-\contentsline {section}{\numberline {A.3}Vector Identities}{18}{}%
-\contentsline {section}{\numberline {A.4}EM Waves}{18}{}%
+\contentsline {chapter}{\numberline {1}Sources of Radiation}{4}{}%
+\contentsline {section}{\numberline {1.1}Charges}{4}{}%
+\contentsline {subsection}{\numberline {1.1.1}Stationary Charges}{4}{}%
+\contentsline {subsection}{\numberline {1.1.2}Charges with Uniform Velocity}{4}{}%
+\contentsline {section}{\numberline {1.2}Retarded Potentials}{5}{}%
+\contentsline {subsection}{\numberline {1.2.1}Statics}{5}{}%
+\contentsline {subsection}{\numberline {1.2.2}Time-Dependent case}{5}{}%
+\contentsline {section}{\numberline {1.3}Radiation from an accelerated charge}{5}{}%
+\contentsline {subsection}{\numberline {1.3.1}Displaced point charge}{5}{}%
+\contentsline {subsection}{\numberline {1.3.2}Radiation pattern from a displaced point charge}{7}{}%
+\contentsline {subsection}{\numberline {1.3.3}Total Power Radiated}{7}{}%
+\contentsline {section}{\numberline {1.4}Radiation from an Oscillating Electric Dipole}{7}{}%
+\contentsline {subsection}{\numberline {1.4.1}Radiation Resistance}{8}{}%
+\contentsline {section}{\numberline {1.5}Half-Wave Antenna}{8}{}%
+\contentsline {chapter}{\numberline {2}Radiation in Matter}{10}{}%
+\contentsline {section}{\numberline {2.1}Maxwell's Equations in a Medium}{10}{}%
+\contentsline {subsection}{\numberline {2.1.1}Electrics}{10}{}%
+\contentsline {subsection}{\numberline {2.1.2}Magnetics}{10}{}%
+\contentsline {subsection}{\numberline {2.1.3}Time dependent case}{10}{}%
+\contentsline {section}{\numberline {2.2}Plane Waves in Lossy Media}{11}{}%
+\contentsline {subsection}{\numberline {2.2.1}Source-Free Lossy Media}{11}{}%
+\contentsline {subsubsection}{Transmission line theory}{11}{}%
+\contentsline {section}{\numberline {2.3}Waves in Dielectrics}{12}{}%
+\contentsline {subsection}{\numberline {2.3.1}Refractive Index of Gasses}{12}{}%
+\contentsline {section}{\numberline {2.4}Waves in Conductors}{13}{}%
+\contentsline {subsection}{\numberline {2.4.1}Poor Conductors}{13}{}%
+\contentsline {subsection}{\numberline {2.4.2}Good Conductors}{13}{}%
+\contentsline {section}{\numberline {2.5}Waves in Plasmas}{14}{}%
+\contentsline {subsection}{\numberline {2.5.1}The Drude Model}{14}{}%
+\contentsline {subsection}{\numberline {2.5.2}Drude Model with Collisions}{15}{}%
+\contentsline {subsubsection}{Low frequency waves in plasma}{15}{}%
+\contentsline {subsubsection}{High frequency waves in plasma}{15}{}%
+\contentsline {chapter}{\numberline {3}Reflection and Refraction}{17}{}%
+\contentsline {section}{\numberline {3.1}Maxwell's Equations and Boundary Conditions}{17}{}%
+\contentsline {subsection}{\numberline {3.1.1}Transverse Component of Electric Field}{17}{}%
+\contentsline {subsection}{\numberline {3.1.2}Normal (to interfacing surface) component of $\vb {D}$}{18}{}%
+\contentsline {subsection}{\numberline {3.1.3}Transverse component of $\vb {H}$}{18}{}%
+\contentsline {subsection}{\numberline {3.1.4}Normal of $\vb {B}$}{18}{}%
+\contentsline {section}{\numberline {3.2}Reflection at Normal Incidence at a Plane Dielectric Boundary}{19}{}%
+\contentsline {subsection}{\numberline {3.2.1}Transmission and Reflection Coefficients}{19}{}%
+\contentsline {section}{\numberline {3.3}Reflection and Normal Incidence From a Conductor}{20}{}%
+\contentsline {section}{\numberline {3.4}Oblique Incidence}{20}{}%
+\contentsline {subsection}{\numberline {3.4.1}Snell's Law}{20}{}%
+\contentsline {subsection}{\numberline {3.4.2}Oblique Incidence of Polarised Light}{20}{}%
+\contentsline {subsubsection}{S-polarised light}{21}{}%
+\contentsline {subsubsection}{P-polarised light}{21}{}%
+\contentsline {subsection}{\numberline {3.4.3}Fresnel's Equations}{22}{}%
+\contentsline {subsection}{\numberline {3.4.4}Brewster Angle}{22}{}%
+\contentsline {subsection}{\numberline {3.4.5}Total Internal Reflection}{23}{}%
+\contentsline {subsubsection}{Frustrated Total Reflection}{23}{}%
+\contentsline {chapter}{\numberline {4}Polarisation}{24}{}%
+\contentsline {section}{\numberline {4.1}States of Polarisation}{24}{}%
+\contentsline {subsection}{\numberline {4.1.1}Linear Polarisation}{24}{}%
+\contentsline {subsection}{\numberline {4.1.2}Circular Polarisation}{24}{}%
+\contentsline {section}{\numberline {4.2}Mechanisms of Polarisation}{24}{}%
+\contentsline {subsection}{\numberline {4.2.1}Polarisation by Dichroism}{25}{}%
+\contentsline {chapter}{\numberline {A}Revision Equations}{26}{}%
+\contentsline {section}{\numberline {A.1}Potentials}{26}{}%
+\contentsline {section}{\numberline {A.2}Gauges}{26}{}%
+\contentsline {section}{\numberline {A.3}Vector Identities}{27}{}%
+\contentsline {section}{\numberline {A.4}EM Waves}{27}{}%

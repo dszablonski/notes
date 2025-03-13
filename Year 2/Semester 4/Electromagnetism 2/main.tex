@@ -617,14 +617,363 @@ We will consider the boundary conditions for $\vb{H}, \vb{B}, \vb{E},$ and $\vb{
 	\end{tikzpicture}
 	\caption{}
 	\label{fig:trans E}
-\end{figure}
+\end{figure}\noindent
 Let us consider a setup as in figure \ref{fig:trans E}, where an electric field is travelling through a material with $\epsilon = \epsilon_1$ and $\mu = \mu_1$ incident on the surface of a material with $\epsilon = \epsilon_2$ and $\mu = \mu_2$. Let us consider Ampere's law over a loop $C$ with width $\Delta W$ and height $\Delta H$,
 \begin{equation}
 	\oint_C \vb{E}\cdot\dd\vb{l} = -\pdv{t}\oint\vb{B}\cdot\dd\vb{S}
 \end{equation}
+which we can evaluate,
+\begin{equation}
+	\begin{split}
+	& E_{2\perp}\Delta W - E_{1\perp}\Delta W + E_{1\parallel}\frac{\Delta H}{2} -  E_{1\parallel}\frac{\Delta H}{2} +  E_{2\parallel}\frac{\Delta H}{2} - E_{2\parallel}\frac{\Delta H}{2} = -\pdv{B}{t}\Delta H \\
+	\implies & E_{2\perp} - E_{1\perp} = -\pdv{B}{t}\Delta H.
+	\end{split}
+\end{equation}
+At the boundary, we take $\Delta H \to 0$, so,
+\begin{align}
+	E_{2\perp} &= E_{1\perp} \label{eq:Eperp} \\
+	\frac{D_{2\perp}}{\epsilon_2} &= \frac{D_{1\perp}}{\epsilon_1}.
+\end{align}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=1.25]
+		\begin{scope}[canvas is xy plane at z=1.5]
+			\draw (0,0)arc (-30:30:-5);
+		\end{scope}
+		\begin{scope}[canvas is xy plane at z = -1.5]
+			\draw (0,0) arc (-30:30:-5);
+		\end{scope}
+		\draw (0,0,1.5) -- (0,0,-1.5);
+		\draw (0,-5,1.5) -- (0,-5,-1.5); 
+		\begin{scope}[canvas is xy plane at z = 0]
+			\draw[latex-] (-0.66987,-2.5) -- (-3,-1) node[anchor=south east] {$\vb{D}_1$};
+			\draw[dotted] (-4,-2.5) -- (3.33013,-2.5);
+			\draw[-latex, color=blue] (-0.66987,-2.5) -- (2.33,-3.5) node[anchor=north west] {$\vb{D}_2$};
+			\draw[dashed, red] (-2,-3.5) -- (1.83013, -3.5);
+			\draw[dashed, red] (-2,-1.5) -- (1.83013, -1.5);
+			\draw[thick, decoration={brace,mirror,raise=5pt},decorate] (-2,-3.5) -- (1.83013, -3.5) node[midway, below=6pt] {$\Delta W$};
+			\draw[thick, -stealth] (-2,-2.5) -- (-3.5,-2.5) node[anchor=south east] {$\vb{a}_{1\perp}$};
+			\draw[thick, -stealth] (1.83013, -2.5) -- (3.33013, -2.5) node[anchor=west] {$\vb{a}_{2\perp}$};
+			\draw[dashed, thick, blue, -latex] (-0.66987, -2.5) -- (0.8, -2.5) node[anchor=south] {$\vb{D_{2\parallel}}$};
+			\draw[dashed, thick, blue, -latex] (-0.66987, -2.5) -- (-0.66987, -3) node[anchor=west] {$\vb{D_{2\perp}}$};
+			\draw[dashed, thick, -latex] (-3,-1) -- (-2, -1) node[anchor=west] {$\vb{D_{1\parallel}}$};
+			\draw[dashed, thick, -latex] (-3,-1) -- (-3, -1.5) node[anchor=east] {$\vb{D_{1\perp}}$};
+		\end{scope}
+		\begin{scope}[canvas is yz plane at x=-2]
+			\filldraw[dashed, red, pattern={Hatch[angle=45, distance=0.2cm]}, pattern color=red] (-2.5,0) circle (1cm);
+		\end{scope}
+		\begin{scope}[canvas is yz plane at x=1.83013]
+			\filldraw[dashed, red, pattern={Hatch[angle=45, distance=0.2cm]}, pattern color=red] (-2.5,0) circle (1cm);
+		\end{scope}
+		\node at (2.5,-2,0) {$\Delta S$};
+		\node at (-1, 0, 0) {$\epsilon_1,\mu_1$};
+		\node at (1, 0, 0) {$\epsilon_2,\mu_2$};
+	\end{tikzpicture}
+	\caption{}
+	\label{fig:normal}
+\end{figure}\noindent
+\subsection{Normal (to interfacing surface) component of $\vb{D}$}
+Let us consider a setup as in figure \ref{fig:normal}, where we have a $\vb{D}$ travelling through a material with $\epsilon = \epsilon_1$ and $\mu = \mu_1$ incident on the surface of a material with $\epsilon = \epsilon_2$ and $\mu = \mu_2$. We will consider Gauss' law, considering a cylinder of length $\Delta W$ and end surfaces of area $\Delta S$, 
+\begin{equation}
+	\oint_S\vb{D}\cdot\dd{\vb{S}} = Q.
+\end{equation}
+As we take $\Delta W \to 0$, the volume charge approaches a surface charge. We have that $\vb{a}_{1\perp} = -\vb{a}_{2\perp}$, so, for a surface charge density $\rho_S$,
+\begin{equation}
+	\begin{split}
+		& \vb{a}_{2\perp}\cdot(\vb{D}_1 - \vb{D}_2)\Delta S = \rho_S\Delta S \\
+		\implies & D_{1\parallel} - D_{2\parallel} = \rho_S
+	\end{split}
+\end{equation}
+so the normal component of the electric field is discontinuous across the boundary.
+\subsection{Transverse component of $\vb{H}$}
+We will consider a similar setup to what we did for the transverse component of $\vb{E}$, but we will now consider the following equation,
+\begin{equation}
+	\begin{split}
+		&\oint_C \vb{H}\cdot\dd{\vb{l}} = \oint \vb{J}\cdot \dd{S} + \pdv{t}\oint_S\vb{D}\cdot\dd{\vb{S}}\\
+		\implies & H_{2\perp} -H_{2\perp} = J\Delta H + \pdv{D}{t}\Delta H
+	\end{split}
+\end{equation}
+where, in the limit $\Delta H \to 0$, $J\Delta H \to J_z$ which is the sheet current, and $\pdv{D}{t}\Delta H \to 0$. We thus have,
+\begin{equation}
+	H_{2\perp} - H_{2\perp} = J_z. \label{eq:bperp}
+\end{equation} 
+\subsection{Normal of $\vb{B}$}
+We can consider a similar setup to $\vb{D}$, considering Gauss' law for magnetic fields,
+\begin{equation}
+	\begin{split}
+	&\oint\vb{B}\cdot\dd{\vb{S}} = 0 \\
+	\implies & \vb{a}_{2\perp}\cdot(\vb{B}_1 - \vb{B}_2)\Delta S = 0 \\
+	\implies & B_{1\parallel} = B_{2\parallel} \implies \vu{n}\cdot\vb{B} = 0
+	\end{split}
+\end{equation}
+so the normal of $\vb{B}$ is continuous across the boundary.
+\section{Reflection at Normal Incidence at a Plane Dielectric Boundary}
+If we consider a a plane wave travelling from one medium $(\epsilon_1, \mu_1)$ into another medium $(\epsilon_2, \mu_2)$, we can write down the magnetic and electric components which are incident, reflected, and transmitted at the boundary,
+\begin{align}
+	E_i = E_{i_0}e^{i(\omega t - kz)} && B_i = B_{i_0}e^{i(\omega t - kz)} \\
+	E_r = -E_{r_0}e^{i(\omega t + kz)} && B_r = B_{r_0}e^{i(\omega t + kz)}\\
+	E_t = E_{t_0}e^{i(\omega t - kz)} && B_t = B_{t_0}e^{i(\omega t - kz)}
+\end{align}
+We wish to find the ratios between the incoming wave and the reflected and transmitted waves. Let us consider the mediums to be intercepting along the $x$-axis, and that the boundary is charge and current free. By equations \eqref{eq:Eperp} and \eqref{eq:bperp}, we obtain,
+\begin{align}
+	E_{i_0} - E_{r_0} & = E_{t_0} \label{eq:ET} \\
+	\frac{B_{i_0}}{\mu_1} + \frac{B_{r_0}}{\mu_1} & = \frac{B_{t_0}}{\mu_2}.
+\end{align}
+We have that, $B = E/v = E\sqrt{\epsilon_0\epsilon_r\mu_0\mu_r} \implies B/\mu_r = E\sqrt{\epsilon_0\epsilon_r\mu_0\mu_r}\frac{1}{\mu_r} = \frac{1}{c}\sqrt{\frac{\epsilon_r}{\mu_r}}E$, $\mu_1 = \mu_2 = 0$ in a dielectric, and $\sqrt{\epsilon_1} = n_1$ and $\sqrt{\epsilon_2} = n_2$, so
+\begin{equation}
+	\begin{split}
+		& \sqrt{\epsilon_1}E_{i_0} + \sqrt{\epsilon_1}E_{r_0} = \sqrt{\epsilon_2}E_{t_0} \\
+		\implies & n_1(E_{i_0} + E_{r_0}) = n_2E_{t_0} \\
+		\implies & \boxed{\frac{E_{r_0}}{E_{i_0}} = \frac{n_2 - n_1}{n_1 + n_2}}
+	\end{split}
+\end{equation} 
+which is the reflection ratio. By using equation \eqref{eq:ET} to write $E_{r_0}$ in terms of $E_{t_0}$, we find,
+\begin{equation}
+	\boxed{\frac{E_{t_0}}{E_{i_0}} = \frac{2n_1}{n_1 + n_2}}
+\end{equation}
+which is known as the transmission ratio. These ratios hold for $B$ in the exact same way.
+\subsection{Transmission and Reflection Coefficients}
+To be able to consider the transmission and reflection coefficients, we have to consider the incident, reflected, and transmitted Poynting vector. We must first consider the average incident Poynting vector. This is given by,
+\begin{equation}
+	\langle S_i \rangle = \frac{1}{\mu_0}\langle \vb{E} \cross \vb{B}\rangle = \frac{1}{\mu_0}E_iB_i
+\end{equation}
+this then implies that $\langle S \rangle S \propto En^2$ generally. We can then say that,
+\begin{align}
+	\langle S_r\rangle \propto \left(\frac{n_2 - n_1}{n_1 + n_2}\right)^2n_1 \\
+	\langle S_t \rangle \propto \left(\frac{2n_1}{n_1 + n_2}\right)^2n_2 \\
+	\langle S_i \rangle \propto n_1 
+\end{align}
+thus,
+\begin{align}
+	\boxed{\mathcal{T} = \frac{4n_1n_2}{(n_1+n_2)^2}} \\
+	\boxed{\mathcal{R} = \left(\frac{n_2 - n_1}{n_1 + n_2}\right)^2 }
+\end{align}
+which are the transmission and reflection coefficients, respectively.
+\section{Reflection and Normal Incidence From a Conductor}
+For a good conductor, we have that $\sigma >> 1$. We can write the refractive index in the conductor medium is,
+\begin{equation}
+	n_2 = \sqrt{\epsilon_r} = \sqrt{-i\frac{\sigma}{\omega\epsilon_0}} = \sqrt{\frac{\sigma}{2\omega\epsilon_0}}(1 - i)
+\end{equation}
+\section{Oblique Incidence}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{oblique incidence.png}
+	\caption{The wavevectors $\vb{k}_i$, $\vb{k_r}$ and $\vb{k}_t$ all lie in the same plane, i.e., the plane of incidence.}
+	\label{fig:oblique}
+\end{figure}
+\subsection{Snell's Law}
+Consider a wave incident on a surface as in figure \ref{fig:oblique}. Let us consider the electric field,
+\begin{align}
+	E_i = E_{i_0}e^{i(\omega t - \vb{k}_i\cdot{\vb{r}})} && E_r = E_{r_0}e^{i(\omega t - \vb{k}_r\cdot{\vb{r}})} && E_t = E_{t_0}e^{i(\omega t - \vb{k}_t\cdot{\vb{r}})} 
+\end{align}
+At the boundary, $z = 0$, the waves all have the same phase,
+\begin{align}
+	\eval{\vb{k}_i\cdot\vb{r}}_{z=0} = \eval{\vb{k}_r\cdot\vb{r}}_{z=0} = \eval{\vb{k}_t\cdot\vb{r}}_{z=0}
+\end{align}
+and thus, at $z = 0$,
+\begin{equation}
+	K_{i_x} x = k_{r_x}x = k_{t_x}x.
+\end{equation}
+Furthermore,
+\begin{align}
+	k_{i_x} = k_i \sin\theta_i,\label{eq:kti} \\
+	k_{r_x} = k_r \sin\theta_r, \\
+	k_{t_x} = k_t \sin\theta_t. \label{eq:ktx}
+\end{align}
+Due to the nature of reflection, $\theta_i = \theta_r$. Recall that $k = n\frac{\omega}{c}$, so,
+\begin{equation}
+	\boxed{n_1\sin\theta_i = n_2\sin\theta_t}
+\end{equation}
+and we have obtained Snell's law.
+\subsection{Oblique Incidence of Polarised Light}
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+		\includegraphics[width=0.9\linewidth]{S-polar.png}
+		\caption{S-polarised oblique incidence (wave perpendicular to plane of incidence).}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\includegraphics[width=0.9\linewidth]{p-polar.png}
+		\caption{P-polarised oblique incidence (wave parallel to plane of incidence).}
+	\end{subfigure}
+	\caption{The directions of the electric and magnetic field components for $S$-polarised and $P$-polarised
+		light.}
+\end{figure}
+Let us now consider light with different polarisations. We will consider $S$-polarised light (the $S$ stands for the German word for perpendicular) and $P$-polarised light ($P$ stands for parallel). 
+\subsubsection{S-polarised light}
+Considering $S$-polarised light first, we have that $E_t$ and $H_t$ are continuous, provided there is no current and we are not considering a perfect conductor. We then have that,
+\begin{align}
+	E_{i_0} - E_{r_0} &= E_{t_0}, \label{eq:b2}\\
+	H_i\cos\theta_i + H_i\cos\theta_r &= H_t\cos\theta_t. \label{eq:b1}
+\end{align}
+Recall that $H = n\frac{E}{c}$, so, from boundary condition \eqref{eq:b1},
+\begin{equation}
+	n_1E_{i_0}\cos\theta_i + n_2E_{r_0}\underbrace{\cos\theta_r}_{\cos\theta_i} = n_2\underbrace{E_{t_0}}_{\eqref{eq:b2}} \cos\theta_t,
+\end{equation}
+and rearranging,
+\begin{equation}
+	\frac{E_{r_0}}{E_{i_0}} = -\frac{n_1\cos\theta_i - n_2 \cos\theta_t}{n_1\cos\theta_i + n_2\cos\theta_t}.
+\end{equation}
+By Snell's law, defining $n = n_2/n_1$, we can write down the \textit{reflection coefficient of an $S$-polarised wave},
+\begin{equation}
+	\rho_{\perp} \equiv \abs{\frac{E_{r_0}}{E_{i_0}}} = \abs{\frac{\cos\theta_i - \sqrt{n^2 - \sin^2\theta_i}}{\cos\theta_i + \sqrt{n^2 + \sin^2\theta_i}}}
+\end{equation}
+and the corresponding transmission coefficient is given by,
+\begin{equation}
+	\tau_{\perp} = \abs{\frac{E_{t_0}}{E_{i_0}}} = 1 - \rho_{\perp}.
+\end{equation}
+\subsubsection{P-polarised light}
+We still have $E_t$ and $H_t$ being continuous, and we have,
+\begin{align}
+	E_i\cos\theta_i - E_{r_0}\cos\theta_i &= E_t\cos\theta_t, \\
+	B_{i_0} + B_{r_0} &= B_{t_0}.
+\end{align}
+Recall $B = n \frac{E}{c}$, 
+\begin{align}
+	&n_1 E_{i_0} + n_1 E_{r_0} = n_2E_{t_0} \\
+	&E_{t_0} = \frac{n_1}{n_2}(E_{i_0} + E_{r_0}).
+\end{align}
+We can then write,
+\begin{equation}
+	E_{i_0} \cos\theta_i - E_{r_0}\cos\theta_r = \frac{n_2}{n_1}(E_{i_0} + E_{r_0})\cos\theta_t
+\end{equation}
+and rearranging,
+\begin{equation}
+	\frac{E_{r_0}}{E_{i_0}} = \frac{n_2\cos\theta_i - n_1\cos\theta_t}{n_2\cos\theta_i + n_1\cos\theta_t}.
+\end{equation}
+Now using the same tick as before, we find the \textit{reflection coefficient of a $P$-polarised wave},
+\begin{equation}
+	\rho_{\parallel} = \abs{\frac{E_{r_0}}{E_{i_0}}} = \abs{\frac{n^2\cos\theta_i - \sqrt{n^2 - \sin^2\theta_i}}{n^2\cos\theta_i + \sqrt{n^2 - \sin^2\theta_i}}}
+\end{equation}
+and the corresponding transmission coefficient is given by,
+\begin{equation}
+	\tau_{\parallel} = \abs{\frac{E_{t_0}}{E_{i_0}}} = 1 - \rho_{\parallel}
+\end{equation}
+\subsection{Fresnel's Equations}
+We define the impedance of free space as,
+\begin{equation}
+	Z_0 = \sqrt{\frac{\mu_0}{\varepsilon_0}} = \frac{E}{H}.
+\end{equation}
+We can define the impedance of a material by,
+\begin{equation}
+	Z = \frac{Z_0}{n}.
+\end{equation}
+We can then write the reflection coefficients of $S$ and $P$ polarised light in terms of impedance of the materials to obtain \textit{Fresnel's equations}.
+\begin{tcolorbox}[title=Fresnel Equations]
+	\begin{align}
+	\rho_{\perp} & = \frac{Z_2\cos\theta_i - Z_1 \cos\theta_1}{Z_2 \cos\theta_i + Z_1 + \cos\theta_t} \\
+	\rho_{\parallel} & = \frac{Z_1\cos\theta_i - Z_2 \cos\theta_t}{Z_1\cos\theta_i + Z_2\cos\theta_t}
+	\end{align}
+\end{tcolorbox}
+\subsection{Brewster Angle}
+For $P$-polarised light, we have that,
+\begin{equation}
+	\begin{split}
+		n^2 \cos\theta_i &= \sqrt{n^2 - \sin^2\theta_i} \\
+		n^4 \cos\theta_i & = n^2 - \sin^2\theta_i \\
+		& = n^2 - 1 + \cos^2\theta_i \\
+		(n^4 -1)\cos^2\theta_i & = n^2 -1 \\
+		\cos\theta_i & = \frac{1}{\sqrt{1 +n^2}} \implies n^2= \frac{\sin^2\theta_i}{\cos^2\theta_i} \implies n = \tan\theta_i 
+	\end{split}
+\end{equation}
+so, we can define the Brewster angle,
+\begin{equation}
+	\boxed{\theta_b = \arctan(n)}
+\end{equation}
+which is the angle where only the perpendicular component of randomly polarised light is reflected from a surface.
+\subsection{Total Internal Reflection}
+Total internal reflection occurs when light travels from a dense material to a rare material ($n_1 > n_2$), and is incident at an angle $\theta_c$ such that the transmitted angle is $90^{\text{o}}$. So, by Snell's law, the critical angle is,
+\begin{equation}
+	\boxed{\theta_c = \arcsin\left(n\right)}.
+\end{equation}
+For angles greater than the critical angle, we find that the Fresnel equations become complex. The perpendicular coefficient is given by
+\begin{equation}
+	\rho_{\perp} = \frac{A + iB}{A - iB}
+\end{equation}
+and we fin that the reflected intensity ratio is,
+\begin{equation}
+	R_{\perp} = \abs{\frac{A+iB}{A-iB}}^2 = 1
+\end{equation}
+i.e., the wave is totally reflected. However{, even though the wave is totally reflected, some of the wave is still transmitted. We can write the transmitted angle as,
+\begin{equation}
+	\cos\theta_t = \pm i \sqrt{\left(\frac{\sin\theta_t}{\sin\theta_i}\right)^2 - 1} = \pm i Q.
+\end{equation}
+The transmitted wave is then,
+\begin{equation}
+	\begin{split}
+		E_t & = E_0e^{i(\omega t - \vb{k}\cdot\vb{r})} \\
+		 & =E_0e^{i\omega t}e^{-ik_x\sin\theta_t} e ^{-ik_2z\cos\theta_t} \\
+		 & = E_oe^{i\omega t}e^{-ik_zx\sin\theta_t}e^{-k_zzQ}.
+	\end{split}
+\end{equation}
+We can then define a skin depth,
+\begin{equation}
+	\delta = \frac{1}{k_zQ}.
+\end{equation}
+\subsubsection{Frustrated Total Reflection}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{frustrated.png}
+	\caption{}
+	\label{fig:frustrated}
+\end{figure}
+If a wave is travelling in a materials such that it goes dense $\to$ rare $\to$ dense, as in figure \ref{fig:frustrated}. For a thin enough rare material, the evanescent wave can propagate through to the second dense material.
+
+\chapter{Polarisation}
+\section{States of Polarisation}
+
+We can resolve any plane polarised wave into its orthogonal components,
+\begin{align}
+	\vb{E_x} = \vu{i}E_{0_x}\cos(\omega t - kz) && && \vb{E_y} = \vu{j}E_{0_y}\cos(\omega t - kz + \Delta \phi) \\
+	&& \vb{E}(z,t) = \vb{E}_x (z,t) + \vb{E}_y(z,t) && 
+\end{align}
+From this we will base different types of polarisations.
+\subsection{Linear Polarisation}
+We have 2 forms of linear polarisation,
+\begin{itemize}
+	\item If $\Delta \phi = \pm2m\pi, m \in \mathbb{Z}$, the components are said to be "in phase".
+	\begin{equation}
+		\vb{E}(z,t) = (\vu{i}E_{0_x} + \vu{j}E_{0_y})\cos(\omega t - kz)
+	\end{equation}
+	\item If $\Delta \phi = \pm m\phi$, the components are said to be $180^{\text{o}}$ out of phase.
+		\begin{equation}
+		\vb{E}(z,t) = (\vu{i}E_{0_x} - \vu{j}E_{0_y})\cos(\omega t - kz)
+	\end{equation}
+\end{itemize}
+\subsection{Circular Polarisation}
+Consider $E_0 = E_{0_y} = E_{0_x}$,
+\begin{itemize}
+	\item If $\Delta \phi = -\frac{\pi}{2} + 2m\pi$, the wave is said to be right circularly polarised, and the wave rotates counter clockwise (looking at the source),
+	\begin{equation}
+		\vb{E}(z,t) = E_0(\vu{i}\cos(\omega t - kz) + \vu{j}\sin(\omega t - kz)).
+	\end{equation}
+	\item If $\Delta \phi = \frac{\pi}{2} + 2m\pi$, the light is said to be left circularly polarised, and the wave rotates clockwise,
+	\begin{equation}
+		\vb{E}(z,t) = E_0(\vu{i}\cos(\omega t - kz) - \vu{j}\sin(\omega t - kz)).
+	\end{equation}
+\end{itemize}
+In the case of $E_{0_x} \neq E_{0_y}$, the light is elliptically polarised.
+\section{Mechanisms of Polarisation}
+The intensity of a wave is given by,
+\begin{equation}
+	I = \langle S \rangle = \frac{1}{2}\varepsilon_0 cE^2.
+\end{equation}
+For randomly polarised light with original intensity $I(\theta)$ and an intensity post-polarisation $I(\theta)$ where $\theta$ is the angle between the transmission axis, the relationship between the two intensities are given by \textit{Malus's law},
+\begin{equation}
+	I(\theta) = I(0)\cos^2\theta.
+\end{equation}
+Below we talk about different mechanisms of polarisation.
+\subsection{Polarisation by Dichroism}
+This mechanism works by selectively absorbing 1 component of randomly polarised light.
+\begin{itemize}
+	\item Consists of a material with long, aligned molecules.
+	\item Component of the $\vb{E}$ vector along the long axis excites molecules and gets absorbed.
+	\item Polarisation of the wave is then along the other axis.
+	\item The transmitted field component is $E_0\cos\theta$ where $\theta$ is the angle between the \textit{pass axis}.
+\end{itemize}
 \appendix
 \chapter{Revision Equations}
-
 \section{Potentials}
 \begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Static Electric Potential]
 	\begin{align}

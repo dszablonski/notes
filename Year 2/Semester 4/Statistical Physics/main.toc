@@ -22,9 +22,19 @@
 \contentsline {subsection}{\numberline {3.6.1}The density of states}{15}{}%
 \contentsline {subsection}{\numberline {3.6.2}Maxwell Boltzmann Distribution}{16}{}%
 \contentsline {section}{\numberline {3.7}Factorisation of the partition function}{16}{}%
-\contentsline {section}{\numberline {3.8}Equipartition Theorem}{16}{}%
+\contentsline {section}{\numberline {3.8}Equipartition Theorem}{17}{}%
 \contentsline {subsection}{\numberline {3.8.1}Heat Capacity of a Crystal}{17}{}%
 \contentsline {section}{\numberline {3.9}$N$-Particle Partition Function for Indistinguishable Particles}{17}{}%
 \contentsline {subsection}{\numberline {3.9.1}Diatomic Molecules}{17}{}%
-\contentsline {section}{\numberline {3.10}Ideal Gas in the Classical Limit}{17}{}%
+\contentsline {section}{\numberline {3.10}Ideal Gas in the Classical Limit}{18}{}%
 \contentsline {subsection}{\numberline {3.10.1}Chemical potential of an ideal gas}{18}{}%
+\contentsline {section}{\numberline {3.11}Systems with Variable Particle Number}{19}{}%
+\contentsline {subsection}{\numberline {3.11.1}Dependence of Gibbs energy}{19}{}%
+\contentsline {subsection}{\numberline {3.11.2}Fermi-Dirac Distribution}{20}{}%
+\contentsline {section}{\numberline {3.12}Bose-Einstein Distribution}{20}{}%
+\contentsline {chapter}{\numberline {4}Quantum Gasses}{21}{}%
+\contentsline {section}{\numberline {4.1}Bosons and Fermions}{21}{}%
+\contentsline {section}{\numberline {4.2}Ideal Gas of Bosons and Fermions}{21}{}%
+\contentsline {subsection}{\numberline {4.2.1}Classical Limit}{22}{}%
+\contentsline {section}{\numberline {4.3}Ideal Fermi Gas}{23}{}%
+\contentsline {subsection}{\numberline {4.3.1}Electrons in a Metal}{23}{}%

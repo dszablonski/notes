@@ -512,13 +512,13 @@ which is what we expect. Furthermore, the Gibbs expression is more general and c
 	\begin{split}
 	\langle S \rangle &= -k_B\sum_ip_i\left[\ln\left(e^{-\varepsilon_i\beta}\right)-\ln Z\right]\\
 	& = -k_B \sum_ip_i\left(\varepsilon_i\beta - \ln Z\right) \\
-	& = k_B \left(\frac{1}{k_B T}\langle E \rangle - \ln Z \right) \\
-	& = -k_B\frac{1}{k_BT} \pdv{\ln Z}{\beta} + \ln Z
+	& = k_B \left(\frac{1}{k_B T}\langle E \rangle + \ln Z \right) \\
+	& = \frac{1}{T} \pdv{\ln Z}{\beta} + k_B\ln Z = \frac{\left<E\right>}{T} + k_B\ln Z
 \end{split}
 \end{equation}
 so we can find $\langle S \rangle$ from $Z$. However, we can rewrite this as,
 \begin{equation}
-	-k_BT \ln Z = \langle E \rangle + T \langle S \rangle = \langle F \rangle \label{eq:F}
+	k_BT \ln Z = \langle E \rangle - T \langle S \rangle = \langle F \rangle \label{eq:F}
 \end{equation}
 so we find that $Z$ directly gives us $F(T,V)$ or $F(T,B)$, or the Helmholtz free energy. The Helmholtz free energy is the natural potential for a system at fixed energy. Let us then recall the Maxwell relations,
 \begin{align}
@@ -703,7 +703,7 @@ which are Gaussian integrals,
 \begin{equation}
 	\begin{split}
 	Z_1 &= \frac{L_xL_yL_z}{2^3\pi^3}\left(\frac{2m\pi}{\hbar^2\beta}\right)^{\frac{3}{2}} \\
-	& = V\underbrace{\left(\frac{mk_BT}{2\pi\hbar^3}\right)^{\frac{3}{2}}}_{n_Q}
+	& = V\underbrace{\left(\frac{mk_BT}{2\pi\hbar^3}\right)^{\frac{3}{2}}}_{g_sn_Q}
 \end{split}
 \end{equation}
 where $n_Q = n_Q(T)$ known as the \textit{quantum concentration}, with dimensions of number density. We were able to convert the sums to integrals as even for every low temperatures, the energy spacing is much higher than the spacing between the energy levels, so we can use the continuum limit. We can then proceed to find the average energy,
@@ -720,7 +720,7 @@ Let us return to the particle in a box, and lets assume we cannot factorise the 
 	& = Vg_sn_Q
 	\end{split}
 \end{equation}
-as before. It is useful to write this integral as,
+as before. $g_s = 2s+1$ is an additional degeneracy factor corresponding to the spin of the particles. Often $s=1/2$. It is useful to write this integral as,
 \begin{equation}
 	Z_1 = \int_0^{\infty}g(k) e^{-\varepsilon(k)\beta}\dd{k}
 \end{equation}
@@ -733,6 +733,31 @@ If we have spin in our particles, we require $k_x,k_y,k_z$ and $m_s$ to full spe
 	g(k) = \frac{Vg_s}{2\pi^2}k^2	
 \end{equation}
 where $g_s = 2s+1$.
+\\\\
+We can also consider the density of states by first considering the total number of states,
+\begin{equation}
+	N(k) = \frac{\text{Volume in $k$-space}}{\text{Volume in $k$-space per point}} \cdot \text{Internal degeneracy $(g_s)$}.
+\end{equation}
+In 2D space,
+\begin{equation}
+	N(k) = \frac{\frac{1}{4}\pi k^2}{(\pi^2/A)}g_s
+\end{equation}
+and in 3D,
+\begin{equation}
+	N(k) = \frac{\frac{1}{4}\pi k^2}{(\pi^3/V)}g_s.
+\end{equation}
+We then have that $g(k) = \dv{N}{k}$, so,
+\begin{align}
+	\boxed{g(k)_{\text{3D}} = \frac{g_sVk}{2\pi^2}} && \boxed{g(k)_{\text{2D}} = \frac{g_sAk}{2\pi}}
+\end{align}
+however, we can generalise this to $N$ dimensions. We can obtain the density of states in terms of a different variable by realising,
+\begin{equation}
+	g(\epsilon) = \dv{N}{\varepsilon}
+\end{equation}
+and,
+\begin{equation}
+	g(k)\dd{k} = g(e)\dd{\varepsilon}.
+\end{equation}
 \subsection{Maxwell Boltzmann Distribution}
 The probability of finding a particle in $k$ space,
 \begin{equation}
@@ -845,4 +870,185 @@ where we then obtain,
 \begin{equation}
 	\boxed{\mu = - k_BT\ln\frac{g_sn_Q}{n}}
 \end{equation}
+\section{Systems with Variable Particle Number}
+Let us consider a system with fixed $V$, $T$, and $\mu$. If we consider an isolated system consisting of a reservoir $R$ and small system $s$, we can specify the $i$th microstate of $s$ by $\varepsilon_i$ and $N_i$. The reservoir is specified by $\varepsilon_0 - \varepsilon_i$ and $N_0 - N_i$. The probability of the $i$th microstate can be described by,
+\begin{equation}
+	\begin{split}
+		P_i & = \frac{\Sigma_R(\varepsilon_0-\varepsilon_i,N_0 -N_i)}{\Sigma_{\text{total}}} \\
+		P_i & \propto \exp\left(\frac{1}{k_B}S_R(\varepsilon_0 - \varepsilon_1, N_0 - N_i)\right) \\
+		& = \exp\left(\frac{1}{k_B}\left(S_R(\varepsilon_0, N_0) + (-\varepsilon_i)\underbrace{\eval{\pdv{S_R}{E}}_{\varepsilon_0}}_{\frac{1}{T_R}} + (-N_i)\underbrace{\eval{\pdv{S_R}{N}}_{\varepsilon_0}}_{-\frac{\mu}{T_R}}\right)\right)
+	\end{split}
+\end{equation}
+thus,
+\begin{equation}
+	P_i \propto \frac{e^{(\mu N_i - \varepsilon_i)\beta}}{\mathcal{Z}}
+\end{equation}
+where,
+\begin{equation}
+	\mathcal{Z} = \sum_ie^{(\mu N_i - \varepsilon_i)\beta}
+\end{equation}
+is the \textit{grand partition function}, used in the \textit{grand canonical ensemble}. It then follows that,
+\begin{align}
+	\langle N \rangle &= \sum_iN_iP_i = k_BT\left(\pdv{\mathcal{Z}}{\mu}\right)_{\beta} \\
+	\langle E \rangle & = -\left(\pdv{\ln(\mathcal{Z})}{\beta}\right)_{\mu} + \mu\langle N \rangle  \\
+	\langle S \rangle & = -k_B\sum_iP_i\ln P_i = \frac{1}{T}\left(\langle E - \mu N\rangle + k_BT\ln\mathcal{Z}\right).
+\end{align}
+We can then define a new potential,
+\begin{equation}
+	\Phi_G = -k_BT\ln\mathcal{Z} = \langle E - TS - \mu N\rangle,
+\end{equation}
+known as the \textit{grand potential}. From the fundamental thermodynamic relation, \begin{equation}
+	\dd\Phi_G = -S\dd{T} - P\dd{V} - N \dd\mu 
+\end{equation}
+from which,
+\begin{align}
+	S = -\left( \pdv{\Phi_G}{T}\right)_{V,\mu} && P = -\left(\pdv{\Phi_G}{V}\right)_{T,\mu} && N = - \left(\pdv{\Phi_G}{\mu}\right)_{T, V}.
+\end{align}
+$\Phi_G$ has the further property that $\Phi_G = -PV$. 
+\subsection{Dependence of Gibbs energy}
+We can prove that the Gibbs energy only depends on the chemical potential and particle number. Suppose we have several species present, $\left\{N^{(s)}\right\}$ with corresponding potentials $\left\{\mu^{(s)}\right\}$. Then,
+\begin{align}
+	\Phi_G = E - TS - \sum_s\mu^{(s)}N^{(s)} && \dd{\Phi_G} = - S\dd{T} - P\dd{V} - \sum_sN^{(s)}\dd{\mu}^{(s)}
+\end{align}
+and the corresponding Gibbs free energy is,
+\begin{equation}
+	G = E - TS + OV = E - TS + \Phi_G = \sum_s\mu^{(s)}N^{(s)}.
+\end{equation}
+\subsection{Fermi-Dirac Distribution}
+The Fermi-Dirac distribution is defined,
+\begin{equation}
+	\langle N \rangle = -\left(\pdv{(-k_BT\ln\mathcal{Z})}{\mu}\right)_{\beta} = \frac{1}{e^{(\varepsilon_0 - \mu)\beta} + 1}.
+\end{equation}
+For $T \to 0$, it approaches the step function,
+\begin{equation}
+	\langle N \rangle \to \begin{cases}1 & \varepsilon_0 < \mu \\ 0 & \varepsilon > \mu\end{cases}.
+\end{equation}
+It can be to cases where molecules can only take up two states.
+\section{Bose-Einstein Distribution}
+The Bose-Einstein distribution is defined,
+\begin{equation}
+	\langle N \rangle = \frac{1}{e^{(\varepsilon_0 - \mu)\beta} - 1}
+\end{equation}
+and can be applied to cases where there can be $N$ states for $N$ particles.
+\chapter{Quantum Gasses}
+\section{Bosons and Fermions}
+\textit{Bosons} are particles with integer total angular momentum. \textit{Fermions} are particles with $\frac{1}{2}$-integer angular momentum/spin. Fermions obey the \textit{Pauli exclusion principle}.
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,width=\textwidth,fonttitle=\bfseries, title={Pauli Exclusion Principle}]
+	No two fermions can be in the same, fully specified (including spin projection $m_s$ quantum state.)
+\end{tcolorbox}
+More mathematically, we require the overall wavefunction of a system of identical fermions to be anti-symmetric under exchange of any pair. I.e.,
+\begin{equation}
+	\Psi(\vb{r}_1,\vb{r}_2,m_1,m_2) = - \Psi(\vb{r}_1,\vb{r}_1, m_2, m_1).
+\end{equation}
+For \textit{Bosons}, we require symmetry under exchange of pairs.
+\section{Ideal Gas of Bosons and Fermions}
+in an ideal gas, there are no explicit interactions. Previously, we said that the number of single particle levels were much greater than the number of particles, i.e., $n_Q >> n$. We did this as we were not treating states with more than one particle correctly, i.e., considering the Pauli exclusion principle.
+\\\\
+We will consider the grand canonical ensemble. If we consider what is happening in a single energy level, $\epsilon_r$, where $r$ indicates the energy level number. If there are $n$ particles, we define,
+\begin{equation}
+	\mathcal{Z}_r = \sum_{n=0}e^{n(\mu - \varepsilon_r)\beta}
+\end{equation}
+and the grand partition function of the whole system is then,
+\begin{equation}
+	\mathcal{Z} = \prod_{r}\mathcal{Z}_r.
+\end{equation}
+Let us define the occupancy of an energy level to be,
+\begin{equation}
+	\left<N_r\right> = \overline{n}_r 
+\end{equation}
+which is the average number of particles in each energy level. We then have,
+\begin{align}
+	\langle N \rangle = \sum_r \overline{n}_r && \langle E \rangle = \sum_r\overline{n}_r\varepsilon_r.
+\end{align}
+The grand partition function and occupancy for Bosons follows,
+\begin{align}
+	\mathcal{Z}_r = \frac{1}{1 - e^{(\mu - \varepsilon_r)\beta}} && \overline{n}_r = \frac{1}{e^{(\varepsilon_r - \mu)\beta} - 1}
+\end{align}
+and for fermions,
+\begin{align}
+	\mathcal{Z}_r = 1 + e^{(\mu - \varepsilon_r)\beta} && \overline{n}_r = \frac{1}{e^{(\varepsilon_r - \mu)\beta} + 1}.
+\end{align}
+In the continuum limit, we can write,
+\begin{align}
+	\langle N \rangle = \int_0^{\infty}g(k)\overline{n}(k)\dd{k} && \langle E\rangle = \int_0^{\infty}g(k)\varepsilon(k)\overline{n}(k)\dd{k}
+\end{align}
+where,
+\begin{equation}
+	\overline{n}(k) = \overline{n}(\varepsilon(k)) = \frac{1}{e^{(\varepsilon(k) - \mu)\beta} \pm 1}
+\end{equation}
+where we have $+$ for Fermions and $-$ for Bosons. We can furthermore write down the grand potential,
+\begin{equation}
+	\begin{split}
+		\Phi_G & = -k_BT \ln\mathcal{Z} \\
+		& = \mp k_BT\sum_r\ln(1 \pm e^{(\mu - \varepsilon_r)\beta})\\
+		& = \mp \int_0^{\infty} g(\varepsilon) \ln(1 \pm e^{(\mu - \varepsilon_r)\beta})\dd\varepsilon.
+	\end{split}
+\end{equation}
+\subsection{Classical Limit}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.45\textwidth]{mo.png}
+	\caption{}
+	\label{fig:mo}
+\end{figure}
+In the classical limit, we have that $\mu << 1$, $\varepsilon_r > \varepsilon_r^{\text{min}}$, so $\mu - \varepsilon_r^{\text{min}} << 0$ and $e^{(\mu - \varepsilon)\beta} << 1$. Considering the Taylor expansion of $\ln(1\pm x)$, the grand potential then becomes,
+\begin{equation}
+	\Phi_G = -k_BTe^{\mu\beta}\sum_r\underbrace{e^{-\varepsilon_r \beta}}_{Z_1}
+\end{equation}
+we have thus recovered the single particle partition function for a particle in a box, and we'll find $Z_1 = Vg_sn_Q$. We can then find the average particle number,
+\begin{equation}
+	\langle N \rangle = - \left(\pdv{\Phi_G}{\mu}\right)_{T,V} \approx e^{\mu\beta}Z_1.
+\end{equation}
+Solving for $\mu$,
+\begin{equation}
+	\mu = -k_BT\ln\left(\frac{g_sn_Q}{n}\right)
+\end{equation}
+so for $\mu << 0$, we require $n << n_Q$, as in the classical limit. Knowing that $\Phi_G = F - \mu N$, we have,
+\begin{equation}
+ 	F = -Nk_BT\left(\ln\left(\frac{Z_1}{N}\right)+1\right)
+\end{equation}
+which is the classical Helmholtz free energy with $Z_N = \frac{(Z_1)^N}{N!}$, allowing us to recover the classical ideal gas. If we inspect the occupancy for $\mu << 0$, we have,
+\begin{equation}
+	\overline{n}(\varepsilon) \approx N\frac{e^{-\varepsilon\beta}}{Z_1}
+\end{equation}
+which is the Boltzmann distribution. The Boltzmann, Bose-Einstein, and Fermi-Dirac distributions are plotted as functions of $(\varepsilon - \mu)\beta$ in figure \ref{fig:mo}
+\section{Ideal Fermi Gas}
+\subsection{Electrons in a Metal}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fermion.png}
+	\caption{}
+	\label{eq:fermion}
+\end{figure}
+Electrons are free to move around, but the potential is not constant, and we have wells at each atom position. The free electron model ignores this and treats electrons as moving in a 0 potential box. We then have the same Schrodinger equation solution for each atom, as being an atom in a box. We will also ignore $e^- - e^-$. The electrons in a solid are not classical. The occupancy of electrons will be given by the expression for fermions,
+\begin{equation}
+	\overline{n}(\varepsilon)  = \frac{1}{e^{(\varepsilon - \mu)\beta}},
+\end{equation}
+which is plotted in figure \ref{eq:fermion}. All energy levels must be occupied, so we must have $\varepsilon >> k_BT$, so we must consider $\mu << 0$ and the low temperature limit $T \to 0$. In this case, we find that the occupancy approaches a step function,
+\begin{equation}
+	\overline{n}(\varepsilon) = \Theta(\mu - \varepsilon) = \begin{cases}
+		1 & \mu > \varepsilon \\
+		0 & \mu < \varepsilon \\
+	\end{cases}.
+\end{equation}
+So, we see that $\mu$ is the highest occupied state at 0 temperature. This is also known as the \textit{Fermi energy}. The corresponding value of $k_f$ is known as the \textit{Fermi momentum}, which (for non-relativistic particles) is related to the Fermi energy by,
+\begin{equation}
+	\frac{\hbar^2k_f^2}{2m} = \varepsilon_f. \label{eq:fermi_e}
+\end{equation}
+We can find the value of the Fermi energy by considering,
+\begin{equation}
+	\begin{split}
+		\langle N \rangle = \int_0^{\infty}g(k) \overline{n}(k)\dd{k} &= \int_0^{k_f}g(k)\dd{k} \\
+		& = \frac{Vg_s}{2\pi^2}\int_0^{k_f}k^2\dd{k} = \frac{V}{\pi^2}\frac{1}{3}k_f^3.
+	\end{split}
+\end{equation}
+Knowing about equation \eqref{eq:fermi_e} and knowing $n = N/V$, we can write,
+\begin{align}
+	k_f = (3\pi^2n)^{1/3} && \varepsilon_f = \frac{(3\pi^2\hbar^3n)^{2/3}}{2m}.
+\end{align}
+The average energy of a fermi gas is given by,
+\begin{equation}
+	\langle E \rangle  = \frac{V}{\pi^2}\int_0^{k_f}\frac{\hbar^2k^2}{2m}k^2\dd{k} = \frac{3}{5}\langle N \rangle \varepsilon_f.
+\end{equation}
+All of the above is at zero temperature.
 \end{document}

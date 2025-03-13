@@ -138,7 +138,7 @@ and has normalised Eigenfunctions,
 	\psi_n(x) = \left(\frac{1}{n!2^na\sqrt{\pi}}\right)H_n\left(\frac{x}{a}\right)\exp\left(-\frac{x^2}{2a^2}\right)
 \end{equation}
 where $a = \sqrt{\hbar/m\omega}$ and $H_n(x/a)$ is a Hermite polynomial.
-\subsection{Simple Perturbation Theory}
+\subsection{First Order Perturbation Theory}
 In simple perturbation theory, we write the Hamiltonian as,
 \begin{equation}
 	\hat{H} = \hat{H}_0 + \hat{V}
@@ -662,6 +662,187 @@ We can now add the spin wavefunction to our hydrogen wave function,
 	\Psi_{nlm_lm_s} = R_{nl}(r)Y_{lm_l}(\theta,\phi)\chi_{m_s}
 \end{equation}
 which has the same eigenvalues as before but additional degeneracy $D = 2n^2$.
+\section{Angular Momentum Addition Theorem}
+Given we know have additional angular momentum contributions from spin, we wish to combine these to get the total angular momentum. Let us then define a new operator,
+\begin{equation}
+	\hat{J} = \hat{L}_1 + \hat{L}_2,
+\end{equation}
+whose eigenvalues are, 
+\begin{align}
+	\hat{J}^2 && : && j(j+1)\hbar^2 \\
+	\hat{J}_z && : && m_j\hbar
+\end{align}
+where $\abs{m_j} \leq j$. The possible values of $j$ are determined by the addition theorem.
+\begin{Theorems}{Addition Theorem}{}
+	For operators $\hat{L}_1$ and $\hat{L}_2$ with quantum numbers $l_1$ and $l_2$, the quantum number $j$ is determined by,
+	\begin{equation}
+		j = l_1 + l_2, l_1 + l_2 - 1, \ldots, |l_1 - l_2|.
+	\end{equation}
+\end{Theorems}
+\section{Spin-orbit coupling}
+Electrons in a hydrogen atom will interact with the proton due to its inherent magnetic moment. This interaction is governed by the potential,
+\begin{equation}
+	\hat{V}_{SO} = f(r) \hat{L}\cdot\hat{S}
+\end{equation}
+where 
+\begin{equation}
+	f(r) = \frac{e^2}{8\pi\epsilon_0 me^2c^2}\frac{1}{r^3}.
+\end{equation}
+Let's consider this potential to be a perturbation in our original hydrogen Hamiltonian, and treat it by first order perturbation theory. So,
+\begin{equation}
+	E_n = -\frac{E_R}{n^2} + \langle \hat{V}_{SO}\rangle
+\end{equation}
+where $\langle \hat{V}_{SO}\rangle \sim 10^{-3}$eV.
+\subsection{Re-evaluation of quantum numbers}
+We can no longer consider $m_l$ and $m_s$ to be good quantum numbers, as after applying the perturbation to the Hamiltonianm $\hat{L}_z$ and $\hat{S}$ no longer commute with $\hat{H}$. We can attempt to identify replacement candidates by taking the square of $\hat{J} = \hat{L} + \hat{S}$,
+\begin{equation}
+	\hat{J}^2 = \hat{L}^2 + 2\hat{L}\cdot \hat{S} + \hat{S}^2
+\end{equation}
+thus,
+\begin{equation}
+	\hat{L}\cdot\hat{S} = \frac{1}{2}\left(\hat{J}^2 - \hat{L}^2 - \hat{S}^2\right).
+\end{equation}
+Thus, if in a definite states of $J^2$, $L^2$ and $S^2$,
+\begin{equation}
+	\langle \hat{L}\cdot\hat{S}\rangle = \frac{1}{2}\left[j(j+1) - l(l+1) - s(s+1)\right].
+\end{equation}
+$\hat{L}$, $\hat{S}$, $\hat{J}^2$, and $\hat{J}_z$ all commute with each other, but not $\hat{L}_z$ or $\hat{S}_z$, so we can say that our new set of good quantum numbers is given by $(n, l, j, m_j)$.
+\subsection{Energy Level Splitting}
+Energy level splitting occurs when formerly degenerate energy levels splitting into several distinct energy levels due to a perturbation in the system. For spin $s = \frac{1}{2}$ particles, this energy level splitting is characterised the set of energies,
+\begin{equation}
+	\Delta E_{nl} = \langle \hat{V}_{SO} \rangle_{nl} = \frac{\hbar^2}{2}\left(j(j+1) - l(l+1) - \frac{3}{4}\right)\langle f(r) \rangle_{nl}
+\end{equation}
+for all $j$ for a specified $n$ and $l$. The factor $\langle f(r) \rangle_{nl}$ is determined by,
+\begin{equation}
+	\langle f(r) \rangle_{nl} = \int_0^{\infty}R_{nl}^*(r)f(r)R_{nl}(r)r^2\dd{r}.
+\end{equation}
+\section{Zeeman Effects}
+Zeeman effects occur due to interactions from an external magnetic field. If we have a magnetic field $\vb{B} = B\vu{z}$, the potential is given by,
+\begin{equation}
+	\hat{V}_{\text{mag}} = - \vu*{\mu}\cdot\vb{B} = - B\mu_z  = \frac{eB}{2m_e}\left(\hat{L}_z + g\hat{S}_z\right). \label{eq:vmag}
+\end{equation}
+For $B \sim 1$T, energy splitting is only slightly smaller than spin coupling.
+\subsection{Strong Zeeman Effect}
+For $B >> 1$T, effects due to spin-orbit coupling become negligible. Thus, the permutation on the Hamiltonian becomes,
+\begin{equation}
+	\hat{H} = \hat{H}_0 + \hat{V}_{\text{mag}},
+\end{equation}
+and by first order permutation theory,
+\begin{equation}
+	\langle \hat{H} \rangle = E_N + \Delta E_{\text{mag}}.
+\end{equation}
+Let us note that we retain our original good quantum numbers $(n,l,m_l,m_s)$ since equation \eqref{eq:vmag} commutes with the unperturbed hydrogen Hamiltonian. The enrgy level splitting is determined by $m_l$ and $m_s$,
+\begin{equation}
+	\Delta E_{\text{mag}} = \mu_B B(m_l + 2m_s).
+\end{equation}
+\subsection{Weak Zeeman Effect}
+For $B << 1T$, we must consider spin orbit coupling in our treatment of the Zeeman effects. Instead of perturbing the Hamiltonian with the coulomb force, we perturb the Coulomb Hamiltonian perturbed by spin-orbit coupling. I.e.,
+\begin{equation}
+	\hat{H} = \underbrace{\left(\hat{H}_0 + \hat{V}_{SO}\right)}_{\text{unperturbed}} + \hat{V}_{\text{mag}}.
+\end{equation}
+We must then consider a form of the magnetic potential described by the good quantum numbers of a spin-orbit system $(n l, j, m_j)$. The energy splitting is then described by,
+\begin{equation}
+	\Delta E_{\text{mag}} = \langle \hat{V}_{\text{mag}}\rangle = \frac{eB}{2m_e}\left(\langle \hat{J}_z\rangle + \langle \hat{S}_z\rangle\right)
+\end{equation}
+where we define,
+\begin{equation}
+	\langle \hat{J}_z \rangle = m_j \hbar, \\
+	\langle \hat{S}_z \rangle = \frac{j(j+1) + s(s+1) - l(l+1)}{2j(j+1)}m_j\hbar.
+\end{equation}
+We often define the Lande g-factor as,
+\begin{equation}
+	g_l = 1 + \frac{j(j+1) + s(s+1) - l(l+1)}{2j(j+1)}
+\end{equation}
+where we can then write  the energy level splitting as,
+\begin{equation}
+	\Delta E _{\text{mag}} = g_l \mu_B Bm_j
+\end{equation}
+\chapter{Mutlielectron Atoms}
+\section{Identical Particles - Bosons and Fermions}
+Fundamental particles such as electrons are identical/indistinguishable. The wavefunction particle specified by a coordinate $x_1$, such that $x_1 = (\vb{r}_1, m_1, \ldots)$ and another particle specified by $x_2$, must be either symmetric or antisymmetric under exchange of particles. I.e.,
+\begin{equation}
+	\abs{\psi(x_1, x_2)}^2 = \abs{\psi(x_2,x_1)}^2.
+\end{equation}
+For fermions,
+\begin{equation}
+	\psi(x_1,x_2) = - \psi(x_2,x_1)
+\end{equation}
+and for bosons,
+\begin{equation}
+	\psi(x_1,x_2) = \psi(x_2,x_1).
+\end{equation}
+\section{Pauli Exclusion Principle}
+When talking about $N$-particle systems, we must use the independent particle approximation, which states the following,
+\begin{enumerate}
+	\item Each wavefunction is independent.
+	\item A many body wavefunction is a product of one-body wavefunctions.
+	\item Products of such a system are symmetric for bosonic systems, and anti-symmetric for fermionic systems.
+\end{enumerate}
+Let us consider 2 spinless particles, which can be in two states $\alpha$ and $\beta$. The approximation of the combined state of the bosonic combination would be written as,
+\begin{equation}
+	\Psi^S(\vb{r}_1,\vb{r}_2) = \frac{1}{\sqrt{2}}\left[\psi_{\alpha}(\vb{r}_1)\psi_{\beta}(\vb{r}_2) + \psi_{\alpha}(\vb{r}_2)\psi_{\beta}(\vb{r}_1)\right]
+\end{equation}
+and the combination of fermions is,
+\begin{equation}
+	\Psi^A(\vb{r}_1,\vb{r}_2) = \frac{1}{\sqrt{2}}\left[\psi_{\alpha}(\vb{r}_1)\psi_{\beta}(\vb{r}_2) - \psi_{\alpha}(\vb{r}_2)\psi_{\beta}(\vb{r}_1)\right].
+\end{equation}
+If we consider $\alpha = \beta$, we find $\Psi^S(\vb{r}_1,\vb{r}_2) = \psi_{\alpha}(\vb{r}_1)\psi_{\alpha}(\vb{r}_2)$ whereas $\Psi^A(\vb{r}_1,\vb{r}_2) = 0$. Thus, the \textit{Pauli exclusion principle} reveals itself: It is impossible to have 2 fermions occupying the same state.
+\section{Helium Atom}
+The helium atom consists of a nucleus with charge $+Ze$ and two electrons. We can write its Hamiltonian with a perturbation,
+\begin{equation}
+	\hat{H} = \hat{H}_0 + \hat{V}(r_{12})
+\end{equation}
+where
+\begin{equation}
+	\hat{H}_0 = \hat{H}_1 + \hat{H}_2
+\end{equation}
+and,
+\begin{equation}
+	\hat{H}_i = \frac{\hat{p}^2}{2m_e} - \frac{Ze^2}{4\pi\epsilon_0}\frac{1}{r_i},
+\end{equation}
+and $\hat{V}$ is the coulomb potential between the two electrons,
+\begin{equation}
+	\hat{V}(r_{12}) = \frac{e^2}{4\pi\epsilon_0}\frac{1}{\abs{\vb{r}_2 - \vb{r}_1}},
+\end{equation}
+and we ignore spin-orbit coupling. We then want to write our wavefunction in a separable form,
+\begin{equation}
+	\Psi(\vb{r}_1,s_1;\vb{r}_2,s_2) = \psi(\vb{r}_1,\vb{r}_2)\chi(s_1,s_2).
+\end{equation}
+We require $\Psi$ to be antisymmetric, so we require $\psi$ to be symmetric and $\chi$ to be antisymmetric, or vice-versa.
+\\\\
+Let us consider the $\chi$ part of the wavefunction. For a system of two electrons, we have that the total spin is $S = 0$ or $S = 1$. There are 4 eigenstates of the total spin $S$,
+\begin{enumerate}
+	\item A single anti-symmetric state (singlet) with $S = 0$,
+	\begin{equation}
+		\ket{\chi^A} = \frac{1}{\sqrt{2}}\left(\ket{\uparrow\downarrow} - \ket{\downarrow\uparrow}\right).
+	\end{equation}
+	\item Three symmetric states (triplet) with $S = 1$,
+	\begin{align}
+		\chi^S(s_1,s_2) = \begin{cases}
+			\ket{\uparrow\uparrow} & m_s = 1 \\
+			\frac{1}{\sqrt{2}}\left(\ket{\uparrow\downarrow} + \ket{\downarrow\uparrow}\right) & m_s = 0 \\
+			\ket{\downarrow\downarrow} & m_s = -1
+		\end{cases}.
+	\end{align}
+\end{enumerate}
+We call the singlet states \textit{parahelium} and the triplet states \textit{orthohelium}.
+\subsection{Parahelium}
+Since $S = 0$, we require $\psi$ to be symmetric. Thus, our ground state is,
+\begin{equation}
+	\psi^S_{1s1s}(\vb{r}_1,\vb{r}_2) = \psi_{1s}(\vb{r}_1)\psi_{1s}(\vb{r}_2).
+\end{equation}
+We can then calculate the energy,
+\begin{equation}
+	\begin{split}
+		E &= \int \dd^3r_1\dd^3r_2\left(\psi^*(r_1)\psi^*(r_2)\right)\left(\hat{H}_1 + \hat{H}_2 + \hat{V}\right)\left(\psi(r_1)\psi(r_2)\right) \\
+		& = 2E_0 + \frac{e^2}{4\pi\epsilon_0}\int\dd^3r_1\dd^3r_2\frac{1}{\abs{\vb{r}_1 - \vb{r}_2}}\abs{\psi_{1s}(r_1)}^2\abs{\psi_{1s}(r_2)}^2 \\
+		& = -2Z^2E_R + \frac{5}{2}ZE_R = -74.8\text{eV}.
+	\end{split}
+\end{equation}
+The actual double-ionisation energy of helium is $79.0$eV, so our approximation is quite accurate. If we were to apply second order perturbation theory, we would get this value almost exactly. 
+\subsection{Orthohelium}
+\subsection{Excited Parahelium}
+
 \appendix
 \chapter{Misc. Formulae}
 \section{Commutation Relation}
