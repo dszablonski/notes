@@ -37,4 +37,14 @@
 \contentsline {section}{\numberline {4.2}Ideal Gas of Bosons and Fermions}{21}{}%
 \contentsline {subsection}{\numberline {4.2.1}Classical Limit}{22}{}%
 \contentsline {section}{\numberline {4.3}Ideal Fermi Gas}{23}{}%
-\contentsline {subsection}{\numberline {4.3.1}Electrons in a Metal}{23}{}%
+\contentsline {subsection}{\numberline {4.3.1}Electrons in Metal}{23}{}%
+\contentsline {subsubsection}{Zero Temperature Fermi Gas}{23}{}%
+\contentsline {subsubsection}{Finite Temperature Fermi Gas}{24}{}%
+\contentsline {subsubsection}{Low Temperature Limit of the Fermi Gas}{25}{}%
+\contentsline {subsubsection}{Thermal Properties}{25}{}%
+\contentsline {subsubsection}{Magnetic Properties}{25}{}%
+\contentsline {subsection}{\numberline {4.3.2}White Dwarf Stars}{25}{}%
+\contentsline {section}{\numberline {4.4}Ideal Bose Gas}{26}{}%
+\contentsline {subsection}{\numberline {4.4.1}Classical Cavity Radiation}{26}{}%
+\contentsline {subsection}{\numberline {4.4.2}Photons and Blackbody Radiation}{27}{}%
+\contentsline {subsection}{\numberline {4.4.3}Bosons and The Bose-Einstein Condensate}{27}{}%

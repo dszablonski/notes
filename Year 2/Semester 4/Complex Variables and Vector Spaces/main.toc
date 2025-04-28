@@ -64,3 +64,14 @@
 \contentsline {subsection}{\numberline {3.3.2}Taking derivatives in the complex plane}{30}{}%
 \contentsline {section}{\numberline {3.4}Conformal Map}{30}{}%
 \contentsline {subsection}{\numberline {3.4.1}Applications in Physics Problems}{31}{}%
+\contentsline {section}{\numberline {3.5}Complex Integration}{31}{}%
+\contentsline {subsection}{\numberline {3.5.1}Cauchy's Theorem}{32}{}%
+\contentsline {subsubsection}{Indefinite Integrals}{33}{}%
+\contentsline {subsubsection}{Deformation of Closed Paths}{33}{}%
+\contentsline {subsection}{\numberline {3.5.2}Cauchy's Integral Formulas}{34}{}%
+\contentsline {section}{\numberline {3.6}Proof of the Fundamental Theorem of Algebra}{35}{}%
+\contentsline {section}{\numberline {3.7}Taylor Series}{36}{}%
+\contentsline {section}{\numberline {3.8}Laurent Series}{36}{}%
+\contentsline {subsection}{\numberline {3.8.1}Residue Theorem}{38}{}%
+\contentsline {subsubsection}{Methods of finding residues}{38}{}%
+\contentsline {section}{\numberline {3.9}Complex Methods of Real Integrals}{38}{}%

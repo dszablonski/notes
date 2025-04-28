@@ -912,7 +912,7 @@ We can prove that the Gibbs energy only depends on the chemical potential and pa
 \end{align}
 and the corresponding Gibbs free energy is,
 \begin{equation}
-	G = E - TS + OV = E - TS + \Phi_G = \sum_s\mu^{(s)}N^{(s)}.
+	G = E - TS + PV = E - TS - \Phi_G = \sum_s\mu^{(s)}N^{(s)}.
 \end{equation}
 \subsection{Fermi-Dirac Distribution}
 The Fermi-Dirac distribution is defined,
@@ -934,7 +934,7 @@ and can be applied to cases where there can be $N$ states for $N$ particles.
 \section{Bosons and Fermions}
 \textit{Bosons} are particles with integer total angular momentum. \textit{Fermions} are particles with $\frac{1}{2}$-integer angular momentum/spin. Fermions obey the \textit{Pauli exclusion principle}.
 \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,width=\textwidth,fonttitle=\bfseries, title={Pauli Exclusion Principle}]
-	No two fermions can be in the same, fully specified (including spin projection $m_s$ quantum state.)
+	No two fermions can be in the same, fully specified (including spin projection $m_s$) quantum state.
 \end{tcolorbox}
 More mathematically, we require the overall wavefunction of a system of identical fermions to be anti-symmetric under exchange of any pair. I.e.,
 \begin{equation}
@@ -1013,7 +1013,8 @@ which is the classical Helmholtz free energy with $Z_N = \frac{(Z_1)^N}{N!}$, al
 \end{equation}
 which is the Boltzmann distribution. The Boltzmann, Bose-Einstein, and Fermi-Dirac distributions are plotted as functions of $(\varepsilon - \mu)\beta$ in figure \ref{fig:mo}
 \section{Ideal Fermi Gas}
-\subsection{Electrons in a Metal}
+\subsection{Electrons in Metal}
+\subsubsection{Zero Temperature Fermi Gas}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\textwidth]{fermion.png}
@@ -1050,5 +1051,181 @@ The average energy of a fermi gas is given by,
 \begin{equation}
 	\langle E \rangle  = \frac{V}{\pi^2}\int_0^{k_f}\frac{\hbar^2k^2}{2m}k^2\dd{k} = \frac{3}{5}\langle N \rangle \varepsilon_f.
 \end{equation}
-All of the above is at zero temperature.
+All of the above is at zero temperature. We can obtain expressions for pressure and bulk modulus,
+\begin{align}
+	P=\frac{2}{5}n\varepsilon_f\propto\left(\frac{N}{V}\right)^{\frac{5}{3}} && B = -v\left(\pdv{P}{V}\right)_{T} = \frac{5}{3}P = \frac{2}{3}n\varepsilon_f.
+\end{align}
+\subsubsection{Finite Temperature Fermi Gas}
+As temperature rises, the chemical potential will not remain constant. We will make a change of variables,
+\begin{align}
+	x = \frac{\hbar^2k^2}{2m}\beta && k=\sqrt{\frac{2m}{\hbar^2}\beta x} && \dd{k} = \frac{1}{2}\sqrt{\frac{2m}{\beta\hbar^2}}x^{-\frac{1}{2}}\dd{x}
+\end{align}
+and calculate the electron density,
+\begin{equation}
+	\frac{N}{V} = \frac{1}{2} \left(\frac{2m}{\hbar\beta}\right)^{\frac{3}{2}}\frac{g_s}{2\pi^2}\underbrace{\int_0^{\infty}\frac{x^{\frac{1}{2}}}{\bar{z}e^{x} + 1}} \label{eq:i}
+	\end{equation}
+where,
+\begin{equation}
+	\bar{z} = \frac{1}{z}.
+\end{equation}
+The integrand in equation \eqref{eq:i} is shown as a function of energy at fixed temperature in figure \ref{fig:a}. We can see that as $\bar{z}$ increases, $\mu$ decreases through 0 into negative values. 
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+		\includegraphics[width=\textwidth]{a1.png}
+		\label{fig:a1}
+		\caption{$\mu > 0$, decreasing from blue to green.}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\includegraphics[width=\textwidth]{a2.png}
+		\label{fig:a2}
+		\caption{$\mu < 0$, decreasing, with blue at $\mu = 0$.}
+	\end{subfigure}
+	\caption{}
+	\label{fig:a}
+\end{figure}
+\noindent
+We can rearrange \eqref{eq:i} to get,
+\begin{equation}
+	F(\bar{z}) = \frac{\sqrt{\pi}}{2}\frac{n}{g_sn_q}
+\end{equation}
+where we note that $\bar{z} \to 0$ is an asymptote. Furthermore, as $\mu << 0$, $F(\hat{z}) \to \frac{\sqrt{\pi}}{2\bar{z}}$ which recovers the classical limit. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.425\textwidth]{muef}
+\caption{Blue - Fermi Dirac, Orange - Classical Boltzmann, Green - Bose-Einstein}
+\label{fig:muef}
+\end{figure}
+In figure \ref{fig:muef} is plotted the chemical potential as a function of temperature, scaled by the Fermi energy and temperature. We see that the classical approximation approaches the Fermi distribution as $T \to \infty$. If we fix the particle number, we can make an expansion around $T = 0$,
+\begin{equation}
+	\mu = \varepsilon_f - \frac{\pi^2}{12}\frac{(k_BT)^2}{\varepsilon_f}
+\end{equation}
+and,
+\begin{equation}
+	\langle E \rangle = \frac{3}{2}N\varepsilon_f + \frac{N\pi^2}{4}\frac{(k_BT)^2}{\varepsilon_f}
+\end{equation}
+so we see that both expressions are quadratic in $T$, so temperature dependence is heavily suppressed at the low temperature limit.
+\subsubsection{Low Temperature Limit of the Fermi Gas}
+Electrons in a metal are all below $T_F$, i.e., $T << T_F$, where $T_F$ is $\sim 80000$K in copper. At 0K, the energy level distribution as seen in figure \ref{fig:a1} would become a ramp, with the step down at $\varepsilon_f$. The reason we see a smooth curve is because electrons which have energies $\sim\varepsilon_f$ are overcome by thermal effects and are brought to energy levels above $\varepsilon_f$. The width of energies at which this happens is $\sim nk_BT\times g(\varepsilon_f)$, where n is a number of the order of a few. The electrons near 0K will have an energy equal to that at $0$K, plus an additional energy due to thermal effects,
+\begin{equation}
+	E(T) = E(0) + n(k_BT)^2g(\varepsilon_f).
+\end{equation}
+We have that,
+\begin{align}
+	\varepsilon_f = \frac{\hbar^2}{2m}\left(3\pi^2\frac{N}{V}\right)^{2/3} && g(\varepsilon_f) = \frac{3}{2}N\varepsilon_f^{-1}
+\end{align}
+so,
+\begin{equation}
+	E(T) = E(0) + \sim \underbrace{N\frac{(k_BT)^2}{\varepsilon_F}}_{Nk_BT\left(\frac{T}{T_F}\right)}
+\end{equation}
+so we see that the fractional variation is also heavily suppressed, and that the additional energy is $\propto T^2$. 
+\subsubsection{Thermal Properties}
+If we consider the the heat capacity at constant volume, $C_V^{\text{electronic}} \sim Nk_B\left(\frac{N}{k_B}\right)$ which is linear in $T << Kk_B$. Furthermore, at low temperature is $C_V^{\text{lattice}} \sim T^3$, so we  see that the electronic contribution is heavily suppressed, as expected. We can model the heat capacity as,
+\begin{equation}
+	\frac{C_V}{T} = a + bT^2.
+\end{equation}
+We can relate thermal conductivity to electrical conductivity by the Wiedemann-Franz law,
+\begin{equation}
+	\frac{\kappa}{\sigma} = LT
+\end{equation}
+where the thermal conductivity and electrical conductivity for a gas are given by,
+\begin{align}
+	\kappa = \frac{1}{3}\langle v\rangle^2\tau C_V^{\text{el}} && \sigma = \frac{ne^2\tau}{m_e}
+\end{align}
+where $\tau$ is the relaxation time, given by $\tau = \lambda/\langle v \rangle$ where $\lambda$ is the mean free path. We can then write the Wiedemann-Franz law as,
+\begin{equation}
+	\frac{\kappa}{\sigma} \frac{k_B\pi^2}{3e^2}T.
+\end{equation}
+\subsubsection{Magnetic Properties}
+In contrast to expectation, at any temperature we find the average magnetic moment is independent of $T$ and much smaller than expected if each electron were free to orient in the field. Applying a magnetic field causes the electrons to occupy more states in spin up or spin down, resulting in a magnetic moment of,
+\begin{equation}
+	m = \frac{3}{2}N\mu_B \frac{N_BB}{\varepsilon_f}.
+\end{equation}
+\subsection{White Dwarf Stars}
+As fuel runs out, stars cool and contract. This leads to gravity being countered by the pressure of a dense fermi gas which is approximately degenerate ($0$K). Although still hot, the density is such that $\mu >> k_BT$. If we assume non-relativistic particles, we can say $M_* = M_{\odot}/2$. We then have,
+\begin{align}
+	N = \frac{2M_*}{M_{\text{He}}} && V = \frac{4\pi}{3}R_*^3
+\end{align}
+so,
+\begin{equation}
+	n \propto \frac{M_*}{M_{\text{He}}}
+\end{equation}
+and,
+\begin{equation}
+	E = \frac{3}{2}\varepsilon_f \propto n^{2/3}
+\end{equation}
+thus,
+\begin{equation}
+	E \propto M_{*}\left(\frac{M_*}{R_*^3}\right)^{2/3} = a \frac{M_*^{5/3}}{R_*}
+\end{equation}
+and the gravitational energy is,
+\begin{equation}
+	E_G = -\underbrace{\frac{3}{5}G}_{b} \frac{m_*^2}{R_*}.
+\end{equation}
+This reaches equilibrium when $P$ is at a minimum, or when,
+\begin{equation}
+	\dv{E}{R_*} = 0 = -2a\frac{M_*^{5/3}}{R_*^3} + b\frac{M_*^2}{R_*^2} \implies R_*M_*^{1/3} = \text{Const}
+\end{equation}
+which is the mass-radius relation for a white dwarf.
+\\\\
+As $M_* \to M_{\odot}$, electrons start to become relativistic. In the limit of highly relativistic electrons, $\varepsilon_f \propto k_f \propto n^{1/3}$. The electronic energy is then,
+\begin{equation}
+	E_{\text{el}} \propto M_*\left(\frac{M_*}{R_*^3}\right)^{1/2} = a'\frac{M_*^{4/3}}{R_*}
+\end{equation}
+thus, equilibrium collapse is not connected by degeneracy pressure. At the point where the gravitational energy is approximately equal to the electronic energy, we find an upper limit to the mass of a white dwarf,
+\begin{equation}
+	E_{G} \sim E_{\text{el}} \implies M_* \sim \left(\frac{\hbar c}{G}\right)^{3/2}\frac{1}{(2m_p)^2} = 1.4M_{\odot}
+\end{equation}
+which is known as the Chandra-Sakar limit. What this means is that no star heavier than the Chandra-Sakar limit can be supported by Fermi pressure. For $M_* \lesssim 2M_{\odot}$, further collapse is halted by neutron degeneracy pressure, and neutron stars are formed.
+\section{Ideal Bose Gas}
+\subsection{Classical Cavity Radiation}
+For a cuboidal cavity of sides $L_x$, $L_y$, and $L_z$, the wave vector for radiation is given by,
+\begin{equation}
+	\vb{k} = \left(\frac{n_x\pi}{k_x} + \frac{n_y\pi}{k_y} + \frac{n_z\pi}{k_z}\right) \hspace{1em} n_x,n_y,n_z \in \mathbb{Z}.
+\end{equation}
+$\vb{k}$ determines the modes, which will then have a further 2 distinct modes of polarisation per mode. We would classically expect $k_BT$ per mode for the energy, as there are 2 quadratic degrees of freedom. However, when we apply this, noting we get $g(\omega)$ from $g(k)$ by $\omega = ck$,
+\begin{align}
+	u(\omega)\dd{\omega} & = k_BT \frac{g(\omega)}{V}\dd{\omega}\\
+	u(\omega) & = \frac{k_BT}{\pi^2c^3}\omega
+\end{align}
+however, this is \textbf{incorrect}. There is no upper limit to $\omega$, so we get infinite energy integrating over all energy. This is known as the "UV catastrophe".
+\subsection{Photons and Blackbody Radiation}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\textwidth]{planck.png}
+	\caption{}
+	\label{fig:plank}
+\end{figure}
+Max Planck corrected this model by supposing quantised energy $E = \hbar \omega$. If we consider a single mode,
+\begin{equation}
+	\langle E \rangle = \frac{\hbar\omega}{e^{\hbar\omega\beta} - 1}
+\end{equation}
+which we notice is the Bose-Einstein distribution with $\mu = 0$. From this, we can extract \textit{Planck's radiation law},
+\begin{equation}
+	u(\omega) = \frac{g(\omega)}{V}\frac{\hbar\omega}{e^{\hbar \omega \beta} - 1} = \frac{\hbar}{\pi^2 c^3}\frac{\omega^2}{e^{\hbar\omega\beta} -1}
+\end{equation}
+which is plotted in figure \ref{fig:plank}. These quanta of energy are photons, which act as bosons with $\mu = 0$. We require,
+\begin{align}
+	\bar{n}(\omega) = \frac{1}{e^{\hbar\omega\beta}-1} && u(\omega) = \frac{g(\omega)}{V}\hbar\omega\bar{n}(\omega).
+\end{align}
+A blackbody is obtained by the emission from a small hole in the cavity. Photons all travel at $c$, so radiation has the same spectrum as the cavity radiation. The flux of emitted radiation is given by,
+\begin{equation}
+	F(\omega) = \frac{c}{4}u(\omega)
+\end{equation}
+and the total luminosity,
+\begin{equation}
+	\begin{split}
+	L &= \frac{A}{4\pi^2c^2}\int_0^{\infty}\frac{\hbar\omega^3}{e^{\hbar\omega\beta}-1}\dd{\omega}\\
+	&= \frac{A(k_BT)^4}{4\pi^2\hbar^3c^2}\underbrace{\int_0^{\infty}\frac{x^3}{e^{\hbar x} -1}\dd{x}}_{\frac{\pi^4}{15}}
+	\end{split}
+\end{equation}
+but recalling Stefan's law, $L = \sigma A T^4$, we can recover a predicted value for the Stefan-Boltzmann constant,
+\begin{equation}
+	\sigma = \frac{\pi^2k_B^4}{60\hbar^3c^2}.
+\end{equation}
+Let us recall for ultrarelativistic particles in 3D, $\Phi_G= \frac{1}{3}\langle E \rangle$. we can then write,
+\begin{align}
+	\langle E \rangle = V\int u(\omega)\dd{\omega} = \frac{4\sigma}{c}VT^4 && P = \frac{4\sigma}{c}T^4 && S = -\dv{\Phi_G}{T} = \frac{16\sigma}{3c}VT^4.
+\end{align}
+\subsection{Bosons and The Bose-Einstein Condensate}
 \end{document}

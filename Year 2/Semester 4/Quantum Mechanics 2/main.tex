@@ -841,8 +841,377 @@ We can then calculate the energy,
 \end{equation}
 The actual double-ionisation energy of helium is $79.0$eV, so our approximation is quite accurate. If we were to apply second order perturbation theory, we would get this value almost exactly. 
 \subsection{Orthohelium}
+In orhtohelium, we have $S = 1$, so we have symmetric spin. We then require the positional wavefunction to be antisymmetric and in 2 different states, so the ground state is described,
+\begin{equation}
+	\Psi(\vb{r}_1,\vb{r}_2) = \frac{1}{\sqrt{2}}\left(\psi_{1s}(\vb{r}_1)\psi_{2s}(\vb{r}_2) - \psi_{1s}(\vb{r}_2) \psi_{2s}(\vb{r}_1)\right). \label{eq:PSI}
+\end{equation}
+The average energy is then,
+\begin{equation}
+	\begin{split}
+	\langle \hat{H} \rangle & = \frac{1}{2}\int \dd^{3}r_1 \dd^3r_2\left[ \psi_{1s}^*(\vb{r}_1)\psi_{2s}^*(\vb{r}_2) - \psi^*_{1s}(\vb{r}_2) \psi^*_{2s}(\vb{r}_1)\right](\hat{H}_1 + \hat{H}_2 + \hat{V})\left[\psi_{1s}(\vb{r}_1)\psi_{2s}(\vb{r}_2) - \psi_{1s}(\vb{r}_2) \psi_{2s}(\vb{r}_1)\right] \\
+	 & = E_{1s} + E_{2s} + E_C + E_{\text{ex}}
+	\end{split}
+\end{equation}
+where $E_C$ is the Coulomb repulsion, given by,
+\begin{equation}
+	E_c = \frac{e^2}{4\pi \epsilon_0}\int \dd^3r_1\dd^3r_2 \frac{1}{r_{12}}\abs{\psi_{1s}(r_1)}^2\abs{\psi_{2s}(r_2)}^2
+\end{equation}
+and $E_{\text{ex}}$ is the exchange energy, given by,
+\begin{equation}
+	E_{\text{ex}} = \frac{e^2}{4\pi \epsilon_0}\int \dd^3r_1\dd^3r_2 \frac{1}{r_{12}}\psi_{1s}^*(r_1)\psi_{2s}^*(r_2)\psi_{2s}(r_1)\psi_{1s}(r_2).
+\end{equation}
 \subsection{Excited Parahelium}
+In the case of excited parahelium, the minus sign in equation \eqref{eq:PSI} changes to a positive, and the ground state energy expectation value is,
+\begin{equation}
+	\langle \hat{H} \rangle = E_{1s} + E_{2s} + E_{c} + E_{\text{ex}}.
+\end{equation}
+\section{Electronic Configuration}
+In multi-electron atoms, electrons are arranged in shells, determined by orbitals and the principal quantum number. Each energy level can contain $2(2l +1)$ electrons. The energy levels/shells go in the following order,
+\begin{equation}
+	E_{nl} = 1s, 2s, 2p, 3s, 3p, \left[4s, 3d\right], 4p, \left[5s,4d\right], 5p, \ldots
+\end{equation}
+where the shells in $\left[\right]$ have very similar energy levels. We can describe the electronic configuration of each atom using this notation. I.e., hydrogen would be $1s^1$, and helium would be $1s^2$. We can describe all helium-like elements by attaching it to the front of a configuration, i.e., neon would be $(\text{He})(2s^22p^6)$. Other elements can be used as a "root" to describe elements with the same core configuration. Such "root" elements are known as noble gasses.
+\section{Hund's Rules}
+To fully specify the electronic state of an atom, we use spectroscopic notation. A spectroscopic term is written as,
+\begin{equation}
+	^{2S + 1}L_J
+\end{equation}
+where $S$ is the total spin, $L$ is the total orbital quantum number, and $J$ is the total angular momentum. We can determine the ground state of a given atom by Hund's rules, 
+\begin{enumerate}
+	\item The state with the highest total spin will have the lowest energy.
+	\item For a given total spin, the state with the highest total orbital angular momentum $L$ will have the lowest energy.
+	\item If a sub-shell (n,l) is less than or equally half-filled, the lowest energy level has $J = \abs{L - S}$. If it is more than half filled, $J = L + S$.
+\end{enumerate}
+For example, carbon has a configuration $(1s)^2(2s)^2(2p)^2$. Since the last, partially filled shell has 2 electrons, so to maximise energy, they should both be spin up so $S = 1$. The maximum orbital is $L = 1 + 0 = 1$. We have that $(2p)^2$ contains two electrons, which can be placed in sates $m_l = 1, 0, -1$. Since the shell is less than half-filled, $J = |L - S| = 0$, and thus the ground state in spectroscopic notation is $^3P_0$.
+\chapter{Radiative Transitions}
+\section{Time Dependent Perturbation Theory}
+The time dependent Schrodinger equation is given by,
+\begin{equation}
+	\hat{H}\ket{\Psi(t)} = i\hbar \pdv{t}\ket{\Psi(t)}.
+\end{equation}
+In order to approximate a solution, we will consider the stationary Hamiltonian to be perturbed by a time-dependent potential,
+\begin{equation}
+	\hat{H} = \hat{H}_0 + \hat{V}(t)
+\end{equation}
+where,
+\begin{equation}
+	\hat{H}_0 \ket{m} = E_m\ket{m}.
+\end{equation}
+We will write the eigenstates of the TDSE in the form
+\begin{equation}
+	\ket{\Psi(t)} = \sum_m e^{-i\frac{E_mt}{\hbar}}c_m(t)\ket{m},
+\end{equation}
+and substitute it back into the TDSE,
+\begin{equation}
+	\sum_m\left(E_m+\hat{V}(t)\right)e^{-i\frac{E_mt}{\hbar}}c_m(t)\ket{m} = \sum_m \left(E_m c_m(t) + i \hbar \dv{t}c_m(t)\right)e^{-i\frac{E_mt}{\hbar}}\ket{m},
+\end{equation}
+and after cancelling like terms,
+\begin{equation}
+	\sum_m \hat{V} (t)e^{-i\frac{E_mt}{\hbar}}c_m(t)\ket{m} = i\hbar\sum_m\dot{c}_m(t)e^{-i\frac{E_mt}{\hbar}}\ket{m}.
+\end{equation}
+We can solve for $c(t)$ by taking the inner product on both sides with $\bra{n}$,
+\begin{equation}
+	i\hbar \dot{c}(t) = \sum_m V_{nm}(t)e^{i\omega_{mn}t}c_m(t) \label{eq:6}
+\end{equation}
+where,
+\begin{align}
+	\omega_{nm} = \frac{E_n - E_m}{\hbar} && V_{nm}(t) = \bra{n}\hat{V}\ket{m}.
+\end{align}
+We must now consider the \textit{initial conditions} on our potential, which usually takes one of two forms,
+\begin{enumerate}
+	\item Perturbation at time $t=0$, i.e.,
+	\begin{equation}
+		\hat{V}(t) \begin{cases}
+			0 & t \leq 0 \\
+			f(t) & t > 0
+		\end{cases}.
+	\end{equation}
+	\item Initial state, i.e., the system initially in state $\ket{0}$ will have,
+	\begin{equation}
+		c_m (0) = \delta_{1m}
+	\end{equation}
+	for $t \leq 0$.
+\end{enumerate}
+We want to now perform a series expansion on $c$, we have to consider a scaling factor on the perturbation,
+\begin{equation}
+	\hat{H}(\lambda) = \hat{H}_0 + \lambda\hat{V}(t)
+\end{equation}
+where $0\leq\lambda\leq1$. We can then expand $c(t)$,
+\begin{equation}
+	c_n(t) = c_n^{(0)} + c_n^{(1)}\lambda + \cdots
+\end{equation}
+and substitute this into equation \eqref{eq:6},
+\begin{equation}
+	i\hbar(\dot{c}_n^{(0)} + \dot{c}_n^{(1)}\lambda + \cdots)=\sum_m (c_m^{(0)} + c_m^{(1)}\lambda + \cdots)\lambda V_{nm}(t)e^{i\omega_{mn}t}.
+\end{equation}
+We can then see that,
+\begin{align}
+	c_n^{(0)} &= \delta_{1n}, \\
+	c_n^{(1)} &= \frac{1}{i\hbar}\int_0^tV_{n1}(t')e^{\omega_{n1}}\dd{t'}.
+\end{align}
+Now, by setting $\lambda =1$, we see that the transition probability of a system can be given by the following,
+\begin{enumerate}
+	\item The probability of a system to remain in an initial state $\ket{1}$ is,
+	\begin{equation}
+		P_1(t) = \abs{1 + c_1^{(1)}(t)}^2.
+	\end{equation}
+	\item The probability of a system to transition to a state $\ket{n}$ is,
+	\begin{equation}
+		P_n(t) = \abs{c_n^{(1)}(t)}^2.
+	\end{equation}
+\end{enumerate} 
+\section{Radiative Transitions and Selection Rules}
+\subsection{Fermi Golden Rule}
+Let us consider a step perturbation,
+\begin{equation}
+	\hat{V}(t) = \begin{cases}
+		0 & t \leq 0 \\
+		\hat{V} & t > 0
+	\end{cases}
+\end{equation}
+where $\hat{V}$ is independent of $t$. Given an initial state $\ket{i}$ and a final state $\ket{f}$,
+\begin{equation}
+	c(t) = \frac{1}{i\hbar}\int_0^tV_{fi}e^{i\omega_{fi}t'}\dd{t'} = \frac{V_{fi}}{i\hbar}\frac{e^{i\omega_{fi}t}}{i\omega_{fi}}.
+\end{equation}
+The transition probability is given by,
+\begin{equation}
+	P(t) = \frac{2\pi t\abs{V_{fi}}^2}{\hbar^2}D(\omega_{fi}, t)
+\end{equation}
+where,
+\begin{equation}
+	D(x,t) = \frac{2}{\pi t} \frac{\sin^2\left(\frac{xt}{2}\right)}{x^2}
+\end{equation}
+and,
+\begin{align}
+	\int_{-\infty}^{\infty}D(x,t)\dd{x} = 1, && \lim_{t \to \infty} D(x,t) = \delta (x).
+\end{align}
+From this, we can write down the Fermi golden rules.
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,width=\textwidth,title = {\textbf{Fermi Golden Rule} - Step Perturbation}]
+	For a step like perturbation $\hat{V}$, in the limit $t \to \infty$,
+	\begin{align}
+		P(t) &= \frac{2\pi t|V_{fi}|^2}{\hbar^2}\delta(\omega_{fi})
+	\end{align}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,width=\textwidth,title = {\textbf{Fermi Golden Rule} - Oscillatory Perturbation}]
+	For a step like perturbation $\hat{V}e^{i\omega t}$, in the limit $t \to \infty$,
+	\begin{align}
+		P(t) &= \frac{2\pi t|V_{fi}|^2}{\hbar^2}\delta(\omega_{fi} - \omega) \\
+		\dv{P(t)}{t} &= \frac{2\pi|V_{fi}|^2}{\hbar^2} \delta(\omega_{fi} - \omega).
+	\end{align}
+\end{tcolorbox}
+\subsection{Emission and Absorption of EM Radiation}
+We will consider a potential,
+\begin{equation}
+	\hat{V}(t) = \begin{cases}
+		0 & t \leq 0 \\
+		-eE_0 \hat{\epsilon} \cdot \vb{r} \cos\omega t & t > 0
+	\end{cases}.
+\end{equation}
+where $\hat{\epsilon}$ is the polarisation direction. The transition rate is,
+\begin{equation}
+	\dv{P}{t} = \frac{2\pi}{\hbar^2}\left(\frac{eE_0}{2}\right)^2\abs{\bra{f}\hat{\epsilon}\cdot\vb{r}\ket{i}}^2(\underbrace{\delta(\omega_i - \omega)}_{\text{Absorption}} + \underbrace{\delta(\omega_i + \omega)}_{\text{Emission}}).
+\end{equation}
+For hydrogen, the initial and final states are specified by quantum numbers, so,
+\begin{equation}
+	\bra{f}\hat{V}\ket{i} = \bra{n'l'j'm_j'}\hat{\epsilon}\cdot\vb{r}\ket{nljm_{j}}.
+\end{equation}
+For linear polarisation, 
+\begin{equation}
+	\hat{\epsilon}\cdot\vb{r} = z = r\cos\theta \propto Y_{1,0}(\theta,\phi)
+\end{equation}
+and for circular polarisation.
+\begin{equation}
+	\hat{\epsilon}\cdot\vb{r} = \frac{1}{\sqrt{2}}(x + iy) \propto Y_{1,\pm1}(\theta,\phi).
+\end{equation}
+If we write the identity,
+\begin{equation}
+	Y_{lm_1}(\theta,\phi)Y_{lm_2}(\theta,\phi) = aY_{l+1, m_1 - m_2} + bY_{l-1, m_1 + m_2}
+\end{equation}
+so we find,
+\begin{equation}
+	\bra{n'l'j'm_j'}\hat{\epsilon}\cdot\vb{r}\ket{nljm_{j}} \neq 0 \iff \delta l = l' - l = 1
+\end{equation}
+thus we can obtain electric dipole radiation selection rules for hydrogen,
+\begin{align}
+	\Delta l = \pm 1 && \Delta j = 0, \pm 1 && \Delta m_j = 0, \pm 1.
+\end{align}
+\subsubsection{Extension to multi-electron atoms}
+In multi-electron atoms we specify the state by the total quantum numbers $(S, L, J, m_j)$, which have selection rules,
+\begin{align}
+	\Delta S = 0 && \Delta L = 0, \pm 1 && \Delta J = 0, \pm 1 && \Delta m_j = 0, \pm 1
+\end{align}
+furthermore, we cannot have $L_i = 0 \leftrightarrow L_f = 0$. We also introduce a parity condition,
+\begin{align}
+	\pi^i = - \pi^f && \pi= (-1)^{\sum_{i=1}^{Z}l_i}
+\end{align}
+\section{Basic Principles of Lasing}
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\draw (3,2) -- (0,2) node[anchor=east] {$2$};
+			\draw (3,0) -- (0,0) node[anchor=east] {$1$};
+			\node at (1,2) {\textbullet};
+			\draw[-latex] (1,2) -- (1,0);
+			\draw [-stealth,decorate,decoration={snake,amplitude=.4mm,segment length=2mm,post length=1mm}] (1,1) -- (2.5,1) node[anchor=west] {$\hbar \omega$};
+		\end{tikzpicture}
+		\caption{Spontaneous emission.}
+	\end{subfigure}
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\draw (3,2) -- (0,2) node[anchor=east] {$2$};
+			\draw (3,0) -- (0,0) node[anchor=east] {$1$};
+			\node at (1,2) {\textbullet};
+			\draw[-latex] (1,2) -- (1,0);
+			\draw [-stealth,decorate,decoration={snake,amplitude=.4mm,segment length=2mm,post length=1mm}] (1,0.5) -- (2.5,0.5) node[anchor=west] {$\hbar \omega$};
+			\draw [-stealth,decorate,decoration={snake,amplitude=.4mm,segment length=2mm,post length=1mm}] (1,1.5) -- (2.5,1.5) node[anchor=west] {$\hbar \omega$};
+			\draw [-stealth,decorate,decoration={snake,amplitude=.4mm,segment length=2mm,post length=1mm}] (-0.5,1) -- (1,1);
+			\node[anchor=east] at (-0.5,1) {$\hbar \omega$};
+		\end{tikzpicture}
+		\caption{Stimulated emission.}
+	\end{subfigure}
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\draw (3,2) -- (0,2) node[anchor=east] {$2$};
+			\draw (3,0) -- (0,0) node[anchor=east] {$1$};
+			\node at (1,0) {\textbullet};
+			\draw[latex-] (1,2) -- (1,0);
+			\draw [-stealth,decorate,decoration={snake,amplitude=.4mm,segment length=2mm,post length=1mm}] (-0.5,1) -- (1,1);
+			\node[anchor=east] at (-0.5,1) {$\hbar \omega$};
+		\end{tikzpicture}
+		\caption{Absorption.}
+	\end{subfigure}
+	\caption{Where $\hbar \omega = E_1 - E_2$.}
+	\label{fig:lasing}
+\end{figure}
+Let us consider a simple gas of atoms which only has two energy levels, with a ground state energy $E_1$ and number density $N_1$, and an excited state energy $E_2$ and number density $N_2$. The system will be emitting and absorbing photons of frequency $\omega$, where $\hbar\omega = E_1 - E_2$. There are three types of transitions which can occurs, shown in figure \ref{fig:lasing},
+\begin{enumerate}
+	\item \textbf{Spontaneous Emission:} The change rate is given by,
+	\begin{equation}
+		\dv{N_2}{t} = -A_{21}N_2 \implies 	N_2(t)=N_2(0)e^{A_{21}t}= N_2(0)e^{-t/\tau}
+	\end{equation}
+	where $A_{21}$ is the Einstein $A$ coefficient, which is the inverse $1/\tau$, where $\tau$ is the lifetime of the excited states.
+	\item \textbf{Stimulated Emission:} The change rate is given by,
+	\begin{equation}
+		\dv{N_2}{t} = -B_{21}\rho N_2
+	\end{equation}
+	where $\rho = I/c$ is the energy density at the transition frequency in the field of intensity $I$, and $B_{21}$ is the Einstein $B$ coefficient for stimulated emission.
+	\item \textbf{Absorption:} The change rate is,
+	\begin{equation}
+		\dv{N_1}{t} = - B_{12}\rho N_1
+	\end{equation}
+	where $B_{12}$ is the Einstein $B$ coefficient for absorption.
+\end{enumerate}
+Furthermore, we have that both $B_{12}$ and $B_{21}$ are related to the transmission probability per unit time in the radiation potential, so $B_{12} \propto |\bra{1}\hat{\varepsilon}\cdot\vb{r}\ket{2}|^2$. To find $A_{12}$ we must find a relation between $A$ and $B$. We can find this by considering thermal equilibrium. In general, we can write,
+\begin{equation}
+	\dv{N_2}{t}  = -B_{21}\rho N_2 - A_{21}N_2 + B_{12}\rho N_1. \label{eq:unpump}
+\end{equation}
+At thermal equilibrium, the following conditions hold,
+\begin{enumerate}
+	\item Zero rate,
+	\begin{equation}
+		\dv{N_2}{t} = 0.
+	\end{equation}
+	\item The blackbody radiation is,
+	\begin{equation}
+		\rho = \frac{2\hbar \omega^3}{\pi c^3}\frac{1}{e^{\hbar\omega\beta} - 1}.
+	\end{equation}
+	\item The ratio of the two number densities is given by the Boltzmann distribution,
+	\begin{equation}
+		\frac{N_2}{N_1} = e^{-\hbar\omega\beta}.
+	\end{equation}
+\end{enumerate}
+By substitution and rearrangement,
+\begin{equation}
+	\left(A_{21} - B_{21}\frac{2\hbar \omega^3}{\pi c^3}\right) + \left(B_{12}\frac{2\hbar \omega^3}{\pi c^3} - A_{21}\right)e^{\hbar\omega\beta} =0
+\end{equation}
+which results in,
+\begin{align}
+	B_{12} = B_{21}, && A_21 = \frac{2\hbar \omega^3}{\pi c^3}B_{21}.
+\end{align}
+\subsection{Practical Lasers}
+At thermal equilibrium, we always have $N_2 < N_1$. However, for a laser to work as we wish we require $N_2 > N_1$. We achieve this by pumping the laser, and bringing it out of equilibrium. To do this, we add a pumping term $R$ to equation \eqref{eq:unpump}. How we achieve this practically can be done in various different ways. 
+\\\\
+Typically, pumping is implemented in multi-level systems. If we have states labelled 0 through 3, we often operate the laser between states 1 and 2, and we wish for transitions between levels 3 and 2 and 0 and 1 to be much shorter than the laser transition, to ensure $N_2 >> N_1$.
+\\\\
+We will now take $N = N_2 - N_1 \approx N_2$, and write,
+\begin{equation}
+	\dv{N}{t} = R - N(B_{21}\rho + A_{21}).
+\end{equation} 
+At the steady state, $N = N_{\text{th}}$ where "th" indicates threshold,
+\begin{equation}
+	\rho = \frac{1}{N_{\text{th}}B_{21}}(R - R_{\text{th}})
+\end{equation}
+where $R_{\text{th}} = N_{\text{th}}A_{21} = N_{\text{th}}/\tau$ is the threshold pump rate, and $\tau = 1/A_{21}$ is the lifetime of state 2.
+\chapter{Hydrogen Molecule}
+\section{Born-Oppenheimer Approximation}
+This approximation states that we treat the motion of the nuclei in H$_2$ separately and independent of each other. We have that the potential for a H$_2^+$ ion with 1 electron, and 2 protons separated at a distance $r$, the potential of the system will be given by,
+\begin{equation}
+	V = -\frac{e^2}{4\pi\epsilon_0r_a} - \frac{e^2}{4\pi\epsilon_0r_b} +\frac{e^2}{4\pi\epsilon_0r}
+\end{equation}
+where, if we denote the electron's position at $\vb{r}_e$ and the two protons' as $\vb{a}$ and $\vb{b}$, then $V = V(\vb{r}_e)$, and
+\begin{align}
+	r_a = |\vb{r}_e - \vb{a}| && r_b = |\vb{r}_e - \vb{b}|.
+\end{align}
+\section{Hydrogen Molecular Orbitals}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{10.4.1-b.pdf}
+	\caption{}
+	\label{fig:10.4.1}
+\end{figure}
+To find the wavefunction of a molecule in a given state/orbital, we apply the linear combination of atomic orbitals approximation, which can be generally written as,
+\begin{equation}
+	\psi_i(\vb{r}_e) = \sum_m c_m^i\psi_m(\vb{r}_m)
+\end{equation}
+where $\psi_m$ are atomic orbitals located at nuclear position $\vb{a}_m$ with $\vb{r}_m = \vb{r}_e - \vb{a}_m$.
+\\\\
+Let's consider the H$_2^+$ ion specifically, whose wavefunction is given by a linear combination of $1s$ orbitals,
+\begin{equation}
+	\psi^{\pm}(\vb{r}_e) = N_{\pm} \left[\psi_a(\vb{r}_a)\pm\psi_b(\vb{r}_b)\right]
+\end{equation}
+where $N_{\pm}$ is a normalisation constant. If we analyse the probability density $\abs{\psi^{\pm}}^2$, like in figure \ref{fig:10.4.1}. We can see that in the even $\psi^+$ state the proton has a high probability being between the two protons, and can bind the protons due to the Coulomb attraction, and thus is known as a \textbf{binding orbital}. The odd $\psi^-$ state is known as the \textit{antibonding orbital}, as in this state it will not bind the protons together.
+\section{Energy Expectation of H$_2^+$}
+The Hamiltonian of the H$_2^+$ ion is,
+\begin{equation}
+	\hat{H} = -\frac{\hbar^2}{2m_e}\laplacian_e -\frac{e^2}{4\pi \epsilon_0 r_a} -\frac{e^2}{4\pi \epsilon_0 r_b} + \frac{e^2}{4\pi \epsilon_0 r}.
+\end{equation}
+We can then write the expectation value,
+\begin{equation}
+	E^{\pm} = \frac{\int(\psi^{\pm})^*\hat{H}\psi^{\pm}\dd{\vb{r}}_e}{\int\abs{\psi^{\pm}}^2\dd{\vb{r}_e}} = \frac{H \pm H_{ab}}{1 \pm S}
+\end{equation}
+where,
+\begin{align}
+	H & = H_{aa} = H_{bb} = \int\psi_a^*\hat{H}\psi_a\dd{\vb{r}_e} = \int\psi_b^*\hat{H}\psi_b\dd{\vb{r}_e} \\
+	H_{ab} & = \int\psi_a^*\hat{H}\psi_b \dd\vb{r}_e \\
+	S & = \int\psi_a^*\psi_b\dd{\vb{r}_e}.
+\end{align}
+Evaluating these,
+\begin{align}
+	H & = E_{1s} + \frac{e^2}{4\pi\epsilon_0r} + C \\
+	H_{ab} & = \left(E_{1s} + \frac{e^2}{4\pi\epsilon_0r}\right)S + K
+\end{align}
+where 
+\begin{align}
+	C & = \int\psi^*_a\left(-\frac{e^2}{4\pi\epsilon_0r_b}\right)\psi_a \dd{\vb{r}_e} \\
+	K & = \int\psi_a^*\left(-\frac{e^2}{4\pi\epsilon_0r_b}\right)\psi_b\dd{\vb{r}}_e
+\end{align}
+and thus,
+\begin{equation}
+	E^{\pm} = E_{1s} + \frac{e^2}{4\pi\epsilon_0r} + \frac{C\pm K}{1\pm S}.
+\end{equation}
+\section{Hydrogen Molecule}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{mol.jpg}
+	\caption{Occupation level diagram for H$_2$.}
+	\label{fig:mol}
+\end{figure}
 
+\chapter{Electrons in Periodical Potential}
 \appendix
 \chapter{Misc. Formulae}
 \section{Commutation Relation}

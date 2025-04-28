@@ -84,6 +84,10 @@
 
 \newtcbtheorem{Examples}{Example}%
 {colback=yellow!5!white,colframe=yellow!75!black,width=\textwidth,fonttitle=\bfseries}{}
+
+\newtcbtheorem{Lemma}{Lemma}%
+{colback=orange!5!white,colframe=orange!75!black,width=\textwidth,fonttitle=\bfseries}{}
+
 \def\doubleunderline#1{\underline{\underline{#1}}}
 
 \newtheorem*{theorem}{Theorem}
@@ -1306,5 +1310,344 @@ Conformal maps are useful in problems which satisfy Laplace's equations $\laplac
 	\item Solve the problem in the $XY$ plane. 
 	\item $u(x,y) + i v(x,y) = \Phi(X,Y) + i\Psi(X,Y)$.
 \end{enumerate}
+\section{Complex Integration}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\textwidth]{contour.png}
+	\caption{}
+	\label{eq:contour}
+\end{figure}
+We can derive the definition of an integral as the limit of a sum. Let us define a point $z_0 = a$ and $Z_N = b$, and points $z_1$ to $z_{N-1}$ in order on the path. Let us introduce points $t_k$, where $t_k$ is on the path $C$ between $z_{k-1}$ and $z_k$. Let,
+\begin{equation}
+	\begin{split}
+	S_N & = \sum_{k=1}^Nf(t_k)(z_k-z_{k-1}) \\
+	& = \sum_{k=1}^Nf(t_k)\Delta z_k.
+	\end{split}
+\end{equation}
+We then define,
+\begin{equation}
+	\int_C f(z)\dd{z} = \lim_{N \to \infty} S_N
+\end{equation}
+where all $\Delta z_k \to 0$ as $N \to \infty$. The limit exists if $f(z)$ is continuous on $C$. If we write $\dd{z} = \dd{x} + i\dd{y}$, $\dd{\vb{r}} \equiv \left(\dd{x},\dd{y}\right)$, we have,
+\begin{equation}
+	\begin{split}
+		\int_C f(z)\dd{z} & = \int_Cf(\dd{x} + \dd{y}) \\
+		& = \int_C\left[f\dd{x} + (if)\dd{y}\right] \\
+		& = \int_C \left(f(z), if(z)\right)\cdot\dd{\vb{r}}.
+	\end{split}
+\end{equation}
+An important contour integral is,
+\begin{equation}
+	\int_C\frac{1}{z}\dd{z} = 2\pi i \label{eq:2pi}
+\end{equation}
+where $C$ is a circle of radius $R$.
+\subsection{Cauchy's Theorem}
+\begin{Theorems}{Cauchy's Theorem}{}
+	Suppose $f$ ana. on $C$ and in $S$ enclosed by $C$. Then,
+	\begin{equation}
+		\oint_C f(z)\dd{z} = 0.
+	\end{equation}
+\end{Theorems}
+\begin{proof}
+	Recall Stoke's theorem,
+	\begin{align}
+		\oint\vb{A}\cdot{\dd{\vb{r}}} &= \int\left(\curl{\vb{A}}\right)\cdot\dd{\vb{S}} \\
+		& = {\int\int}_S \left(\pdv{A_y}{x} - \pdv{A_z}{y}\right)\dd{x}\dd{y}
+	\end{align}
+	for $C$ in $xy$ plane, $\dd{\vb{r}} = (\dd{x},\dd{y}, 0), \dd{\vb{S}} = (0,0,\dd{x}\dd{y})$. On the LHS of Cauchy's theorem,
+	\begin{align}
+		\oint_C f\dd{z} & = \oint_C f(\dd{x} + i \dd{y}) = \oint_C(\underbrace{f}_{A_x}\dd{x} + \underbrace{(if)}_{A_y}\dd{y}) \\ 
+		& = \int\int_S \left(i\pdv{f}{x} - \pdv{f}{y}\right)\dd{x}\dd{y}.\label{eq:A}
+	\end{align}
+	$f$ is ana.,
+	\begin{align}
+		\implies & \pdv{f}{x} = \pdv{f}{z}\pdv{z}{x} = \pdv{f}{z} \\
+		& \pdv{f}{y} = \pdv{f}{z}\pdv{z}{y} = i\pdv{f}{z}.
+	\end{align}
+	We then have equation \eqref{eq:A},
+	\begin{equation}
+		\oint_Cf\dd{z} = \int\int\left(i\pdv{f}{z} - i\pdv{f}{z}\right)\dd{x}\dd{y} = 0.
+	\end{equation}
+\end{proof}
+We can use Cauchy's theorem to show a Corollary which follows naturally: if $f$ ana. between $C_1$ and $C_2$,
+\begin{align}
+	&\int_{C_1}f\dd{z} - \int_{C_2}f\dd{z} \equiv \oint_{C_1-C_2}f\dd{z} = 0 \\
+	\implies \int_{C_1}f\dd{z}=\int_{C_2}f\dd{z}
+\end{align}
+thus we can deform $C_1$ to $C_2$ if $f$ is ana. in the region between them. 
+\\\\
+We can furthermore define the image of a function: let $b \equiv z$, i.e., allowing the endpoint to vary,
+\begin{equation}
+	F(z) = \int_a^zf(s)\dd{s}
+\end{equation}
+which is well defined if a path is used in the region where f is ana.
+\\\\
+We can show that differentiation and integration are inverse processes. If we consider the limit as $\Delta z \to 0$,
+\begin{equation}
+	\frac{F(z+\delta z)-F(z)}{\Delta z} = \frac{1}{\delta Z} \left\{\int_{C_2}f\dd{s} - \int_{C_1}f\dd{s}\right\}
+\end{equation}
+such that $C_1$ and $C_2$ are paths with the same starting point $a$ but endpoints $F(z)$ and $F(z + \Delta z)$ respectively. We will furthermore consider the path joining $F(z)$ and $F(z+\Delta z)$, $C_3 = C_2 - C_1$. Now, returning to the limit,
+\begin{align}
+	\frac{1}{\Delta z}\left\{\int_{C_2 - C_1}f\dd s\right\} & = \frac{1}{\Delta z}\int_{C_3}f\dd{s}.
+\end{align}
+Let us now make a substitution, such that on $C_3$, we take $s(t) = z + t\Delta z$ where $t \in \left[0,1\right]$,
+\begin{align}
+	&\lim_{\Delta z \to 0}\frac{1}{\Delta z}\int_0^1f(z + \Delta z)\dd{t} \Delta z = \int_0^1f(z)\dd{t} = f(z) \\
+	\implies &\dv{F}{z} = f(z).
+\end{align}
+\subsubsection{Indefinite Integrals}
+We can define indefinite integrals by writing,
+\begin{equation}
+	F(z) = \int^zf(s)\dd{s} = \int f(s) \dd{s}
+\end{equation}
+given that $f$ is ana everywhere.
+\subsubsection{Deformation of Closed Paths}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{closed.png}
+	\caption{}
+	\label{fig:closed}
+\end{figure}
+\begin{Theorems}{Equivalence of Contours}{}
+	Consider figure \ref{fig:closed} (a), where we have two paths $C$ and $C'$ enclosing a non-analytical region. If $f$ is ana between $C$ and $C'$, then,
+	\begin{equation}
+		\oint_C = \oint_{C'} \neq 0.
+	\end{equation}
+\end{Theorems}
+\begin{proof}
+	Now consider \ref{fig:closed} (b), where we have the original paths $C$ and $C'$ but with a break, causing the two paths to become one. The region inside this path is analytic, so must satisfy Cauchy's theorem,
+	\begin{equation}
+		\int_A^B +\int_B^E + \int_E^D + \int_D^A = 0.
+	\end{equation}
+	Since $f$ continuous, we can take limits $A \to B$ and $D \to E$,
+	\begin{equation}
+		\lim_{\substack{A \to D \\ E \to B}} \int_A^B + \int_E^D = 0,
+	\end{equation}
+	we see that in this limit the straight lines cancel, and the integrals along paths $C$ and $C'$ become closed,
+	\begin{align}
+		&\int_B^E f\dd{z} \to \oint_C f\dd{z} & \int_D^A f\dd{z} \to -\oint_{C'}f\dd{z} \\
+		\implies & \oint_Cf\dd{z} = \oint_{C'} f\dd{z}.
+	\end{align}
+\end{proof}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{sing.png}
+	\caption{}
+	\label{fig:sing}
+\end{figure}
+We can extend this theorem to multiple singularities. I.e., if we have a single curve $C$ enclosing two singularities, we can decompose the problem into two curves $C_1$ and $C_2$ enclosing each individual singularity, as in figure \ref{fig:sing}. 
+\\\\
+We have already made use of Cauchy's theorem in the integral \eqref{eq:2pi}. We can generalise this,
+\begin{equation}
+	\boxed{\oint_C \frac{1}{z-z_0}\dd{z} = \begin{cases}
+			2\pi i & C \text{ encircles } z_0\\
+			0 & \text{Otherwise}
+	\end{cases}}
+\end{equation}
+\subsection{Cauchy's Integral Formulas}
+\begin{Theorems}{}{}
+	Suppose $f$ ana on a closed contour $C$ and in the enclosed region. If $z = a$ is a point inside $C$,
+	\begin{equation}
+		f(a) = \frac{1}{2\pi i }\oint_C \frac{f(z)}{z - a}\dd{z}.
+	\end{equation}
+\end{Theorems}
+\begin{proof}
+	Deform $C$ to be a small circle $C'$ centred on $z = a$ with arbitrary radius $\varepsilon$. Then, on $C'$, $z = a + \varepsilon e^{i\theta} \implies \dd{z}=i\varepsilon e^{i\theta}\dd{\theta}$ and,
+	\begin{align}
+			\oint_{C'} \frac{f(z)}{z-a}\dd{z} &= \int_0^{2\pi}\frac{f(a + \varepsilon e^{i\theta})}{\varepsilon e^{i\theta}}i\varepsilon e^{i\theta} \dd{\theta} \\
+			& = i\int_0^{2\pi}f(a + \varepsilon e^{i\theta})\dd{\theta} \\
+			& = i \lim_{\varepsilon \to 0} \int_0^{2\pi}f(a + \varepsilon e^{i\theta})\dd{\theta} \\
+			& = i \int_0^{2\pi}f(a) \dd{\theta} = 2\pi i f(a).
+	\end{align}
+\end{proof}
+\begin{Theorems}{}{}
+	\begin{equation}
+		\dv{f(a)}{a} = \frac{1}{2\pi i }\oint_C \frac{f(z)}{(z - a)^2}\dd{z}
+	\end{equation}
+\end{Theorems}
+\begin{proof}
+	\begin{align}
+		f'(a) & = \lim_{\delta a \to 0}\frac{f(a + \delta a) - f(a)}{\delta a} \\
+		&  =\lim_{\delta a \to 0} \frac{1}{\delta a}\frac{1}{2\pi i}\left\{\oint\frac{f(z)}{z - a\delta a}\dd{z} - \oint \frac{f(z)}{z - a}\dd{z}\right\} \\
+		& = \lim_{\delta a \to 0} \frac{1}{\delta a}\frac{1}{2\pi i}\oint f(z) \left\{\frac{1}{z - a - \delta a} - \frac{1}{z - a}\right\}\dd{z} \\
+		& = \lim_{\delta a \to 0} \frac{1}{\delta a}\frac{1}{2\pi i} \oint f(z) \frac{\Delta a }{(z - a - \delta a)(z - \delta a)}\dd{z} \\
+		& = \frac{1}{2\pi i} \oint\frac{f(z)}{(z - a)^2}\dd{z}
+	\end{align}
+	because $\frac{1}{z-a}$ is continuous.
+\end{proof}
+We can generalise Theorem 15 by,
+\begin{equation}
+	\boxed{\dv[n]{f(a)}{a} = \frac{n!}{2\pi i }\oint \frac{f(z)}{(z - a)^{n-1}}\dd{z}}
+\end{equation}
+\section{Proof of the Fundamental Theorem of Algebra}
+\begin{Lemma}{Estimation Lemma for Integrals}{}
+	If $\abs{f(z)} \leq m$ on $C$, then $\abs{\int_Cf(z)\dd{z}} \leq mL$ where $L$ is the length of $C$.
+\end{Lemma}
+\begin{proof}
+	\begin{align}
+	|S_N| = |\sum_{k=1}^Nf(t_n)\Delta z_k| & \leq \sum_{k=1}^N|f(t_n)||\Delta z_k| \\
+	& \leq \sum_{k=1}^Nm|\Delta z_k| = m\sum_{k=1}^N|\Delta z_k|.
+	\end{align}
+	For $N \to \infty$, $\Delta z_k \to 0$, so,
+	\begin{equation}
+		|\int_C f(z) \dd{z}| = mL.
+	\end{equation}
+\end{proof}
+\begin{Theorems}{Liouville's Theorem}{}
+	If $f$ is bounded on a function $|f(z)| \leq m$, where $m = \text{const.}$, $\forall z$ $\implies f(z) = \text{const.}$.
+\end{Theorems}
+\begin{proof}
+	From Theorem 15, let $C$ be a circle of radius $R$ centred on $z =a$. From the Lemma 1,
+	\begin{equation}
+		|f'(a)| \leq \frac{1}{2\pi}\frac{M}{R^2}2\pi R = \frac{M}{R}\xrightarrow{R \to \infty} 0.
+	\end{equation}
+	By definition, $0 \leq f'(a) \leq 0$. This is only consistent if $f'(a) = 0 \implies f(a) = \text{const.}$
+\end{proof}
+Furthermore, every non-constant ana function becomes arbitrarily big \textit{somewhere}.
+\\\\
+With these, we can now tackle the fundamental theorem of algebra.
+\begin{proof}
+	If $P_n(z)$ has no roots, then $\frac{1}{P_n(z)}$ must be analytic everywhere in the complex plane. By Louiville's theorem, $P_n(z)$ is const. This is false, except for $n = 0$. So, $P_n(z)$ must have at least 1 root.
+\end{proof}
+\section{Taylor Series}
+\begin{Theorems}{Taylor's Theorem}{}
+If $f(z)$ is ana for $\abs{z -a} < R$, where $R$ is the distance in the complex plane to the closest singularity, then,
+\begin{equation}
+	f(a) + \frac{(z-a)}{1!}f'(a) + \frac{(z-a)^2}{2!}f''(a) + \cdots 
+\end{equation}
+converges to $f(z)$.
+\end{Theorems}
+\begin{proof}
+	By Theorem 14, 
+	\begin{equation}
+		f(z) = \frac{1}{2\pi i }\oint_C \frac{f(s)}{s-z}\dd{s}
+	\end{equation}
+	with circle $C$ with radius $r < R$ centred on $z = a$. Then,
+	\begin{align}
+		f(z) & = \frac{1}{2\pi i }\oint_C \frac{f(s)}{(s-a)-(z-a)}\dd{s} \\
+		& = \frac{1}{2\pi i}\oint_C \frac{f(s)}{(s-a)\left[1- \underbrace{\frac{z-a}{s-a}}_t\right]}. \label{eq:a}
+	\end{align}
+	Recall,
+	\begin{align}
+		\sum_{k=0}^nt_k &= \frac{1-t^{n+1}}{1-t} \\
+		\implies \frac{1}{1-t} &= \sum_{k=0}^{n}t^k + \frac{t^{n+1}}{1-t}\label{eq:b}.
+	\end{align}
+	Combining equations \eqref{eq:a} and \eqref{eq:b},
+	\begin{align}
+		f(z) &= \sum_{k=0}^{n}\frac{1}{2\pi i }\oint_C\frac{f(s)}{s-a}\left(\frac{z-a}{s-a}\right)^k \dd{s} + \underbrace{\frac{1}{2\pi i}\oint_C \frac{f(s)}{s-a}\left\{\frac{1}{1-\frac{z-a}{s-a}}\left(\frac{z-a}{s-a}\right)^{n+1}\right\}\dd{s}}_{R_n(z,a)} \\
+		& = \sum_{k=0}^n(z-a)^k\frac{1}{2\pi i}\oint_C\frac{f(s)}{(s-a)^{k+1}}\dd{s} + R_n(z,a) \\
+		& = \sum_{k=0}^n(z-a)^k\frac{f^{(k)}(a)}{k!} + R_n(z,a)
+	\end{align}
+	by Theorem 15. Using Lemma 1 on $R_n(z,a)$,
+	\begin{align}
+		|R_n| & =\frac{1}{2\pi}\abs{\oint_Cf(s)\left(\frac{z-a}{s-a}\right)^{(n+1)}\frac{1}{(s-a) - (z-a)}\dd{s}} \\
+		\leq \frac{1}{2\pi}m\left(\frac{|z-a|}{r}\right)^{n+1}\frac{1}{r-|z-a|}2\pi r
+	\end{align}
+	but $\frac{|z-a|}{r} < 1$, so $R_n \xrightarrow{n \to \infty} 0 \implies$ the Taylor series converges to $f(z)$ provided $|z - a| < R$.
+\end{proof}
+\section{Laurent Series}
+The Laurent series generalises the Taylor series to negative powers. 
+\begin{Theorems}{Laurent's Theorem}{}
+	Consider a function $f(z)$ ana for $R_1 < |z - a| < R_2$. Within the annulus of the circles of radius $R_1$ and $R_2$, $f(z)$ is represented by the Laurent series,
+	\begin{equation}
+		f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n + \sum_{n=1}^{\infty}b_n	\frac{1}{(z-z_0)^n}
+	\end{equation}
+\end{Theorems}
+\begin{proof}
+	Let contours $C_1$ and $C_2$ be circles in a region of ana. We will connect $C_1$ and $C_2$ by a bridge $B$ such that the entire contour can be traced by a curve $C$. Using Theorem 14, 
+	\begin{equation}
+		f(z) = \frac{1}{2\pi i}\oint_C \frac{f(s)}{s - z}\dd{s} \label{eq:23}
+	\end{equation}
+	we can then also write,
+	\begin{equation}
+		\oint_C = \int_{C_1} + \int_B + \left(-\int_{C_2}\right) + (-\int_B) = \int_{C_1} - \int_{C_2},
+	\end{equation}
+	thus, we write equation \eqref{eq:23},
+	\begin{equation}
+		f(z) = \frac{1}{2\pi i}\oint_{C_1}\frac{f(s)}{s - z}\dd{s} -\frac{1}{2\pi i}\oint_{C_2}\frac{f(s)}{s-z}\dd{s}.
+	\end{equation}
+	We will now proceed as with the proof for Taylor's series, however we will ignore the remainder terms as we already know they converge to 0. For the region where $|s - a| > |z - a|$,
+	\begin{equation}
+		\begin{split}
+			\frac{1}{s - z} &= \frac{1}{(s - a)-(z-a)} = \frac{1}{s - a}\left(1 - \frac{z -a}{s-a}\right)^{-1} \\
+			& = \frac{1}{s-z}\sum_{k=0}^{\infty}\left(\frac{z-a}{s-a}\right)^k + \cdots
+		\end{split}
+	\end{equation}
+	We then write,
+	\begin{equation}
+		\begin{split}
+		\frac{1}{2\pi i }\oint_{C_1} \frac{f(s)}{s-z} &= \sum_{k=0}^{\infty}\frac{1}{2\pi i}\oint_{C_1}\frac{f(s)(z-a)^k}{(s-a)^{k+1}}\dd{s} \\
+		& = \sum_{k=0}^{\infty} a_k(z -a)^k
+		\end{split}
+	\end{equation}
+	where,
+	\begin{equation}
+		a_k = \frac{1}{2\pi i }\oint_{C_1} \frac{f(s)}{(s-a)^{n+1}}\dd{s}.
+	\end{equation}
+	Repeating this for the case $|s - a| < |z - a|$,
+	\begin{equation}
+		\begin{split}
+			\frac{1}{s-a} = \frac{1}{(s-a)-(z-a)} & = -\frac{1}{z-a}\left(1-\frac{s-a}{z-a}\right)^{-1} \\
+			& = -\frac{1}{z-a}\sum_{k=0}^{\infty}\left(\frac{s-a}{z-a}\right)^{k}.
+		\end{split}
+	\end{equation}
+	We then write,
+	\begin{equation}
+		-\frac{1}{2\pi i }\oint_{C_2} \frac{f(s)}{s-z} = \sum_{k=1}^{\infty}\frac{a_{-k}}{(z-a)^k}
+	\end{equation}
+	where
+	\begin{equation}
+		a_{-k} = \frac{1}{2\pi i }\oint_{C_2}f(s) (s-a)^{k-1}\dd{s}.
+	\end{equation}
+	As $f$ ana between $C_1$ and $C_2$, we can replace $C_1$ and $C_2$ with any contour $C$ lying in the annulus of convergence.
+\end{proof}
+The part with positive powers is known as the \textit{analytic} part of the function, and the part with negative powers is known as the \textit{principal} part.
+\subsection{Residue Theorem}
+A residue is the first non-zero term in the principal part of the Laurent series expanded about a singular point $z = z_0$. If a function has a Laurent series valid within $0 < |z - z_0| < R$, then the integral around a contour $C$ within those bounds is given by,
+\begin{equation}
+	\oint_C f(z) \dd{z} 2\pi i a_{-1}.
+\end{equation}
+The residue $b_1$ is the residue of $f(z)$ at $z = z_0$, often denoted $\text{res}(z_0)$. 
+\begin{Theorems}{Residue Theorem}{}
+	If a curve $C$ encloses $p$ poles $z_i$, $i=1,\ldots, p$ of $f(z)$, the contour integral around $C$ is,
+	\begin{equation}
+		\oint_C f(z) \dd{z} =2\pi i\sum_{j=1}^p\text{res}(z_j).
+	\end{equation}
+\end{Theorems}
+\subsubsection{Methods of finding residues}
+\begin{enumerate}
+	\item Suppose $f(z)$ has a \textit{simple} pole at $z = a$ $\implies$ $g(z) = (z-a)f(z)$ is ana at $z=a$ so a Taylor series,
+	\begin{align}
+		& g(z) =  g(a) + (z-a)g'(a) + \mathcal{O}\left((z-a)^2\right) \\
+		\implies & f(z) = \frac{g(a)}{z-a} + g'(a) + \mathcal{O}(z-a) \\
+		\implies & \text{res}(a) = g(a) = \lim_{z \to a}\left\{(z-a)f(z)\right\}
+	\end{align}
+	\begin{enumerate}
+		\item \textit{Popular Exam Question:} $f(z) = \frac{1}{\sin z}$ has simple poles at $z = n\pi, n \in \mathbb{Z}$.
+		\\\\
+		To do this, we set $z = n\pi + \varepsilon$ where $\varepsilon << 1$, and solve,
+		\begin{equation}
+			\text{res}(n\pi) = \lim_{z \to n\pi}\left\{(z-n\pi)\frac{1}{\sin(z)}\right\} = \lim_{\varepsilon\to0}\left\{\frac{\varepsilon}{\sin(n\pi + \varepsilon)}\right\}.
+		\end{equation}
+	\end{enumerate}
+	\item For $f(z) = \frac{g(z)}{h(z)}$ where $g,h$ ana at $z=a$, $g(a) \neq 0$ but $h(a) = 0$, $h'(a) \neq 0 \implies h(z) = (z-a)h'(a) + \mathcal{O}\left((z-a)^3\right)$ thus,
+	\begin{equation}
+		\begin{split}
+			\text{res}(a) & = \lim_{z \to a}\left\{(z-a)\frac{g(z)}{(z-a)h'(a) + \mathcal{O}\left((z-a)^2\right)}\right\} \\
+			& = \lim_{z \to a}\left\{\frac{g(z)}{h'(a) + \mathcal{O}(z-a)}\right\} = \frac{g(a)}{h'(a)}
+		\end{split}
+	\end{equation}
+	\item Suppose $f$ has a pole of order $p$ at $z = a$ $\implies g(z) = (z-a)^pf(z)$ is ana at $z=a$ and has a Taylor expansion,
+	\begin{align}
+		& g(z) = g(a) + \frac{z-a}{1!}g'(a) + \cdots + \frac{(z-a)^{(p-1)}}{(p-1)!}g^{(p-1)}(a) + \cdots \\
+		\implies & f(z) = \frac{g(a)}{(z-a)^p} + \cdots + \frac{1}{z-a}\left\{\frac{g^{(p-1)}(a)}{(p-1)!}\right\} + \cdots
+	\end{align}
+	thus, generally,
+	\begin{equation}
+		\boxed{\text{res}(a) = \frac{g^{(p-a)(a)}}{(p-1)!} = \frac{1}{(p-1)!}\lim_{z\to a}\left\{\dv[p-1]{z}\left[(z-a)^pf(z)\right]\right\}}
+	\end{equation}
+\end{enumerate}
+\section{Complex Methods of Real Integrals}
+
 \end{document}
  

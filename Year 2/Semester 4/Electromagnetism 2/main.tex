@@ -67,6 +67,54 @@
 
 \renewcommand{\cleardoublepage}{\clearpage}
 
+\usepackage[outline]{contour} % glow around text
+\usepackage{physics}
+\usepackage{xcolor}
+\usepackage{etoolbox} %ifthen
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows,arrows.meta}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{angles,quotes} % for pic (angle labels)
+\usetikzlibrary{fadings}
+\tikzset{>=latex} % for LaTeX arrow head
+\contourlength{1.4pt}
+
+\colorlet{wall}{blue!30!black}
+\colorlet{myblue}{blue!70!black}
+\colorlet{myred}{red!70!black}
+\colorlet{mydarkred}{red!50!black}
+\colorlet{mylightgreen}{green!60!black!70}
+\colorlet{mygreen}{green!60!black}
+\colorlet{myredgrey}{red!50!black!80}
+\colorlet{myshadow}{blue!30!black!90}
+\tikzstyle{wave}=[myblue,thick]
+\tikzstyle{mydashed}=[black!70,dashed,thin]
+\tikzstyle{mymeas}=[{Latex[length=3,width=2]}-{Latex[length=3,width=2]},thin]
+\tikzstyle{mysmallarr}=[-{Latex[length=3,width=2]}]
+
+
+\newcommand\rightAngle[4]{
+	\pgfmathanglebetweenpoints{\pgfpointanchor{#2}{center}}{\pgfpointanchor{#3}{center}}
+	\coordinate (tmpRA) at ($(#2)+(\pgfmathresult+45:#4)$);
+	\draw[white,line width=0.6] ($(#2)!(tmpRA)!(#1)$) -- (tmpRA) -- ($(#2)!(tmpRA)!(#3)$);
+	\draw[mydarkred] ($(#2)!(tmpRA)!(#1)$) -- (tmpRA) -- ($(#2)!(tmpRA)!(#3)$);
+}
+\newcommand\lineend[2]{
+	\def\w{0.1} \def\c{30}
+	\draw[mygreen] (#1)++(#2:\w) to[out=#2-180-\c,in=#2+\c] (#1)
+	to[out=#2+\c-180,in=#2-\c]++ (#2-180:\w);
+}
+\def\tick#1#2{\draw[thick] (#1) ++ (#2:0.1) --++ (#2-180:0.2)}
+
+% INTERFERENCE FADING
+\begin{tikzfadingfrompicture}[name=interference]
+	\def\lambd{0.5} % wavelength
+	\foreach \r in {1,...,15}
+	\foreach \j in {1,...,25}
+	\path [line width=\lambd*\j,draw=transparent!0,opacity=0.04]
+	(0,0) circle (\lambd*\r); %(0:\r) arc (0:180:\r);
+\end{tikzfadingfrompicture}
+
 \title{Electromagnetism 2}
 \author{Dominik Szablonski}
 \newtheorem{law}{Law}
@@ -964,6 +1012,19 @@ For randomly polarised light with original intensity $I(\theta)$ and an intensit
 	I(\theta) = I(0)\cos^2\theta.
 \end{equation}
 Below we talk about different mechanisms of polarisation.
+\subsection{Polarisation by Reflection}
+We have previously seen that light incident at the Brewster angle produces light which is completely $S$-polarised.
+\subsection{Polarisation by Scattering}
+Scattering is when electromagnetic waves incident upon bound electrons set them into vibration with respect to the nucleus. The oscillating electric dipole will then reradiate energy with a frequency coinciding to that of the incident light.
+\\\\
+If linearly polarised light is incident on a molecule, the direction of the scattered radiation and the oscillating dipole will be coplanar. The dipole will not radiate in the direction of its axis.
+\\\\
+If randomly polarised light is incident on the molecule, the following will be observed,
+\begin{itemize}
+	\item The forward direction will be completely unpolarised.
+	\item Off-axis radiation will be slightly polarised, and become more polarised as the angle increases.
+	\item The direction of observation normal to the incoming light is completely linearly polarised. 
+\end{itemize}
 \subsection{Polarisation by Dichroism}
 This mechanism works by selectively absorbing 1 component of randomly polarised light.
 \begin{itemize}
@@ -972,6 +1033,457 @@ This mechanism works by selectively absorbing 1 component of randomly polarised 
 	\item Polarisation of the wave is then along the other axis.
 	\item The transmitted field component is $E_0\cos\theta$ where $\theta$ is the angle between the \textit{pass axis}.
 \end{itemize}
+\section{Optical Anistropy}
+We will now talk about materials which are \textit{anistropic} or \textit{birefringent}. We have previously assumed our materials to be isotropic, i.e., that their electric permittivity is the same everywhere. We will no longer be assuming this. When we have an anistropic medium, it results in observing a "double refraction", two shifted images as opposed to just a single image when viewing an object through a medium.
+\\\\
+The reason we observe anistropy in materials is because in a medium, we have bound electrons which are bound by different amounts in different directions, i.e., there is an anistropy in the binding force. This physical anistropy causes an optical anistropy due to light being absorbed by different amounts in different directions.
+\subsection{Modifications to electromagnetic description}
+We can construct a wave equation for the electric field in a medium,
+\begin{equation}
+	-k^2\vb{E} + \vb{k}\left(\vb{k}\cdot\vb{E}\right) = \epsilon\mu \pdv[2]{\vb{E}}{t}.
+\end{equation}
+We will assume that $\mu = \mu_0$, and since $\epsilon$ has a directional dependence, we will write it as a tensor,
+\begin{equation}
+	\epsilon = \begin{pmatrix}
+		\epsilon_x & 0 & 0 \\
+		0 & \epsilon_y & 0 \\
+		0 & 0 & \epsilon_z
+	\end{pmatrix}
+\end{equation}
+where we say $\epsilon_x = \epsilon_y \neq \epsilon_z$ for a uniaxial medium, and $\epsilon_x \neq \epsilon_y \neq \epsilon_z$ for a biaxial medium. We can then write out the individual components of $\vb{E}$,
+\begin{align}
+	-k^2\vb{E} + k_x(\vb{k}\cdot\vb{E}) &= - \epsilon_x\mu \omega^2E_x\\
+	-k^2\vb{E} + k_y(\vb{k}\cdot\vb{E}) &= - \epsilon_y\mu \omega^2E_y\\
+	-k^2\vb{E} + k_z(\vb{k}\cdot\vb{E}) &= - \epsilon_z\mu \omega^2E_x\\
+\end{align}
+if we assume $\mu\epsilon_x = \mu\epsilon_y = \frac{n_0^2}{c^2}$ and $\mu\epsilon_z = \frac{n_e^2}{c^2}$, we can solve this system of equations as an eigenvalue equation to obtain,
+\begin{equation}
+	\boxed{\frac{k^2}{n_0^2} = \frac{\omega^2}{c}}
+\end{equation}
+\begin{equation}
+	\boxed{\frac{k_x^2}{n_e^2} + \frac{k_y^2}{n_e^2} + \frac{k_z^2}{n_o^2} = \frac{\omega^2}{c^2}}
+\end{equation}
+where we have two refractive indices, the ordinary refractive index $n_0$ and the extraordinary refractive index $n_e$. If we rewrite $k$ space in polar coordinates, we can write down an effective refractive index of the extraordinary wave,
+\begin{equation}
+	\boxed{\frac{1}{n^2} = \frac{\sin^2\theta}{n_e^2} + \frac{\cos^2\theta}{n_ol^2}}.
+\end{equation}
+\subsubsection{What is going on here?}
+Due to the physical anistropy of anistropic crystals, the molecules within are easier to polarise in some directions over others. This results in the crystal having two different refractive indices - one for light with the $\vb{E}$ vector along the optical axis (extraordinary) and one for light in all other directions (ordinary).
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+	\begin{tikzpicture}
+		\draw[->] (0,0,0) -- (0,0,5) node[anchor=west] {$z$};
+		\draw[->] (0,0,0) -- (2.5,0,0) node[anchor=west] {$x$};
+		\draw[->] (0,0,0) -- (0,2.5,0) node[anchor=west] {$y$};
+		\draw[latex-latex, very thick] (0, -1, 2.5) -- (0, 1, 2.5) node[anchor=west] {$\vb{E}$};
+	\end{tikzpicture}
+	\caption{Wave propagating along OA.}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+	\begin{tikzpicture}
+		\draw[->] (0,0,0) -- (0,0,5) node[anchor=west] {$z$};
+		\draw[->] (0,0,0) -- (2.5,0,0) node[anchor=west] {$x$};
+		\draw[->] (0,0,0) -- (0,2.5,0) node[anchor=west] {$y$};
+		\draw[latex-latex, very thick] (0, -1, 2.5) -- (0, 1, 2.5) node[anchor=west] {$\vb{E}$};
+	\end{tikzpicture}
+	\caption{Wave propagating perpendicular to OA.}
+	\end{subfigure}
+	\caption{}
+\end{figure}
+\noindent
+Let us now consider linearly polarised waves along certain axes. For linearly polarised light propagating different relative to the optical axis.
+\begin{enumerate}
+	\item \textbf{Propagating Along Optic Axis}
+	\begin{itemize}
+		\item The $\vb{E}$ vectors are in the $xy$ plane. 
+		\item $\vb{E}$ oscillates perpendicular to the optical axis.
+		\item All polarisation components of the wave experience $n_o$.
+		\item There is no change in polarisation, the wave travels at $v = \frac{c}{n_o}$.
+	\end{itemize}
+	\item \textbf{Propagating $\perp$ to Optic Axis - Polarised $\perp$ to Optic Axis}
+	\begin{itemize}
+		\item Components all experience $n_o$.
+		\item There is no change in polarisation.
+		\item The wave travels at  $v = \frac{c}{n_o}$.
+	\end{itemize}
+	\item \textbf{Propagating $\perp$ to Optic Axis - Polarised $\parallel$ to Optic Axis}
+	\begin{itemize}
+		\item Components all experience $n_e$.
+		\item There is no change in polarisation.
+		\item The wave travels at  $v = \frac{c}{n_e}$.
+	\end{itemize}
+	\item \textbf{Polarised at $45^{\text{o}}$ to Optic Axis}
+	\begin{itemize}
+		\item $x$ component $\parallel$ to optic axis $\implies$ travels at $\frac{c}{n_e}$.
+		\item $y$ component $\perp$ to optic axis $\implies$ travels at $\frac{c}{n_o}$.
+		\item $x$ and $y$ components are out of phase.
+	\end{itemize}
+	\item \textbf{Arbitrarily Polarised Wave} (see fig. \ref{fig:eo})
+	\begin{itemize}
+		\item Some components are $\parallel$ to optical axis, some are $\perp$.
+		\item The wave front is elliptically polarised when striking the crystal. 
+		\item Components $\perp$ to optical axis will travel at $\frac{c}{n_o}$.
+		\begin{itemize}
+			\item These known as \textit{o-rays} - wave proceeds without deviation and wavefronts are circular.
+		\end{itemize}
+		\item Components $\parallel$ to the optical axis and travel at a higher speed $\frac{c}{n_0}$.
+		\begin{itemize}
+			\item These are known as \textit{e-rays} - wave fronts are elliptical, direction of propagation is no longer perpendicular to wavefront. 
+		\end{itemize}
+	\end{itemize}
+\end{enumerate}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\textwidth]{eo.png}
+	\caption{}
+	\label{fig:eo}
+\end{figure}
+\subsection{Retardation Plates}
+Retardation plates are objects which take advantage of $e$ waves travelling faster than $o$ waves, causing a phase shift between the two. They will cause an optical path difference given by,
+\begin{equation}
+	p = \abs{d(n_0 - n_e)}
+\end{equation}
+where $d$ is the travel distance.
+\subsubsection{Quarter Wave Plates}
+Quarter wave plates cause a path difference,
+\begin{equation}
+	d(n_0 - n_e) = \frac{\lambda}{4}.
+\end{equation}
+Considering an input wave,
+\begin{equation}
+	E_0\vu{x}\cos(\omega t - kz) + E_0\vu{y}\cos(\omega t - kz)
+\end{equation}
+we can see that this wall cause a phase shift of $\frac{\pi}{2}$, i.e., the output wave will be,
+\begin{equation}
+	E_0\vu{x}\cos\left(\omega t - kz + \frac{\pi}{2}\right) + E_0\vu{y}\cos(\omega t - kz)
+\end{equation}
+thus the output wave will be circularly polarised.
+\subsubsection{Half Wave Plate}
+A half wave plate causes,
+\begin{equation}
+	d(n_0 - n_e) = \frac{\lambda}{2}.
+\end{equation}
+and thus a phase difference of $\pi$, so the input and output waves are,
+\begin{align}
+	\text{Input} && E_0\vu{x}\cos(\omega t - kz) + E_0\vu{y}\cos(\omega t - kz) \\
+	\text{Output} && -E_0\vu{x}\cos(\omega t - kz) + E_0\vu{y}\cos(\omega t - kz)
+\end{align}
+thus the wave is still linearly polarised, but the polarisation angle is flipped about the optic axis. This is such that the input wave makes an angle $\arctan\left(\frac{E_{0_y}}{E_{0_x}}\right)$ with the optic axis, and the output wave makes an angle $-\arctan\left(\frac{E_{0_y}}{E_{0_x}}\right)$ with the optic axis.
+\chapter{Interference}
+Interference comes from adding waves. I.e., if we have 2 waves $\vb{E}_1$ and $\vb{E}_2$, the interference wave $\vb{E}$ would be,
+\begin{equation}
+	\vb{E} = \vb{E}_{1_0} e^{i(\omega_1 -\vb{k}_1\cdot{\vb{r}} + \varepsilon_1)} + \vb{E}_{2_0} e^{i(\omega_2 -\vb{k}_2\cdot{\vb{r}} + \varepsilon_2)}.
+\end{equation}
+To get the intensity pattern we would have to calculate $\vb{E}^*\vb{E}$. However, this is cumbersome. Instead, we can use \textit{phasors}. If we consider $\vb{E}_1$ and $\vb{E}_2$ as connected lines in the complex plane at an angle $\omega_1 -\vb{k}_1\cdot{\vb{r}} + \varepsilon_1$ and $ \omega_2 -\vb{k}_2\cdot{\vb{r}} + \varepsilon_2$ to the $x$-axis, we can simply apply simple geometry and the cosine rule,
+\begin{equation}
+	I = \abs{\vb{E}}^2 = E_{1_0}^2 + E_{2_0}^2 + 2E_{1_0}E_{2_0}\cos((\omega_1 - \omega_2)t -(\vb{k}_1 - \vb{k}_2)\cdot\vb{r} + (\varepsilon_1 - \varepsilon_2))
+\end{equation}
+\section{Coherence}
+For waves to interfere, they much be coherent. They must satisfy the following conditions,
+\begin{enumerate}
+	\item \textit{Temporal Coherence} - $\omega_1 \simeq \omega_2$.
+	\item \textit{Spatial Coherence} - $\varepsilon_1 - \varepsilon_2$ must be constant over time.
+\end{enumerate}
+\subsection{Temporal Coherence}
+This is a measure of the average correlation of the phase of the wave along the direction of propagation. We define a \textit{coherence time},
+\begin{equation}
+	\tau_c = \frac{1}{\Delta \mu}
+\end{equation}
+which is the time frame that the wave oscillates over a predicable time, and $\Delta \mu$ is the spectral width of the light source. The longer the coherence time, the greater the temporal coherence of the source. We can calculate the corresponding coherence length,
+\begin{equation}
+	\Delta x_c = c\tau_c
+\end{equation}
+which is the distance over which the wave visibly spreads out.
+\subsection{Spatial Coherence}
+Spatial coherence is the correlation of the phase of a light wave transverse to the propagation direction. The range of separation, $\Delta x$ between two points over which there is significant interference defines the coherence area $A_c$. 
+\section{Division of Wavefronts}
+If a wave encounters a barrier that has an opening similar to its wavelength, it will diffract. 
+\subsection{Young's Double Slit}
+\begin{figure}[h]
+	\centering 
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\begin{tikzpicture}
+			
+			\def\L{5.9}       % distance between walls
+			\def\H{3.0}       % total wall height
+			\def\f{0.9}       % fractional height of projection point
+			\def\ang{atan((\f*\H+\a)/\L/2)} % theta
+			\def\t{0.15}      % wall thickness
+			\def\a{1.5}       % slit distance
+			\def\d{0.20}      % slit size
+			\coordinate (T) at (0,\a/2);
+			\coordinate (B) at (0,-\a/2);
+			\coordinate (L) at (0,0);
+			\coordinate (R) at (\L,0);
+			\coordinate (P) at (\L,\f*\H/2);
+			\coordinate (M) at ($(B)!(T)!(P)$);
+			
+			% LINES
+			\draw[mygreen,thick] (T) -- (P) node[midway,above=-1] {$r_1$};
+			\draw[mygreen,thick] (B) -- (P) node[midway,below=3,right=6] {$r_2$}; %right=6,below right=-4
+			\draw[dashed] (L) -- (P);
+			\draw[dashed,black!60] (L) -- (R);
+			\draw[mydarkred,dashed] (M) -- (T);
+			
+			% ANGLES
+			\draw pic[mysmallarr,"$\theta'$",mydarkred,draw=mydarkred,angle radius=26,angle eccentricity=1.25]
+			{angle = B--T--M};
+			\draw pic[mysmallarr,"$\theta$",mydarkred,draw=mydarkred,angle radius=38,angle eccentricity=1.14]
+			{angle = R--L--P};
+			\rightAngle{T}{M}{P}{0.3}
+			
+			% MEASURES
+			\draw[<->,black] (0,-0.47*\H) --++ (\L,0) node[midway,fill=white,inner sep=1] {$D >> d$};
+			\draw[<->,black] (-2.1*\t,-\a/2) --++ (0,\a) node[midway,fill=white,inner sep=1] {$d$};
+			\draw[<->,black] ([shift={({\ang-90}:0.1)}]B) -- ([shift={({\ang-90}:0.1)}]M)
+			node[midway,above=1,below right=-3]{$d\sin\theta'$};
+			\draw[<->,black] ([shift={(2.1*\t,0)}]P) -- ([shift={(2.1*\t,0)}]R)
+			node[midway,fill=white,inner sep=1]{$y$};
+			
+			% WALL
+			\fill[wall]
+			(0,\a/2-\d/2) rectangle (-\t,-\a/2+\d/2)
+			(0,\a/2+\d/2) rectangle (-\t,\H/2)
+			(0,-\a/2-\d/2) rectangle (-\t,-\H/2)
+			(\L,-\H/2) rectangle (\L+\t,\H/2);
+			\fill[mygreen!80!black] (P) circle (0.3*\t) node[right=1,above left=-2] {P};
+			
+		\end{tikzpicture}
+		\caption{}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		% TWO SLIT PATH DIFFERENCE close up
+		\begin{tikzpicture}
+			
+			\def\L{5.5}       % distance between walls
+			\def\l{3.8}       % distance between walls
+			\def\H{3.5}       % total wall height
+			\def\f{0.9}       % fractional height of projection point
+			\def\t{0.15}      % wall thickness
+			\def\a{1.6}       % slit distance
+			\def\d{0.20}      % slit size
+			\def\ang{27}      % angle
+			\coordinate (T) at (0,\a/2);
+			\coordinate (B) at (0,-\a/2);
+			\coordinate (L) at (0,0);
+			\coordinate (R) at (\L,0);
+			\coordinate (I) at ({\a/2/tan(\ang)},0);
+			
+			% LINES
+			\draw[mygreen,thick] (T) --++ (\ang:.8*\l) coordinate (PT) node[midway,below=1,above left=-2] {$r_1$};
+			\draw[mygreen,thick] (B) --++ (\ang:\l) coordinate (PB) node[midway,left=2,below right=-1] {$r_2$};
+			\draw[mydarkred,dashed] (T) -- ($(B)!(T)!(PB)$) coordinate (M);
+			\draw[black!60,dashed] (L) --++ (\ang:.9*\l) coordinate (PR);
+			%\draw[black!60,dashed] (T) --++ (.20*\L,0) coordinate (TR);
+			\draw[black!60,dashed] (L) --++ (.6*\L,0) coordinate (LR);
+			%\draw[black!60,dashed] (B) --++ (.20*\L,0) coordinate (BR);
+			
+			% LINE END
+			\lineend{PT}{\ang+70}
+			\lineend{PB}{\ang+70}
+			
+			% ANGLES
+			\draw pic[mysmallarr,"\contour{white}{$\theta$}",mydarkred,draw=mydarkred,angle radius=18.8,angle eccentricity=1.38 ]
+			{angle = B--T--M};
+			%\draw pic[->,"$\theta$",mydarkred,draw=mydarkred,angle radius=16,angle eccentricity=1.41]
+			%  {angle = TR--T--PT};
+			%\draw pic[->,"$\theta$",mydarkred,draw=mydarkred,angle radius=16,angle eccentricity=1.41]
+			%  {angle = BR--B--PB};
+			\draw pic[mysmallarr,"$\theta$",mydarkred,draw=mydarkred,angle radius=22,angle eccentricity=1.25]
+			{angle = LR--L--PR};
+			\draw pic[mysmallarr,"$\theta$",mydarkred,draw=mydarkred,angle radius=22,angle eccentricity=1.30]
+			{angle = LR--I--PB};
+			\rightAngle{T}{M}{PB}{0.3}
+			
+			% MEASURES
+			\draw[<->,black] (-2.2*\t,-\a/2) --++ (0,\a) node[midway,fill=white,inner sep=1.5] {$d$};
+			\draw[<->,black] ([shift={({\ang-90}:0.1)}]B) -- ([shift={({\ang-90}:0.1)}]M)
+			node[midway,above=1,below right=-3]{$\Delta L$};
+			
+			% WALL
+			\fill[wall]
+			(0,\a/2-\d/2) rectangle (-\t,-\a/2+\d/2)
+			(0,\a/2+\d/2) rectangle (-\t,\H/2)
+			(0,-\a/2-\d/2) rectangle (-\t,-\H/2);
+			
+		\end{tikzpicture}
+		\caption{}
+	\end{subfigure}
+	\caption{}
+\end{figure}
+In Young's double slit, we make the following assumptions,
+\begin{itemize}
+	\item $D >> d$
+	\item $\omega_1 = \omega_2$, $k_1 = k_2$, $\varepsilon_1 - \varepsilon_2 = d\sin\theta$.
+	\item Ignore $\vb{r}$ dependence on $\vb{E}$.
+	\item Interfering waves are parallel and apart by $d\cos\theta$.
+\end{itemize}
+If we recall our formulation for adding the intensity of two waves, we find,
+\begin{equation}
+	\begin{split}
+		I(y) & = 2E^2(1+\cos(kd\sin\theta)) \\
+		& =  4E^2\left(\cos^2\left(\frac{kd\sin\theta}{2}\right)\right) = 4E^2\cos^2\left(\frac{kdy}{2D}\right) = 4E^2\cos^2\frac{\pi dy}{\lambda D}.
+	\end{split}
+\end{equation}
+We then clearly see that we obtain bright fringes at,
+\begin{align}
+	\frac{kdy}{2D} = n\pi && \frac{dy}{\lambda D} = n && d\sin\theta = n\lambda
+\end{align}
+which is true for two slits.
+\begin{tcolorbox}[title={Visbility of fringe patterns}, width=\textwidth]
+	The visibility of fringe patterns is given by,
+	\begin{equation}
+		V = \frac{I_{\text{max}} - I_{\text{min}}}{I_{\text{max}} + I_{\text{min}}}
+	\end{equation}
+	which is $V = 1$ for Young's experiment because $I_{\text{min}} = 0$. However, this is not always the case, particularly for the case of $n$ slits.
+\end{tcolorbox}
+\subsection{Lloyd's Mirror}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.45\textwidth]{lloyd.png}
+	\caption{}
+\end{figure}
+Lloyd's mirror produces identical effects to Young's double slit experiment, but relies on the reflection of a single source in order to produce two coherent waves. This reflection causes a phase shift of $\pi$. From Young's slit,
+\begin{equation}
+	\begin{split}
+		I(y) & = 4E^2\cos^2\left(\frac{kd\sin\theta}{2}\pm \frac{\pi}{2}\right) \\
+		& = 4E^2\sin^2\left(\frac{kd\sin\theta}{2}\right)
+	\end{split}
+\end{equation}
+thus the difference we see is that dark fringes occur at $n\pi$. 
+\subsection{Three and $n$ slits}
+We can extend Young's double slit into 3 fringes. Without proof, the summation of 3 of the electric waves is,
+\begin{equation}
+	E_{\text{tot}} = E(1+2\cos(kd\sin\theta))
+\end{equation}
+and the intensity is,
+\begin{equation}
+	I(y) = E^2\left(4\cos^2\left(\frac{kd\sin\theta}{2} - 1\right)\right)^2
+\end{equation}
+and we find that there is a splitting in the fringes, with a single diminished fringe in between. 
+\\\\
+We can extend this to $n$ fringes by,
+\begin{equation}
+	I(y) = |E_0|^2\frac{\sin^2\left(\frac{Nk\delta}{2}\right)}{\sin^2\left(\frac{k\delta}{2}\right)}.
+\end{equation}
+\section{Amplitude Splitting Interferometers}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{interferometer.png}
+	\caption{}
+	\label{fig:interferometer}
+\end{figure}\noindent
+We can also obtain interference by the division of amplitudes. We can achieve this by the use of an interferometer, as in figure \ref{fig:interferometer}. If the vertical distance between the mirrors is $d_1$, and the horizontal distance between the mirrors is $d_2$, then the path difference of the light as it hits the detector is,
+\begin{equation}
+	\Delta = 2(d_1 - d_2).
+\end{equation}
+As the light hits the enters the splitter, it reflects on a rare-dense interface, so picks up a $\pi$ phase difference. Thus, the intensity pattern is given by,
+\begin{equation}
+	I(y) = 4|E|^2\sin^2\left(\frac{\pi\Delta}{\lambda}\right)
+\end{equation}
+so, we have dark fringes at $\Delta = m \lambda$, and bright fringes at $\Delta = m\lambda/2$ of intensity $I = 4|E|^2$. As we change the position of the mirrors, we see shifts in the dark and bright rings. 
+\subsection{Fringe Formation}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{fringe.png}
+	\caption{}
+	\label{fig:fringe}
+\end{figure}\noindent
+Let us now consider the formation of fringes due to geometric optics considerations, as in figure \ref{fig:fringe}. We observe dark fringes at $2(d_1 - d_2)\cos\theta = m\lambda$, and we observe the $p$th dark fringe at,
+\begin{equation}
+	2(d_1 - d_2)\cos\theta = (m-p)\lambda
+\end{equation} 
+thus, we observe a central dark fringe at $\theta = 0$, $2(d_1 - d_2) = m\lambda$. The angular position of any ring is,
+\begin{equation}
+	\begin{split}
+	2(d_1 - d_2)\cos\theta & = m\lambda - p\lambda \\
+	& = 2(d_1 - d_2) - p\lambda
+	\end{split}
+\end{equation}
+so,
+\begin{equation}
+	p\lambda = 2(d_1 - d_2)(1-cos\theta) 
+\end{equation}
+and applying the small angle approximation,
+\begin{equation}
+	\theta = \left(\frac{p\lambda}{d_1 - d_2}\right)^{1/2}
+\end{equation}
+which is the angular radius of the $p$th ring, which we can write as,
+\begin{equation}
+	\theta^2 = \frac{2p\lambda}{\Delta}
+\end{equation}
+\subsection{Thin Film Interference}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{thinfilm.jpg}
+	\caption{}
+	\label{fig:thin film}
+\end{figure}
+Thin film interference occurs when light enters a material and then totally internally refracts back through where it came from, as in figure \ref{fig:thin film}. For a film of thickness $d$ and refractive index $n$, the path difference is given by,
+\begin{equation}
+	\begin{split}
+		\Delta & = \frac{2dn}{\cos\theta_r} - 2d\tan\theta_r\sin\theta_i \\
+			& = \frac{2dn}{\cos\theta_r} - 2d\tan\theta_rn\sin\theta_r
+	\end{split}
+\end{equation}
+where $\theta_i$ is the angle of incidence onto the film and $\theta_r$ is the angle of reflection within the film. Applying appropriate identities, 
+\begin{equation}
+	\Delta = 2d\left(\frac{n-n\sin^2\theta_r}{\cos\theta_r}\right) = \boxed{2dn\cos\theta_r},
+\end{equation}
+The typical result we would expect is for $\Delta \propto \sin\theta_r$, so we see that the reflection within the thin film adds a $\pi$ phase difference. 
+\subsection{Fabry-Perot Etalon}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{fabry-perot-interferometer-setup.png}
+	\caption{}
+	\label{fig:fabryperot}
+\end{figure}
+A Fabry-Perot Etalon is shown in figure \ref{fig:fabryperot}. It consists of two, perfectly parallel plates with a highly reflective, semi-transparent coating with reflection coefficient $\rho$ and transmission coefficient $\sigma$. The distance between the plates $d$ is small and fixed. The apparatus is very sensitive to optical path difference, and each successive within the interferometer is weaker than the last by $\sqrt{\rho}^2$. Each wave has a phase shift of
+\begin{equation}
+	\delta = \frac{2\pi}{\lambda}\cdot2d\cos\theta
+\end{equation}
+with respect to the last. 
+\subsubsection{Intensity Distribution}
+Given the phase shift of each wave, the wave is given by,
+\begin{equation}
+	E_{\text{tot}} = E_0e^{i(kz-\omega t)}(\sigma + \sigma\rho e^{i\delta} + \sigma \rho^2e^{2i\delta} + \cdots) 
+\end{equation}
+which we can rewrite
+\begin{equation}
+	E_{\text{tot}} = E_0\sigma e^{i(kz - \omega t)}\frac{1}{1-\rho e^{i\delta}}
+\end{equation}
+by inspection, considering the expansion of $(1-x)^{-1}$. Forming $I = E_{\text{tot}}^*E_{\text{tot}}$ as usual, we find,
+\begin{equation}
+	I = \frac{E_0^2\sigma^2}{1 + \rho^2 + 2\rho\cos\delta}
+\end{equation}
+which we can rearrange to form,
+\begin{equation}
+	I(\delta) = \frac{E_0^2\sigma^2}{(1-\rho)^2\left(1+\frac{4\rho}{(1-\rho^2)}\sin^2(\delta/2)\right)}.
+\end{equation}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fab.png}
+	\caption{}
+	\label{fig:fab}
+\end{figure}
+Let us analyse the intensity pattern, plotted in figure \ref{fig:fab}. We find sharp peaks where,
+\begin{equation}
+	\delta = \frac{2\pi}{\lambda}2d\cos\theta = 2\pi m.
+\end{equation}
+$\delta \lambda$ is the resolution, given by,
+\begin{equation}
+	\delta \lambda = \frac{\lambda(1- \rho)}{\pi m \sqrt{\rho}}
+\end{equation}
+and $\Delta \lambda$ is the spectral range. The ratio of these two quantities is known as the finesse,
+\begin{equation}
+	\frac{\Delta \lambda}{\delta \lambda} = \frac{\pi \sqrt{\rho}}{1 - \rho}
+\end{equation}
+and is a measure of how sharp the peaks are. 
+\chapter{Diffraction}
+
 \appendix
 \chapter{Revision Equations}
 \section{Potentials}

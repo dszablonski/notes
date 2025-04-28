@@ -54,9 +54,31 @@
 \contentsline {subsection}{\numberline {4.1.1}Linear Polarisation}{24}{}%
 \contentsline {subsection}{\numberline {4.1.2}Circular Polarisation}{24}{}%
 \contentsline {section}{\numberline {4.2}Mechanisms of Polarisation}{24}{}%
-\contentsline {subsection}{\numberline {4.2.1}Polarisation by Dichroism}{25}{}%
-\contentsline {chapter}{\numberline {A}Revision Equations}{26}{}%
-\contentsline {section}{\numberline {A.1}Potentials}{26}{}%
-\contentsline {section}{\numberline {A.2}Gauges}{26}{}%
-\contentsline {section}{\numberline {A.3}Vector Identities}{27}{}%
-\contentsline {section}{\numberline {A.4}EM Waves}{27}{}%
+\contentsline {subsection}{\numberline {4.2.1}Polarisation by Reflection}{25}{}%
+\contentsline {subsection}{\numberline {4.2.2}Polarisation by Scattering}{25}{}%
+\contentsline {subsection}{\numberline {4.2.3}Polarisation by Dichroism}{25}{}%
+\contentsline {section}{\numberline {4.3}Optical Anistropy}{25}{}%
+\contentsline {subsection}{\numberline {4.3.1}Modifications to electromagnetic description}{25}{}%
+\contentsline {subsubsection}{What is going on here?}{26}{}%
+\contentsline {subsection}{\numberline {4.3.2}Retardation Plates}{27}{}%
+\contentsline {subsubsection}{Quarter Wave Plates}{28}{}%
+\contentsline {subsubsection}{Half Wave Plate}{28}{}%
+\contentsline {chapter}{\numberline {5}Interference}{29}{}%
+\contentsline {section}{\numberline {5.1}Coherence}{29}{}%
+\contentsline {subsection}{\numberline {5.1.1}Temporal Coherence}{29}{}%
+\contentsline {subsection}{\numberline {5.1.2}Spatial Coherence}{29}{}%
+\contentsline {section}{\numberline {5.2}Division of Wavefronts}{29}{}%
+\contentsline {subsection}{\numberline {5.2.1}Young's Double Slit}{30}{}%
+\contentsline {subsection}{\numberline {5.2.2}Lloyd's Mirror}{30}{}%
+\contentsline {subsection}{\numberline {5.2.3}Three and $n$ slits}{31}{}%
+\contentsline {section}{\numberline {5.3}Amplitude Splitting Interferometers}{31}{}%
+\contentsline {subsection}{\numberline {5.3.1}Fringe Formation}{32}{}%
+\contentsline {subsection}{\numberline {5.3.2}Thin Film Interference}{32}{}%
+\contentsline {subsection}{\numberline {5.3.3}Fabry-Perot Etalon}{33}{}%
+\contentsline {subsubsection}{Intensity Distribution}{33}{}%
+\contentsline {chapter}{\numberline {6}Diffraction}{35}{}%
+\contentsline {chapter}{\numberline {A}Revision Equations}{36}{}%
+\contentsline {section}{\numberline {A.1}Potentials}{36}{}%
+\contentsline {section}{\numberline {A.2}Gauges}{36}{}%
+\contentsline {section}{\numberline {A.3}Vector Identities}{37}{}%
+\contentsline {section}{\numberline {A.4}EM Waves}{37}{}%

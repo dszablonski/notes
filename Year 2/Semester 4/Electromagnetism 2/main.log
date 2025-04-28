@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Arch Linux) (preloaded format=pdflatex 2025.3.10)  13 MAR 2025 15:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.4.27)  27 APR 2025 18:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1126,20 +1126,20 @@ Package: xfp 2024-08-16 L3 Floating point unit
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for U/DSSerif/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for U/DSSerif/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count367
@@ -1209,13 +1209,13 @@ Package: inputenc 2024/02/08 v1.3d Input encoding file
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 79.
-
+LaTeX Font Info:    Trying to load font information for U+msa on input line 127
+.
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 127
+.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1237,7 +1237,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [3]
 Chapter 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--100
+Underfull \hbox (badness 10000) in paragraph at lines 144--148
 
  []
 
@@ -1245,34 +1245,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 96--100
 Package mdframed Warning: Unknown definedstyle 0
  You have to define a style 
  via \mdfdefinedstyle
-(mdframed)                 on input line 104.
+(mdframed)                 on input line 152.
 
-Package mdframed Info: mdframed works in twoside mode on input line 104.
+Package mdframed Info: mdframed works in twoside mode on input line 152.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 104.
+(mdframed)              on input line 152.
 
 
 [4
 
 ]
-<2.3.png, id=74, 880.28876pt x 679.53876pt>
+<2.3.png, id=75, 880.28876pt x 679.53876pt>
 File: 2.3.png Graphic file (type png)
 <use 2.3.png>
-Package pdftex.def Info: 2.3.png  used on input line 134.
+Package pdftex.def Info: 2.3.png  used on input line 182.
 (pdftex.def)             Requested size: 339.72592pt x 262.25055pt.
-<2.4.png, id=76, 893.3375pt x 691.58376pt>
+<2.4.png, id=77, 893.3375pt x 691.58376pt>
 File: 2.4.png Graphic file (type png)
 <use 2.4.png>
-Package pdftex.def Info: 2.4.png  used on input line 143.
+Package pdftex.def Info: 2.4.png  used on input line 191.
 (pdftex.def)             Requested size: 339.72592pt x 263.00505pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--149
+Underfull \hbox (badness 10000) in paragraph at lines 186--197
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--149
+Underfull \hbox (badness 10000) in paragraph at lines 186--197
 
  []
 
@@ -1283,10 +1283,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 138--149
 [6 <./2.4.png>]
 
 [7{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<2.6.png, id=94, 1005.7575pt x 566.115pt>
+<2.6.png, id=95, 1005.7575pt x 566.115pt>
 File: 2.6.png Graphic file (type png)
 <use 2.6.png>
-Package pdftex.def Info: 2.6.png  used on input line 240.
+Package pdftex.def Info: 2.6.png  used on input line 288.
 (pdftex.def)             Requested size: 226.48395pt x 127.47403pt.
 
 
@@ -1301,10 +1301,10 @@ Chapter 2.
 ]
 
 [11]
-<realimg.png, id=108, 1115.16624pt x 742.775pt>
+<realimg.png, id=109, 1115.16624pt x 742.775pt>
 File: realimg.png Graphic file (type png)
 <use realimg.png>
-Package pdftex.def Info: realimg.png  used on input line 413.
+Package pdftex.def Info: realimg.png  used on input line 461.
 (pdftex.def)             Requested size: 226.48395pt x 150.85313pt.
 
 
@@ -1330,20 +1330,20 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [18]
 
 [19]
-<oblique incidence.png, id=139, 1247.66125pt x 703.62875pt>
+<oblique incidence.png, id=140, 1247.66125pt x 703.62875pt>
 File: oblique incidence.png Graphic file (type png)
 <use oblique incidence.png>
-Package pdftex.def Info: oblique incidence.png  used on input line 761.
+Package pdftex.def Info: oblique incidence.png  used on input line 809.
 (pdftex.def)             Requested size: 271.7835pt x 153.27422pt.
-<S-polar.png, id=140, 507.8975pt x 673.51625pt>
+<S-polar.png, id=141, 507.8975pt x 673.51625pt>
 File: S-polar.png Graphic file (type png)
 <use S-polar.png>
-Package pdftex.def Info: S-polar.png  used on input line 793.
+Package pdftex.def Info: S-polar.png  used on input line 841.
 (pdftex.def)             Requested size: 163.06483pt x 216.23871pt.
-<p-polar.png, id=141, 507.8975pt x 674.52pt>
+<p-polar.png, id=142, 507.8975pt x 674.52pt>
 File: p-polar.png Graphic file (type png)
 <use p-polar.png>
-Package pdftex.def Info: p-polar.png  used on input line 797.
+Package pdftex.def Info: p-polar.png  used on input line 845.
 (pdftex.def)             Requested size: 163.06483pt x 216.56097pt.
 
 
@@ -1356,36 +1356,147 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [21 <./S-polar.png> <./p-polar.png>]
 
 [22]
-<frustrated.png, id=154, 537.00626pt x 311.1625pt>
+<frustrated.png, id=155, 537.00626pt x 311.1625pt>
 File: frustrated.png Graphic file (type png)
 <use frustrated.png>
-Package pdftex.def Info: frustrated.png  used on input line 917.
+Package pdftex.def Info: frustrated.png  used on input line 965.
 (pdftex.def)             Requested size: 226.48395pt x 131.23337pt.
 
 
 [23 <./frustrated.png>]
 Chapter 4.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 10.0pt on input line 935.
+(Font)              scaled to size 10.0pt on input line 983.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 7.0pt on input line 935.
+(Font)              scaled to size 7.0pt on input line 983.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 5.0pt on input line 935.
+(Font)              scaled to size 5.0pt on input line 983.
 
 
 [24
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 1018--1023
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1018--1023
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1037--1040
+
+ []
+
+
 
 [25]
+
+[26]
+<eo.png, id=171, 474.77374pt x 618.31pt>
+File: eo.png Graphic file (type png)
+<use eo.png>
+Package pdftex.def Info: eo.png  used on input line 1138.
+(pdftex.def)             Requested size: 181.18439pt x 235.96031pt.
+
+
+[27 <./eo.png>]
+
+[28]
+Chapter 5.
+
+Overfull \hbox (11.84431pt too wide) in paragraph at lines 1253--1254
+ [][] 
+ []
+
+contour: Using real outline for `$\theta $' on input line 1290.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[29
+
+]
+<lloyd.png, id=182, 1284.8pt x 980.66376pt>
+File: lloyd.png Graphic file (type png)
+<use lloyd.png>
+Package pdftex.def Info: lloyd.png  used on input line 1346.
+(pdftex.def)             Requested size: 203.83417pt x 155.57764pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
+(Font)              scaled to size 12.0pt on input line 1357.
+LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
+(Font)              scaled to size 8.0pt on input line 1357.
+LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
+(Font)              scaled to size 6.0pt on input line 1357.
+
+
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 1365--1369
+
+ []
+
+<interferometer.png, id=186, 770.88pt x 368.37625pt>
+File: interferometer.png Graphic file (type png)
+<use interferometer.png>
+Package pdftex.def Info: interferometer.png  used on input line 1375.
+(pdftex.def)             Requested size: 226.48395pt x 108.22598pt.
+<fringe.png, id=187, 1173.38374pt x 596.2275pt>
+File: fringe.png Graphic file (type png)
+<use fringe.png>
+Package pdftex.def Info: fringe.png  used on input line 1391.
+(pdftex.def)             Requested size: 271.7835pt x 138.0938pt.
+
+
+[31 <./lloyd.png> <./interferometer.png>]
+<thinfilm.jpg, id=195, 5018.75pt x 4047.12pt>
+File: thinfilm.jpg Graphic file (type jpg)
+<use thinfilm.jpg>
+Package pdftex.def Info: thinfilm.jpg  used on input line 1421.
+(pdftex.def)             Requested size: 271.7835pt x 219.16493pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<fabry-perot-interferometer-setup.png, id=196, 479.391pt x 193.6836pt>
+File: fabry-perot-interferometer-setup.png Graphic file (type png)
+<use fabry-perot-interferometer-setup.png>
+Package pdftex.def Info: fabry-perot-interferometer-setup.png  used on input li
+ne 1440.
+(pdftex.def)             Requested size: 271.7835pt x 109.80675pt.
+
+
+[32 <./fringe.png>]
+
+[33 <./thinfilm.jpg> <./fabry-perot-interferometer-setup.png>]
+<fab.png, id=205, 652.4375pt x 410.53375pt>
+File: fab.png Graphic file (type png)
+<use fab.png>
+Package pdftex.def Info: fab.png  used on input line 1468.
+(pdftex.def)             Requested size: 226.48395pt x 142.51128pt.
+
+
+[34 <./fab.png>]
+Chapter 6.
+
+
+[35
+
+]
 Appendix A.
 
 
-[26
+[36
 
 ]
 
-[27] (./main.aux)
+[37] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1393,16 +1504,16 @@ L3 programming layer <2025-01-18>
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 898 ({)
+### simple group (level 1) entered at line 946 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 40745 strings out of 475171
- 992169 string characters out of 5767103
- 1570705 words of memory out of 5000000
- 62992 multiletter control sequences out of 15000+600000
- 577163 words of font info for 102 fonts, out of 8000000 for 9000
+ 41147 strings out of 475171
+ 999742 string characters out of 5767095
+ 1702986 words of memory out of 5000000
+ 63394 multiletter control sequences out of 15000+600000
+ 578003 words of font info for 105 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 94i,22n,96p,737b,1242s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,22n,96p,737b,1425s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/dsserif/DSSerif.pfb><
 /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/te
 xmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy9.pfb></usr/share/texmf-dist/
@@ -1412,24 +1523,25 @@ cm/cmbx7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
 usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texm
 f-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/
-share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></us
-r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb>
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/cm
--super/sfrm1000.pfb>
-Output written on main.pdf (27 pages, 624580 bytes).
+c/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
+/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></
+usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm100
+0.pfb>
+Output written on main.pdf (37 pages, 3224628 bytes).
 PDF statistics:
- 286 PDF objects out of 1000 (max. 8388607)
- 159 compressed objects within 2 object streams
+ 339 PDF objects out of 1000 (max. 8388607)
+ 186 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 205 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 246 words of extra memory for PDF output out of 10000 (max. 10000000)
 
