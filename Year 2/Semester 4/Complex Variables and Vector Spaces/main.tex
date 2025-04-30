@@ -1648,6 +1648,47 @@ The residue $b_1$ is the residue of $f(z)$ at $z = z_0$, often denoted $\text{re
 	\end{equation}
 \end{enumerate}
 \section{Complex Methods of Real Integrals}
-
+In order to perform complex integrals on real functions, we rewrite the integrand in terms of complex variables, and perform the integral via the residue theorem.
+\\\\
+For trigonometric integrals we often rely on the fact that, if $z = e^{i\theta}$,
+\begin{align}
+	\cos\theta = \frac{1}{2}\left(z + \frac{1}{z}\right) && \sin\theta = \frac{1}{2i}\left(z - \frac{1}{z}\right).
+\end{align} 
+\subsection{Fourier Integrals}
+A Fourier integral is given by,
+\begin{equation}
+	I = \int_{-\infty}^{\infty}f(x)e^{ikx}\dd{x}.
+\end{equation}
+We will suppose that $k > 0, \in \mathbb{R}$, so $e^{ikz} \to 0$ for $\Im(z) \to \infty$ and $f(z) \to 0$ for $|z| \to \infty$ in the upper half plane (UHP) of $z$.
+\begin{Lemma}{Jordan's Lemma}
+	When evaluating a contour integral $\oint e^{ikz}f(z) \dd{z}$ along a contour that includes the real axis and a semicircle $C_R$ of radius $R$ in the UHP, for $k >0$ the integral along the semicircle is bounded by,
+	\begin{equation}
+		\abs{\int_{C_R} e^{ikz}f(z)\dd{z}} < \frac{\pi}{k}\max_{\theta \in \left[0,\pi\right]}\abs{f(Re^{i\theta})}.
+	\end{equation}
+\end{Lemma}
+\begin{proof}
+	On $D_R$, $z=Re^{i\theta}$, $\theta \in \left[0,\theta\right]$. We can suppose, that for any small $\varepsilon$, we can find $R$ such that,
+	\begin{equation}
+		\abs{f(Re^{i\theta})} < \varepsilon.
+	\end{equation}
+	then,
+	\begin{align}
+		\abs{\int_{C_R}fe^{ikz}\dd{z}} & = \abs{\int_0^{\pi} f(Re^{i\theta})e^{ikR(\cos\theta + i \sin\theta)}iRe^{i\theta}\dd{z}} \\
+		& \leq \varepsilon R\int_0^{\pi}e^{-kR\sin\theta}\dd{\theta} = 2\varepsilon R\int_0^{\frac{\pi}{2}}e^{-kR\sin\theta}\dd{\theta}.
+	\end{align}
+	We note that $\sin\theta < \frac{2}{\pi}\theta$, so,
+	\begin{align}
+			\abs{\int_{C_R}fe^{ikz}\dd{z}} & \leq 2\varepsilon R \int_0^{\frac{\pi}{2}}e^{-\frac{2kR\theta}{\pi}}\dd\theta \\
+			&< 2\varepsilon R\int_0^{\infty}e^{-\frac{2kR\theta}{\pi}}\dd{\theta} \\
+			&= 2\varepsilon R \frac{\pi}{2kR} = \frac{\varepsilon \pi}{k}
+	\end{align}
+	which is in agreement with Jordan's lemma. 
+\end{proof}
+If the integrand $f$ satisfies that,
+\begin{enumerate}
+	\item $k > 0 \in \mathbb{R}$
+	\item $f(z) \to 0$ for $\abs{z} \to \infty$ in UHP
+\end{enumerate}
+then we can always choose $\varepsilon = 0$ and evaluate the integral with the contour surrounding the singularities. Furthermore, if $f(z)$ is merromorphic, i.e., all singularities are isolated poles, we can evaluate the integral by applying the residue theorem. 
 \end{document}
  

@@ -1228,4 +1228,85 @@ Let us recall for ultrarelativistic particles in 3D, $\Phi_G= \frac{1}{3}\langle
 	\langle E \rangle = V\int u(\omega)\dd{\omega} = \frac{4\sigma}{c}VT^4 && P = \frac{4\sigma}{c}T^4 && S = -\dv{\Phi_G}{T} = \frac{16\sigma}{3c}VT^4.
 \end{align}
 \subsection{Bosons and The Bose-Einstein Condensate}
+If we recall the occupancy,
+\begin{equation}
+	\bar{n}(\varepsilon) = \frac{1}{e^{(\varepsilon - \mu)\beta} -1}
+\end{equation}
+being the average number of states with energy $\varepsilon$, we require $\bar{n} \geq 0 \implies e^{(\varepsilon - \mu)\beta} > 1 \implies \mu < \varepsilon, \forall \varepsilon$. In the continuum limit, we usually take $\varepsilon_0 = $. Thus, for a gas $\mu < 0$. The average number of particles is given by,
+\begin{equation}
+	\left<N\right> = \int_0^{\infty}g(k)\bar{n}(k) \dd{k} = \frac{g_sV}{2\pi^2}\int_0^{\infty}\frac{k^2}{e^{\left(\frac{\hbar^2k^2}{2m} - \mu\right)\beta} - 1}\dd{k}
+\end{equation}
+however, we usually have a fixed number of particles, so we assume $\langle N \rangle = N$. We then have that $e^{-\mu\beta} = \bar{z}$, $\mu \to 0_-, \bar{z} \to 1_+$. If we let $x = \frac{\hbar^2k^2}{2m}\beta$,
+\begin{equation}
+	n = \frac{\langle N \rangle}{V} = \left(\frac{2m}{\hbar^2\beta}\right)^{\frac{3}{2}}\frac{g_s}{4\pi^2}\underbrace{\int_0^{\infty}\frac{x^{\frac{1}{2}}}{\bar{z}e^{x} - 1}\dd{x}}_{G(\bar{z})}.
+\end{equation}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{G(z).png}
+	\caption{} 
+	\label{fig:G}
+\end{figure}
+Where $G(\bar{z})$ is the Boson equivalent of $F(\bar{z})$ which we have previously defined. $G(\bar{z})$ is plotted in figure \ref{fig:G}. Although it appears as though it has an asymptote, it actually peaks at $\bar{z} = 1$ to given $G(1) = 2.315$. We then have,
+\begin{equation}
+	G(\bar{z}) = \frac{\sqrt{\pi}}{2}\frac{n}{g_sn_Q(T)}.
+\end{equation}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{Tfix.png}
+	\caption{}
+	\label{fig:Tfix}
+\end{figure}
+In figure \ref{fig:Tfix}, as we take a limit $\mu \to 0$, the area reaches a maximum and no more particles can be accommodated. If we consider this limit explicitly,
+\begin{equation}
+	\frac{k^2}{e^{\frac{\hbar^2k^2}{2m}\beta}-1} \sim \frac{k^2}{\frac{\hbar^2k^2}{2m}\beta} \sim \frac{k_BT 2m}{\hbar^2}
+\end{equation}
+which is constant, and gives rise to the finite value of $G(1)$. From this, we can see that we get a minimum value for $T$ and a maximum value for $N$ as $\mu \to 0$. Knowing,
+\begin{equation}
+	\int_0^{\infty}\frac{x^{1/2}}{e^x -1} \dd{x} = 2.31516
+\end{equation}
+we have,
+\begin{align}
+	n_C = 2.61238g_sn_Q(t) && T_C = 3.3125\frac{\hbar^2}{mk_B}\left(\frac{n}{g_s}\right)^{2/3}.
+\end{align}
+This is strange - at a given $T$, we cannot force more than a certain number of particles in a given volume, and conversely we cannot lower temperature of a fixed number of particles. The reaoson for this is that we are not accounting for the ground state energy, as $g(0) = 0$. The number of particles will be given by $N = N_0 + N$. Rearranging this, we find,
+\begin{equation}
+	N_0 = N \left( 1 - \left(\frac{T}{T_C}\right)^{3/2}\right).
+\end{equation}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{cond.png}
+	\caption{}
+	\label{fig:cond}
+\end{figure}
+If we make plots of chemical potential against temperature and number density against temperature as in figure \ref{fig:cond}, we find that the particles "condense" into a ground state. This phenomenon is known as Bose-Einstein condensation, and results in a macroscopic, ground state quantum object which can be seen by the naked eye. Bose-Einstein condensation occurs when $n \sim n_Q(T)$.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{cV.png}
+	\caption{}
+	\label{fig:cV}
+\end{figure}
+We find that the the energy when considering all temperatures is given by,
+\begin{equation}
+	\langle E \rangle = N\varepsilon_0 + \left(\frac{2m}{\hbar^2}\right)^{3/2}(k_BT)^{5/2}\frac{g_SV}{4\pi^2}\int_0^{\infty}\frac{x^{3/2}}{e^x -1}\dd{x}
+\end{equation}
+and the corresponding heat capacity is,
+\begin{equation}
+	C_V \propto T^{3/2}.
+\end{equation}
+For the case where $T < T_C$, the energy is given by,
+\begin{equation}
+	N\varepsilon_0 + \cdots T^{5/2}\int_0^{\infty}\frac{x^{3/2}}{e^x -1}\dd{x}
+\end{equation}
+however, now this is more complicated, as we now $\beta$ and $\mu(\beta)$ depend on temperature for fixed $N$. If we were to plot $C_V$, as in figure \ref{fig:cV}, we find that there is a cusp, which indicates a second order phase transition. 
+\\\\
+We find that the relation $P = \frac{2}{3}\frac{E}{V}$ for $T < T_C$, if we ignore effects of the condensate. However, we find that $\frac{E}{V}$ is a function of only $T$. This leads to the system being susceptible to collapse, but in the real case there are interactions at short distances. 
+\\\\
+Our previous discussion has shown that the ground state energy is not 0. If this is the case, then $\varepsilon_0$ bounds $\mu$ from above such that $\mu < \varepsilon$. We have that,
+\begin{equation}
+	\begin{split}
+	N_0 = \bar{n}(\varepsilon) \implies \mu & = \varepsilon_0 - k_BT\ln\left(1 - \frac{1}{N_0}\right) \\
+	& = \varepsilon_0 - \frac{k_BT}{N_0} = \varepsilon_0 \left(1 - \frac{k_BT}{\varepsilon_0}\frac{1}{N_0}\right) \\
+	& \implies \mu = \varepsilon_0 \implies \frac{N_0}{\bar{n}(\varepsilon_0)} \propto N^{1/3}.
+	\end{split}
+\end{equation}
 \end{document}

@@ -56,8 +56,10 @@
 \contentsline {section}{\numberline {6.1}Born-Oppenheimer Approximation}{27}{}%
 \contentsline {section}{\numberline {6.2}Hydrogen Molecular Orbitals}{27}{}%
 \contentsline {section}{\numberline {6.3}Energy Expectation of H$_2^+$}{28}{}%
-\contentsline {section}{\numberline {6.4}Hydrogen Molecule}{28}{}%
 \contentsline {chapter}{\numberline {7}Electrons in Periodical Potential}{30}{}%
-\contentsline {chapter}{\numberline {A}Misc. Formulae}{31}{}%
-\contentsline {section}{\numberline {A.1}Commutation Relation}{31}{}%
-\contentsline {section}{\numberline {A.2}Legendre Polynomials}{31}{}%
+\contentsline {section}{\numberline {7.1}Free Electron Model of Metals}{30}{}%
+\contentsline {subsection}{\numberline {7.1.1}Periodic Boundary Conditions}{30}{}%
+\contentsline {section}{\numberline {7.2}Bloch Theorem}{31}{}%
+\contentsline {chapter}{\numberline {A}Misc. Formulae}{33}{}%
+\contentsline {section}{\numberline {A.1}Commutation Relation}{33}{}%
+\contentsline {section}{\numberline {A.2}Legendre Polynomials}{33}{}%

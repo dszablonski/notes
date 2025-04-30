@@ -1203,7 +1203,6 @@ and thus,
 \begin{equation}
 	E^{\pm} = E_{1s} + \frac{e^2}{4\pi\epsilon_0r} + \frac{C\pm K}{1\pm S}.
 \end{equation}
-\section{Hydrogen Molecule}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\textwidth]{mol.jpg}
@@ -1212,6 +1211,84 @@ and thus,
 \end{figure}
 
 \chapter{Electrons in Periodical Potential}
+\section{Free Electron Model of Metals}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{freeelectron.png}
+	\caption{}
+	\label{eq:free}
+\end{figure}
+We will consider a one-dimensional lattice consisting of many-atoms. We will consider the electrons moving in a 1-dimensional potential due to ions of crystal. The approximate potential for a crystal of size $L$ is shown in figure \ref{eq:free}. 
+\\\\
+In the free electron model, we assume the particle in a box model, where the potential and corresponding solutions are,
+\begin{align}
+	V(x) = \begin{cases}
+		0 & 0 \leq x \leq L \\
+		\infty & \text{Otherwise}
+	\end{cases}
+	&& \psi_n(x) = \sqrt{\frac{2}{L}}\sin\frac{n\pi x}{L}
+\end{align}
+and the energy is given by,
+\begin{equation}
+	E_n = \frac{\hbar^2k^2}{2m} = \frac{\pi^2n^2\hbar^2}{2mL^2}.
+\end{equation}
+For a realistic crystal with $10^23$ atoms, the energy levels can be treated as being continuous spectrum $E_k$. 
+\subsection{Periodic Boundary Conditions}
+When dealing with the movement of electrons within a macroscopic solid, it is useful for us to implement \textit{periodic boundary conditions}:
+\begin{enumerate}
+	\item Assume an infinite solid, and divide it into boxes of length $L$, and assume the wavefunction is periodic such that,
+	\begin{equation}
+		\psi(x+L) = \psi(x).
+	\end{equation}
+	\item For a particle in a box, the solutions are,
+	\begin{equation}
+		\psi(x) = Ae^{ikx}
+	\end{equation}
+	and the PBC requires,
+	\begin{equation}
+		k = \frac{2\pi n}{L}, \hspace{2em} 	n=0,\pm1,\pm2,\ldots
+	\end{equation}
+\end{enumerate}
+The wavevector $k$ defines the $k$-space. Each state labelled by a quantum number $n$ occupies a volume element in $k$ space of size $\frac{2\pi}{L}$. If we assume a 1D solid lattice, with $N$ cells and a lattice spacing of $a$ such that $L = Na$, there exists the \textit{first Brillouin zone} (FBZ),
+\begin{equation}
+	-\frac{\pi}{a} \leq k \leq \frac{\pi}{a}
+\end{equation}
+where there are $N$ states. I.e., the number of states within the FBZ is equal to the number of cells. 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{freeeee.png}
+	\caption{}
+	\label{fig:freeeee}
+\end{figure}
+The ground state configuration of an $N$-electron solid consisting of $N$ cells is visualised in figure \ref{fig:freeeee}. Each electron can occupy up tot the Fermi momentum $k_f = \frac{\pi}{2a}$, and each state can accommodate 2 electrons, one $\uparrow$ and one $\downarrow$. The total ground sate energy is given by,
+\begin{equation}
+	E_g = \frac{L}{2\pi}\int_{-k_f}^{k_f} \dd{k}\cdot \frac{\hbar^2k^2}{2m_e}.
+\end{equation}
+\section{Bloch Theorem}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{lattice.png}
+	\caption{}
+	\label{fig:lattice}
+\end{figure}
+We have previously ignored the effect of the lattice ion cores. We now want to include the effects of a lattice ion potential. This potential is visualised in figure \ref{fig:lattice}. We will attempt to guess the form of the wavefunction to be,
+\begin{equation}
+	\psi_k(x) = e^{ikx}u_k(x) \label{eq:bloch}
+\end{equation}
+where $u_k(x)$ has a periodic property,
+\begin{equation}
+	u_k(x+a) = u_k(x).
+\end{equation}
+The result of equation \eqref{eq:bloch} is the \textit{Bloch Theorem}.
+\begin{Theorems}{Bloch Theorem}
+	The eigenfunctions of the wave equation for a periodic potential are the product of a plane wave $\exp(ikx)$ times a function $u_k(x)$ with the periodicity of the crystal lattice. 
+\end{Theorems}
+We can then derive the following condition,
+\begin{equation}
+	\psi_k(x + a) = e^{ika}\psi_k(x)
+\end{equation}
+\section{Kronig-Penny Model of Solids}
+
 \appendix
 \chapter{Misc. Formulae}
 \section{Commutation Relation}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Arch Linux) (preloaded format=pdflatex 2025.3.15)  20 APR 2025 10:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.4.27)  29 APR 2025 14:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1367,7 +1367,7 @@ LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
 <mol.jpg, id=171, 531.1845pt x 428.5611pt>
 File: mol.jpg Graphic file (type jpg)
 <use mol.jpg>
-Package pdftex.def Info: mol.jpg  used on input line 1209.
+Package pdftex.def Info: mol.jpg  used on input line 1208.
 (pdftex.def)             Requested size: 226.48395pt x 182.72786pt.
 
 
@@ -1379,15 +1379,40 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [29 <./mol.jpg>]
 Chapter 7.
+<freeelectron.png, id=178, 1093.08376pt x 443.6575pt>
+File: freeelectron.png Graphic file (type png)
+<use freeelectron.png>
+Package pdftex.def Info: freeelectron.png  used on input line 1217.
+(pdftex.def)             Requested size: 226.48395pt x 91.91843pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1221--1224
+
+ []
+
 
 
 [30
 
-]
+ <./freeelectron.png>]
+<freeeee.png, id=184, 469.755pt x 377.41pt>
+File: freeeee.png Graphic file (type png)
+<use freeeee.png>
+Package pdftex.def Info: freeeee.png  used on input line 1259.
+(pdftex.def)             Requested size: 226.48395pt x 181.96097pt.
+<lattice.png, id=185, 1058.95625pt x 396.48125pt>
+File: lattice.png Graphic file (type png)
+<use lattice.png>
+Package pdftex.def Info: lattice.png  used on input line 1270.
+(pdftex.def)             Requested size: 226.48395pt x 84.79411pt.
+
+
+[31 <./freeeee.png> <./lattice.png>]
+
+[32]
 Appendix A.
 
 
-[31
+[33
 
 ] (./main.aux)
  ***********
@@ -1396,10 +1421,10 @@ L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 40497 strings out of 475171
- 985624 string characters out of 5767103
- 1574711 words of memory out of 5000000
- 62755 multiletter control sequences out of 15000+600000
+ 40524 strings out of 475171
+ 986107 string characters out of 5767095
+ 1573711 words of memory out of 5000000
+ 62782 multiletter control sequences out of 15000+600000
  577473 words of font info for 103 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  94i,30n,96p,733b,974s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1427,10 +1452,10 @@ onts/type1/public/amsfonts/symbols/msbm5.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/type1/public/cm
 -super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000
 .pfb>
-Output written on main.pdf (31 pages, 436399 bytes).
+Output written on main.pdf (33 pages, 486460 bytes).
 PDF statistics:
- 302 PDF objects out of 1000 (max. 8388607)
- 181 compressed objects within 2 object streams
+ 315 PDF objects out of 1000 (max. 8388607)
+ 186 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 167 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 182 words of extra memory for PDF output out of 10000 (max. 10000000)
 

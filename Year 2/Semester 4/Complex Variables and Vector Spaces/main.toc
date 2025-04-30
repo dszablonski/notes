@@ -74,4 +74,5 @@
 \contentsline {section}{\numberline {3.8}Laurent Series}{36}{}%
 \contentsline {subsection}{\numberline {3.8.1}Residue Theorem}{38}{}%
 \contentsline {subsubsection}{Methods of finding residues}{38}{}%
-\contentsline {section}{\numberline {3.9}Complex Methods of Real Integrals}{38}{}%
+\contentsline {section}{\numberline {3.9}Complex Methods of Real Integrals}{39}{}%
+\contentsline {subsection}{\numberline {3.9.1}Fourier Integrals}{39}{}%
