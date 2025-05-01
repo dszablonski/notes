@@ -14,6 +14,7 @@
 \usetikzlibrary{angles,quotes}
 \graphicspath{ {./images/} }
 \usepackage{svg}
+\usepackage{stackengine}
 \usepackage{subcaption}
 \usepackage{bm}
 \usepackage{empheq}
@@ -1483,6 +1484,93 @@ and $\Delta \lambda$ is the spectral range. The ratio of these two quantities is
 \end{equation}
 and is a measure of how sharp the peaks are. 
 \chapter{Diffraction}
+The Fourier transform is defined,
+\begin{equation}
+	\mathcal{F}\left\{f(x)\right\} = F(k) = \int_{-\infty}^{\infty}f(x)e^{-ikx}\dd{x}
+\end{equation}
+The Fourier transform of the functional representation of a slit allows us to obtain the diffraction pattern produced when light enters through the slit. Common Fourier transforms are,
+\begin{itemize}
+	\item Top hat $\rightarrow$ $\text{sinc}$
+	\item Gaussian $\leftrightarrow$ Gaussian
+	\item Constant $\to$ $\delta(x)$
+	\item $\delta(x + x_0) + \delta(x - x_0)$ $\to$ $2\cos(k\frac{x_0}{2})$.
+\end{itemize} 
+We will also be using convolution in order to simplify some diffraction problems. Convolution is the act of "smearing" two functions together. It is defined,
+\begin{equation}
+	h(x) = f(x) * g(x) = \int_{-\infty}^{\infty}f(x')g(x-x')\dd{x'}.
+\end{equation}
+We can imagine convolution as sliding a function $f$ over $g$, and the convolution being the accumulation of their mutual area as we slide over each function.
+\\\\
+We will be making use of the convolution theorem, which states that, if $h$ is a convolution of $f$ and $g$, then
+\begin{equation}
+	\mathcal{F}\left\{h\right\} = \mathcal{F}\left\{f\right\}\cdot\mathcal{F}\left\{g\right\}.
+\end{equation}
+\section{Fraunhofer (Far Field) Diffraction}
+\subsection{Fraunhofer Diffraction From a Single Slit}
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		\message{Diffraction, path difference (close-up)^^J}
+		
+		\def\L{6.15}      % distance between walls
+		\def\l{4.0}       % path length
+		\def\H{4.3}       % total wall height
+		\def\f{0.9}       % fractional height of projection point
+		\def\t{0.15}      % wall thickness
+		\def\a{2.5}       % slit distance
+		\def\ang{26}      % angle
+		\coordinate (T) at (0,\a/2);
+		\coordinate (B) at (0,-\a/2);
+		\coordinate (L) at (0,0);
+		\coordinate (R) at (\L,0);
+		\coordinate (I) at ({\a/2/tan(\ang)},0);
+		
+		% LINES
+		\draw[mygreen,thick] (T) --++ (\ang:.8*\l) coordinate (PT); %node[midway,below=1,above left=-2] {$r_1$};
+		\draw[mygreen,thick] (B) --++ (\ang:\l) coordinate (PB); %node[midway,left=2,below right=-1] {$r_2$};
+		\draw[mygreen,thick] (L) --++ (\ang:.9*\l) coordinate (PR);
+		\draw[dashed] (T) -- (B);
+		\draw[mydarkred,dashed] (T) -- ($(L)!(T)!(PR)$) coordinate (M);
+		%\draw[black!60,dashed] (T) --++ (.20*\L,0) coordinate (TR);
+		\draw[black!60,dashed] (L) --++ (.6*\L,0) coordinate (LR);
+		%\draw[black!60,dashed] (B) --++ (.20*\L,0) coordinate (BR);
+		
+		% LINE END
+		\lineend{PT}{\ang+70}
+		\lineend{PR}{\ang+70}
+		\lineend{PB}{\ang+70}
+		
+		% ANGLES
+		\draw pic[mysmallarr,"$\theta$",mydarkred,draw=mydarkred,angle radius=20,angle eccentricity=1.3]
+		{angle = B--T--M}; %\contour{white}{}
+		\draw pic[mysmallarr,"$\theta$",mydarkred,draw=mydarkred,angle radius=24,angle eccentricity=1.2]
+		{angle = LR--L--PR};
+		\draw pic[mysmallarr,"$\theta$",mydarkred,draw=mydarkred,angle radius=24,angle eccentricity=1.2]
+		{angle = LR--I--PB};
+		\rightAngle{T}{M}{PR}{0.3}
+		
+		% MEASURES
+		\draw[<->,black] (-2.1*\t,0) --++ (0,\a/2) node[midway,fill=white,inner sep=0.1] {$a/2$};
+		\draw[<->,black] (-2.1*\t,0) --++ (0,-\a/2) node[midway,fill=white,inner sep=0.1] {$a/2$};
+		\draw[<->,black] ([shift={({\ang-90}:0.1)}]L) -- ([shift={({\ang-90}:0.1)}]M)
+		node[midway,left=5,below right=-1]{$\frac{a}{2}\!\sin\theta$};
+		
+		% WALL
+		\fill[wall]
+		(0,\a/2) rectangle (-\t,\H/2)
+		(0,-\a/2) rectangle (-\t,-\H/2);
+		
+	\end{tikzpicture}
+	\caption{}
+	\label{fig:fraun}
+\end{figure}
+Fraunhofer diffraction from a single slit is shown in figure \ref{fig:fraun}. We will assume as the wave passes through the slit, that each infinitesimal amplitude is equal. We will also assume that the pattern is seen at a large distance. can be modelled as a top-hat function, i.e.,
+\begin{equation}
+	f(x) = \begin{cases}
+		1 & -\frac{a}{2} < x < \frac{a}{2}\\
+		0 & \text{Otherwise}.
+	\end{cases}
+\end{equation}
 
 \appendix
 \chapter{Revision Equations}

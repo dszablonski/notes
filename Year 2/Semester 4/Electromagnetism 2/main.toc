@@ -77,8 +77,9 @@
 \contentsline {subsection}{\numberline {5.3.3}Fabry-Perot Etalon}{33}{}%
 \contentsline {subsubsection}{Intensity Distribution}{33}{}%
 \contentsline {chapter}{\numberline {6}Diffraction}{35}{}%
-\contentsline {chapter}{\numberline {A}Revision Equations}{36}{}%
-\contentsline {section}{\numberline {A.1}Potentials}{36}{}%
-\contentsline {section}{\numberline {A.2}Gauges}{36}{}%
-\contentsline {section}{\numberline {A.3}Vector Identities}{37}{}%
-\contentsline {section}{\numberline {A.4}EM Waves}{37}{}%
+\contentsline {section}{\numberline {6.1}Fraunhofer (Far Field) Diffraction}{35}{}%
+\contentsline {chapter}{\numberline {A}Revision Equations}{37}{}%
+\contentsline {section}{\numberline {A.1}Potentials}{37}{}%
+\contentsline {section}{\numberline {A.2}Gauges}{37}{}%
+\contentsline {section}{\numberline {A.3}Vector Identities}{38}{}%
+\contentsline {section}{\numberline {A.4}EM Waves}{38}{}%

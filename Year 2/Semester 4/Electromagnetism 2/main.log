@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.4.27)  27 APR 2025 18:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.4.27)  1 MAY 2025 17:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -667,6 +667,44 @@ Package: transparent 2022-10-27 v1.5 Transparency with color stacks
 Package: transparent-nometadata 2022-10-27 v1.5 Transparency via pdfTeX's color
  stack (HO)
 ))
+(/usr/share/texmf-dist/tex/latex/stackengine/stackengine.sty
+Package: stackengine 2021/07/22 v4.11\ Stacking text and objects in convenient 
+ways
+
+(/usr/share/texmf-dist/tex/generic/listofitems/listofitems.sty
+(/usr/share/texmf-dist/tex/generic/listofitems/listofitems.tex
+\loi_cnt_foreach_nest=\count320
+\loi_nestcnt=\count321
+)
+Package: listofitems 2024/03/09 v1.65 Grab items in lists using user-specified 
+sep char (CT)
+)
+(/usr/share/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count322
+\calc@Bcount=\count323
+\calc@Adimen=\dimen272
+\calc@Bdimen=\dimen273
+\calc@Askip=\skip124
+\calc@Bskip=\skip125
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count324
+\calc@Cskip=\skip126
+)
+\c@@stackindex=\count325
+\@boxshift=\skip127
+\stack@tmplength=\skip128
+\temp@stkl=\skip129
+\@stackedboxwidth=\skip130
+\@addedbox=\box72
+\@anchorbox=\box73
+\@insetbox=\box74
+\se@backgroundbox=\box75
+\stackedbox=\box76
+\@centerbox=\box77
+\c@ROWcellindex@=\count326
+)
 (/usr/share/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 
@@ -675,23 +713,23 @@ Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
 (/usr/share/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen272
-\captionmargin=\dimen273
-\caption@leftmargin=\dimen274
-\caption@rightmargin=\dimen275
-\caption@width=\dimen276
-\caption@indent=\dimen277
-\caption@parindent=\dimen278
-\caption@hangindent=\dimen279
+\caption@tempdima=\dimen274
+\captionmargin=\dimen275
+\caption@leftmargin=\dimen276
+\caption@rightmargin=\dimen277
+\caption@width=\dimen278
+\caption@indent=\dimen279
+\caption@parindent=\dimen280
+\caption@hangindent=\dimen281
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count320
-\c@continuedfloat=\count321
+\c@caption@flags=\count327
+\c@continuedfloat=\count328
 )
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count322
+\c@subfigure=\count329
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count323
+\c@subtable=\count330
 )
 (/usr/share/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2023/12/19 v1.2f Bold Symbol Support (DPC/FMi)
@@ -711,48 +749,34 @@ Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
 (/usr/share/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
-
-(/usr/share/texmf-dist/tex/latex/tools/calc.sty
-Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count324
-\calc@Bcount=\count325
-\calc@Adimen=\dimen280
-\calc@Bdimen=\dimen281
-\calc@Askip=\skip124
-\calc@Bskip=\skip125
-LaTeX Info: Redefining \setlength on input line 80.
-LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count326
-\calc@Cskip=\skip126
-)
-\g_MT_multlinerow_int=\count327
+\g_MT_multlinerow_int=\count331
 \l_MT_multwidth_dim=\dimen282
-\origjot=\skip127
+\origjot=\skip131
 \l_MT_shortvdotswithinadjustabove_dim=\dimen283
 \l_MT_shortvdotswithinadjustbelow_dim=\dimen284
 \l_MT_above_intertext_sep=\dimen285
 \l_MT_below_intertext_sep=\dimen286
 \l_MT_above_shortintertext_sep=\dimen287
 \l_MT_below_shortintertext_sep=\dimen288
-\xmathstrut@box=\box72
+\xmathstrut@box=\box78
 \xmathstrut@dim=\dimen289
 )
-\l_EQ_equationtype_int=\count328
-\l_EQ_alignmentmode_int=\count329
+\l_EQ_equationtype_int=\count332
+\l_EQ_alignmentmode_int=\count333
 \l_EQ_totalwidth_dim=\dimen290
 \l_EQ_displaywidth_dim=\dimen291
 \l_EQ_temp_linewidth_dim=\dimen292
 \l_EQ_linewidth_dim=\dimen293
 \EmphEqdelimitershortfall=\dimen294
-\EmphEqdelimiterfactor=\count330
+\EmphEqdelimiterfactor=\count334
 \g_EQ_toptag_height_dim=\dimen295
 \g_EQ_bottomtag_depth_dim=\dimen296
 \g_EQ_toprow_height_dim=\dimen297
 \g_EQ_bottomrow_depth_dim=\dimen298
 \g_EQ_widesttag_dim=\dimen299
-\EQ_mathdisplay_box=\box73
-\EQ_tag_box=\box74
-\g_EQ_temprow_int=\count331
+\EQ_mathdisplay_box=\box79
+\EQ_tag_box=\box80
+\g_EQ_temprow_int=\count335
 )
 (/usr/share/texmf-dist/tex/latex/cancel/cancel.sty
 Package: cancel 2013/04/12 v2.2 Cancel math terms
@@ -767,17 +791,17 @@ decorations.code.tex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen302
 \pgfdecoratedinputsegmentremainingdistance=\dimen303
 \pgf@decorate@distancetomove=\dimen304
-\pgf@decorate@repeatstate=\count332
+\pgf@decorate@repeatstate=\count336
 \pgfdecorationsegmentamplitude=\dimen305
 \pgfdecorationsegmentlength=\dimen306
 )
-\tikz@lib@dec@box=\box75
+\tikz@lib@dec@box=\box81
 )
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorati
 ons.text.code.tex
-\pgf@lib@dec@text@box=\box76
+\pgf@lib@dec@text@box=\box82
 )
-\tikz@lib@dec@te@box=\box77
+\tikz@lib@dec@te@box=\box83
 ) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2024/10/22 version 6.4.1 text color boxes
 
@@ -790,26 +814,26 @@ Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 (/usr/share/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
 )
-\tcb@titlebox=\box78
-\tcb@upperbox=\box79
-\tcb@lowerbox=\box80
-\tcb@phantombox=\box81
-\c@tcbbreakpart=\count333
-\c@tcblayer=\count334
-\c@tcolorbox@number=\count335
-\l__tcobox_tmpa_box=\box82
+\tcb@titlebox=\box84
+\tcb@upperbox=\box85
+\tcb@lowerbox=\box86
+\tcb@phantombox=\box87
+\c@tcbbreakpart=\count337
+\c@tcblayer=\count338
+\c@tcolorbox@number=\count339
+\l__tcobox_tmpa_box=\box88
 \l__tcobox_tmpa_dim=\dimen307
-\tcb@temp=\box83
-\tcb@temp=\box84
-\tcb@temp=\box85
-\tcb@temp=\box86
+\tcb@temp=\box89
+\tcb@temp=\box90
+\tcb@temp=\box91
+\tcb@temp=\box92
 
 (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
 Library (tcolorbox): 'tcbraster.code.tex' version '6.4.1'
-\c@tcbrastercolumn=\count336
-\c@tcbrasterrow=\count337
-\c@tcbrasternum=\count338
-\c@tcbraster=\count339
+\c@tcbrastercolumn=\count340
+\c@tcbrasterrow=\count341
+\c@tcbrasternum=\count342
+\c@tcbraster=\count343
 ) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.4.1'
 (/usr/share/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
@@ -820,7 +844,7 @@ Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 )
 (/usr/share/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box87
+\l__tikzfill_img_box=\box93
 ))
 (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.4.1'
@@ -830,9 +854,9 @@ Library (tcolorbox): 'tcbbreakable.code.tex' version '6.4.1'
 Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 )
 Package pdfcol Info: New color stack `tcb@breakable' = 2 on input line 23.
-\tcb@testbox=\box88
-\tcb@totalupperbox=\box89
-\tcb@totallowerbox=\box90
+\tcb@testbox=\box94
+\tcb@totalupperbox=\box95
+\tcb@totallowerbox=\box96
 )
 (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
 Library (tcolorbox): 'tcbhooks.code.tex' version '6.4.1'
@@ -843,23 +867,23 @@ Library (tcolorbox): 'tcbfitting.code.tex' version '6.4.1'
 \tcbfitdim=\dimen308
 \tcb@lowerfitdim=\dimen309
 \tcb@upperfitdim=\dimen310
-\tcb@cur@hbadness=\count340
+\tcb@cur@hbadness=\count344
 ) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.tex
 Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.4.1'
 (/usr/share/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
 Library (tcolorbox): 'tcblistings.code.tex' version '6.4.1'
 (/usr/share/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count341
-\lst@gtempboxa=\box91
+\lst@mode=\count345
+\lst@gtempboxa=\box97
 \lst@token=\toks45
-\lst@length=\count342
+\lst@length=\count346
 \lst@currlwidth=\dimen311
-\lst@column=\count343
-\lst@pos=\count344
+\lst@column=\count347
+\lst@pos=\count348
 \lst@lostspace=\dimen312
 \lst@width=\dimen313
-\lst@newlines=\count345
-\lst@lineno=\count346
+\lst@newlines=\count349
+\lst@lineno=\count350
 \lst@maxwidth=\dimen314
 
 (/usr/share/texmf-dist/tex/latex/listings/lstpatch.sty
@@ -867,9 +891,9 @@ File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
 )
 (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-\c@lstnumber=\count347
-\lst@skipnumbers=\count348
-\lst@framebox=\box92
+\c@lstnumber=\count351
+\lst@skipnumbers=\count352
+\lst@framebox=\box98
 )
 (/usr/share/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2024/09/23 1.10c listings configuration
@@ -881,7 +905,7 @@ Library (tcolorbox): 'tcblistingscore.code.tex' version '6.4.1'
 (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code.tex
 Library (tcolorbox): 'tcbprocessing.code.tex' version '6.4.1'
 )
-\c@tcblisting=\count349
+\c@tcblisting=\count353
 )) (/usr/share/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
 Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
 
@@ -928,23 +952,23 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen322
 \cmidrulekern=\dimen323
 \defaultaddspace=\dimen324
-\@cmidla=\count350
-\@cmidlb=\count351
+\@cmidla=\count354
+\@cmidlb=\count355
 \@aboverulesep=\dimen325
 \@belowrulesep=\dimen326
-\@thisruleclass=\count352
-\@lastruleclass=\count353
+\@thisruleclass=\count356
+\@lastruleclass=\count357
 \@thisrulewidth=\dimen327
 )
 (/usr/share/texmf-dist/tex/latex/tools/array.sty
 Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
 \col@sep=\dimen328
-\ar@mcellbox=\box93
+\ar@mcellbox=\box99
 \extrarowheight=\dimen329
 \NC@list=\toks51
-\extratabsurround=\skip128
-\backup@length=\skip129
-\ar@cellbox=\box94
+\extratabsurround=\skip132
+\backup@length=\skip133
+\ar@cellbox=\box100
 )
 (/usr/share/texmf-dist/tex/latex/tikz-3dplot/tikz-3dplot.sty
 (/usr/share/texmf-dist/tex/latex/base/ifthen.sty
@@ -968,9 +992,9 @@ File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )))
 (/usr/share/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2020/02/08 v1.2c extra appendix facilities
-\c@@pps=\count354
-\c@@ppsavesec=\count355
-\c@@ppsaveapp=\count356
+\c@@pps=\count358
+\c@@ppsavesec=\count359
+\c@@ppsaveapp=\count360
 )
 (/usr/share/texmf-dist/tex/latex/pgfplots/pgfplots.sty
 (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
@@ -982,8 +1006,8 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 \t@pgfplots@tokb=\toks53
 \t@pgfplots@tokc=\toks54
 \pgfplots@tmpa=\dimen331
-\c@pgfplots@coordindex=\count357
-\c@pgfplots@scanlineindex=\count358
+\c@pgfplots@coordindex=\count361
+\c@pgfplots@scanlineindex=\count362
 
 (/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex))
 (/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex)
@@ -1004,13 +1028,13 @@ gfutil-common-lists.tex))
 ext.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.te
 x
-\c@pgfplotsarray@tmp=\count359
+\c@pgfplotsarray@tmp=\count363
 )
 (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.t
 ex)
 (/usr/share/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.t
 ex
-\c@pgfplotstable@counta=\count360
+\c@pgfplotstable@counta=\count364
 \t@pgfplotstable@a=\toks58
 )
 (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.te
@@ -1019,7 +1043,7 @@ x) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex
 (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading
 .code.tex
-\c@pgfplotslibrarysurf@no=\count361
+\c@pgfplotslibrarysurf@no=\count365
 
 (/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.
 pgfsys-pdftex.def)))
@@ -1045,7 +1069,7 @@ decorations.pathreplacing.code.tex
 ons.pathreplacing.code.tex))
 (/usr/share/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua
 .code.tex)
-\pgfplots@numplots=\count362
+\pgfplots@numplots=\count366
 \pgfplots@xmin@reg=\dimen332
 \pgfplots@xmax@reg=\dimen333
 \pgfplots@ymin@reg=\dimen334
@@ -1079,7 +1103,7 @@ File: pgflibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
 intersections.code.tex
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.t
 ex
-\pgf@intersect@solutions=\count363
+\pgf@intersect@solutions=\count367
 )) (/usr/share/texmf-dist/tex/latex/mathalpha/mathalpha.sty
 Package: mathalpha 2025/01/17 - 1.145mathalpha (License LPPL) Michael Sharpe
 
@@ -1092,7 +1116,7 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@toks=\toks59
 \XKV@tempa@toks=\toks60
 )
-\XKV@depth=\count364
+\XKV@depth=\count368
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (/usr/share/texmf-dist/tex/latex/dsserif/dsserif.sty
@@ -1105,7 +1129,7 @@ patterns.meta.code.tex
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.meta.code.t
 ex)) (/usr/share/texmf-dist/tex/latex/contour/contour.sty
 Package: contour 2004/11/18 v2.14 Print contoured text (HH, MH)
-\con@length=\skip130
+\con@length=\skip134
 
 Loading configuration file `contour.cfg'.
 (/usr/share/texmf-dist/tex/latex/contour/contour.cfg
@@ -1121,37 +1145,37 @@ decorations.markings.code.tex
 ons.markings.code.tex)) (/usr/share/texmf-dist/tex/latex/l3packages/xfp/xfp.sty
 Package: xfp 2024-08-16 L3 Floating point unit
 )
-\c@law=\count365
-\c@klaw=\count366
+\c@law=\count369
+\c@klaw=\count370
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for U/DSSerif/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for U/DSSerif/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count367
+\scratchcounter=\count371
 \scratchdimen=\dimen338
-\scratchbox=\box95
-\nofMPsegments=\count368
-\nofMParguments=\count369
+\scratchbox=\box101
+\nofMPsegments=\count372
+\nofMParguments=\count373
 \everyMPshowfont=\toks61
-\MPscratchCnt=\count370
+\MPscratchCnt=\count374
 \MPscratchDim=\dimen339
-\MPnumerator=\count371
-\makeMPintoPDFobject=\count372
+\MPnumerator=\count375
+\makeMPintoPDFobject=\count376
 \everyMPtoPDFconversion=\toks62
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1199,8 +1223,8 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\Hy@linkcounter=\count373
-\c@lstlisting=\count374
+\Hy@linkcounter=\count377
+\c@lstlisting=\count378
 (/usr/share/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks63
@@ -1209,12 +1233,12 @@ Package: inputenc 2024/02/08 v1.3d Input encoding file
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 127
+LaTeX Font Info:    Trying to load font information for U+msa on input line 128
 .
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 127
+LaTeX Font Info:    Trying to load font information for U+msb on input line 128
 .
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1237,7 +1261,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [3]
 Chapter 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--148
+Underfull \hbox (badness 10000) in paragraph at lines 145--149
 
  []
 
@@ -1245,12 +1269,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 144--148
 Package mdframed Warning: Unknown definedstyle 0
  You have to define a style 
  via \mdfdefinedstyle
-(mdframed)                 on input line 152.
+(mdframed)                 on input line 153.
 
-Package mdframed Info: mdframed works in twoside mode on input line 152.
+Package mdframed Info: mdframed works in twoside mode on input line 153.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 152.
+(mdframed)              on input line 153.
 
 
 [4
@@ -1259,20 +1283,20 @@ Package mdframed Info: mdframed detected package amsthm
 <2.3.png, id=75, 880.28876pt x 679.53876pt>
 File: 2.3.png Graphic file (type png)
 <use 2.3.png>
-Package pdftex.def Info: 2.3.png  used on input line 182.
+Package pdftex.def Info: 2.3.png  used on input line 183.
 (pdftex.def)             Requested size: 339.72592pt x 262.25055pt.
 <2.4.png, id=77, 893.3375pt x 691.58376pt>
 File: 2.4.png Graphic file (type png)
 <use 2.4.png>
-Package pdftex.def Info: 2.4.png  used on input line 191.
+Package pdftex.def Info: 2.4.png  used on input line 192.
 (pdftex.def)             Requested size: 339.72592pt x 263.00505pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 186--197
+Underfull \hbox (badness 10000) in paragraph at lines 187--198
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 186--197
+Underfull \hbox (badness 10000) in paragraph at lines 187--198
 
  []
 
@@ -1286,7 +1310,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 186--197
 <2.6.png, id=95, 1005.7575pt x 566.115pt>
 File: 2.6.png Graphic file (type png)
 <use 2.6.png>
-Package pdftex.def Info: 2.6.png  used on input line 288.
+Package pdftex.def Info: 2.6.png  used on input line 289.
 (pdftex.def)             Requested size: 226.48395pt x 127.47403pt.
 
 
@@ -1304,7 +1328,7 @@ Chapter 2.
 <realimg.png, id=109, 1115.16624pt x 742.775pt>
 File: realimg.png Graphic file (type png)
 <use realimg.png>
-Package pdftex.def Info: realimg.png  used on input line 461.
+Package pdftex.def Info: realimg.png  used on input line 462.
 (pdftex.def)             Requested size: 226.48395pt x 150.85313pt.
 
 
@@ -1333,17 +1357,17 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <oblique incidence.png, id=140, 1247.66125pt x 703.62875pt>
 File: oblique incidence.png Graphic file (type png)
 <use oblique incidence.png>
-Package pdftex.def Info: oblique incidence.png  used on input line 809.
+Package pdftex.def Info: oblique incidence.png  used on input line 810.
 (pdftex.def)             Requested size: 271.7835pt x 153.27422pt.
 <S-polar.png, id=141, 507.8975pt x 673.51625pt>
 File: S-polar.png Graphic file (type png)
 <use S-polar.png>
-Package pdftex.def Info: S-polar.png  used on input line 841.
+Package pdftex.def Info: S-polar.png  used on input line 842.
 (pdftex.def)             Requested size: 163.06483pt x 216.23871pt.
 <p-polar.png, id=142, 507.8975pt x 674.52pt>
 File: p-polar.png Graphic file (type png)
 <use p-polar.png>
-Package pdftex.def Info: p-polar.png  used on input line 845.
+Package pdftex.def Info: p-polar.png  used on input line 846.
 (pdftex.def)             Requested size: 163.06483pt x 216.56097pt.
 
 
@@ -1359,34 +1383,34 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <frustrated.png, id=155, 537.00626pt x 311.1625pt>
 File: frustrated.png Graphic file (type png)
 <use frustrated.png>
-Package pdftex.def Info: frustrated.png  used on input line 965.
+Package pdftex.def Info: frustrated.png  used on input line 966.
 (pdftex.def)             Requested size: 226.48395pt x 131.23337pt.
 
 
 [23 <./frustrated.png>]
 Chapter 4.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 10.0pt on input line 983.
+(Font)              scaled to size 10.0pt on input line 984.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 7.0pt on input line 983.
+(Font)              scaled to size 7.0pt on input line 984.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 5.0pt on input line 983.
+(Font)              scaled to size 5.0pt on input line 984.
 
 
 [24
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1018--1023
+Underfull \hbox (badness 10000) in paragraph at lines 1019--1024
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1018--1023
+Underfull \hbox (badness 10000) in paragraph at lines 1019--1024
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1037--1040
+Underfull \hbox (badness 10000) in paragraph at lines 1038--1041
 
  []
 
@@ -1398,7 +1422,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1037--1040
 <eo.png, id=171, 474.77374pt x 618.31pt>
 File: eo.png Graphic file (type png)
 <use eo.png>
-Package pdftex.def Info: eo.png  used on input line 1138.
+Package pdftex.def Info: eo.png  used on input line 1139.
 (pdftex.def)             Requested size: 181.18439pt x 235.96031pt.
 
 
@@ -1407,11 +1431,11 @@ Package pdftex.def Info: eo.png  used on input line 1138.
 [28]
 Chapter 5.
 
-Overfull \hbox (11.84431pt too wide) in paragraph at lines 1253--1254
+Overfull \hbox (11.84431pt too wide) in paragraph at lines 1254--1255
  [][] 
  []
 
-contour: Using real outline for `$\theta $' on input line 1290.
+contour: Using real outline for `$\theta $' on input line 1291.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1423,34 +1447,34 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <lloyd.png, id=182, 1284.8pt x 980.66376pt>
 File: lloyd.png Graphic file (type png)
 <use lloyd.png>
-Package pdftex.def Info: lloyd.png  used on input line 1346.
+Package pdftex.def Info: lloyd.png  used on input line 1347.
 (pdftex.def)             Requested size: 203.83417pt x 155.57764pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 12.0pt on input line 1357.
+(Font)              scaled to size 12.0pt on input line 1358.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1357.
+(Font)              scaled to size 8.0pt on input line 1358.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1357.
+(Font)              scaled to size 6.0pt on input line 1358.
 
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1365--1369
+Underfull \hbox (badness 10000) in paragraph at lines 1366--1370
 
  []
 
 <interferometer.png, id=186, 770.88pt x 368.37625pt>
 File: interferometer.png Graphic file (type png)
 <use interferometer.png>
-Package pdftex.def Info: interferometer.png  used on input line 1375.
+Package pdftex.def Info: interferometer.png  used on input line 1376.
 (pdftex.def)             Requested size: 226.48395pt x 108.22598pt.
 <fringe.png, id=187, 1173.38374pt x 596.2275pt>
 File: fringe.png Graphic file (type png)
 <use fringe.png>
-Package pdftex.def Info: fringe.png  used on input line 1391.
+Package pdftex.def Info: fringe.png  used on input line 1392.
 (pdftex.def)             Requested size: 271.7835pt x 138.0938pt.
 
 
@@ -1458,7 +1482,7 @@ Package pdftex.def Info: fringe.png  used on input line 1391.
 <thinfilm.jpg, id=195, 5018.75pt x 4047.12pt>
 File: thinfilm.jpg Graphic file (type jpg)
 <use thinfilm.jpg>
-Package pdftex.def Info: thinfilm.jpg  used on input line 1421.
+Package pdftex.def Info: thinfilm.jpg  used on input line 1422.
 (pdftex.def)             Requested size: 271.7835pt x 219.16493pt.
 
 
@@ -1468,7 +1492,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: fabry-perot-interferometer-setup.png Graphic file (type png)
 <use fabry-perot-interferometer-setup.png>
 Package pdftex.def Info: fabry-perot-interferometer-setup.png  used on input li
-ne 1440.
+ne 1441.
 (pdftex.def)             Requested size: 271.7835pt x 109.80675pt.
 
 
@@ -1478,25 +1502,36 @@ ne 1440.
 <fab.png, id=205, 652.4375pt x 410.53375pt>
 File: fab.png Graphic file (type png)
 <use fab.png>
-Package pdftex.def Info: fab.png  used on input line 1468.
+Package pdftex.def Info: fab.png  used on input line 1469.
 (pdftex.def)             Requested size: 226.48395pt x 142.51128pt.
 
 
 [34 <./fab.png>]
 Chapter 6.
 
+Underfull \hbox (badness 10000) in paragraph at lines 1501--1505
+
+ []
+
+Diffraction, path difference (close-up)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 
 [35
 
 ]
+
+[36]
 Appendix A.
 
 
-[36
+[37
 
 ]
 
-[37] (./main.aux)
+[38] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1504,13 +1539,13 @@ L3 programming layer <2025-01-18>
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 946 ({)
+### simple group (level 1) entered at line 947 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 41147 strings out of 475171
- 999742 string characters out of 5767095
- 1702986 words of memory out of 5000000
- 63394 multiletter control sequences out of 15000+600000
+ 41499 strings out of 475171
+ 1005600 string characters out of 5767095
+ 1709281 words of memory out of 5000000
+ 63736 multiletter control sequences out of 15000+600000
  578003 words of font info for 105 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  94i,22n,96p,737b,1425s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1538,10 +1573,10 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm100
 0.pfb>
-Output written on main.pdf (37 pages, 3224628 bytes).
+Output written on main.pdf (38 pages, 3230487 bytes).
 PDF statistics:
- 339 PDF objects out of 1000 (max. 8388607)
- 186 compressed objects within 2 object streams
+ 342 PDF objects out of 1000 (max. 8388607)
+ 188 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  246 words of extra memory for PDF output out of 10000 (max. 10000000)
 

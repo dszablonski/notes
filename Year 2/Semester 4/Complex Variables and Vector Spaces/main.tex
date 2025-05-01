@@ -16,7 +16,9 @@
 \usepackage{svg}
 \usepackage{subcaption}
 \usepackage{bm}
+\usepackage{stackengine}
 \usepackage{empheq}
+\usepackage{MnSymbol}
 \usepackage{cancel}
 \usetikzlibrary{decorations.text}
 \usepackage[most]{tcolorbox}
@@ -1660,14 +1662,14 @@ A Fourier integral is given by,
 	I = \int_{-\infty}^{\infty}f(x)e^{ikx}\dd{x}.
 \end{equation}
 We will suppose that $k > 0, \in \mathbb{R}$, so $e^{ikz} \to 0$ for $\Im(z) \to \infty$ and $f(z) \to 0$ for $|z| \to \infty$ in the upper half plane (UHP) of $z$.
-\begin{Lemma}{Jordan's Lemma}
+\begin{Lemma}{Jordan's Lemma}{}
 	When evaluating a contour integral $\oint e^{ikz}f(z) \dd{z}$ along a contour that includes the real axis and a semicircle $C_R$ of radius $R$ in the UHP, for $k >0$ the integral along the semicircle is bounded by,
 	\begin{equation}
 		\abs{\int_{C_R} e^{ikz}f(z)\dd{z}} < \frac{\pi}{k}\max_{\theta \in \left[0,\pi\right]}\abs{f(Re^{i\theta})}.
 	\end{equation}
 \end{Lemma}
 \begin{proof}
-	On $D_R$, $z=Re^{i\theta}$, $\theta \in \left[0,\theta\right]$. We can suppose, that for any small $\varepsilon$, we can find $R$ such that,
+	On $C_R$, $z=Re^{i\theta}$, $\theta \in \left[0,\theta\right]$. We can suppose, that for any small $\varepsilon$, we can find $R$ such that,
 	\begin{equation}
 		\abs{f(Re^{i\theta})} < \varepsilon.
 	\end{equation}
@@ -1690,5 +1692,20 @@ If the integrand $f$ satisfies that,
 	\item $f(z) \to 0$ for $\abs{z} \to \infty$ in UHP
 \end{enumerate}
 then we can always choose $\varepsilon = 0$ and evaluate the integral with the contour surrounding the singularities. Furthermore, if $f(z)$ is merromorphic, i.e., all singularities are isolated poles, we can evaluate the integral by applying the residue theorem. 
+\subsection{Principal value integrals}
+Sometimes, we encounter integrals of functions which encounter a pole during integration. To overcome this, we use a Principal value integral.
+\begin{Definitions}{Principal Value Integral}{}
+	\begin{equation}
+	\strokedint_{-\infty}^{\infty} = \lim_{\varepsilon\to0} \left\{\int_{-\infty}^{\varepsilon} + \int_{\varepsilon}^{\infty}\right\}
+\end{equation}
+\end{Definitions}
+\subsection{Branch Cut Integration}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{keyhole.png}
+	\caption{}
+	\label{fig:keyhole}
+\end{figure}
+When we have a function with a branch cut, we must construct a contour which excludes the branch cut. We often use a keyhole contour, as in figure \ref{fig:keyhole}. Let us recall that a function with a form $(z - z_0)^{-a}$ will have a branch point at $z_0$. We can choose the branch point to be from $z_0$ to $\infty$, and construct a keyhole contour such that it encircles the branch point.
 \end{document}
  
