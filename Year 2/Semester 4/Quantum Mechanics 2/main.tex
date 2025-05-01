@@ -1256,7 +1256,7 @@ The wavevector $k$ defines the $k$-space. Each state labelled by a quantum numbe
 where there are $N$ states. I.e., the number of states within the FBZ is equal to the number of cells. 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{freeeee.png}
+	\includegraphics[width=0.4\textwidth]{freeeee.png}
 	\caption{}
 	\label{fig:freeeee}
 \end{figure}
@@ -1288,7 +1288,61 @@ We can then derive the following condition,
 	\psi_k(x + a) = e^{ika}\psi_k(x)
 \end{equation}
 \section{Kronig-Penny Model of Solids}
-
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{krony.png}
+	\caption{}
+	\label{fig:krony}
+\end{figure}
+The Kronig-Penny model suggests a periodic potential as in figure \ref{fig:krony}. We have that,
+\begin{align}
+	\psi(0 < x < a) &= Ae^{iKx}+Be^{-iKx} & E = \frac{\hbar^2K^2}{2m} \\
+	\psi(-b < x < 0) &= Ce^{Qx} + De^{-Qx} & U_0 - E = \frac{\hbar^2Q^2}{2m} \\
+	\psi(a < x < a + b) & = \psi(-b < x < 0)e^{ik(a+b)} & \impliedby \text{Bloch theorem}.
+\end{align}
+We then require continuity at boundaries, so,
+\begin{align}
+	A + B &= C + D \\
+	iK(A-B) &= Q(C-D) \\
+	Ae^{iKa} + Be^{-iKa} &= (Ce^{Qb} + De^{-Qb})e^{ik(a+b)} \\
+	iK(Ae^{iKa} - Be^{-iKa}) &= Q(Ce^{Qb} - De^{-Qb})e^{ik(a+b)}
+\end{align}
+for which we require a non-trivial solution, so by setting the determinant to 0, we obtain,
+\begin{equation}
+	\boxed{\frac{Q^2 - K^2}{2QK}\sinh(Qb)\sin(Ka) + \cosh(Qb)\cos(Ka) = \cos(k\left[a+b\right])}.
+\end{equation}
+If we assume a periodic delta function, we get a simplified relation,
+\begin{align}
+	\frac{P}{Ka}\sin(Ka) + \cos(Ka) = \cos(ka) &&
+	P = \frac{Q^2ba}{2}.
+\end{align}
+\begin{figure}[b]
+	\centering
+	\includegraphics[width=0.8\textwidth]{K.png}
+	\caption{}
+	\label{eq:K}
+\end{figure}\noindent
+We can obtain a solution for energies by specifying a value of $P$. For $P = \frac{3\pi}{2}$ these are plotted in figure \ref{eq:K}. Let us note that there are now forbidden regions in the energy, and the energy levels come in bands. We can see these bands more clearly by folding all bands into the FBZ, as in figure \ref{fig:band gaps}, which we can do due to the periodicity of the wavefunction. Each band has $N$ states, and can thus hold $2N$ electrons due to spin.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{band gaps.png}
+	\caption{} 
+	\label{fig:band gaps}
+\end{figure}\noindent
+\subsection{Classification of Solids}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{bandgap.jpg}
+	\caption{}
+	\label{fig:semi}
+\end{figure}\noindent
+We can classify solids into 3 categories, as in figure \ref{fig:semi}, which depend on the occupancy of their electronic bands at $0$~K. 
+\begin{itemize}
+	\item In a \textit{conductor}, the bands are partially filled, allowing electrons to move easily due to the presence of nearby unoccupied states. 
+	\item In \textit{insulators}, electrons must overcome the energy gap in order to transition to to higher, unoccupied states. 
+	\item If the energy gap between \textit{valence band} and the \textit{conduction band} is $\lesssim 1$~eV, at room temperature, some electrons in the valence band are excited thermally, enabling electrical conduction. These types of materials are known as \textit{semiconductors}.
+	\item Unoccupied states in the valence band are known as \textit{holes}.
+\end{itemize}
 \appendix
 \chapter{Misc. Formulae}
 \section{Commutation Relation}

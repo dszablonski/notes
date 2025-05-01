@@ -60,6 +60,8 @@
 \contentsline {section}{\numberline {7.1}Free Electron Model of Metals}{30}{}%
 \contentsline {subsection}{\numberline {7.1.1}Periodic Boundary Conditions}{30}{}%
 \contentsline {section}{\numberline {7.2}Bloch Theorem}{31}{}%
-\contentsline {chapter}{\numberline {A}Misc. Formulae}{33}{}%
-\contentsline {section}{\numberline {A.1}Commutation Relation}{33}{}%
-\contentsline {section}{\numberline {A.2}Legendre Polynomials}{33}{}%
+\contentsline {section}{\numberline {7.3}Kronig-Penny Model of Solids}{32}{}%
+\contentsline {subsection}{\numberline {7.3.1}Classification of Solids}{33}{}%
+\contentsline {chapter}{\numberline {A}Misc. Formulae}{34}{}%
+\contentsline {section}{\numberline {A.1}Commutation Relation}{34}{}%
+\contentsline {section}{\numberline {A.2}Legendre Polynomials}{34}{}%
