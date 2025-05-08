@@ -78,3 +78,4 @@
 \contentsline {subsection}{\numberline {3.9.1}Fourier Integrals}{39}{}%
 \contentsline {subsection}{\numberline {3.9.2}Principal value integrals}{39}{}%
 \contentsline {subsection}{\numberline {3.9.3}Branch Cut Integration}{40}{}%
+\contentsline {section}{\numberline {3.10}Summing Series}{40}{}%
