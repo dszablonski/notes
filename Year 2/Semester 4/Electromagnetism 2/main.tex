@@ -92,7 +92,7 @@
 \tikzstyle{mydashed}=[black!70,dashed,thin]
 \tikzstyle{mymeas}=[{Latex[length=3,width=2]}-{Latex[length=3,width=2]},thin]
 \tikzstyle{mysmallarr}=[-{Latex[length=3,width=2]}]
-
+\usetikzlibrary{decorations.text}
 
 \newcommand\rightAngle[4]{
 	\pgfmathanglebetweenpoints{\pgfpointanchor{#2}{center}}{\pgfpointanchor{#3}{center}}
@@ -1488,7 +1488,7 @@ The Fourier transform is defined,
 \begin{equation}
 	\mathcal{F}\left\{f(x)\right\} = F(k) = \int_{-\infty}^{\infty}f(x)e^{-ikx}\dd{x}
 \end{equation}
-The Fourier transform of the functional representation of a slit allows us to obtain the diffraction pattern produced when light enters through the slit. Common Fourier transforms are,
+The Fourier transform of the functional representation of ga slit allows us to obtain the diffraction pattern produced when light enters through the slit. Common Fourier transforms are,
 \begin{itemize}
 	\item Top hat $\rightarrow$ $\text{sinc}$
 	\item Gaussian $\leftrightarrow$ Gaussian
@@ -1571,7 +1571,167 @@ Fraunhofer diffraction from a single slit is shown in figure \ref{fig:fraun}. We
 		0 & \text{Otherwise}.
 	\end{cases}
 \end{equation}
-
+If we take the Fourier transform of a top hat, we obtain the $\text{sinc}$ function. The intensity will be given by,
+\begin{equation}
+	I = E_0^2\text{sinc}^2\left(\frac{a\pi \sin\theta}{\lambda}\right).
+\end{equation}
+\subsection{Fraunhofer From Two Slits}
+We must take advantage of the convolution theorem. For this, we want to convolve 2 delta functions, separated by a distance $d$, with a top hat function of width $a$. This results in an intensity pattern of,
+\begin{equation}
+	I \propto \cos^2\left(\frac{\pi d \sin\theta}{\lambda}\right)\text{sinc}^2\left(\frac{\pi a \sin\theta}{\lambda}\right).
+\end{equation}
+\section{Huygens-Fresnel Integral}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{huygens.jpg}
+	\caption{}
+	\label{fig:huygens}
+\end{figure}\noindent
+All points on a wavefront can be considered as a point source for the production of secondary, spherical wave fronts. Let us consider figure \ref{fig:huygens}. The wave at $Q$ is given by,
+\begin{equation}
+	E(Q) \propto \frac{e^{iks}}{s}
+\end{equation}
+where the wave is radiated towards $P$, and is modified by,
+\begin{equation}
+	K(\alpha) = \frac{1}{2}\left(1 + \cos\alpha\right).
+\end{equation}
+At $P$, 
+\begin{equation}
+	\dd{E} = K(\alpha) \epsilon'\frac{e^{iks}}{s}\frac{e^{ikr}}{r}\dd{A}
+\end{equation}
+and the Huygens-Fresnel integral is given by,
+\begin{equation}
+	\boxed{E(P) = \epsilon'\frac{e^{iks}}{s}\int K(\alpha) \frac{e^{ikr}}{r}\dd{A}}
+\end{equation}
+where $\dd{A}$ is an integral over the aperture.
+\section{Fresnel Diffraction}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\def\myshift#1{\raisebox{1ex}}
+		\draw (0,5) -- (0,4);
+		\draw (0,0) -- (0,1);
+		\draw (1,5.1) arc (170:190:15);
+		\draw (0,5) -- (0.9,4.5) node[midway, above] {\rotatebox{-26.56}{$\delta$}};
+		\draw (0.9,4.5) -- (5,2.5) node[midway, above] {\rotatebox{-26.56}{$\sim z$}};
+		\node[anchor=west]  at (5,2.5) {$P$};
+		\node at (5,2.5) {\textbullet};
+		\draw[dashed] (5,2.5) -- (5,0);
+		\draw[dashed] (5,2.5) -- (-2,2.5);
+		\draw[dashed] (0,5) -- (-2,5);
+		\draw[<->] (-1,5) -- (-1,2.5) node[midway, anchor=west] {$y$};
+		\draw[<->] (0,-.5) -- (5,-.5) node[midway, anchor=north] {$z$}; 
+	\end{tikzpicture}
+	\caption{}
+	\label{fig:fresnel}
+\end{figure}\noindent
+In Fresnel diffraction, we no longer assume the source is infinitely far away. We will see that this leads to the phase contribution no longer being linear. Consider figure \ref{fig:fresnel}. If we assume $y << z$, we can calculate,
+\begin{equation}
+	\begin{split}
+	\delta & = \sqrt{y^2 + z^2} - z \\
+	& = z \sqrt{1 + \frac{y^2}{z^2}} - z \\
+	& \simeq z\left(1 + \frac{y^2}{2z^2}\right) - z = \frac{y^2}{2z^2},
+\end{split}
+\end{equation}the phase difference,
+\begin{equation}
+	k\delta = \frac{\pi y^2}{\lambda z}.
+\end{equation}
+The boundary between Fraunhofer and Fresnel diffraction is known as the Raleigh distance,
+\begin{equation}
+	z_r = \frac{2y^2}{\lambda}.
+\end{equation}
+\subsection{Diffraction from Straight Edges and Slits}
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		\node at (-2,0) {\textbullet};
+		\node[anchor=east] at (-2,0) {$S$};
+		\node at (0,0) {\textbullet};
+		\node at (4,0) {\textbullet};
+		\node[anchor=west] at (4,0) {$P$};
+		\draw (0,2) -- (0,1);
+		\draw (0,-2) -- (0,-1);
+		\draw[<->] (-2,0) -- (0, 1) node[midway, above] {\rotatebox{26.56}{$s$}};
+		\draw[<->] (0,1) -- (4,0) node[midway,above] {\rotatebox{-14.04}{$r$}};
+		\draw[dashed, <->] (-2,0) -- (0,0) node[midway,below] {$S_0$};
+		\draw[dashed, <->] (0,0) -- (4,0) node[midway,below] {$R$};
+		\node at (4,2) {{\small$x$} $\odot$};
+		\draw[->] (4.25,2) -- (4.75,2) node[anchor=west] {\small$z$};
+		\draw[->] (4.14, 2.125) -- (4.14,2.625) node[anchor=south] {\small$y$};
+	\end{tikzpicture}
+	\caption{}
+	\label{fig:straightedge}
+\end{figure}
+Consider figure \ref{fig:straightedge},
+\begin{align}
+	r^2 & = R^2 + x^2 + y^2 \\
+	s^2 & = S_0^2 + x^2 + y^2
+\end{align}
+so,
+\begin{equation}
+	\begin{split}
+	r + s & = R\left(1 + \frac{x^2 + y^2}{R^2}\right)^{1/2} + S_0\left(1+ \frac{x^2  + y^2}{S_0}\right)^{1/2}\\
+	& \simeq R+S_0 + (x^2+y^2)\left(\frac{S_0 + R}{2S_0R}\right)
+	\end{split}
+\end{equation}
+where the latter term in the second line is the path difference. We have,
+\begin{equation}
+	\frac{S_0 + R}{S_0R} = \frac{1}{R} + \frac{1}{S_0} = \frac{1}{z}
+\end{equation}
+so the path difference is,
+\begin{equation}
+	\text{path diff.} = \frac{x^2+y^2}{2z}.
+\end{equation}
+The electric field will be given by considering the Huygens-Fresnel integral. We will assume $K(\alpha)$ is constant, and $s$ and $r$ are constant in the denominator, but not in phase. So,
+\begin{equation}
+	\begin{split}
+	E(P) &= \frac{\epsilon'K(\alpha)}{S_0R}\int e^{ik(r+s)}\dd{A} \\
+	& = \text{constants}\int e^{i\frac{2\pi}{\lambda}\frac{x^2}{2z}}\dd{x}\int e^{i\frac{2\pi}{\lambda}\frac{y^2}{z^2}}\dd{y}.
+	\end{split}
+\end{equation}
+We can now make a substitution,
+\begin{align}
+	u = x\sqrt{\frac{2}{\lambda z}} && v = y\sqrt{\frac{2}{\lambda z}},
+\end{align}
+so we now have,
+\begin{equation}
+	E(P) = \text{constants}\int e^{i\frac{\pi}{2}u^2}\dd{u} \int e^{i\frac{\pi}{2}v^2}\dd{y},
+\end{equation}
+we want to split this integral into its real and imaginary components,
+\begin{align}
+	C(\omega) = \int_0^{\omega}\cos\left(\frac{\pi}{2}\omega'^2\right)\dd{\omega'} && S(\omega) = \int_0^{\omega}\sin\left(\frac{\pi}{2}\omega'^2\right)\dd{\omega'}.
+\end{align}
+The equations above have no analytic solution. We can instead plot them as parametric equations to obtain a \textit{cornu spiral}, as in figure \ref{fig:cornuspiral}. On this graph, $(0,0)$ represents the centre of the aperture. If we find the $\omega$ corresponding to the ends of the aperture, draw a line between them and find the distance between them, it will tell us the magnitude of the resultant electric field.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{cornu.PNG}
+	\caption{}
+	\label{fig:cornuspiral}
+\end{figure}
+\section{Diffraction Grating}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{diff.png}
+	\caption{}
+	\label{fig:diff}
+\end{figure}
+A diffraction grating is a repetitive array of diffracting elements, such as apertures or obstacles. This results in periodic alterations in amplitude, phase, or both. Figure \ref{fig:diff} shows the two types of grating.
+\subsection{Transmission Phase Grating}
+These consist of parallel notches of flat, clear glass. Its grating equation is given by,
+\begin{equation}
+	d\sin\alpha - d\sin\beta = m\lambda
+\end{equation}
+where $\alpha$ is the angle of the incoming wave, and $\beta$ is the angle of the outgoing wave.
+\subsection{Transmission Amplitude Grating}
+If there are $N$ slits separated by $d$ with width $a$, we must convolve $N$ delta functions with a single wise slit, which leads to an intensity pattern,
+\begin{equation}
+	I \propto \frac{sin^2\left(\frac{Nd\sin\theta \pi}{\lambda}\right)}{\sin^2\left(\frac{d\sin\theta \pi}{\lambda}\right)}\text{sinc}^2\left(\frac{\pi a \sin\theta}{\lambda}\right).
+\end{equation}
+Furthermore, we will observe the separation of wavelengths. If we have, $d\sin\theta = m\lambda$, we find,
+\begin{equation}
+	\dv{\theta}{\lambda} = \frac{m}{d\cos\theta}
+\end{equation}
+which is known as \textit{dispersion}.
 \appendix
 \chapter{Revision Equations}
 \section{Potentials}

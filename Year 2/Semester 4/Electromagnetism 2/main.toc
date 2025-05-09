@@ -78,8 +78,16 @@
 \contentsline {subsubsection}{Intensity Distribution}{33}{}%
 \contentsline {chapter}{\numberline {6}Diffraction}{35}{}%
 \contentsline {section}{\numberline {6.1}Fraunhofer (Far Field) Diffraction}{35}{}%
-\contentsline {chapter}{\numberline {A}Revision Equations}{37}{}%
-\contentsline {section}{\numberline {A.1}Potentials}{37}{}%
-\contentsline {section}{\numberline {A.2}Gauges}{37}{}%
-\contentsline {section}{\numberline {A.3}Vector Identities}{38}{}%
-\contentsline {section}{\numberline {A.4}EM Waves}{38}{}%
+\contentsline {subsection}{\numberline {6.1.1}Fraunhofer Diffraction From a Single Slit}{35}{}%
+\contentsline {subsection}{\numberline {6.1.2}Fraunhofer From Two Slits}{36}{}%
+\contentsline {section}{\numberline {6.2}Huygens-Fresnel Integral}{36}{}%
+\contentsline {section}{\numberline {6.3}Fresnel Diffraction}{37}{}%
+\contentsline {subsection}{\numberline {6.3.1}Diffraction from Straight Edges and Slits}{37}{}%
+\contentsline {section}{\numberline {6.4}Diffraction Grating}{38}{}%
+\contentsline {subsection}{\numberline {6.4.1}Transmission Phase Grating}{38}{}%
+\contentsline {subsection}{\numberline {6.4.2}Transmission Amplitude Grating}{38}{}%
+\contentsline {chapter}{\numberline {A}Revision Equations}{40}{}%
+\contentsline {section}{\numberline {A.1}Potentials}{40}{}%
+\contentsline {section}{\numberline {A.2}Gauges}{40}{}%
+\contentsline {section}{\numberline {A.3}Vector Identities}{41}{}%
+\contentsline {section}{\numberline {A.4}EM Waves}{41}{}%
