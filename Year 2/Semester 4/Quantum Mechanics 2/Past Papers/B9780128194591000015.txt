@@ -1,0 +1,13 @@
+Sajith Thottathil Abdulrahman, Zakiah Ahmad, Sabu Thomas, Azerai Ali Rahman,
+Chapter 1 - Introduction to neutron-shielding materials,
+Editor(s): Sajith Thottathil Abdulrahman, Sabu Thomas, Zakiah Ahmad,
+In Woodhead Publishing Series in Composites Science and Engineering,
+Micro and Nanostructured Composite Materials for Neutron Shielding Applications,
+Woodhead Publishing,
+2020,
+Pages 1-23,
+ISBN 9780128194591,
+https://doi.org/10.1016/B978-0-12-819459-1.00001-5.
+(https://www.sciencedirect.com/science/article/pii/B9780128194591000015)
+Abstract: Neutron radiation exposure can cause serious illnesses in humans such as cancer, cardiovascular disease, hemopoietic syndrome, etc. Due to advances in neutron-based technology over the last decade, the need for advanced shielding materials continues to increase. The selection of materials that attenuate neutrons depends solely on the energy of the incident neutrons. In heavy structures such as nuclear power plants and health industries, concrete materials are used as shields, whereas metal-based neutron is preferred in applications requiring high-temperature stability and durability. Concentration of material having low atomic numbers plays a significant role in slowing the neutrons down. Another necessary factor for neutron-shielding material is fillers with greater macroscopic cross section for neutron absorption. Subsequently, polymer composites of neutron shielding show excellent characteristics such as lightweight, hydrogen richness, ease of distribution of neutron-absorbing fillers, making them suitable for applications in areas such as aerospace, portable neutron sources, etc. A review of various neutron-shielding materials based on their applications is conducted in this chapter.
+Keywords: Neutron shielding; Concrete neutron shield; Metal neutron shield; Polymer neutron shield; Flexible neutron shield; borated materials
